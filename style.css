@@ -2,42 +2,49 @@
 * { box-sizing: border-box; }
 body { 
     font-family: 'Pretendard', sans-serif; margin: 0; padding: 10px; 
-    background-color: #fff; display: flex; flex-direction: column; align-items: center;
+    background-color: #fff;
 }
 
-/* 2. 전체 컨테이너 (A3 가로 한 장 규격에 맞춤) */
+/* 2. 전체 컨테이너 (A3 가로 규격) */
 #timetable-content { 
     width: 400mm; /* A3 가로폭 */
-    margin: 0 auto; padding: 0;
+    margin: 0 auto;
 }
-.main-title { text-align: center; font-size: 24px; margin: 10px 0; font-weight: 800; }
+.main-title { text-align: center; font-size: 28px; margin: 15px 0; font-weight: 800; }
 
-/* 3. 상단 컨트롤 (출력 시 숨김) */
-.controls { margin-bottom: 10px; display: flex; gap: 10px; justify-content: center; }
-.controls button { padding: 5px 15px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
-.controls button.active { background: #000; color: #fff; }
+/* 3. 날짜들을 가로로 나열하는 핵심 설정 ✨ */
+#timetable-wrapper {
+    display: flex; 
+    flex-direction: row; /* 날짜를 왼쪽부터 오른쪽으로 배치 */
+    gap: 20px;           /* 날짜 사이 간격 */
+    align-items: flex-start;
+    width: 100%;
+}
 
-/* 4. 날짜별 그룹 (페이지 넘김 해제, 간격 최소화) */
+/* 4. 날짜별 그룹 설정 */
 .date-group { 
-    margin-bottom: 15px; 
-    page-break-after: auto; /* 강제 페이지 넘김 금지 */
-}
-.date-header { 
-    font-size: 18px; font-weight: 700; text-align: left; 
-    padding: 5px 15px; background: #333; color: #fff; 
+    flex: 1;            /* 모든 날짜가 동일한 너비를 가짐 */
+    display: flex;
+    flex-direction: column;
+    min-width: 0;       /* 너비 터짐 방지 */
 }
 
-/* 5. 시간표 메인 레이아웃 (높이를 대폭 축소: 220px) */
+.date-header { 
+    font-size: 20px; font-weight: 700; text-align: center; 
+    padding: 8px; background: #333; color: #fff; border-radius: 5px 5px 0 0;
+}
+
+/* 5. 시간표 메인 박스 (높이 고정) */
 .places-container { 
     display: flex; position: relative; border: 1px solid #333; 
     background: #fff; 
-    height: 220px; /* 🚀 3일치를 한 장에 넣기 위해 높이를 확 줄임 */
+    height: 600px; /* 🚀 A3 한 장 높이에 딱 맞춤 */
 }
 
-/* 6. 왼쪽 시간 축 */
+/* 6. 왼쪽 시간 축 (각 날짜마다 보여줌) */
 .time-axis { 
     width: 50px; flex-shrink: 0; border-right: 1px solid #333; 
-    position: relative; display: flex; flex-direction: column;
+    position: relative; display: flex; flex-direction: column; background: #f9f9f9;
 }
 .time-label { 
     position: absolute; left: 0; width: 100%; text-align: center;
@@ -46,9 +53,10 @@ body {
 
 /* 7. 장소별 컬럼 */
 .place-column { flex: 1; border-right: 1px solid #eee; display: flex; flex-direction: column; min-width: 0; }
+.place-column:last-child { border-right: none; }
 .place-header { 
-    height: 30px; line-height: 30px; text-align: center; 
-    font-size: 13px; font-weight: 700; background: #f9f9f9; border-bottom: 1px solid #333; 
+    height: 35px; line-height: 35px; text-align: center; 
+    font-size: 13px; font-weight: 700; background: #eee; border-bottom: 1px solid #333; 
 }
 
 /* 8. 배경 30분 단위 보조선 */
@@ -57,31 +65,33 @@ body {
     background-image: repeating-linear-gradient(
         transparent, 
         transparent calc(100% / 24 - 1px), 
-        #f0f0f0 calc(100% / 24 - 1px), 
-        #f0f0f0 calc(100% / 24)
+        #e5e5e5 calc(100% / 24 - 1px), 
+        #e5e5e5 calc(100% / 24)
     );
 }
 
-/* 9. 세션 박스 (매우 압축된 디자인) */
+/* 9. 세션 박스 디자인 (왼쪽 정렬) */
 .session-block {
-    position: absolute; left: 1px; right: 1px; z-index: 10;
-    padding: 2px 4px; border-radius: 0;
+    position: absolute; left: 2px; right: 2px; z-index: 10;
+    padding: 5px 8px; border-radius: 2px;
     display: flex; flex-direction: column;
-    justify-content: flex-start; align-items: flex-start;
+    justify-content: flex-start; align-items: flex-start; /* 왼쪽 정렬 */
     text-align: left; overflow: hidden;
 }
 
 .session-title { 
-    font-weight: 700; font-size: 8pt; line-height: 1.1; 
-    margin-bottom: 2px; color: #000; word-break: break-all;
+    font-weight: 800; font-size: 8.5pt; line-height: 1.2; 
+    margin-bottom: 3px; color: #000; word-break: keep-all; 
 }
-.session-time { font-size: 7pt; color: #444; margin-bottom: 1px; }
-.session-speakers { font-size: 7pt; line-height: 1.1; color: #333; width: 100%; }
-.speaker, .moderator { display: block; }
+.session-time { font-size: 7.5pt; color: #444; margin-bottom: 3px; font-weight: 600; }
+.session-speakers { font-size: 8pt; line-height: 1.3; color: #333; width: 100%; }
+
+/* 연사/좌장 줄바꿈 */
+.speaker, .moderator { display: block; margin-top: 1px; }
 
 /* 10. 출력 설정 */
 @media print {
     .no-print { display: none !important; }
-    body { padding: 0; }
     #timetable-content { width: 100%; }
+    .date-group { page-break-after: auto; }
 }
