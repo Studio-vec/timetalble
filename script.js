@@ -3,8 +3,20 @@ const START_HOUR = 8;
 const END_HOUR = 19;
 const TOTAL_HOURS = END_HOUR - START_HOUR;
 
+// 장소별 배경색 팔레트 (원하시는 색상 코드로 자유롭게 변경 가능합니다)
+const PLACE_COLORS = [
+    '#fce4ec', // 연한 핑크
+    '#e3f2fd', // 연한 블루
+    '#e8f5e9', // 연한 그린
+    '#fff3e0', // 연한 오렌지
+    '#f3e5f5', // 연한 퍼플
+    '#e0f7fa', // 연한 시안
+    '#fbe9e7'  // 연한 코랄
+];
+
 // 시간을 분 단위로 변환 후, Y좌표 퍼센티지(%)로 계산하는 함수
 function timeToPosition(timeStr) {
+    if (!timeStr) return 0;
     const [hours, minutes] = timeStr.split(':').map(Number);
     const timeInHours = hours + (minutes / 60);
     const position = ((timeInHours - START_HOUR) / TOTAL_HOURS) * 100;
@@ -13,11 +25,9 @@ function timeToPosition(timeStr) {
 
 async function loadExcelData() {
     try {
-        // GitHub에 올라간 엑셀 파일 가져오기
         const response = await fetch('timetable.xlsx');
         const arrayBuffer = await response.arrayBuffer();
         
-        // SheetJS로 엑셀 파싱
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
         const firstSheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[firstSheetName];
@@ -31,11 +41,15 @@ async function loadExcelData() {
 
 function renderTimetable(data) {
     const wrapper = document.getElementById('timetable-wrapper');
+    wrapper.innerHTML = ''; // 초기화
     
-    // 장소(Place)별로 데이터 그룹화
-    const places = [...new Set(data.map(item => item.Place))];
+    // 장소(Place)별로 중복 없는 배열 생성
+    const places = [...new Set(data.map(item => item.Place).filter(Boolean))];
     
-    places.forEach(place => {
+    places.forEach((place, index) => {
+        // 장소 인덱스에 따라 색상 순차 배정 (색상 개수를 초과하면 다시 처음부터)
+        const placeColor = PLACE_COLORS[index % PLACE_COLORS.length];
+
         // 장소별 칼럼 생성
         const column = document.createElement('div');
         column.className = 'place-column';
@@ -50,6 +64,8 @@ function renderTimetable(data) {
         const sessions = data.filter(item => item.Place === place);
         
         sessions.forEach(session => {
+            if(!session.StartTime || !session.EndTime) return;
+
             const startPos = timeToPosition(session.StartTime);
             const endPos = timeToPosition(session.EndTime);
             const height = endPos - startPos;
@@ -57,11 +73,10 @@ function renderTimetable(data) {
             const block = document.createElement('div');
             block.className = 'session-block';
             
-            // 높이와 위치를 % 단위로 절대 지정 (가변형 대응)
-            // 헤더 공간(약 40px)을 고려한 계산 로직 필요 시 calc() 활용
             block.style.top = `calc(40px + ${startPos}%)`; 
             block.style.height = `${height}%`;
-            block.style.backgroundColor = session.Color || '#ffffff';
+            // 장소별 배정된 색상 적용 (엑셀에 Color 열이 있다면 우선 적용)
+            block.style.backgroundColor = session.Color || placeColor;
             
             block.innerHTML = `
                 <div class="session-time">${session.StartTime} - ${session.EndTime}</div>
