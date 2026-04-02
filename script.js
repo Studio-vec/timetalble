@@ -11,10 +11,16 @@ const PALETTE = [
     { bg: '#fbe9e7', border: '#ff7043' }
 ];
 
-// ✨ 언어 상태 변수 (기본값 KOR)
-let currentLang = 'KO';
-// 구글 시트 데이터를 저장해둘 전역 변수 (언어 전환 시 다시 다운받지 않기 위함)
+// ✨ 핵심: URL에서 '?lang=en' 꼬리표를 읽어와 초기 언어를 세팅합니다.
+const urlParams = new URLSearchParams(window.location.search);
+let currentLang = (urlParams.get('lang') === 'en') ? 'EN' : 'KO';
 let globalRawData = [];
+
+// 초기 버튼 스타일 세팅
+if (currentLang === 'EN') {
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-ko').classList.remove('active');
+}
 
 function timeToPosition(timeStr) {
     if (!timeStr) return 0;
@@ -35,8 +41,8 @@ async function loadGoogleSheetData() {
         Papa.parse(csvText, {
             header: true, skipEmptyLines: true, 
             complete: function(results) { 
-                globalRawData = results.data; // 데이터 저장
-                renderTimetable(); // 최초 렌더링
+                globalRawData = results.data; 
+                renderTimetable(); 
             }
         });
     } catch (e) { console.error(e); }
@@ -77,7 +83,6 @@ function renderTimetable() {
         const placesContainer = document.createElement('div');
         placesContainer.className = 'places-container';
 
-        // 30분 간격 시간 축 생성
         const timeAxis = document.createElement('div');
         timeAxis.className = 'time-axis';
         
@@ -125,9 +130,7 @@ function renderTimetable() {
                 block.style.backgroundColor = colorSet.bg;
                 block.style.borderTop = `5px solid ${colorSet.border}`;
                 
-                // ✨ 언어에 따른 타이틀 선택 로직
                 let displayTitle = currentLang === 'KO' ? session.Session_KOR : session.Session_ENG;
-                // 만약 선택한 언어의 제목이 비어있다면, 다른 언어 제목으로 대체 (빈칸 방지)
                 if (!displayTitle || displayTitle.trim() === '') {
                     displayTitle = currentLang === 'KO' ? session.Session_ENG : session.Session_KOR;
                 }
@@ -148,22 +151,20 @@ function renderTimetable() {
     });
 }
 
-// ✨ 언어 토글 버튼 이벤트
 document.getElementById('btn-ko').addEventListener('click', () => {
     currentLang = 'KO';
     document.getElementById('btn-ko').classList.add('active');
     document.getElementById('btn-en').classList.remove('active');
-    renderTimetable(); // 화면 즉시 업데이트
+    renderTimetable(); 
 });
 
 document.getElementById('btn-en').addEventListener('click', () => {
     currentLang = 'EN';
     document.getElementById('btn-en').classList.add('active');
     document.getElementById('btn-ko').classList.remove('active');
-    renderTimetable(); // 화면 즉시 업데이트
+    renderTimetable(); 
 });
 
-// PDF 다운로드 버튼 이벤트
 document.getElementById('download-pdf-btn').addEventListener('click', () => {
     const btn = document.getElementById('download-pdf-btn');
     const originalText = btn.innerText;
@@ -173,7 +174,7 @@ document.getElementById('download-pdf-btn').addEventListener('click', () => {
     const element = document.getElementById('timetable-content');
     const opt = {
         margin:       0,
-        filename:     currentLang === 'KO' ? 'Timetable_KOR.pdf' : 'Timetable_ENG.pdf', // 파일명도 언어별로 다르게 지정
+        filename:     currentLang === 'KO' ? 'Timetable_KOR.pdf' : 'Timetable_ENG.pdf',
         image:        { type: 'jpeg', quality: 1 }, 
         html2canvas:  { scale: 2, useCORS: true }, 
         jsPDF:        { unit: 'mm', format: 'a3', orientation: 'landscape' }
