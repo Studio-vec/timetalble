@@ -70,11 +70,13 @@ header h1 {
 
 .track-area {
     position: relative; flex: 1; width: 100%;
+    /* 12시간(08:00~20:00) 기준, 30분은 전체의 1/24 입니다. */
     background-image: repeating-linear-gradient(
-        transparent, transparent calc(100% / 240 - 0.5px),
-        #f0f0f0 calc(100% / 240 - 0.5px), #f0f0f0 calc(100% / 240)
+        transparent, 
+        transparent calc(100% / 24 - 1px),
+        #e6e6e6 calc(100% / 24 - 1px), 
+        #e6e6e6 calc(100% / 24)
     );
-    background-size: 100% calc(100% / 240 * 240); 
 }
 
 .session-block {
