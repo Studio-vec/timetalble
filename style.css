@@ -1,7 +1,6 @@
 /* 1. 인쇄 최적화 및 브라우저 배경색 강제 적용 */
 * {
     box-sizing: border-box;
-    /* ✨ 핵심: 인쇄 시 파스텔 배경색이 하얗게 날아가는 것을 방지합니다 */
     -webkit-print-color-adjust: exact !important; 
     print-color-adjust: exact !important;
 }
@@ -9,10 +8,10 @@
 /* 2. 실제 프린터 용지 설정 (A3 가로) */
 @page {
     size: A3 landscape;
-    margin: 0; /* 브라우저 기본 여백 제거 */
+    margin: 0; 
 }
 
-/* 3. 브라우저 화면 설정 (PDF 뷰어처럼 보이게 구성) */
+/* 3. 브라우저 화면 설정 */
 body {
     margin: 0;
     padding: 0;
@@ -21,13 +20,12 @@ body {
     justify-content: center;
 }
 
-/* 4. A3 도화지 컨테이너 (정확한 규격: 420mm x 297mm) */
+/* 4. A3 도화지 컨테이너 (420mm x 297mm) */
 .a3-container {
     width: 420mm;
     height: 297mm;
     background-color: white;
-    /* 인쇄소 재단 여백(안전 영역) 15mm 확보 */
-    padding: 15mm; 
+    padding: 15mm; /* 인쇄소 재단 여백 */
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -43,20 +41,51 @@ header h1 {
     letter-spacing: 1pt;
 }
 
-/* 타임테이블 전체 그리드 */
+/* 타임테이블 전체 뼈대 (가로로 날짜를 나열) */
 .timetable-wrapper {
     display: flex;
     flex: 1;
-    gap: 4mm;
-    position: relative;
-    border-top: 1.5pt solid #000;
-    padding-top: 6mm;
+    gap: 8mm; /* 날짜(1일차, 2일차...) 간의 간격 */
+}
+
+/* -------------------------------------------
+   새로 추가된 날짜 및 계층 구조 디자인
+------------------------------------------- */
+
+/* 날짜별 그룹 박스 */
+.date-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* 3일의 데이터를 1/3씩 균등 분배 */
+    background-color: #fff;
+    border-top: 2pt solid #000;
+    padding-top: 3mm;
+}
+
+/* 날짜 헤더 (예: 09-09) */
+.date-header {
+    text-align: center;
+    font-weight: 900;
+    font-size: 14pt;
+    padding: 2mm 0;
+    margin-bottom: 4mm;
+    color: #111;
+    background-color: #f4f4f4;
+    border-radius: 1mm;
+}
+
+/* 장소들을 묶는 컨테이너 */
+.places-container {
+    display: flex;
+    flex: 1;
+    gap: 2mm;
 }
 
 /* 장소별 칼럼 */
 .place-column {
+    display: flex;
+    flex-direction: column;
     flex: 1;
-    position: relative;
     border-right: 0.5pt dashed #ccc;
 }
 
@@ -68,73 +97,46 @@ header h1 {
 .place-header {
     text-align: center;
     font-weight: bold;
-    font-size: 9pt; /* 장소 이름 폰트 크기 */
+    font-size: 8pt; 
     padding: 2.5mm 0;
-    margin-bottom: 5mm;
+    margin-bottom: 2mm;
     border-bottom: 1pt solid #ddd;
-    background-color: #f9f9f9;
     border-radius: 1.5mm;
 }
 
-/* 개별 세션 블록 */
+/* ✨ 세션 블록들이 그려질 타임라인 트랙 영역 */
+.track-area {
+    position: relative;
+    flex: 1; /* 하단 빈 공간을 꽉 채움 */
+    width: 100%;
+}
+
+/* 개별 세션 블록 (트랙 영역 내부에서의 절대 위치) */
 .session-block {
     position: absolute;
     width: 96%;
     left: 2%;
-    border-radius: 1.5mm;
+    border-radius: 1mm;
     padding: 2mm;
     overflow: hidden;
-    /* 인쇄 시 깔끔하게 보이도록 테두리를 아주 얇게 설정 */
     border: 0.2pt solid rgba(0,0,0,0.1); 
 }
 
-/* --- 요청하신 정확한 폰트 사이즈 (pt) 적용 --- */
-
+/* --- 폰트 사이즈 (요청하신 규격 그대로 유지) --- */
 .session-title-ko, 
 .session-title-en, 
 .session-speakers {
     white-space: pre-wrap; 
     word-break: break-word;
-    line-height: 1.3; /* 인쇄용 줄간격 최적화 */
+    line-height: 1.3;
 }
+.session-time { font-weight: 800; font-size: 5pt; margin-bottom: 1.5mm; color: #333; }
+.session-title-ko { font-weight: 800; font-size: 7pt; margin-bottom: 0.5mm; color: #000; }
+.session-title-en { font-weight: 500; font-size: 7pt; color: #444; margin-bottom: 2mm; }
+.session-speakers { font-size: 6pt; color: #222; }
 
-/* 시간: 5포인트 */
-.session-time { 
-    font-weight: 800; 
-    font-size: 5pt; 
-    margin-bottom: 1.5mm; 
-    color: #333; 
-}
-
-/* 세션 이름(KOR): 7포인트 */
-.session-title-ko { 
-    font-weight: 800; 
-    font-size: 7pt; 
-    margin-bottom: 0.5mm; 
-    color: #000;
-}
-
-/* 세션 이름(ENG): 7포인트 */
-.session-title-en { 
-    font-weight: 500;
-    font-size: 7pt; 
-    color: #444; 
-    margin-bottom: 2mm; 
-}
-
-/* 연사 및 모더레이터: 6포인트 */
-.session-speakers { 
-    font-size: 6pt; 
-    color: #222; 
-}
-
-/* --- 화면(Screen)에서만 적용되는 효과 (인쇄 시 무시됨) --- */
+/* 화면(Screen)에서만 어두운 배경 적용 */
 @media screen {
-    body {
-        padding: 10mm 0; /* 화면 위아래 여백 */
-        background-color: #525659; /* 어두운 배경으로 종이가 돋보이게 */
-    }
-    .a3-container {
-        box-shadow: 0 0 15px rgba(0,0,0,0.5); /* 입체감 그림자 */
-    }
+    body { padding: 10mm 0; background-color: #525659; }
+    .a3-container { box-shadow: 0 0 15px rgba(0,0,0,0.5); }
 }
