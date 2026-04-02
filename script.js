@@ -57,12 +57,9 @@ function renderTimetable() {
         const findKey = (target) => keys.find(k => normalize(k).includes(target));
 
         const startKey = findKey('starttime');
-        // ✨ '공개여부' 또는 'status' 열 찾기
         const statusKey = findKey('status') || findKey('공개');
 
         if (startKey && item[startKey]) {
-            // ✨ 필터링 로직: 상태열이 있고 그 값이 '공개'인 경우에만 추가
-            // (상태열 자체가 없거나 비어있으면 기본적으로 공개로 처리하려면 로직 수정 가능)
             const statusValue = statusKey ? item[statusKey].trim() : '공개';
             
             if (statusValue === '공개') {
@@ -73,8 +70,11 @@ function renderTimetable() {
                     EndTime: item[findKey('endtime')] || '',
                     Session_ENG: item[findKey('sessioneng')] || '',
                     Session_KOR: item[findKey('sessionkor')] || '',
-                    Speaker: item[findKey('speaker')] || '',
-                    Moderator: item[findKey('moderator')] || ''
+                    // ✨ 연사 및 모더레이터 국/영문 분리
+                    Speaker_KOR: item[findKey('speakerkor')] || '',
+                    Speaker_ENG: item[findKey('speakereng')] || '',
+                    Moderator_KOR: item[findKey('moderatorkor')] || '',
+                    Moderator_ENG: item[findKey('moderatoreng')] || ''
                 });
             }
         }
@@ -136,20 +136,25 @@ function renderTimetable() {
                 block.style.top = `${startPos}%`; 
                 block.style.height = `${endPos - startPos}%`;
                 block.style.backgroundColor = colorSet.bg;
-                
-                // ✨ 요청하신 상단 선 두께 수정 포인트 (5px -> 원하는 수치로 변경 가능)
                 block.style.borderTop = `5px solid ${colorSet.border}`;
                 
+                // 세션 제목 토글
                 let displayTitle = currentLang === 'KO' ? session.Session_KOR : session.Session_ENG;
-                if (!displayTitle || displayTitle.trim() === '') {
-                    displayTitle = currentLang === 'KO' ? session.Session_ENG : session.Session_KOR;
-                }
+                if (!displayTitle || displayTitle.trim() === '') displayTitle = currentLang === 'KO' ? session.Session_ENG : session.Session_KOR;
+                
+                // ✨ 연사 이름 토글 (빈칸이면 다른 언어로 대체)
+                let displaySpeaker = currentLang === 'KO' ? session.Speaker_KOR : session.Speaker_ENG;
+                if (!displaySpeaker || displaySpeaker.trim() === '') displaySpeaker = currentLang === 'KO' ? session.Speaker_ENG : session.Speaker_KOR;
+                
+                // ✨ 모더레이터 이름 토글 (빈칸이면 다른 언어로 대체)
+                let displayModerator = currentLang === 'KO' ? session.Moderator_KOR : session.Moderator_ENG;
+                if (!displayModerator || displayModerator.trim() === '') displayModerator = currentLang === 'KO' ? session.Moderator_ENG : session.Moderator_KOR;
                 
                 block.innerHTML = `
                     <div class="session-title fs-7pt-title">${escapeHTML(displayTitle)}</div>
                     <div class="session-time fs-5pt">${escapeHTML(session.StartTime)} - ${escapeHTML(session.EndTime)}</div>
                     <div class="session-speakers fs-6pt">
-                        ${escapeHTML(session.Speaker)} ${escapeHTML(session.Moderator)}
+                        ${escapeHTML(displaySpeaker)} ${escapeHTML(displayModerator)}
                     </div>
                 `;
                 trackArea.appendChild(block);
