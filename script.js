@@ -5,10 +5,10 @@ const END_HOUR = 20;
 const TOTAL_HOURS = END_HOUR - START_HOUR;
 
 const PALETTE = [
-    { bg: '#888888', border: '#777777' }, { bg: '#888888', border: '#777777' },
-    { bg: '#888888', border: '#777777' }, { bg: '#888888', border: '#777777' },
-    { bg: '#888888', border: '#777777' }, { bg: '#888888', border: '#777777' },
-    { bg: '#888888', border: '#777777' }
+    { bg: '#999999', border: '#777777' }, { bg: '#999999', border: '#777777' },
+    { bg: '#999999', border: '#777777' }, { bg: '#999999', border: '#777777' },
+    { bg: '#999999', border: '#777777' }, { bg: '#999999', border: '#777777' },
+    { bg: '#999999', border: '#777777' }
 ];
 
 const urlParams = new URLSearchParams(window.location.search);
