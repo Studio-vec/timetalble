@@ -59,8 +59,6 @@ function renderTimetable(rawData) {
     });
 
     const dates = [...new Set(validData.map(item => item.Date))].sort();
-    
-    // ✨ 핵심: 전체 데이터에서 존재하는 "모든 장소"를 취합하여 기준 배열 생성
     const allPlaces = [...new Set(validData.map(item => item.Place))].sort();
 
     dates.forEach(date => {
@@ -71,9 +69,22 @@ function renderTimetable(rawData) {
         const placesContainer = document.createElement('div');
         placesContainer.className = 'places-container';
 
-        // 30분 간격 시간 축 생성
+        // ✨ 30분 간격 시간 축 생성 영역
         const timeAxis = document.createElement('div');
         timeAxis.className = 'time-axis';
+        
+        // 1. 장소 헤더와 높이를 맞추기 위한 투명 헤더 삽입
+        const dummyHeader = document.createElement('div');
+        dummyHeader.className = 'place-header';
+        dummyHeader.style.visibility = 'hidden'; // 화면에 보이지 않지만 공간은 차지함
+        dummyHeader.innerHTML = '시간';
+        timeAxis.appendChild(dummyHeader);
+
+        // 2. 실제 시간 라벨들이 들어갈 트랙 영역
+        const timeTrack = document.createElement('div');
+        timeTrack.style.position = 'relative';
+        timeTrack.style.flex = '1';
+
         for (let h = START_HOUR; h <= END_HOUR; h++) {
             [0, 30].forEach(m => {
                 if (h === END_HOUR && m > 0) return;
@@ -82,14 +93,15 @@ function renderTimetable(rawData) {
                 label.className = 'time-label';
                 label.style.top = `${timeToPosition(timeStr)}%`;
                 label.innerText = timeStr;
-                timeAxis.appendChild(label);
+                timeTrack.appendChild(label);
             });
         }
+        
+        timeAxis.appendChild(timeTrack);
         placesContainer.appendChild(timeAxis);
 
         const dateData = validData.filter(item => item.Date === date);
         
-        // ✨ 해당 날짜의 데이터(dateData) 기준이 아닌, 전체 장소(allPlaces) 기준으로 반복문 실행
         allPlaces.forEach((place, index) => {
             const colorSet = PALETTE[index % PALETTE.length];
             const column = document.createElement('div');
@@ -97,7 +109,6 @@ function renderTimetable(rawData) {
             column.innerHTML = `<div class="place-header">${place}</div><div class="track-area"></div>`;
             const trackArea = column.querySelector('.track-area');
 
-            // 이 장소, 이 날짜에 해당하는 세션만 필터링 (없으면 그냥 빈 트랙이 유지됨)
             dateData.filter(d => d.Place === place).forEach(session => {
                 const startPos = timeToPosition(session.StartTime);
                 const endPos = timeToPosition(session.EndTime);
@@ -125,9 +136,8 @@ function renderTimetable(rawData) {
     });
 }
 
-// ✨ PDF 다운로드 버튼 이벤트 등록
+// PDF 다운로드 버튼 이벤트
 document.getElementById('download-pdf-btn').addEventListener('click', () => {
-    // 버튼 텍스트 변경으로 진행 상태 알림
     const btn = document.getElementById('download-pdf-btn');
     const originalText = btn.innerText;
     btn.innerText = "PDF 생성 중...";
@@ -137,8 +147,8 @@ document.getElementById('download-pdf-btn').addEventListener('click', () => {
     const opt = {
         margin:       0,
         filename:     'Timetable.pdf',
-        image:        { type: 'jpeg', quality: 1 }, // 최고 화질
-        html2canvas:  { scale: 2, useCORS: true }, // 레티나 디스플레이 대응 스케일업
+        image:        { type: 'jpeg', quality: 1 }, 
+        html2canvas:  { scale: 2, useCORS: true }, 
         jsPDF:        { unit: 'mm', format: 'a3', orientation: 'landscape' }
     };
 
