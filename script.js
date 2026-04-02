@@ -43,29 +43,30 @@ function renderTimetable(data) {
     const wrapper = document.getElementById('timetable-wrapper');
     wrapper.innerHTML = ''; 
     
-    // 1단계: 전체 데이터에서 중복 없는 '날짜(Date)' 배열 추출 및 정렬
-    const dates = [...new Set(data.map(item => item.Date).filter(Boolean))].sort();
+    // 데이터 보정: 날짜나 장소가 비어있으면 '미지정'으로 처리하여 겹침 방지
+    const safeData = data.map(item => ({
+        ...item,
+        Date: item.Date ? item.Date.trim() : '날짜 미지정',
+        Place: item.Place ? item.Place.trim() : '장소 미지정'
+    }));
 
-    // 각 날짜별로 컨테이너 생성
+    // 1단계: 날짜 추출
+    const dates = [...new Set(safeData.map(item => item.Date))].sort();
+
     dates.forEach(date => {
         const dateGroup = document.createElement('div');
         dateGroup.className = 'date-group';
 
-        // 날짜 헤더 생성 (예: 09-09)
         const dateHeader = document.createElement('div');
         dateHeader.className = 'date-header';
         dateHeader.innerText = date;
         dateGroup.appendChild(dateHeader);
 
-        // 해당 날짜의 장소들을 묶을 컨테이너 생성
         const placesContainer = document.createElement('div');
         placesContainer.className = 'places-container';
 
-        // 해당 날짜의 데이터만 필터링
-        const dateData = data.filter(item => item.Date === date);
-        
-        // 2단계: 해당 날짜에 존재하는 '장소(Place)' 배열 추출
-        const places = [...new Set(dateData.map(item => item.Place).filter(Boolean))];
+        const dateData = safeData.filter(item => item.Date === date);
+        const places = [...new Set(dateData.map(item => item.Place))];
         
         places.forEach((place, index) => {
             const placeColor = PLACE_COLORS[index % PLACE_COLORS.length];
@@ -73,21 +74,19 @@ function renderTimetable(data) {
             const column = document.createElement('div');
             column.className = 'place-column';
             
-            // 장소 헤더
             const header = document.createElement('div');
             header.className = 'place-header';
             header.innerText = place;
             column.appendChild(header);
             
-            // ✨ 3단계: 세션이 배치될 타임라인 트랙 영역 생성
             const trackArea = document.createElement('div');
             trackArea.className = 'track-area';
             column.appendChild(trackArea);
 
-            // 해당 날짜 + 해당 장소의 세션만 필터링
             const sessions = dateData.filter(item => item.Place === place);
             
             sessions.forEach(session => {
+                // 시작/종료 시간이 없으면 그리지 않음
                 if(!session.StartTime || !session.EndTime) return;
 
                 const startPos = timeToPosition(session.StartTime);
@@ -97,28 +96,25 @@ function renderTimetable(data) {
                 const block = document.createElement('div');
                 block.className = 'session-block';
                 
-                // trackArea 컨테이너를 기준으로 하므로 %만 쓰면 완벽하게 들어맞습니다.
                 block.style.top = `${startPos}%`; 
                 block.style.height = `${height}%`;
                 block.style.backgroundColor = placeColor;
                 
                 block.innerHTML = `
                     <div class="session-time">${escapeHTML(session.StartTime)} - ${escapeHTML(session.EndTime)}</div>
-                    <div class="session-title-ko">${escapeHTML(session.Session_KOR)}</div>
-                    <div class="session-title-en">${escapeHTML(session.Session_ENG)}</div>
+                    <div class="session-title-ko">${escapeHTML(session.Session_KOR || '')}</div>
+                    <div class="session-title-en">${escapeHTML(session.Session_ENG || '')}</div>
                     <div class="session-speakers">
                         ${session.Speaker ? `연사: ${escapeHTML(session.Speaker)}\n` : ''}
                         ${session.Moderator ? `모더레이터: ${escapeHTML(session.Moderator)}` : ''}
                     </div>
                 `;
-                // 트랙 영역 안에 세션 추가
                 trackArea.appendChild(block);
             });
             
             placesContainer.appendChild(column);
         });
 
-        // 날짜 그룹 안에 장소 컨테이너 삽입, 전체 래퍼에 날짜 그룹 삽입
         dateGroup.appendChild(placesContainer);
         wrapper.appendChild(dateGroup);
     });
