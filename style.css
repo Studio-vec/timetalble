@@ -1,103 +1,87 @@
-/* 1. 기본 초기화 및 폰트 설정 */
+/* 1. 기본 초기화 */
 * { box-sizing: border-box; }
 body { 
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; 
-    margin: 0; padding: 20px; background-color: #f8f9fa; 
-    display: flex; flex-direction: column; align-items: center;
+    font-family: 'Pretendard', sans-serif; margin: 0; padding: 10px; 
+    background-color: #fff; display: flex; flex-direction: column; align-items: center;
 }
 
-/* 2. 전체 컨테이너 (A3 가로 사이즈 규격) */
+/* 2. 전체 컨테이너 (A3 가로 한 장 규격에 맞춤) */
 #timetable-content { 
-    width: 400mm; /* A3 가로 약 420mm에서 여백 제외 */
-    margin: 0 auto; background-color: #fff; padding: 20px;
+    width: 400mm; /* A3 가로폭 */
+    margin: 0 auto; padding: 0;
 }
-.main-title { text-align: center; font-size: 32px; margin-bottom: 20px; font-weight: 800; color: #1a1a1a; }
+.main-title { text-align: center; font-size: 24px; margin: 10px 0; font-weight: 800; }
 
-/* 3. 상단 컨트롤 버튼 (PDF 출력 시 자동 숨김) */
-.controls { margin-bottom: 30px; display: flex; gap: 15px; justify-content: center; }
-.controls button { 
-    padding: 10px 25px; border: 1px solid #ddd; background: #fff; 
-    font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.2s; 
-}
-.controls button.active { background: #000; color: #fff; border-color: #000; }
-.controls button:hover { background: #f0f0f0; }
+/* 3. 상단 컨트롤 (출력 시 숨김) */
+.controls { margin-bottom: 10px; display: flex; gap: 10px; justify-content: center; }
+.controls button { padding: 5px 15px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
+.controls button.active { background: #000; color: #fff; }
 
-/* 4. 날짜별 그룹 (PDF 출력 시 페이지 넘김) */
+/* 4. 날짜별 그룹 (페이지 넘김 해제, 간격 최소화) */
 .date-group { 
-    margin-bottom: 40px; 
-    page-break-after: always; /* PDF 저장 시 날짜마다 새 페이지 시작 */
+    margin-bottom: 15px; 
+    page-break-after: auto; /* 강제 페이지 넘김 금지 */
 }
 .date-header { 
-    font-size: 26px; font-weight: 700; text-align: center; 
-    padding: 12px; background: #333; color: #fff; border-radius: 8px 8px 0 0; 
+    font-size: 18px; font-weight: 700; text-align: left; 
+    padding: 5px 15px; background: #333; color: #fff; 
 }
 
-/* 5. 시간표 메인 레이아웃 (높이 고정으로 A3 최적화) */
+/* 5. 시간표 메인 레이아웃 (높이를 대폭 축소: 220px) */
 .places-container { 
-    display: flex; position: relative; border: 2px solid #333; 
+    display: flex; position: relative; border: 1px solid #333; 
     background: #fff; 
-    height: 650px; /* 🚀 A3 한 장에 꽉 차게 들어가는 고정 높이 */
+    height: 220px; /* 🚀 3일치를 한 장에 넣기 위해 높이를 확 줄임 */
 }
 
 /* 6. 왼쪽 시간 축 */
 .time-axis { 
-    width: 70px; flex-shrink: 0; border-right: 2px solid #333; 
-    position: relative; display: flex; flex-direction: column; background: #fdfdfd;
+    width: 50px; flex-shrink: 0; border-right: 1px solid #333; 
+    position: relative; display: flex; flex-direction: column;
 }
 .time-label { 
     position: absolute; left: 0; width: 100%; text-align: center;
-    font-size: 12px; font-weight: 600; color: #555; transform: translateY(-50%); 
+    font-size: 10px; font-weight: 600; color: #777; transform: translateY(-50%); 
 }
 
 /* 7. 장소별 컬럼 */
-.place-column { 
-    flex: 1; border-right: 1px solid #ddd; display: flex; flex-direction: column; min-width: 0; 
-}
-.place-column:last-child { border-right: none; }
+.place-column { flex: 1; border-right: 1px solid #eee; display: flex; flex-direction: column; min-width: 0; }
 .place-header { 
-    height: 50px; line-height: 50px; text-align: center; 
-    font-size: 16px; font-weight: 700; background: #eee; border-bottom: 2px solid #333; 
+    height: 30px; line-height: 30px; text-align: center; 
+    font-size: 13px; font-weight: 700; background: #f9f9f9; border-bottom: 1px solid #333; 
 }
 
 /* 8. 배경 30분 단위 보조선 */
 .track-area { 
     position: relative; flex: 1; width: 100%; 
-    /* 12시간(08~20시) 기준, 30분 간격 선 */
     background-image: repeating-linear-gradient(
         transparent, 
         transparent calc(100% / 24 - 1px), 
-        #e5e5e5 calc(100% / 24 - 1px), 
-        #e5e5e5 calc(100% / 24)
+        #f0f0f0 calc(100% / 24 - 1px), 
+        #f0f0f0 calc(100% / 24)
     );
 }
 
-/* 9. 세션 박스 디자인 (왼쪽 정렬) */
+/* 9. 세션 박스 (매우 압축된 디자인) */
 .session-block {
-    position: absolute; left: 3px; right: 3px; z-index: 10;
-    padding: 8px 10px; box-sizing: border-box; border-radius: 3px;
+    position: absolute; left: 1px; right: 1px; z-index: 10;
+    padding: 2px 4px; border-radius: 0;
     display: flex; flex-direction: column;
-    justify-content: flex-start; align-items: flex-start; /* 위/왼쪽 정렬 */
+    justify-content: flex-start; align-items: flex-start;
     text-align: left; overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    /* border-top 두께는 자바스크립트에서 제어 (기본 5px) */
 }
 
 .session-title { 
-    font-weight: 800; font-size: 10pt; line-height: 1.3; 
-    margin-bottom: 5px; color: #000; word-break: keep-all; 
+    font-weight: 700; font-size: 8pt; line-height: 1.1; 
+    margin-bottom: 2px; color: #000; word-break: break-all;
 }
-.session-time { 
-    font-size: 8pt; color: #444; font-weight: 600; margin-bottom: 6px; 
-}
-.session-speakers { 
-    font-size: 8.5pt; line-height: 1.4; color: #333; width: 100%; 
-}
-.speaker, .moderator { margin-top: 2px; }
+.session-time { font-size: 7pt; color: #444; margin-bottom: 1px; }
+.session-speakers { font-size: 7pt; line-height: 1.1; color: #333; width: 100%; }
+.speaker, .moderator { display: block; }
 
-/* 10. 출력 전용 설정 */
+/* 10. 출력 설정 */
 @media print {
     .no-print { display: none !important; }
-    body { padding: 0; background: #fff; }
-    #timetable-content { width: 100%; padding: 0; }
-    .places-container { height: 600px; } /* 출력 시 미세 조정 */
+    body { padding: 0; }
+    #timetable-content { width: 100%; }
 }
