@@ -1,5 +1,5 @@
 // 1. 구글 시트에서 복사한 CSV 링크를 아래 따옴표 안에 붙여넣으세요.
-const GOOGLE_SHEET_URL = '여기에_구글시트_CSV_링크를_붙여넣으세요';
+const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCmxR31uqR0rOOw9xE0smFQnEa7WTGHUJyQXtyHu6Ru1e3Ca32u9b-hL5qFhlu0S5d-rIvQu7d3b/pub?output=csv';
 
 // 2. 시간표 렌더링 설정 (08:00 ~ 19:00 기준, 총 11시간)
 const START_HOUR = 8; 
