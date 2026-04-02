@@ -11,24 +11,30 @@
     margin: 0; 
 }
 
-/* 3. 브라우저 화면 설정 */
+/* 3. 브라우저 화면 설정 (이미지처럼 중앙에 배치하고 스크롤 숨김) */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    background-color: #525659;
     display: flex;
+    align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    overflow: hidden; /* 자동 스케일링을 위해 스크롤바 숨김 */
 }
 
-/* 4. A3 도화지 컨테이너 (420mm x 297mm) */
+/* 4. A3 도화지 컨테이너 (정확한 규격 고정) */
 .a3-container {
     width: 420mm;
     height: 297mm;
+    min-width: 420mm; /* 창을 줄여도 절대 찌그러지지 않게 강제 고정 */
+    min-height: 297mm;
     background-color: white;
-    padding: 15mm; /* 인쇄소 재단 여백 */
+    padding: 12mm; /* 인쇄소 재단 여백 (조금 더 넓게 보이도록 12mm로 조정) */
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    transform-origin: center center; /* 화면 정중앙을 기준으로 확대/축소 */
 }
 
 /* 상단 타이틀 */
@@ -36,26 +42,26 @@ header h1 {
     text-align: center;
     font-size: 24pt; 
     margin-top: 0;
-    margin-bottom: 8mm;
+    margin-bottom: 6mm;
     color: #000;
     letter-spacing: 1pt;
 }
 
-/* 타임테이블 전체 뼈대 (날짜 그룹 가로 나열) */
+/* 타임테이블 전체 뼈대 */
 .timetable-wrapper {
     display: flex;
     flex: 1;
-    gap: 8mm; /* 날짜 간격 */
+    gap: 8mm; 
 }
 
 /* 날짜별 그룹 박스 */
 .date-group {
     display: flex;
     flex-direction: column;
-    flex: 1; /* 3일의 데이터를 1/3씩 균등 분배 */
+    flex: 1; 
     background-color: #fff;
     border-top: 2pt solid #000;
-    padding-top: 3mm;
+    padding-top: 2mm;
 }
 
 /* 날짜 헤더 */
@@ -64,29 +70,26 @@ header h1 {
     font-weight: 900;
     font-size: 14pt;
     padding: 2mm 0;
-    margin-bottom: 4mm;
+    margin-bottom: 3mm;
     color: #111;
     background-color: #f4f4f4;
     border-radius: 1mm;
 }
 
-/* 장소들을 묶는 컨테이너 (장소 컬럼 가로 나열) */
+/* ✨ 요청사항: 장소별 칼럼 간격을 3px로 매우 좁게 설정 */
 .places-container {
     display: flex;
     flex: 1;
-    gap: 2mm; /* 장소 간격 */
+    gap: 3px; 
 }
 
 /* 장소별 칼럼 */
 .place-column {
     display: flex;
     flex-direction: column;
-    flex: 1; /* 장소 개수에 따라 자동으로 너비 계산됨 */
-    border-right: 0.5pt dashed #ccc;
-}
-
-.place-column:last-child {
-    border-right: none;
+    flex: 1; 
+    /* 요청사항: 장소 간 점선 테두리 제거 */
+    border-right: none; 
 }
 
 /* 장소 이름 헤더 */
@@ -94,77 +97,80 @@ header h1 {
     text-align: center;
     font-weight: bold;
     font-size: 8pt; 
-    padding: 2.5mm 0;
+    padding: 2mm 0;
     margin-bottom: 2mm;
     border-bottom: 1pt solid #ddd;
-    border-radius: 1.5mm;
 }
 
-/* ✨ 세션 블록들이 그려질 타임라인 트랙 영역 */
+/* 타임라인 트랙 영역 (30분 간격 배경선) */
 .track-area {
     position: relative;
     flex: 1; 
     width: 100%;
-    /* ✨ 30분 간격 배경 회색 점선 추가 */
     background-image: repeating-linear-gradient(
         transparent,
-        transparent calc(50% - 0.2pt), /* 30분 간격 (50%) */
-        #eee calc(50% - 0.2pt),
-        #eee calc(50% + 0.2pt)
+        transparent calc(50% - 0.2pt), 
+        #eaeaea calc(50% - 0.2pt),
+        #eaeaea calc(50% + 0.2pt)
     );
-    background-size: 100% 24%; /* 1시간이 12%이므로 30분은 24% (12시간 기준) */
+    background-size: 100% 24%; 
 }
 
-/* 개별 세션 블록 */
+/* ✨ 요청사항: 그림자/테두리 제거, 너비 꽉 채우기, 마진/패딩 2px */
 .session-block {
     position: absolute;
-    /* ✨ 너비 제한으로 가로 확장 문제 해결 */
-    width: calc(100% - 4mm); /* 장소 컬럼 너비 내 여백 */
-    left: 2mm;
-    border-radius: 1mm;
-    padding: 2mm;
+    width: 100%; /* 컨테이너 너비 100% 꽉 채움 */
+    left: 0;
+    padding: 2px 3px; /* 위아래 2px, 좌우 3px 꽉 차게 */
     overflow: hidden;
-    border: 0.2pt solid rgba(0,0,0,0.1); 
-    box-shadow: 1px 2px 4px rgba(0,0,0,0.05); /* 입체감 그림자 */
+    border: none; 
+    box-shadow: none; 
+    /* 상단 5px 선은 JS에서 동적 컬러로 부여됨 */
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
-/* --- 요청하신 정확한 pt 단위 폰트 사이즈 적용 --- */
+/* --- 타이트한 폰트 및 줄간격 설정 --- */
 .session-title-ko, 
 .session-title-en, 
+.session-time,
 .session-speakers {
     white-space: pre-wrap; 
     word-break: break-word;
-    line-height: 1.3;
+    line-height: 1.15; /* 줄간격을 매우 좁게 */
 }
 
-.fs-5pt { 
-    font-weight: 800; 
-    font-size: 5pt !important; /* pt 단위 고정 */
-    margin-bottom: 1.5mm; 
-    color: #333; 
-}
-
+/* 제목이 가장 위로 올라옵니다 */
 .fs-7pt-ko { 
     font-weight: 800; 
     font-size: 7pt !important; 
-    margin-bottom: 0.5mm; 
+    margin-bottom: 1.5px; /* 마진 좁게 */
     color: #000;
 }
 
 .fs-7pt-en { 
-    font-weight: 500;
+    font-weight: 600;
     font-size: 7pt !important; 
-    color: #444; 
-    margin-bottom: 2mm; 
+    color: #333; 
+    margin-bottom: 3px; 
 }
 
+/* 시간 */
+.fs-5pt { 
+    font-weight: 800; 
+    font-size: 5pt !important; 
+    margin-bottom: 3px; 
+    color: #555; 
+}
+
+/* 연사/모더레이터 */
 .fs-6pt { 
     font-size: 6pt !important; 
     color: #222; 
 }
 
-/* 화면(Screen)에서만 적용되는 효과 */
-@media screen {
-    body { padding: 10mm 0; background-color: #525659; }
-    .a3-container { box-shadow: 0 0 15px rgba(0,0,0,0.5); }
+/* 인쇄 시 브라우저 스케일링 무효화 및 화면 최적화 */
+@media print {
+    body { background-color: white; overflow: visible; }
+    .a3-container { transform: none !important; }
 }
