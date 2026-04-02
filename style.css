@@ -1,4 +1,3 @@
-/* 1. 인쇄 및 브라우저 설정 */
 * {
     box-sizing: border-box;
     -webkit-print-color-adjust: exact !important; 
@@ -8,11 +7,12 @@
 @page { size: A3 landscape; margin: 0; }
 
 body {
-    margin: 0; padding: 0;
+    margin: 0; padding: 20mm; /* 확대/축소 시 여백이 있도록 패딩 추가 */
     font-family: 'Noto Sans KR', -apple-system, sans-serif;
     background-color: #525659;
-    display: flex; align-items: center; justify-content: center;
-    min-height: 100vh; overflow: hidden;
+    display: flex; align-items: flex-start; justify-content: center;
+    min-height: 100vh;
+    /* ✨ overflow: hidden; 삭제 -> 스크롤 및 확대 자유롭게 가능! */
 }
 
 .a3-container {
@@ -20,7 +20,7 @@ body {
     min-width: 420mm; min-height: 297mm;
     background-color: white; padding: 12mm;
     display: flex; flex-direction: column;
-    transform-origin: center center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 header h1 {
@@ -28,10 +28,8 @@ header h1 {
     margin: 0 0 6mm 0; color: #000; letter-spacing: 1pt;
 }
 
-/* 타임테이블 전체 */
 .timetable-wrapper { display: flex; flex: 1; gap: 8mm; }
 
-/* 날짜별 그룹 */
 .date-group {
     display: flex; flex-direction: column; flex: 1; 
     border-top: 2pt solid #000; padding-top: 2mm;
@@ -43,10 +41,8 @@ header h1 {
     background-color: #f4f4f4; border-radius: 1mm;
 }
 
-/* 장소 컨테이너 */
 .places-container { display: flex; flex: 1; gap: 3px; position: relative; }
 
-/* ✨ 날짜 왼쪽 시간 축 (30분 간격 표기용) */
 .time-axis {
     width: 12mm; position: relative;
     border-right: 1px solid #ddd; margin-right: 2mm;
@@ -56,13 +52,11 @@ header h1 {
     position: absolute; left: 0; width: 100%;
     text-align: right; padding-right: 2mm;
     font-size: 6pt; font-weight: bold; color: #666;
-    transform: translateY(-50%); /* 선과 텍스트 중앙 맞춤 */
+    transform: translateY(-50%);
 }
 
-/* 장소별 칼럼 */
 .place-column { display: flex; flex-direction: column; flex: 1; position: relative; }
 
-/* ✨ 장소 이름 사이 짧은 선 추가 */
 .place-header {
     text-align: center; font-weight: bold; font-size: 8pt; 
     padding: 2mm 0; margin-bottom: 2mm;
@@ -74,36 +68,50 @@ header h1 {
     height: 50%; border-left: 1px solid #ccc;
 }
 
-/* ✨ 3분 간격 배경 회색 선 (1px) */
 .track-area {
     position: relative; flex: 1; width: 100%;
-    /* 12시간(720분) 기준 3분은 전체의 1/240 */
     background-image: repeating-linear-gradient(
-        transparent,
-        transparent calc(100% / 240 - 0.5px),
-        #f0f0f0 calc(100% / 240 - 0.5px),
-        #f0f0f0 calc(100% / 240)
+        transparent, transparent calc(100% / 240 - 0.5px),
+        #f0f0f0 calc(100% / 240 - 0.5px), #f0f0f0 calc(100% / 240)
     );
     background-size: 100% calc(100% / 240 * 240); 
 }
 
-/* 세션 블록 */
 .session-block {
     position: absolute; width: 100%; left: 0;
     padding: 3px; overflow: hidden; border: none;
 }
 
-/* 폰트 설정 */
 .session-title-ko, .session-title-en, .session-time, .session-speakers {
-    white-space: pre-wrap; word-break: break-word; line-height: 1.1;
+    word-break: break-word; line-height: 1.1;
 }
 
 .fs-7pt-ko { font-weight: 800; font-size: 7pt !important; margin-bottom: 2px; color: #000; }
 .fs-7pt-en { font-weight: 600; font-size: 7pt !important; color: #444; margin-bottom: 3px; }
 .fs-5pt { font-weight: 800; font-size: 5pt !important; color: #666; margin-bottom: 3px; }
-.fs-6pt { font-size: 6pt !important; color: #222; }
 
+/* ✨ 자간 조정 및 한 줄 강제 처리 */
+.fs-6pt { 
+    font-size: 6pt !important; 
+    color: #222; 
+    letter-spacing: -0.5px; /* 자간을 좁혀서 공간 확보 */
+    white-space: nowrap; /* 줄바꿈 금지 */
+    overflow: hidden; 
+    text-overflow: ellipsis; /* 너무 길면 ... 으로 표시 */
+}
+
+/* PDF 다운로드 버튼 스타일 */
+.pdf-btn {
+    position: fixed; top: 20px; right: 20px;
+    padding: 12px 24px; background-color: #2e7d32; color: white;
+    border: none; border-radius: 8px; font-weight: bold; font-size: 14px;
+    cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.3); z-index: 1000;
+}
+.pdf-btn:hover { background-color: #1b5e20; }
+
+/* 인쇄 시 불필요한 요소 숨김 및 최적화 */
 @media print {
-    body { background-color: white; overflow: visible; }
-    .a3-container { transform: none !important; }
+    body { background-color: white; padding: 0; }
+    .a3-container { box-shadow: none; }
+    .pdf-btn { display: none; } /* 인쇄 시 버튼 숨김 */
 }
