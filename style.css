@@ -1,100 +1,113 @@
-/* 1. 기본 초기화 */
-* { box-sizing: border-box; }
+/* 1. 전체 배경: A3 종이가 돋보이도록 어두운 회색 설정 */
 body { 
-    font-family: 'Pretendard', sans-serif; margin: 0; padding: 20px; 
-    background-color: #fff;
+    font-family: 'Pretendard', sans-serif; 
+    margin: 0; padding: 40px 0; 
+    background-color: #e0e0e0; /* 배경을 어둡게 해서 A3 경계를 강조 */
+    display: flex; flex-direction: column; align-items: center;
 }
 
-/* 2. 전체 컨테이너 (A3 가로 규격) */
+/* 2. A3 용지 설정: 흰색 판넬 + 테두리 + 그림자 */
 #timetable-content { 
-    width: 400mm; 
-    margin: 0 auto;
+    width: 420mm;  /* A3 가로 표준 */
+    min-height: 297mm; /* A3 세로 표준 */
+    background-color: #fff; 
+    padding: 30px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* 종이가 떠 있는 듯한 그림자 */
+    border: 1px solid #bbb; /* 실제 종이 경계선 */
+    box-sizing: border-box;
 }
-.main-title { text-align: center; font-size: 26px; margin: 10px 0 20px 0; font-weight: 800; color: #222; }
 
-/* 3. 날짜 가로 배치 (좌 -> 우) */
+.main-title { 
+    text-align: center; font-size: 30px; margin-bottom: 25px; 
+    font-weight: 900; color: #111; letter-spacing: -1px;
+}
+
+/* 3. 컨트롤 버튼 (웹에서만 보임) */
+.controls { margin-bottom: 20px; display: flex; gap: 10px; justify-content: center; }
+.controls button { 
+    padding: 8px 20px; border: 1px solid #999; background: #fff; 
+    font-weight: bold; cursor: pointer; 
+}
+.controls button.active { background: #000; color: #fff; }
+
+/* 4. 날짜 가로 나열 */
 #timetable-wrapper {
     display: flex; 
     flex-direction: row; 
-    gap: 15px; /* 날짜 사이 간격 살짝 줄임 */
-    align-items: flex-start;
+    gap: 15px; 
+    align-items: stretch; /* 모든 날짜의 높이를 동일하게 */
 }
 
-/* 4. 날짜별 그룹 */
 .date-group { 
     flex: 1; 
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-.date-header { 
-    font-size: 18px; font-weight: 700; text-align: center; 
-    padding: 10px; background: #444; color: #fff; border-radius: 4px 4px 0 0;
+    display: flex; flex-direction: column; 
 }
 
-/* 5. 시간표 메인 박스 (테두리 1px로 얇게!) */
+.date-header { 
+    font-size: 20px; font-weight: 800; text-align: center; 
+    padding: 12px; background: #222; color: #fff; 
+}
+
+/* 5. 시간표 박스: A3 공간을 적당히 채우도록 높이 상향 조정 */
 .places-container { 
     display: flex; position: relative; 
-    border: 1px solid #ddd; /* 얇은 회색 테두리 */
+    border: 1px solid #ddd; 
     background: #fff; 
-    height: 600px; /* A3 높이 최적화 */
+    height: 950px; /* 🚀 600px에서 늘려 A3 용지를 꽉 채우도록 함 */
 }
 
-/* 6. 왼쪽 시간 축 */
+/* 6. 시간 축 */
 .time-axis { 
-    width: 45px; flex-shrink: 0; 
-    border-right: 1px solid #eee; /* 아주 연한 선 */
-    position: relative; display: flex; flex-direction: column; background: #fafafa;
+    width: 50px; flex-shrink: 0; border-right: 1px solid #eee; 
+    position: relative; display: flex; flex-direction: column; background: #fcfcfc;
 }
 .time-label { 
     position: absolute; left: 0; width: 100%; text-align: center;
-    font-size: 10px; color: #888; transform: translateY(-50%); 
+    font-size: 11px; font-weight: 600; color: #999; transform: translateY(-50%); 
 }
 
-/* 7. 장소별 컬럼 */
-.place-column { flex: 1; border-right: 1px solid #f0f0f0; display: flex; flex-direction: column; min-width: 0; }
+/* 7. 장소 컬럼 */
+.place-column { flex: 1; border-right: 1px solid #f0f0f0; display: flex; flex-direction: column; }
 .place-column:last-child { border-right: none; }
 .place-header { 
-    height: 35px; line-height: 35px; text-align: center; 
-    font-size: 13px; font-weight: 700; background: #f8f9fa; 
-    border-bottom: 1px solid #ddd; /* 제목 아래 얇은 선 */
+    height: 40px; line-height: 40px; text-align: center; 
+    font-size: 14px; font-weight: 700; background: #f4f4f4; border-bottom: 1px solid #ddd; 
 }
 
-/* 8. 배경 30분 단위 보조선 (더 연하게) */
+/* 8. 30분 배경 보조선 */
 .track-area { 
     position: relative; flex: 1; width: 100%; 
     background-image: repeating-linear-gradient(
         transparent, 
         transparent calc(100% / 24 - 1px), 
-        #f5f5f5 calc(100% / 24 - 1px), 
-        #f5f5f5 calc(100% / 24)
+        #f0f0f0 calc(100% / 24 - 1px), 
+        #f0f0f0 calc(100% / 24)
     );
 }
 
-/* 9. 세션 박스 디자인 (왼쪽 정렬 + 얇은 포인트 선) */
+/* 9. 세션 박스: 왼쪽 정렬 + 줄바꿈 최적화 */
 .session-block {
-    position: absolute; left: 2px; right: 2px; z-index: 10;
-    padding: 6px 8px; border-radius: 2px;
+    position: absolute; left: 3px; right: 3px; z-index: 10;
+    padding: 8px 10px; border-radius: 0;
     display: flex; flex-direction: column;
     justify-content: flex-start; align-items: flex-start; /* 왼쪽 정렬 */
     text-align: left; overflow: hidden;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* 그림자도 아주 연하게 */
-    /* border-top 두께는 자바스크립트에서 3px 정도로 나오게 설정됨 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .session-title { 
-    font-weight: 700; font-size: 8.5pt; line-height: 1.2; 
-    margin-bottom: 3px; color: #111; word-break: keep-all; 
+    font-weight: 800; font-size: 9.5pt; line-height: 1.25; 
+    margin-bottom: 4px; color: #000; word-break: keep-all; 
 }
-.session-time { font-size: 7.5pt; color: #666; margin-bottom: 3px; }
-.session-speakers { font-size: 8pt; line-height: 1.3; color: #444; width: 100%; }
+.session-time { font-size: 8pt; color: #555; margin-bottom: 4px; font-weight: 600; }
+.session-speakers { font-size: 8.5pt; line-height: 1.4; color: #333; width: 100%; }
 
-/* 연사/좌장 줄바꿈 */
-.speaker, .moderator { display: block; margin-top: 1px; }
+/* 연사/좌장 한 줄씩 아래로 */
+.speaker, .moderator { display: block; }
 
-/* 10. 출력 설정 */
+/* 10. 출력 설정: PDF 저장 시 배경색 무시 및 용지 맞춤 */
 @media print {
+    body { background: none; padding: 0; }
+    #timetable-content { border: none; box-shadow: none; width: 100%; margin: 0; }
     .no-print { display: none !important; }
-    #timetable-content { width: 100%; padding: 0; }
-    .date-group { page-break-after: auto; }
 }
