@@ -25,13 +25,21 @@ function escapeHTML(str) {
 
 async function loadGoogleSheetData() {
     try {
-        const response = await fetch(GOOGLE_SHEET_URL);
+        // 혹시 모를 브라우저 캐시 방지를 위해 URL 뒤에 랜덤 파라미터 추가
+        const noCacheUrl = GOOGLE_SHEET_URL + '&t=' + new Date().getTime();
+        const response = await fetch(noCacheUrl);
         const csvText = await response.text();
         
         Papa.parse(csvText, {
             header: true,         
             skipEmptyLines: true, 
+            // ✨ 핵심 추가: 헤더 이름에 숨겨진 띄어쓰기나 오류 문자(BOM)를 강제로 제거
+            transformHeader: function(header) {
+                return header.replace(/[\uFEFF\u200B]/g, '').trim();
+            },
             complete: function(results) {
+                // 브라우저 개발자 도구(F12) 콘솔에서 실제 데이터를 확인할 수 있도록 출력
+                console.log("✅ 성공적으로 읽어온 첫 번째 데이터 확인:", results.data[0]);
                 renderTimetable(results.data);
             }
         });
