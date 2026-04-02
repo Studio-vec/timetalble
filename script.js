@@ -128,7 +128,7 @@ function renderTimetable() {
                 block.style.top = `${startPos}%`; 
                 block.style.height = `${endPos - startPos}%`;
                 block.style.backgroundColor = colorSet.bg;
-                block.style.borderTop = `5px solid ${colorSet.border}`;
+                block.style.borderTop = `3px solid ${colorSet.border}`;
                 
                 let displayTitle = currentLang === 'KO' ? session.Session_KOR : session.Session_ENG;
                 if (!displayTitle || displayTitle.trim() === '') {
