@@ -5,10 +5,10 @@ const END_HOUR = 20;
 const TOTAL_HOURS = END_HOUR - START_HOUR;
 
 const PALETTE = [
-    { bg: '#222222', border: '#555555' }, { bg: '#222222', border: '#555555' },
-    { bg: '#222222', border: '#555555' }, { bg: '#222222', border: '#555555' },
-    { bg: '#222222', border: '#555555' }, { bg: '#222222', border: '#555555' },
-    { bg: '#222222', border: '#555555' }
+    { bg: '#888888', border: '#777777' }, { bg: '#888888', border: '#777777' },
+    { bg: '#888888', border: '#777777' }, { bg: '#888888', border: '#777777' },
+    { bg: '#888888', border: '#777777' }, { bg: '#888888', border: '#777777' },
+    { bg: '#888888', border: '#777777' }
 ];
 
 // ✨ 핵심: URL에서 '?lang=en' 꼬리표를 읽어와 초기 언어를 세팅합니다.
