@@ -1,23 +1,15 @@
-// 1. 구글 시트에서 복사한 CSV 링크를 아래 따옴표 안에 붙여넣으세요.
+// 1. 구글 시트 링크
 const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCmxR31uqR0rOOw9xE0smFQnEa7WTGHUJyQXtyHu6Ru1e3Ca32u9b-hL5qFhlu0S5d-rIvQu7d3b/pub?output=csv';
 
-// 2. 시간표 렌더링 설정 (08:00 ~ 19:00 기준, 총 11시간)
+// 2. 시간표 설정 (08:00 ~ 19:00)
 const START_HOUR = 8; 
 const END_HOUR = 19;
 const TOTAL_HOURS = END_HOUR - START_HOUR;
 
-// 3. 장소별 배경색 팔레트 (파스텔 톤)
 const PLACE_COLORS = [
-    '#fce4ec', // 연한 핑크
-    '#e3f2fd', // 연한 블루
-    '#e8f5e9', // 연한 그린
-    '#fff3e0', // 연한 오렌지
-    '#f3e5f5', // 연한 퍼플
-    '#e0f7fa', // 연한 시안
-    '#fbe9e7'  // 연한 코랄
+    '#fce4ec', '#e3f2fd', '#e8f5e9', '#fff3e0', '#f3e5f5', '#e0f7fa', '#fbe9e7'
 ];
 
-// 시간을 분 단위로 변환 후, Y좌표 퍼센티지(%)로 계산하는 함수
 function timeToPosition(timeStr) {
     if (!timeStr) return 0;
     const [hours, minutes] = timeStr.split(':').map(Number);
@@ -25,26 +17,19 @@ function timeToPosition(timeStr) {
     return ((timeInHours - START_HOUR) / TOTAL_HOURS) * 100;
 }
 
-// 꺾쇠괄호 등 특수문자를 일반 문자로 안전하게 바꿔주는 함수 (HTML 깨짐 방지)
 function escapeHTML(str) {
     if (!str) return '';
-    return str.replace(/&/g, "&amp;")
-              .replace(/</g, "&lt;")
-              .replace(/>/g, "&gt;")
-              .replace(/"/g, "&quot;")
-              .replace(/'/g, "&#039;");
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 
-// 구글 시트 데이터(CSV) 불러오기
 async function loadGoogleSheetData() {
     try {
         const response = await fetch(GOOGLE_SHEET_URL);
         const csvText = await response.text();
         
-        // PapaParse를 이용해 CSV 텍스트를 JSON 배열로 변환
         Papa.parse(csvText, {
-            header: true,         // 첫 줄을 헤더(Key)로 사용
-            skipEmptyLines: true, // 빈 줄 무시
+            header: true,         
+            skipEmptyLines: true, 
             complete: function(results) {
                 renderTimetable(results.data);
             }
@@ -54,61 +39,88 @@ async function loadGoogleSheetData() {
     }
 }
 
-// 타임테이블 화면에 그리기
 function renderTimetable(data) {
     const wrapper = document.getElementById('timetable-wrapper');
     wrapper.innerHTML = ''; 
     
-    // 장소(Place)별로 중복 없는 배열 생성
-    const places = [...new Set(data.map(item => item.Place).filter(Boolean))];
-    
-    places.forEach((place, index) => {
-        // 장소 인덱스에 따라 색상 순차 배정
-        const placeColor = PLACE_COLORS[index % PLACE_COLORS.length];
+    // 1단계: 전체 데이터에서 중복 없는 '날짜(Date)' 배열 추출 및 정렬
+    const dates = [...new Set(data.map(item => item.Date).filter(Boolean))].sort();
 
-        // 장소별 칼럼 생성
-        const column = document.createElement('div');
-        column.className = 'place-column';
-        
-        // 장소 헤더 생성
-        const header = document.createElement('div');
-        header.className = 'place-header';
-        header.innerText = place;
-        column.appendChild(header);
-        
-        // 해당 장소의 세션 필터링
-        const sessions = data.filter(item => item.Place === place);
-        
-        sessions.forEach(session => {
-            if(!session.StartTime || !session.EndTime) return;
+    // 각 날짜별로 컨테이너 생성
+    dates.forEach(date => {
+        const dateGroup = document.createElement('div');
+        dateGroup.className = 'date-group';
 
-            const startPos = timeToPosition(session.StartTime);
-            const endPos = timeToPosition(session.EndTime);
-            const height = endPos - startPos;
+        // 날짜 헤더 생성 (예: 09-09)
+        const dateHeader = document.createElement('div');
+        dateHeader.className = 'date-header';
+        dateHeader.innerText = date;
+        dateGroup.appendChild(dateHeader);
+
+        // 해당 날짜의 장소들을 묶을 컨테이너 생성
+        const placesContainer = document.createElement('div');
+        placesContainer.className = 'places-container';
+
+        // 해당 날짜의 데이터만 필터링
+        const dateData = data.filter(item => item.Date === date);
+        
+        // 2단계: 해당 날짜에 존재하는 '장소(Place)' 배열 추출
+        const places = [...new Set(dateData.map(item => item.Place).filter(Boolean))];
+        
+        places.forEach((place, index) => {
+            const placeColor = PLACE_COLORS[index % PLACE_COLORS.length];
+
+            const column = document.createElement('div');
+            column.className = 'place-column';
             
-            // 개별 세션 블록 생성
-            const block = document.createElement('div');
-            block.className = 'session-block';
+            // 장소 헤더
+            const header = document.createElement('div');
+            header.className = 'place-header';
+            header.innerText = place;
+            column.appendChild(header);
             
-            // 위치와 높이 지정 (장소 헤더 공간 높이를 고려하여 여유 공간 확보)
-            block.style.top = `calc(50px + ${startPos}%)`; 
-            block.style.height = `${height}%`;
-            block.style.backgroundColor = placeColor;
+            // ✨ 3단계: 세션이 배치될 타임라인 트랙 영역 생성
+            const trackArea = document.createElement('div');
+            trackArea.className = 'track-area';
+            column.appendChild(trackArea);
+
+            // 해당 날짜 + 해당 장소의 세션만 필터링
+            const sessions = dateData.filter(item => item.Place === place);
             
-            // 데이터 삽입 (escapeHTML 함수를 거쳐 안전하게 렌더링)
-            block.innerHTML = `
-                <div class="session-time">${escapeHTML(session.StartTime)} - ${escapeHTML(session.EndTime)}</div>
-                <div class="session-title-ko">${escapeHTML(session.Session_KOR)}</div>
-                <div class="session-title-en">${escapeHTML(session.Session_ENG)}</div>
-                <div class="session-speakers">
-                    ${session.Speaker ? `연사: ${escapeHTML(session.Speaker)}\n` : ''}
-                    ${session.Moderator ? `모더레이터: ${escapeHTML(session.Moderator)}` : ''}
-                </div>
-            `;
-            column.appendChild(block);
+            sessions.forEach(session => {
+                if(!session.StartTime || !session.EndTime) return;
+
+                const startPos = timeToPosition(session.StartTime);
+                const endPos = timeToPosition(session.EndTime);
+                const height = endPos - startPos;
+                
+                const block = document.createElement('div');
+                block.className = 'session-block';
+                
+                // trackArea 컨테이너를 기준으로 하므로 %만 쓰면 완벽하게 들어맞습니다.
+                block.style.top = `${startPos}%`; 
+                block.style.height = `${height}%`;
+                block.style.backgroundColor = placeColor;
+                
+                block.innerHTML = `
+                    <div class="session-time">${escapeHTML(session.StartTime)} - ${escapeHTML(session.EndTime)}</div>
+                    <div class="session-title-ko">${escapeHTML(session.Session_KOR)}</div>
+                    <div class="session-title-en">${escapeHTML(session.Session_ENG)}</div>
+                    <div class="session-speakers">
+                        ${session.Speaker ? `연사: ${escapeHTML(session.Speaker)}\n` : ''}
+                        ${session.Moderator ? `모더레이터: ${escapeHTML(session.Moderator)}` : ''}
+                    </div>
+                `;
+                // 트랙 영역 안에 세션 추가
+                trackArea.appendChild(block);
+            });
+            
+            placesContainer.appendChild(column);
         });
-        
-        wrapper.appendChild(column);
+
+        // 날짜 그룹 안에 장소 컨테이너 삽입, 전체 래퍼에 날짜 그룹 삽입
+        dateGroup.appendChild(placesContainer);
+        wrapper.appendChild(dateGroup);
     });
 }
 
