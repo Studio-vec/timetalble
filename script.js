@@ -1,11 +1,12 @@
 // 1. 구글 시트 링크
-const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCmxR31uqR0rOOw9xE0smFQnEa7WTGHUJyQXtyHu6Ru1e3Ca32u9b-hL5qFhlu0S5d-rIvQu7d3b/pub?output=csv';
+const GOOGLE_SHEET_URL = '여기에_구글시트_CSV_링크를_붙여넣으세요';
 
-// 2. 시간표 설정 (08:00 ~ 19:00)
+// 2. 시간표 설정 (08:00 ~ 20:00, 총 12시간)
 const START_HOUR = 8; 
-const END_HOUR = 19;
+const END_HOUR = 20;
 const TOTAL_HOURS = END_HOUR - START_HOUR;
 
+// 장소별 배경색 팔레트 (파스텔 톤)
 const PLACE_COLORS = [
     '#fce4ec', '#e3f2fd', '#e8f5e9', '#fff3e0', '#f3e5f5', '#e0f7fa', '#fbe9e7'
 ];
@@ -50,7 +51,7 @@ function renderTimetable(data) {
         Place: item.Place ? item.Place.trim() : '장소 미지정'
     }));
 
-    // 1단계: 날짜 추출
+    // 1단계: 전체 데이터에서 중복 없는 '날짜(Date)' 배열 추출 및 정렬
     const dates = [...new Set(safeData.map(item => item.Date))].sort();
 
     dates.forEach(date => {
@@ -66,6 +67,7 @@ function renderTimetable(data) {
         placesContainer.className = 'places-container';
 
         const dateData = safeData.filter(item => item.Date === date);
+        // 2단계: 해당 날짜에 존재하는 '장소(Place)' 배열 추출
         const places = [...new Set(dateData.map(item => item.Place))];
         
         places.forEach((place, index) => {
@@ -100,11 +102,12 @@ function renderTimetable(data) {
                 block.style.height = `${height}%`;
                 block.style.backgroundColor = placeColor;
                 
+                // ✨ 요청하신 pt 단위 폰트 클래스 적용
                 block.innerHTML = `
-                    <div class="session-time">${escapeHTML(session.StartTime)} - ${escapeHTML(session.EndTime)}</div>
-                    <div class="session-title-ko">${escapeHTML(session.Session_KOR || '')}</div>
-                    <div class="session-title-en">${escapeHTML(session.Session_ENG || '')}</div>
-                    <div class="session-speakers">
+                    <div class="session-time fs-5pt">${escapeHTML(session.StartTime)} - ${escapeHTML(session.EndTime)}</div>
+                    <div class="session-title-ko fs-7pt-ko">${escapeHTML(session.Session_KOR || '')}</div>
+                    <div class="session-title-en fs-7pt-en">${escapeHTML(session.Session_ENG || '')}</div>
+                    <div class="session-speakers fs-6pt">
                         ${session.Speaker ? `연사: ${escapeHTML(session.Speaker)}\n` : ''}
                         ${session.Moderator ? `모더레이터: ${escapeHTML(session.Moderator)}` : ''}
                     </div>
