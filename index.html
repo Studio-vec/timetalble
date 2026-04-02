@@ -8,11 +8,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-    <button id="download-pdf-btn" class="pdf-btn">PDF로 다운로드</button>
+    <div class="control-panel">
+        <div class="lang-switch">
+            <button id="btn-ko" class="lang-btn active">KOR</button>
+            <button id="btn-en" class="lang-btn">ENG</button>
+        </div>
+        <button id="download-pdf-btn" class="pdf-btn">PDF 다운로드</button>
+    </div>
 
     <div class="a3-container" id="timetable-content">
         <header>
-            <h1>SESSIONS TIMETABLE</h1>
+            <h1 id="main-title">SESSIONS TIMETABLE</h1>
         </header>
         <div id="timetable-wrapper" class="timetable-wrapper"></div>
     </div>
