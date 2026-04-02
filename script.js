@@ -5,18 +5,16 @@ const END_HOUR = 20;
 const TOTAL_HOURS = END_HOUR - START_HOUR;
 
 const PALETTE = [
-    { bg: '#888888', border: '#777777' }, { bg: '#888888', border: '#777777' },
-    { bg: '#888888', border: '#777777' }, { bg: '#888888', border: '#777777' },
-    { bg: '#888888', border: '#777777' }, { bg: '#888888', border: '#777777' },
-    { bg: '#888888', border: '#777777' }
+    { bg: '#fce4ec', border: '#ec407a' }, { bg: '#e3f2fd', border: '#42a5f5' },
+    { bg: '#e8f5e9', border: '#66bb6a' }, { bg: '#fff3e0', border: '#ffa726' },
+    { bg: '#f3e5f5', border: '#ab47bc' }, { bg: '#e0f7fa', border: '#26c6da' },
+    { bg: '#fbe9e7', border: '#ff7043' }
 ];
 
-// ✨ 핵심: URL에서 '?lang=en' 꼬리표를 읽어와 초기 언어를 세팅합니다.
 const urlParams = new URLSearchParams(window.location.search);
 let currentLang = (urlParams.get('lang') === 'en') ? 'EN' : 'KO';
 let globalRawData = [];
 
-// 초기 버튼 스타일 세팅
 if (currentLang === 'EN') {
     document.getElementById('btn-en').classList.add('active');
     document.getElementById('btn-ko').classList.remove('active');
@@ -55,20 +53,30 @@ function renderTimetable() {
     const validData = [];
     globalRawData.forEach(item => {
         const keys = Object.keys(item);
-        const normalize = (str) => str ? str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() : '';
-        const findKey = (target) => keys.find(k => normalize(k) === target);
+        const normalize = (str) => str ? str.replace(/[^a-zA-Z0-9가-힣]/g, '').toLowerCase() : '';
+        const findKey = (target) => keys.find(k => normalize(k).includes(target));
+
         const startKey = findKey('starttime');
+        // ✨ '공개여부' 또는 'status' 열 찾기
+        const statusKey = findKey('status') || findKey('공개');
+
         if (startKey && item[startKey]) {
-            validData.push({
-                Date: item[findKey('date')] || '오류',
-                Place: item[findKey('place')] || '오류',
-                StartTime: item[startKey].trim(),
-                EndTime: item[findKey('endtime')] || '',
-                Session_ENG: item[findKey('sessioneng')] || '',
-                Session_KOR: item[findKey('sessionkor')] || '',
-                Speaker: item[findKey('speaker')] || '',
-                Moderator: item[findKey('moderator')] || ''
-            });
+            // ✨ 필터링 로직: 상태열이 있고 그 값이 '공개'인 경우에만 추가
+            // (상태열 자체가 없거나 비어있으면 기본적으로 공개로 처리하려면 로직 수정 가능)
+            const statusValue = statusKey ? item[statusKey].trim() : '공개';
+            
+            if (statusValue === '공개') {
+                validData.push({
+                    Date: item[findKey('date')] || '오류',
+                    Place: item[findKey('place')] || '오류',
+                    StartTime: item[startKey].trim(),
+                    EndTime: item[findKey('endtime')] || '',
+                    Session_ENG: item[findKey('sessioneng')] || '',
+                    Session_KOR: item[findKey('sessionkor')] || '',
+                    Speaker: item[findKey('speaker')] || '',
+                    Moderator: item[findKey('moderator')] || ''
+                });
+            }
         }
     });
 
@@ -128,7 +136,9 @@ function renderTimetable() {
                 block.style.top = `${startPos}%`; 
                 block.style.height = `${endPos - startPos}%`;
                 block.style.backgroundColor = colorSet.bg;
-                block.style.borderTop = `3px solid ${colorSet.border}`;
+                
+                // ✨ 요청하신 상단 선 두께 수정 포인트 (5px -> 원하는 수치로 변경 가능)
+                block.style.borderTop = `5px solid ${colorSet.border}`;
                 
                 let displayTitle = currentLang === 'KO' ? session.Session_KOR : session.Session_ENG;
                 if (!displayTitle || displayTitle.trim() === '') {
