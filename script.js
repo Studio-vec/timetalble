@@ -11,6 +11,11 @@ const PALETTE = [
     { bg: '#fbe9e7', border: '#ff7043' }
 ];
 
+// ✨ 언어 상태 변수 (기본값 KOR)
+let currentLang = 'KO';
+// 구글 시트 데이터를 저장해둘 전역 변수 (언어 전환 시 다시 다운받지 않기 위함)
+let globalRawData = [];
+
 function timeToPosition(timeStr) {
     if (!timeStr) return 0;
     const [hours, minutes] = timeStr.split(':').map(Number);
@@ -29,17 +34,20 @@ async function loadGoogleSheetData() {
         const csvText = await response.text();
         Papa.parse(csvText, {
             header: true, skipEmptyLines: true, 
-            complete: function(results) { renderTimetable(results.data); }
+            complete: function(results) { 
+                globalRawData = results.data; // 데이터 저장
+                renderTimetable(); // 최초 렌더링
+            }
         });
     } catch (e) { console.error(e); }
 }
 
-function renderTimetable(rawData) {
+function renderTimetable() {
     const wrapper = document.getElementById('timetable-wrapper');
     wrapper.innerHTML = ''; 
     
     const validData = [];
-    rawData.forEach(item => {
+    globalRawData.forEach(item => {
         const keys = Object.keys(item);
         const normalize = (str) => str ? str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() : '';
         const findKey = (target) => keys.find(k => normalize(k) === target);
@@ -69,18 +77,16 @@ function renderTimetable(rawData) {
         const placesContainer = document.createElement('div');
         placesContainer.className = 'places-container';
 
-        // ✨ 30분 간격 시간 축 생성 영역
+        // 30분 간격 시간 축 생성
         const timeAxis = document.createElement('div');
         timeAxis.className = 'time-axis';
         
-        // 1. 장소 헤더와 높이를 맞추기 위한 투명 헤더 삽입
         const dummyHeader = document.createElement('div');
         dummyHeader.className = 'place-header';
-        dummyHeader.style.visibility = 'hidden'; // 화면에 보이지 않지만 공간은 차지함
+        dummyHeader.style.visibility = 'hidden'; 
         dummyHeader.innerHTML = '시간';
         timeAxis.appendChild(dummyHeader);
 
-        // 2. 실제 시간 라벨들이 들어갈 트랙 영역
         const timeTrack = document.createElement('div');
         timeTrack.style.position = 'relative';
         timeTrack.style.flex = '1';
@@ -119,9 +125,15 @@ function renderTimetable(rawData) {
                 block.style.backgroundColor = colorSet.bg;
                 block.style.borderTop = `5px solid ${colorSet.border}`;
                 
+                // ✨ 언어에 따른 타이틀 선택 로직
+                let displayTitle = currentLang === 'KO' ? session.Session_KOR : session.Session_ENG;
+                // 만약 선택한 언어의 제목이 비어있다면, 다른 언어 제목으로 대체 (빈칸 방지)
+                if (!displayTitle || displayTitle.trim() === '') {
+                    displayTitle = currentLang === 'KO' ? session.Session_ENG : session.Session_KOR;
+                }
+                
                 block.innerHTML = `
-                    <div class="session-title-ko fs-7pt-ko">${escapeHTML(session.Session_KOR)}</div>
-                    <div class="session-title-en fs-7pt-en">${escapeHTML(session.Session_ENG)}</div>
+                    <div class="session-title fs-7pt-title">${escapeHTML(displayTitle)}</div>
                     <div class="session-time fs-5pt">${escapeHTML(session.StartTime)} - ${escapeHTML(session.EndTime)}</div>
                     <div class="session-speakers fs-6pt">
                         ${escapeHTML(session.Speaker)} ${escapeHTML(session.Moderator)}
@@ -136,6 +148,21 @@ function renderTimetable(rawData) {
     });
 }
 
+// ✨ 언어 토글 버튼 이벤트
+document.getElementById('btn-ko').addEventListener('click', () => {
+    currentLang = 'KO';
+    document.getElementById('btn-ko').classList.add('active');
+    document.getElementById('btn-en').classList.remove('active');
+    renderTimetable(); // 화면 즉시 업데이트
+});
+
+document.getElementById('btn-en').addEventListener('click', () => {
+    currentLang = 'EN';
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-ko').classList.remove('active');
+    renderTimetable(); // 화면 즉시 업데이트
+});
+
 // PDF 다운로드 버튼 이벤트
 document.getElementById('download-pdf-btn').addEventListener('click', () => {
     const btn = document.getElementById('download-pdf-btn');
@@ -146,7 +173,7 @@ document.getElementById('download-pdf-btn').addEventListener('click', () => {
     const element = document.getElementById('timetable-content');
     const opt = {
         margin:       0,
-        filename:     'Timetable.pdf',
+        filename:     currentLang === 'KO' ? 'Timetable_KOR.pdf' : 'Timetable_ENG.pdf', // 파일명도 언어별로 다르게 지정
         image:        { type: 'jpeg', quality: 1 }, 
         html2canvas:  { scale: 2, useCORS: true }, 
         jsPDF:        { unit: 'mm', format: 'a3', orientation: 'landscape' }
