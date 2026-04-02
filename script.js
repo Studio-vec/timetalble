@@ -23,22 +23,13 @@ function escapeHTML(str) {
     return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 
-function fitToScreen() {
-    const container = document.querySelector('.a3-container');
-    if(window.matchMedia("print").matches) { container.style.transform = 'none'; return; }
-    const mmToPx = 3.7795275591;
-    const scale = Math.min(window.innerWidth / (420 * mmToPx), window.innerHeight / (297 * mmToPx)) * 0.96; 
-    container.style.transform = `scale(${scale})`;
-}
-window.addEventListener('resize', fitToScreen);
-
 async function loadGoogleSheetData() {
     try {
         const response = await fetch(GOOGLE_SHEET_URL + '&t=' + new Date().getTime());
         const csvText = await response.text();
         Papa.parse(csvText, {
             header: true, skipEmptyLines: true, 
-            complete: function(results) { renderTimetable(results.data); setTimeout(fitToScreen, 100); }
+            complete: function(results) { renderTimetable(results.data); }
         });
     } catch (e) { console.error(e); }
 }
@@ -47,7 +38,6 @@ function renderTimetable(rawData) {
     const wrapper = document.getElementById('timetable-wrapper');
     wrapper.innerHTML = ''; 
     
-    // 데이터 추출 로직 (유령 문자 방어 포함)
     const validData = [];
     rawData.forEach(item => {
         const keys = Object.keys(item);
@@ -69,6 +59,9 @@ function renderTimetable(rawData) {
     });
 
     const dates = [...new Set(validData.map(item => item.Date))].sort();
+    
+    // ✨ 핵심: 전체 데이터에서 존재하는 "모든 장소"를 취합하여 기준 배열 생성
+    const allPlaces = [...new Set(validData.map(item => item.Place))].sort();
 
     dates.forEach(date => {
         const dateGroup = document.createElement('div');
@@ -78,7 +71,7 @@ function renderTimetable(rawData) {
         const placesContainer = document.createElement('div');
         placesContainer.className = 'places-container';
 
-        // ✨ 30분 간격 시간 축 생성 (날짜 그룹 왼쪽마다 추가)
+        // 30분 간격 시간 축 생성
         const timeAxis = document.createElement('div');
         timeAxis.className = 'time-axis';
         for (let h = START_HOUR; h <= END_HOUR; h++) {
@@ -95,15 +88,16 @@ function renderTimetable(rawData) {
         placesContainer.appendChild(timeAxis);
 
         const dateData = validData.filter(item => item.Date === date);
-        const places = [...new Set(dateData.map(item => item.Place))].sort();
         
-        places.forEach((place, index) => {
+        // ✨ 해당 날짜의 데이터(dateData) 기준이 아닌, 전체 장소(allPlaces) 기준으로 반복문 실행
+        allPlaces.forEach((place, index) => {
             const colorSet = PALETTE[index % PALETTE.length];
             const column = document.createElement('div');
             column.className = 'place-column';
             column.innerHTML = `<div class="place-header">${place}</div><div class="track-area"></div>`;
             const trackArea = column.querySelector('.track-area');
 
+            // 이 장소, 이 날짜에 해당하는 세션만 필터링 (없으면 그냥 빈 트랙이 유지됨)
             dateData.filter(d => d.Place === place).forEach(session => {
                 const startPos = timeToPosition(session.StartTime);
                 const endPos = timeToPosition(session.EndTime);
@@ -114,7 +108,6 @@ function renderTimetable(rawData) {
                 block.style.backgroundColor = colorSet.bg;
                 block.style.borderTop = `5px solid ${colorSet.border}`;
                 
-                // ✨ 텍스트 수정: 제목-시간-이름나열 (설명 생략)
                 block.innerHTML = `
                     <div class="session-title-ko fs-7pt-ko">${escapeHTML(session.Session_KOR)}</div>
                     <div class="session-title-en fs-7pt-en">${escapeHTML(session.Session_ENG)}</div>
@@ -131,5 +124,28 @@ function renderTimetable(rawData) {
         wrapper.appendChild(dateGroup);
     });
 }
+
+// ✨ PDF 다운로드 버튼 이벤트 등록
+document.getElementById('download-pdf-btn').addEventListener('click', () => {
+    // 버튼 텍스트 변경으로 진행 상태 알림
+    const btn = document.getElementById('download-pdf-btn');
+    const originalText = btn.innerText;
+    btn.innerText = "PDF 생성 중...";
+    btn.disabled = true;
+
+    const element = document.getElementById('timetable-content');
+    const opt = {
+        margin:       0,
+        filename:     'Timetable.pdf',
+        image:        { type: 'jpeg', quality: 1 }, // 최고 화질
+        html2canvas:  { scale: 2, useCORS: true }, // 레티나 디스플레이 대응 스케일업
+        jsPDF:        { unit: 'mm', format: 'a3', orientation: 'landscape' }
+    };
+
+    html2pdf().set(opt).from(element).save().then(() => {
+        btn.innerText = originalText;
+        btn.disabled = false;
+    });
+});
 
 loadGoogleSheetData();
