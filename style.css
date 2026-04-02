@@ -7,12 +7,11 @@
 @page { size: A3 landscape; margin: 0; }
 
 body {
-    margin: 0; padding: 20mm; /* 확대/축소 시 여백이 있도록 패딩 추가 */
+    margin: 0; padding: 20mm; 
     font-family: 'Noto Sans KR', -apple-system, sans-serif;
     background-color: #525659;
     display: flex; align-items: flex-start; justify-content: center;
     min-height: 100vh;
-    /* ✨ overflow: hidden; 삭제 -> 스크롤 및 확대 자유롭게 가능! */
 }
 
 .a3-container {
@@ -44,12 +43,9 @@ header h1 {
 .places-container { display: flex; flex: 1; gap: 3px; position: relative; }
 
 .time-axis {
-    display: flex; 
-    flex-direction: column;
-    width: 12mm; 
-    position: relative;
-    border-right: 1px solid #ddd; 
-    margin-right: 2mm;
+    display: flex; flex-direction: column;
+    width: 12mm; position: relative;
+    border-right: 1px solid #ddd; margin-right: 2mm;
 }
 
 .time-label {
@@ -86,36 +82,48 @@ header h1 {
     padding: 3px; overflow: hidden; border: none;
 }
 
-.session-title-ko, .session-title-en, .session-time, .session-speakers {
+.session-title, .session-time, .session-speakers {
     word-break: break-word; line-height: 1.1;
 }
 
-.fs-7pt-ko { font-weight: 800; font-size: 7pt !important; margin-bottom: 2px; color: #000; }
-.fs-7pt-en { font-weight: 600; font-size: 7pt !important; color: #444; margin-bottom: 3px; }
+/* ✨ 국/영문 통합 타이틀 폰트 */
+.fs-7pt-title { 
+    font-weight: 800; font-size: 7pt !important; margin-bottom: 2.5px; color: #000; 
+}
 .fs-5pt { font-weight: 800; font-size: 5pt !important; color: #666; margin-bottom: 3px; }
-
-/* ✨ 자간 조정 및 한 줄 강제 처리 */
 .fs-6pt { 
-    font-size: 6pt !important; 
-    color: #222; 
-    letter-spacing: -0.5px; /* 자간을 좁혀서 공간 확보 */
-    white-space: nowrap; /* 줄바꿈 금지 */
-    overflow: hidden; 
-    text-overflow: ellipsis; /* 너무 길면 ... 으로 표시 */
+    font-size: 6pt !important; color: #222; 
+    letter-spacing: -0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
 }
 
-/* PDF 다운로드 버튼 스타일 */
-.pdf-btn {
+/* ✨ 상단 컨트롤 패널 (언어 토글 및 PDF) */
+.control-panel {
     position: fixed; top: 20px; right: 20px;
+    display: flex; gap: 10px; z-index: 1000;
+}
+
+.lang-switch {
+    display: flex; background-color: #fff; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.lang-btn {
+    padding: 12px 20px; border: none; background: none; font-weight: bold;
+    cursor: pointer; font-size: 14px; color: #666; transition: 0.2s;
+}
+
+.lang-btn.active { background-color: #1a73e8; color: white; }
+
+.pdf-btn {
     padding: 12px 24px; background-color: #2e7d32; color: white;
     border: none; border-radius: 8px; font-weight: bold; font-size: 14px;
-    cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.3); z-index: 1000;
+    cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 .pdf-btn:hover { background-color: #1b5e20; }
 
-/* 인쇄 시 불필요한 요소 숨김 및 최적화 */
+/* 인쇄 시 버튼 숨김 */
 @media print {
     body { background-color: white; padding: 0; }
     .a3-container { box-shadow: none; }
-    .pdf-btn { display: none; } /* 인쇄 시 버튼 숨김 */
+    .control-panel { display: none; } 
 }
