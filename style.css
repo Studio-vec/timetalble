@@ -44,8 +44,12 @@ header h1 {
 .places-container { display: flex; flex: 1; gap: 3px; position: relative; }
 
 .time-axis {
-    width: 12mm; position: relative;
-    border-right: 1px solid #ddd; margin-right: 2mm;
+    display: flex; 
+    flex-direction: column;
+    width: 12mm; 
+    position: relative;
+    border-right: 1px solid #ddd; 
+    margin-right: 2mm;
 }
 
 .time-label {
