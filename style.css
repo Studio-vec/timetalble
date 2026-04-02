@@ -1,74 +1,120 @@
-/* A3 사이즈 및 인쇄 설정 */
+/* A3 사이즈 및 인쇄 설정 (가로 방향) */
 @page {
     size: A3 landscape;
     margin: 0;
 }
 
+/* 브라우저 화면 기본 설정 */
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px; /* 브라우저에서 보기 좋게 여백 추가 */
     background-color: #f4f4f4;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
     display: flex;
     justify-content: center;
 }
 
+/* A3 용지 컨테이너 (실제 A3 사이즈 규격 지정) */
 .a3-container {
     width: 420mm;
     height: 297mm;
     background-color: white;
     padding: 20mm;
     box-sizing: border-box;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
 }
 
+/* 상단 타이틀 영역 */
 header h1 {
     text-align: center;
     font-size: 32px;
+    margin-top: 0;
     margin-bottom: 20px;
     color: #333;
+    letter-spacing: 2px;
 }
 
-/* 타임테이블 그리드 컨테이너 */
+/* 타임테이블 전체 그리드 (장소별 열을 담는 부모 박스) */
 .timetable-wrapper {
     display: flex;
-    flex: 1;
-    gap: 10px;
+    flex: 1; /* 남은 A3 공간 꽉 채우기 */
+    gap: 15px; /* 장소(Column) 간격 */
     position: relative;
-    border-top: 2px solid #333;
+    border-top: 3px solid #333;
+    padding-top: 15px;
 }
 
-/* 장소별 칼럼 */
+/* 장소별 칼럼 (세로줄) */
 .place-column {
     flex: 1;
-    position: relative;
-    border-right: 1px dashed #ccc;
+    position: relative; /* 하위 세션 블록의 절대 좌표(absolute) 기준점 */
+    border-right: 1px dashed #ddd;
 }
 
+/* 마지막 칼럼은 우측 점선 제거 */
+.place-column:last-child {
+    border-right: none;
+}
+
+/* 장소 이름 헤더 */
 .place-header {
     text-align: center;
     font-weight: bold;
+    font-size: 16px;
     padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
     background-color: #fafafa;
+    border-radius: 4px;
 }
 
 /* 개별 세션 블록 */
 .session-block {
     position: absolute;
-    width: 95%;
-    left: 2.5%;
-    border-radius: 4px;
-    padding: 8px;
+    width: 96%; /* 칼럼 내 좌우 꽉 차지 않게 여백 확보 */
+    left: 2%;
+    border-radius: 6px;
+    padding: 10px;
     box-sizing: border-box;
-    font-size: 11px;
-    overflow: hidden;
+    overflow: hidden; /* 시간이 짧아 박스가 작을 때 텍스트가 넘치면 숨김 처리 */
     border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.05);
 }
 
-.session-time { font-weight: bold; margin-bottom: 4px; color: #555; }
-.session-title-ko { font-weight: bold; font-size: 13px; margin-bottom: 2px; }
-.session-title-en { font-size: 10px; color: #666; margin-bottom: 6px; }
-.session-speakers { font-size: 10px; color: #333; }
+/* --- 텍스트 및 서식 설정 --- */
+
+/* ✨ 핵심: 구글 시트의 줄바꿈(엔터)과 띄어쓰기를 그대로 유지 */
+.session-title-ko, 
+.session-title-en, 
+.session-speakers {
+    white-space: pre-wrap; 
+    word-break: break-word; /* 긴 단어나 영문이 박스를 뚫고 나가지 않게 자동 줄바꿈 */
+    line-height: 1.4;
+}
+
+.session-time { 
+    font-weight: 800; 
+    font-size: 11px;
+    margin-bottom: 6px; 
+    color: #444; 
+}
+
+.session-title-ko { 
+    font-weight: 800; 
+    font-size: 13px; 
+    margin-bottom: 4px; 
+    color: #111;
+}
+
+.session-title-en { 
+    font-size: 11px; 
+    color: #666; 
+    margin-bottom: 8px; 
+}
+
+.session-speakers { 
+    font-size: 11px; 
+    color: #333; 
+}
