@@ -1,12 +1,11 @@
-// 1. 구글 시트 링크
-const GOOGLE_SHEET_URL = '여기에_구글시트_CSV_링크를_붙여넣으세요';
+// 1. 구글 시트 링크 (복사해주신 링크 그대로 적용했습니다)
+const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCmxR31uqR0rOOw9xE0smFQnEa7WTGHUJyQXtyHu6Ru1e3Ca32u9b-hL5qFhlu0S5d-rIvQu7d3b/pub?output=csv';
 
 // 2. 시간표 설정 (08:00 ~ 20:00, 총 12시간)
 const START_HOUR = 8; 
 const END_HOUR = 20;
 const TOTAL_HOURS = END_HOUR - START_HOUR;
 
-// 장소별 배경색 팔레트 (파스텔 톤)
 const PLACE_COLORS = [
     '#fce4ec', '#e3f2fd', '#e8f5e9', '#fff3e0', '#f3e5f5', '#e0f7fa', '#fbe9e7'
 ];
@@ -20,12 +19,11 @@ function timeToPosition(timeStr) {
 
 function escapeHTML(str) {
     if (!str) return '';
-    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 }
 
 async function loadGoogleSheetData() {
     try {
-        // 혹시 모를 브라우저 캐시 방지를 위해 URL 뒤에 랜덤 파라미터 추가
         const noCacheUrl = GOOGLE_SHEET_URL + '&t=' + new Date().getTime();
         const response = await fetch(noCacheUrl);
         const csvText = await response.text();
@@ -33,13 +31,7 @@ async function loadGoogleSheetData() {
         Papa.parse(csvText, {
             header: true,         
             skipEmptyLines: true, 
-            // ✨ 핵심 추가: 헤더 이름에 숨겨진 띄어쓰기나 오류 문자(BOM)를 강제로 제거
-            transformHeader: function(header) {
-                return header.replace(/[\uFEFF\u200B]/g, '').trim();
-            },
             complete: function(results) {
-                // 브라우저 개발자 도구(F12) 콘솔에서 실제 데이터를 확인할 수 있도록 출력
-                console.log("✅ 성공적으로 읽어온 첫 번째 데이터 확인:", results.data[0]);
                 renderTimetable(results.data);
             }
         });
@@ -48,19 +40,43 @@ async function loadGoogleSheetData() {
     }
 }
 
-function renderTimetable(data) {
+function renderTimetable(rawData) {
     const wrapper = document.getElementById('timetable-wrapper');
     wrapper.innerHTML = ''; 
     
-    // 데이터 보정: 날짜나 장소가 비어있으면 '미지정'으로 처리하여 겹침 방지
-    const safeData = data.map(item => ({
-        ...item,
-        Date: item.Date ? item.Date.trim() : '날짜 미지정',
-        Place: item.Place ? item.Place.trim() : '장소 미지정'
-    }));
+    // ✨ 핵심 보완: 눈에 보이지 않는 유령 문자, 공백, 대소문자를 모두 무시하는 강력한 추출기
+    const validData = [];
+    
+    rawData.forEach(item => {
+        const keys = Object.keys(item);
+        // 알파벳과 숫자만 추출해 소문자로 변환 (예: "[유령문자] Date " -> "date")
+        const normalize = (str) => str ? str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() : '';
+        
+        // 정확한 알파벳 키워드가 포함된 열을 강제로 찾는 함수
+        const findKey = (target) => keys.find(k => normalize(k) === target);
 
-    // 1단계: 전체 데이터에서 중복 없는 '날짜(Date)' 배열 추출 및 정렬
-    const dates = [...new Set(safeData.map(item => item.Date))].sort();
+        const dateKey = findKey('date');
+        const placeKey = findKey('place');
+        const startKey = findKey('starttime');
+        const endKey = findKey('endtime');
+
+        // 시작 시간이 비어있지 않은 정상적인 행만 취합합니다.
+        if (startKey && item[startKey] && item[startKey].trim() !== '') {
+            validData.push({
+                Date: (dateKey && item[dateKey]) ? item[dateKey].trim() : '날짜 오류',
+                Place: (placeKey && item[placeKey]) ? item[placeKey].trim() : '장소 오류',
+                StartTime: item[startKey].trim(),
+                EndTime: (endKey && item[endKey]) ? item[endKey].trim() : '',
+                Session_ENG: item[findKey('sessioneng')] || '',
+                Session_KOR: item[findKey('sessionkor')] || '',
+                Speaker: item[findKey('speaker')] || '',
+                Moderator: item[findKey('moderator')] || ''
+            });
+        }
+    });
+
+    // 1단계: 전체 데이터에서 중복 없는 '날짜(Date)' 배열 추출 및 오름차순 정렬
+    const dates = [...new Set(validData.map(item => item.Date))].sort();
 
     dates.forEach(date => {
         const dateGroup = document.createElement('div');
@@ -74,9 +90,10 @@ function renderTimetable(data) {
         const placesContainer = document.createElement('div');
         placesContainer.className = 'places-container';
 
-        const dateData = safeData.filter(item => item.Date === date);
-        // 2단계: 해당 날짜에 존재하는 '장소(Place)' 배열 추출
-        const places = [...new Set(dateData.map(item => item.Place))];
+        const dateData = validData.filter(item => item.Date === date);
+        
+        // 2단계: 장소(Place) 배열 추출 및 정렬 (가나다/알파벳 순으로 예쁘게 배치)
+        const places = [...new Set(dateData.map(item => item.Place))].sort();
         
         places.forEach((place, index) => {
             const placeColor = PLACE_COLORS[index % PLACE_COLORS.length];
@@ -96,7 +113,6 @@ function renderTimetable(data) {
             const sessions = dateData.filter(item => item.Place === place);
             
             sessions.forEach(session => {
-                // 시작/종료 시간이 없으면 그리지 않음
                 if(!session.StartTime || !session.EndTime) return;
 
                 const startPos = timeToPosition(session.StartTime);
@@ -110,7 +126,6 @@ function renderTimetable(data) {
                 block.style.height = `${height}%`;
                 block.style.backgroundColor = placeColor;
                 
-                // ✨ 요청하신 pt 단위 폰트 클래스 적용
                 block.innerHTML = `
                     <div class="session-time fs-5pt">${escapeHTML(session.StartTime)} - ${escapeHTML(session.EndTime)}</div>
                     <div class="session-title-ko fs-7pt-ko">${escapeHTML(session.Session_KOR || '')}</div>
