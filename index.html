@@ -5,14 +5,18 @@
     <title>Sessions Timetable</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-    <div class="a3-container">
+    <button id="download-pdf-btn" class="pdf-btn">PDF로 다운로드</button>
+
+    <div class="a3-container" id="timetable-content">
         <header>
             <h1>SESSIONS TIMETABLE</h1>
         </header>
         <div id="timetable-wrapper" class="timetable-wrapper"></div>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
