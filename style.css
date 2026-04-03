@@ -9,10 +9,16 @@ body {
 
 /* A3 용지 규격 (420x297mm) */
 #timetable-content { 
-    width: 410mm; height: 290mm; background-color: #fff; margin: 0 auto;
-    padding: 5mm 10mm 10mm 10mm; /* 상단(5mm), 좌우(10mm), 하단(10mm) */
+    width: 420mm; 
+    height: 297mm; /* 규격 유지 */
+    background-color: #fff; 
+    margin: 0 auto;
+    padding: 10mm; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-    overflow: hidden; display: flex; flex-direction: column;
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column;
+    box-sizing: border-box; /* 패딩이 전체 크기를 키우지 않도록 설정 */
 }
 
 /* 3. 타이틀 자체의 위쪽 마진 제거 */
@@ -34,6 +40,21 @@ body {
 
 /* 🚀 PDF 잘림 방지를 위해 높이를 880px로 최적화 */
 .places-container { display: flex; position: relative; background: #fff; flex: 1; min-height: 0; }
+
+/* 🚀 PDF 생성 시에만 작동하는 클린 스타일 (매우 중요) */
+.html2canvas-container { width: 100% !important; height: 100% !important; }
+
+/* html2pdf가 내부적으로 사용하는 클래스를 제어하여 2페이지 방지 */
+.html2pdf__page-break { display: none; }
+
+/* PDF 전용 인쇄 설정 */
+@media print {
+    #timetable-content { 
+        margin: 0 !important; /* 좌측 쏠림 방지 */
+        box-shadow: none !important; /* 그림자 때문에 페이지 넘어가는 것 방지 */
+        border: none !important;
+    }
+}
 
 /* 🚀 모든 세로선(border-right) 제거 */
 .time-axis { 
