@@ -116,3 +116,18 @@ body {
     #timetable-content { border: none; box-shadow: none; width: 100%; margin: 0; padding: 10mm; }
     .no-print { display: none !important; }
 }
+
+/* [추가] PDF 생성 시 쏠림과 2페이지 방지를 위한 강제 설정 */
+#timetable-content.pdf-mode {
+    margin: 0 !important;      /* 중앙 정렬 해제하여 쏠림 방지 */
+    box-shadow: none !important; /* 그림자 제거하여 규격 오차 방지 */
+    border: none !important;
+    transform: none !important;
+}
+
+/* 2페이지 분할 방지를 위해 높이를 아주 미세하게 줄임 */
+@media print {
+    #timetable-content {
+        height: 296.5mm !important;
+    }
+}
