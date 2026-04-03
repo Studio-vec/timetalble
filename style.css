@@ -11,7 +11,7 @@ body {
     width: 420mm;  /* A3 가로 표준 */
     min-height: 297mm; /* A3 세로 표준 */
     background-color: #fff; 
-    padding: 30px; 
+    padding: 20px; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* 종이가 떠 있는 듯한 그림자 */
     border: 1px solid #bbb; /* 실제 종이 경계선 */
     box-sizing: border-box;
