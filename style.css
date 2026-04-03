@@ -7,9 +7,9 @@ body {
 
 /* A3 용지 규격 (420x297mm) */
 #timetable-content { 
-    width: 420mm; height: 297mm; background-color: #fff; 
+    width: 420mm; height: 297mm; background-color: #fff; margin: 0 auto;
     padding: 10mm; box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-    overflow: hidden; /* 영역 밖으로 나가는 것 방지 */
+    overflow: hidden; display: flex; flex-direction: column; /* 영역 밖으로 나가는 것 방지 */
 }
 
 .main-title { text-align: center; font-size: 30px; margin-bottom: 15px; font-weight: 900; }
@@ -18,12 +18,12 @@ body {
 .controls button { padding: 8px 20px; border: 1px solid #000; background: #fff; font-weight: bold; cursor: pointer; }
 .controls button.active { background: #000; color: #fff; }
 
-#timetable-wrapper { display: flex; flex-direction: row; gap: 10px; align-items: stretch; }
+#timetable-wrapper {flex: 1; display: flex; flex-direction: row; gap: 8px;}
 .date-group { flex: 1; display: flex; flex-direction: column; }
 .date-header { font-size: 18px; font-weight: 800; text-align: center; padding: 12px; background: #222; color: #fff; }
 
 /* 🚀 PDF 잘림 방지를 위해 높이를 880px로 최적화 */
-.places-container { display: flex; position: relative; background: #fff; height: 860px; }
+.places-container { display: flex; position: relative; background: #fff; flex: 1; min-height: 0; }
 
 /* 🚀 모든 세로선(border-right) 제거 */
 .time-axis { 
