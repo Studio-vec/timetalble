@@ -1,14 +1,16 @@
 const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCmxR31uqR0rOOw9xE0smFQnEa7WTGHUJyQXtyHu6Ru1e3Ca32u9b-hL5qFhlu0S5d-rIvQu7d3b/pub?gid=528506633&single=true&output=csv';
 
+// 1. 날짜 매핑
 const DATE_MAP = {
     "09-08": { KO: "9월 8일(화)", EN: "Sep. 8th (Tue)" },
     "09-09": { KO: "9월 9일(수)", EN: "Sep. 9th (Wed)" },
     "09-10": { KO: "9월 10일(목)", EN: "Sep. 10th (Thu)" }
 };
 
-// 🚀 장소 순서 정의 (이 순서대로 화면에 나옵니다)
+// 2. 장소 순서 고정
 const PLACE_ORDER = ["장충", "다이너A", "다이너B", "에메랄드", "루비", "토파즈", "이벤트"];
 
+// 3. 장소 이름 매핑
 const PLACE_MAP = {
     "장충": { KO: "장충", EN: "Jangchung" },
     "다이너A": { KO: "다이너스티 A", EN: "Dynasty A" },
@@ -90,7 +92,7 @@ function renderTimetable() {
 
     const dates = [...new Set(validData.map(d => d.Date))].sort();
     
-    // 🚀 장소 순서를 PLACE_ORDER 기준으로 정렬
+    // 장소 정렬 (PLACE_ORDER 기준)
     const allPlaces = [...new Set(validData.map(d => d.Place))].sort((a, b) => {
         return PLACE_ORDER.indexOf(a) - PLACE_ORDER.indexOf(b);
     });
@@ -141,7 +143,7 @@ function renderTimetable() {
                 block.style.top = `${startPos}%`;
                 block.style.height = `${Math.max(endPos - startPos, 4)}%`; 
                 block.style.backgroundColor = color.bg;
-                block.style.borderTop = `5px solid ${color.border}`; // 상단 굵은 선 유지
+                block.style.borderTop = `5px solid ${color.border}`; // 상단 굵은 선
 
                 const t = currentLang === 'KO' ? (s.Session_KOR || s.Session_ENG) : (s.Session_ENG || s.Session_KOR);
                 const spk = currentLang === 'KO' ? s.Speaker_KOR : s.Speaker_ENG;
@@ -172,13 +174,14 @@ function updateBtn(activeId, inactiveId) {
 }
 
 document.getElementById('download-pdf-btn').onclick = () => {
+    window.scrollTo(0,0);
     const el = document.getElementById('timetable-content');
     html2pdf().set({
         margin: 0,
-        filename: 'timetable.pdf',
+        filename: 'timetable_A3.pdf',
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' }
+        html2canvas: { scale: 2, useCORS: true, windowWidth: 1600 },
+        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true }
     }).from(el).save();
 };
 
