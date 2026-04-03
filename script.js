@@ -206,30 +206,23 @@ function renderTimetable() {
 }
 
 // 버튼 리스너 복구
-document.getElementById('btn-ko').onclick = function() {
-    currentLang = 'KO';
-    document.getElementById('btn-ko').classList.add('active');
-    document.getElementById('btn-en').classList.remove('active');
-    renderTimetable();
-};
-
-document.getElementById('btn-en').onclick = function() {
-    currentLang = 'EN';
-    document.getElementById('btn-en').classList.add('active');
-    document.getElementById('btn-ko').classList.remove('active');
-    renderTimetable();
-};
-
-// PDF 다운로드 (완벽 중앙 정렬 및 쏠림 방지)
 document.getElementById('download-pdf-btn').onclick = () => {
     const btn = document.getElementById('download-pdf-btn');
     const el = document.getElementById('timetable-content');
     
+    if (!el) return;
+
+    const originalText = btn.innerText;
     btn.innerText = "PDF 생성 중...";
     btn.disabled = true;
 
-    el.classList.add('pdf-mode');
-    window.scrollTo(0, 0);
+    // [핵심] PDF 캡처 시 위치 오차를 줄이기 위해 스타일 임시 변경
+    const originalStyle = el.style.cssText;
+    el.style.position = 'fixed'; // 화면 위치 고정
+    el.style.left = '0';         // 왼쪽 끝으로 밀착
+    el.style.top = '0';          // 위쪽 끝으로 밀착
+    el.style.margin = '0';       // 마진 제거
+    el.style.zIndex = '-9999';   // 사용자 눈에는 안 보이게 배경으로 보냄
 
     const opt = {
         margin: 0,
@@ -238,22 +231,40 @@ document.getElementById('download-pdf-btn').onclick = () => {
         html2canvas: { 
             scale: 2, 
             useCORS: true, 
-            width: el.offsetWidth,
-            height: el.offsetHeight,
-            scrollX: 0, scrollY: 0, x: 0, y: 0
+            logging: false,
+            width: 1587, // A3 가로 픽셀 근사치 (420mm)
+            windowWidth: 1587,
+            x: 0,
+            y: 0,
+            scrollX: 0,
+            scrollY: 0
         },
-        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true }
+        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true },
+        pagebreak: { mode: 'avoid-all' }
     };
 
     html2pdf().from(el).set(opt).save().then(() => {
-        el.classList.remove('pdf-mode');
-        btn.innerText = "PDF 다운로드 (A3 가로)";
+        // [핵심] 다시 원래 스타일로 복구 (중앙 정렬로 돌아옴)
+        el.style.cssText = originalStyle;
+        btn.innerText = originalText;
         btn.disabled = false;
     }).catch(err => {
-        el.classList.remove('pdf-mode');
+        el.style.cssText = originalStyle;
+        console.error("PDF 에러:", err);
         btn.innerText = "실패 (재시도)";
         btn.disabled = false;
     });
 };
+
+// [확인] 영문 버튼이 안될 경우를 대비한 클릭 이벤트 재설정
+const btnEn = document.getElementById('btn-en');
+if(btnEn) {
+    btnEn.onclick = function() {
+        currentLang = 'EN';
+        this.classList.add('active');
+        document.getElementById('btn-ko').classList.remove('active');
+        renderTimetable();
+    };
+}
 
 loadGoogleSheetData();
