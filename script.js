@@ -1,7 +1,5 @@
-// 1. 구글 시트 CSV 링크
 const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCmxR31uqR0rOOw9xE0smFQnEa7WTGHUJyQXtyHu6Ru1e3Ca32u9b-hL5qFhlu0S5d-rIvQu7d3b/pub?gid=528506633&single=true&output=csv';
 
-// 2. 날짜 및 장소 이름 매핑
 const DATE_MAP = {
     "09-08": { KO: "9월 8일(화)", EN: "Sep. 8th (Tue)" },
     "09-09": { KO: "9월 9일(수)", EN: "Sep. 9th (Wed)" },
@@ -105,7 +103,6 @@ function renderTimetable() {
         timeTrack.className = 'track-area'; 
         timeTrack.style.backgroundImage = 'none';
 
-        // 30분 간격 숫자 생성 로직
         for (let h = START_HOUR; h <= END_HOUR; h++) {
             [0, 30].forEach(m => {
                 if (h === END_HOUR && m > 0) return;
@@ -136,16 +133,12 @@ function renderTimetable() {
                 block.style.top = `${startPos}%`;
                 block.style.height = `${Math.max(endPos - startPos, 4)}%`; 
                 block.style.backgroundColor = color.bg;
-                
-                // 🚀 왼쪽 선을 없애고 다시 상단 굵은 선으로 복구
-                block.style.borderTop = `5px solid ${color.border}`;
-                block.style.borderLeft = `none`;
+                block.style.borderTop = `5px solid ${color.border}`; // 🚀 상단 굵은 선
 
                 const t = currentLang === 'KO' ? (s.Session_KOR || s.Session_ENG) : (s.Session_ENG || s.Session_KOR);
                 const spk = currentLang === 'KO' ? s.Speaker_KOR : s.Speaker_ENG;
                 const mod = currentLang === 'KO' ? s.Moderator_KOR : s.Moderator_ENG;
 
-                // 🚀 아이콘 삭제
                 block.innerHTML = `
                     <div class="session-title">${escapeHTML(t)}</div>
                     <div class="session-time">${s.StartTime} - ${s.EndTime}</div>
