@@ -4,12 +4,18 @@ const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCm
 // 2. [수정 포인트] 날짜 및 장소 이름 변환 매핑
 const DATE_MAP = {
     "09-08": { KO: "9월 8일(화)", EN: "Sep. 8th (Tue)" },
-    "09-09": { KO: "9월 9일(수)", EN: "Sep. 9th (Wed)" }
+    "09-09": { KO: "9월 9일(수)", EN: "Sep. 9th (Wed)" },
+    "09-10": { KO: "9월 10일(목)", EN: "Sep. 10th (Thu)" }
 };
 
 const PLACE_MAP = {
-    "Room A": { KO: "세미나실 A", EN: "Conference Room A" },
-    "Room B": { KO: "대강당", EN: "Main Auditorium" }
+    "장충": { KO: "장충", EN: "Jangchung" },
+    "다이너A": { KO: "다이너스티A", EN: "Dynasty A" },
+    "다이너B": { KO: "다이너스티B", EN: "Dynasty B" },
+    "에메랄드": { KO: "에메랄드", EN: "Emerald" },
+    "루비": { KO: "루비", EN: "Ruby" },
+    "토파즈": { KO: "토파즈", EN: "Topaz" },
+    "이벤트": { KO: "이벤트", EN: "Event" }
 };
 
 const START_HOUR = 8; 
