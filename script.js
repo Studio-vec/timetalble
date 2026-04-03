@@ -173,13 +173,6 @@ function renderTimetable() {
     });
 }
 
-document.getElementById('btn-ko').onclick = () => { currentLang = 'KO'; updateBtn('btn-ko', 'btn-en'); renderTimetable(); };
-document.getElementById('btn-en').onclick = () => { currentLang = 'EN'; updateBtn('btn-en', 'btn-ko'); renderTimetable(); };
-function updateBtn(activeId, inactiveId) {
-    document.getElementById(activeId).classList.add('active');
-    document.getElementById(inactiveId).classList.remove('active');
-}
-
 document.getElementById('download-pdf-btn').onclick = () => {
     const btn = document.getElementById('download-pdf-btn');
     const el = document.getElementById('timetable-content');
@@ -190,44 +183,36 @@ document.getElementById('download-pdf-btn').onclick = () => {
     btn.innerText = "PDF 생성 중...";
     btn.disabled = true;
 
-    // PDF 변환 옵션 최적화
+    // 현재 화면 스크롤 위치 저장 후 맨 위로 강제 이동 (캡처 오류 방지)
+    const scrollY = window.scrollY;
+    window.scrollTo(0, 0);
+
     const opt = {
         margin: 0,
         filename: 'timetable_A3.pdf',
         image: { type: 'jpeg', quality: 1.0 },
         html2canvas: { 
-            scale: 3,          // 화질 향상
+            scale: 2, 
             useCORS: true, 
             logging: false,
-            // [핵심] 요소의 실제 크기를 강제로 윈도우 크기로 인식시켜 쏠림 방지
+            // [중요] x: 0을 통해 왼쪽 쏠림 방지, 너비를 요소 크기에 딱 맞춤
+            width: el.offsetWidth,
             windowWidth: el.offsetWidth,
-            windowHeight: el.offsetHeight,
+            x: 0, 
+            y: 0,
             scrollX: 0,
             scrollY: 0
         },
-        jsPDF: { 
-            unit: 'mm', 
-            format: 'a3', 
-            orientation: 'landscape', 
-            compress: true 
-        },
-        // [핵심] 페이지 분할 강제 방지
-        pagebreak: { mode: 'avoid-all' }
+        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true },
+        // [중요] 페이지 분할 강제 금지
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
     };
 
-    // 실행 전 스크롤을 맨 위로 올려 캡처 오류 방지
-    window.scrollTo(0, 0);
-
-    html2pdf().from(el).set(opt).toPdf().get('pdf').then(function (pdf) {
-        // [핵심] 콘텐츠를 PDF 페이지 중앙에 꽉 차게 배치하는 로직
-        const totalPages = pdf.internal.getNumberOfPages();
-        for (let i = 1; i <= totalPages; i++) {
-            pdf.setPage(i);
-            // 만약 2페이지가 빈 페이지로 생성되었다면 삭제 시도 (선택 사항)
-        }
-    }).save().then(() => {
+    html2pdf().from(el).set(opt).save().then(() => {
         btn.innerText = originalText;
         btn.disabled = false;
+        // 원래 스크롤 위치로 복구
+        window.scrollTo(0, scrollY);
     }).catch(err => {
         console.error("PDF 에러:", err);
         btn.innerText = "실패 (재시도)";
