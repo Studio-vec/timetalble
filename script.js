@@ -1,16 +1,13 @@
 const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCmxR31uqR0rOOw9xE0smFQnEa7WTGHUJyQXtyHu6Ru1e3Ca32u9b-hL5qFhlu0S5d-rIvQu7d3b/pub?gid=528506633&single=true&output=csv';
 
-// 1. 날짜 매핑
 const DATE_MAP = {
     "09-08": { KO: "9월 8일(화)", EN: "Sep. 8th (Tue)" },
     "09-09": { KO: "9월 9일(수)", EN: "Sep. 9th (Wed)" },
     "09-10": { KO: "9월 10일(목)", EN: "Sep. 10th (Thu)" }
 };
 
-// 2. 장소 순서 고정
 const PLACE_ORDER = ["장충", "다이너A", "다이너B", "에메랄드", "루비", "토파즈", "이벤트"];
 
-// 3. 장소 이름 매핑
 const PLACE_MAP = {
     "장충": { KO: "장충", EN: "Jangchung" },
     "다이너A": { KO: "다이너스티 A", EN: "Dynasty A" },
@@ -69,11 +66,16 @@ function renderTimetable() {
     const validData = [];
     globalRawData.forEach(item => {
         const keys = Object.keys(item);
-        // [수정] 한글 헤더 검색이 가능하도록 정규식 수정
+        
+        // [복구 완료] 한글, 영문, 특수문자 대응 검색 로직
         const findValue = (keywords) => {
             const key = keys.find(k => {
-                const cleanKey = k.toLowerCase().trim();
-                return keywords.some(kw => cleanKey.includes(kw.toLowerCase()));
+                // 헤더와 키워드 모두에서 공백, 언더바, 특수문자를 제거하고 비교
+                const cleanKey = k.toLowerCase().replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+                return keywords.some(kw => {
+                    const cleanKw = kw.toLowerCase().replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+                    return cleanKey.includes(cleanKw);
+                });
             });
             return key ? item[key] : '';
         };
@@ -97,7 +99,9 @@ function renderTimetable() {
 
     const dates = [...new Set(validData.map(d => d.Date))].filter(d => d).sort();
     const allPlaces = [...new Set(validData.map(d => d.Place))].filter(p => p).sort((a, b) => {
-        return PLACE_ORDER.indexOf(a) - PLACE_ORDER.indexOf(b);
+        const idxA = PLACE_ORDER.indexOf(a);
+        const idxB = PLACE_ORDER.indexOf(b);
+        return (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
     });
 
     dates.forEach(date => {
@@ -176,13 +180,12 @@ function updateBtn(activeId, inactiveId) {
     document.getElementById(inactiveId).classList.remove('active');
 }
 
-// [수정] PDF 다운로드 로직 안정화
 document.getElementById('download-pdf-btn').onclick = () => {
     const btn = document.getElementById('download-pdf-btn');
     const el = document.getElementById('timetable-content');
-    
     if (!el) return;
 
+    const originalText = btn.innerText;
     btn.innerText = "PDF 생성 중...";
     btn.disabled = true;
 
@@ -190,22 +193,16 @@ document.getElementById('download-pdf-btn').onclick = () => {
         margin: 0,
         filename: 'timetable_A3.pdf',
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { 
-            scale: 2, 
-            useCORS: true, 
-            windowWidth: 1600,
-            logging: false
-        },
+        html2canvas: { scale: 2, useCORS: true, windowWidth: 1600 },
         jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true }
     };
 
-    // html2pdf().from().set().save() 순서 권장
     html2pdf().from(el).set(opt).save().then(() => {
-        btn.innerText = "PDF 다운로드 (A3 가로)";
+        btn.innerText = originalText;
         btn.disabled = false;
     }).catch(err => {
-        console.error("PDF 생성 오류:", err);
-        btn.innerText = "다운로드 실패 (다시 시도)";
+        console.error("PDF 에러:", err);
+        btn.innerText = "실패 (재시도)";
         btn.disabled = false;
     });
 };
