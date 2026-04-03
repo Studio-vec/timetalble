@@ -6,6 +6,9 @@ const DATE_MAP = {
     "09-10": { KO: "9월 10일(목)", EN: "Sep. 10th (Thu)" }
 };
 
+// 🚀 장소 순서 정의 (이 순서대로 화면에 나옵니다)
+const PLACE_ORDER = ["장충", "다이너A", "다이너B", "에메랄드", "루비", "토파즈", "이벤트"];
+
 const PLACE_MAP = {
     "장충": { KO: "장충", EN: "Jangchung" },
     "다이너A": { KO: "다이너스티 A", EN: "Dynasty A" },
@@ -23,7 +26,8 @@ const TOTAL_HOURS = END_HOUR - START_HOUR;
 const PALETTE = [
     { bg: '#fce4ec', border: '#ec407a' }, { bg: '#e3f2fd', border: '#42a5f5' },
     { bg: '#e8f5e9', border: '#66bb6a' }, { bg: '#fff3e0', border: '#ffa726' },
-    { bg: '#f3e5f5', border: '#ab47bc' }, { bg: '#e0f7fa', border: '#26c6da' }
+    { bg: '#f3e5f5', border: '#ab47bc' }, { bg: '#e0f7fa', border: '#26c6da' },
+    { bg: '#fafafa', border: '#9e9e9e' }
 ];
 
 let currentLang = 'KO';
@@ -85,7 +89,11 @@ function renderTimetable() {
     });
 
     const dates = [...new Set(validData.map(d => d.Date))].sort();
-    const allPlaces = [...new Set(validData.map(d => d.Place))].sort();
+    
+    // 🚀 장소 순서를 PLACE_ORDER 기준으로 정렬
+    const allPlaces = [...new Set(validData.map(d => d.Place))].sort((a, b) => {
+        return PLACE_ORDER.indexOf(a) - PLACE_ORDER.indexOf(b);
+    });
 
     dates.forEach(date => {
         const dateGroup = document.createElement('div');
@@ -133,7 +141,7 @@ function renderTimetable() {
                 block.style.top = `${startPos}%`;
                 block.style.height = `${Math.max(endPos - startPos, 4)}%`; 
                 block.style.backgroundColor = color.bg;
-                block.style.borderTop = `5px solid ${color.border}`; // 🚀 상단 굵은 선
+                block.style.borderTop = `5px solid ${color.border}`; // 상단 굵은 선 유지
 
                 const t = currentLang === 'KO' ? (s.Session_KOR || s.Session_ENG) : (s.Session_ENG || s.Session_KOR);
                 const spk = currentLang === 'KO' ? s.Speaker_KOR : s.Speaker_ENG;
