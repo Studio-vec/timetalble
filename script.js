@@ -1,7 +1,7 @@
 // 1. 구글 시트 CSV 링크
 const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCmxR31uqR0rOOw9xE0smFQnEa7WTGHUJyQXtyHu6Ru1e3Ca32u9b-hL5qFhlu0S5d-rIvQu7d3b/pub?gid=528506633&single=true&output=csv';
 
-// 2. [수정 포인트] 날짜 및 장소 이름 변환 매핑
+// 2. 날짜 및 장소 이름 매핑
 const DATE_MAP = {
     "09-08": { KO: "9월 8일(화)", EN: "Sep. 8th (Tue)" },
     "09-09": { KO: "9월 9일(수)", EN: "Sep. 9th (Wed)" },
@@ -10,8 +10,8 @@ const DATE_MAP = {
 
 const PLACE_MAP = {
     "장충": { KO: "장충", EN: "Jangchung" },
-    "다이너A": { KO: "다이너스티A", EN: "Dynasty A" },
-    "다이너B": { KO: "다이너스티B", EN: "Dynasty B" },
+    "다이너A": { KO: "다이너스티 A", EN: "Dynasty A" },
+    "다이너B": { KO: "다이너스티 B", EN: "Dynasty B" },
     "에메랄드": { KO: "에메랄드", EN: "Emerald" },
     "루비": { KO: "루비", EN: "Ruby" },
     "토파즈": { KO: "토파즈", EN: "Topaz" },
@@ -92,21 +92,20 @@ function renderTimetable() {
     dates.forEach(date => {
         const dateGroup = document.createElement('div');
         dateGroup.className = 'date-group';
-        
-        // 날짜 변환 적용
         const displayDate = DATE_MAP[date] ? DATE_MAP[date][currentLang] : date;
         dateGroup.innerHTML = `<div class="date-header">${displayDate}</div>`;
 
         const placesContainer = document.createElement('div');
         placesContainer.className = 'places-container';
 
-        // 시간축
         const timeAxis = document.createElement('div');
         timeAxis.className = 'time-axis';
         timeAxis.innerHTML = '<div class="place-header" style="visibility:hidden">Time</div>';
         const timeTrack = document.createElement('div');
         timeTrack.className = 'track-area'; 
         timeTrack.style.backgroundImage = 'none';
+
+        // 30분 간격 숫자 생성 로직
         for (let h = START_HOUR; h <= END_HOUR; h++) {
             [0, 30].forEach(m => {
                 if (h === END_HOUR && m > 0) return;
@@ -121,38 +120,38 @@ function renderTimetable() {
         timeAxis.appendChild(timeTrack);
         placesContainer.appendChild(timeAxis);
 
-        // 장소별 컬럼
         allPlaces.forEach((place, idx) => {
             const color = PALETTE[idx % PALETTE.length];
             const col = document.createElement('div');
             col.className = 'place-column';
-            
-            // 장소명 변환 적용
             const displayPlace = PLACE_MAP[place] ? PLACE_MAP[place][currentLang] : place;
             col.innerHTML = `<div class="place-header">${displayPlace}</div><div class="track-area"></div>`;
-            
             const track = col.querySelector('.track-area');
 
             validData.filter(d => d.Date === date && d.Place === place).forEach(s => {
                 const startPos = timeToPosition(s.StartTime);
-                const endPos = timeToPosition(s.EndTime || s.StartTime); // 종료시간 없으면 시작시간과 동일하게(최소높이)
+                const endPos = timeToPosition(s.EndTime || s.StartTime);
                 const block = document.createElement('div');
                 block.className = 'session-block';
                 block.style.top = `${startPos}%`;
-                block.style.height = `${Math.max(endPos - startPos, 3)}%`; // 최소 높이 3% 보장
+                block.style.height = `${Math.max(endPos - startPos, 4)}%`; 
                 block.style.backgroundColor = color.bg;
-                block.style.borderLeft = `4px solid ${color.border}`;
+                
+                // 🚀 왼쪽 선을 없애고 다시 상단 굵은 선으로 복구
+                block.style.borderTop = `5px solid ${color.border}`;
+                block.style.borderLeft = `none`;
 
                 const t = currentLang === 'KO' ? (s.Session_KOR || s.Session_ENG) : (s.Session_ENG || s.Session_KOR);
                 const spk = currentLang === 'KO' ? s.Speaker_KOR : s.Speaker_ENG;
                 const mod = currentLang === 'KO' ? s.Moderator_KOR : s.Moderator_ENG;
 
+                // 🚀 아이콘 삭제
                 block.innerHTML = `
                     <div class="session-title">${escapeHTML(t)}</div>
                     <div class="session-time">${s.StartTime} - ${s.EndTime}</div>
                     <div class="session-speakers">
-                        ${spk ? `<span class="speaker">👤 ${escapeHTML(spk)}</span>` : ''}
-                        ${mod ? `<span class="moderator">🎤 ${escapeHTML(mod)}</span>` : ''}
+                        ${spk ? `<span class="speaker">${escapeHTML(spk)}</span>` : ''}
+                        ${mod ? `<span class="moderator">${escapeHTML(mod)}</span>` : ''}
                     </div>
                 `;
                 track.appendChild(block);
@@ -164,10 +163,8 @@ function renderTimetable() {
     });
 }
 
-// 버튼 이벤트
 document.getElementById('btn-ko').onclick = () => { currentLang = 'KO'; updateBtn('btn-ko', 'btn-en'); renderTimetable(); };
 document.getElementById('btn-en').onclick = () => { currentLang = 'EN'; updateBtn('btn-en', 'btn-ko'); renderTimetable(); };
-
 function updateBtn(activeId, inactiveId) {
     document.getElementById(activeId).classList.add('active');
     document.getElementById(inactiveId).classList.remove('active');
@@ -175,14 +172,13 @@ function updateBtn(activeId, inactiveId) {
 
 document.getElementById('download-pdf-btn').onclick = () => {
     const el = document.getElementById('timetable-content');
-    const opt = {
+    html2pdf().set({
         margin: 0,
         filename: 'timetable.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' }
-    };
-    html2pdf().set(opt).from(el).save();
+    }).from(el).save();
 };
 
 loadGoogleSheetData();
