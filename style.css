@@ -51,19 +51,18 @@ body {
 /* 5. 시간표 박스: A3 공간을 적당히 채우도록 높이 상향 조정 */
 .places-container { 
     display: flex; position: relative; 
-    border: 1px solid #ddd; 
     background: #fff; 
     height: 950px; /* 🚀 600px에서 늘려 A3 용지를 꽉 채우도록 함 */
 }
 
 /* 6. 시간 축 */
 .time-axis { 
-    width: 50px; flex-shrink: 0; border-right: 1px solid #eee; 
+    width: 40px; flex-shrink: 0; border-right: 1px solid #eee; 
     position: relative; display: flex; flex-direction: column;
 }
 .time-label { 
     position: absolute; left: 0; width: 100%; text-align: center;
-    font-size: 11px; font-weight: 600; color: #999; transform: translateY(-50%); 
+    font-size: 8px; font-weight: 600; color: #999; transform: translateY(-50%); 
 }
 
 /* 7. 장소 컬럼 */
@@ -71,7 +70,7 @@ body {
 .place-column:last-child { border-right: none; }
 .place-header { 
     height: 40px; line-height: 40px; text-align: center; 
-    font-size: 14px; font-weight: 700;
+    font-size: 12px; font-weight: 700;
 }
 
 /* 8. 30분 배경 보조선 */
@@ -95,11 +94,11 @@ body {
 }
 
 .session-title { 
-    font-weight: 800; font-size: 9.5pt; line-height: 1.25; 
-    margin-bottom: 4px; color: #000; word-break: keep-all; 
+    font-weight: 800; font-size: 8pt; line-height: 1.25; 
+    margin-bottom: 3px; color: #000; word-break: keep-all; 
 }
-.session-time { font-size: 8pt; color: #555; margin-bottom: 4px; font-weight: 600; }
-.session-speakers { font-size: 8.5pt; line-height: 1.4; color: #333; width: 100%; }
+.session-time { font-size: 6pt; color: #555; margin-bottom: 5px; font-weight: 600; }
+.session-speakers { font-size: 7pt; line-height: 1.4; color: #333; width: 100%; }
 
 /* 연사/좌장 한 줄씩 아래로 */
 .speaker, .moderator { display: block; }
