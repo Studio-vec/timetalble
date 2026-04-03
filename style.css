@@ -39,7 +39,7 @@ body {
 }
 
 .place-column { flex: 1; display: flex; flex-direction: column; }
-.place-header { height: 40px; line-height: 40px; text-align: center; font-size: 12px; font-weight: 700; background: #f9f9f9; }
+.place-header { height: 40px; line-height: 40px; text-align: center; font-size: 10px; font-weight: 700; background: #f9f9f9; transform: scaleX(0.9); }
 
 /* 가로 눈금선만 유지 */
 .track-area { 
