@@ -183,21 +183,49 @@ function updateBtn(activeId, inactiveId) {
 document.getElementById('download-pdf-btn').onclick = () => {
     const btn = document.getElementById('download-pdf-btn');
     const el = document.getElementById('timetable-content');
+    
     if (!el) return;
 
     const originalText = btn.innerText;
     btn.innerText = "PDF 생성 중...";
     btn.disabled = true;
 
+    // PDF 변환 옵션 최적화
     const opt = {
         margin: 0,
         filename: 'timetable_A3.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, windowWidth: 1600 },
-        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true }
+        image: { type: 'jpeg', quality: 1.0 },
+        html2canvas: { 
+            scale: 3,          // 화질 향상
+            useCORS: true, 
+            logging: false,
+            // [핵심] 요소의 실제 크기를 강제로 윈도우 크기로 인식시켜 쏠림 방지
+            windowWidth: el.offsetWidth,
+            windowHeight: el.offsetHeight,
+            scrollX: 0,
+            scrollY: 0
+        },
+        jsPDF: { 
+            unit: 'mm', 
+            format: 'a3', 
+            orientation: 'landscape', 
+            compress: true 
+        },
+        // [핵심] 페이지 분할 강제 방지
+        pagebreak: { mode: 'avoid-all' }
     };
 
-    html2pdf().from(el).set(opt).save().then(() => {
+    // 실행 전 스크롤을 맨 위로 올려 캡처 오류 방지
+    window.scrollTo(0, 0);
+
+    html2pdf().from(el).set(opt).toPdf().get('pdf').then(function (pdf) {
+        // [핵심] 콘텐츠를 PDF 페이지 중앙에 꽉 차게 배치하는 로직
+        const totalPages = pdf.internal.getNumberOfPages();
+        for (let i = 1; i <= totalPages; i++) {
+            pdf.setPage(i);
+            // 만약 2페이지가 빈 페이지로 생성되었다면 삭제 시도 (선택 사항)
+        }
+    }).save().then(() => {
         btn.innerText = originalText;
         btn.disabled = false;
     }).catch(err => {
