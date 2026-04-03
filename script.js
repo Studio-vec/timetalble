@@ -63,14 +63,11 @@ function renderTimetable() {
     if (!wrapper) return;
     wrapper.innerHTML = ''; 
     
-    const validData = [];
+    let validData = [];
     globalRawData.forEach(item => {
         const keys = Object.keys(item);
-        
-        // [복구 완료] 한글, 영문, 특수문자 대응 검색 로직
         const findValue = (keywords) => {
             const key = keys.find(k => {
-                // 헤더와 키워드 모두에서 공백, 언더바, 특수문자를 제거하고 비교
                 const cleanKey = k.toLowerCase().replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
                 return keywords.some(kw => {
                     const cleanKw = kw.toLowerCase().replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
@@ -97,7 +94,17 @@ function renderTimetable() {
         }
     });
 
-    const dates = [...new Set(validData.map(d => d.Date))].filter(d => d).sort();
+    // 자동 정렬
+    validData.sort((a, b) => {
+        if (a.Date !== b.Date) return a.Date.localeCompare(b.Date);
+        const idxA = PLACE_ORDER.indexOf(a.Place);
+        const idxB = PLACE_ORDER.indexOf(b.Place);
+        const placeCompare = (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
+        if (placeCompare !== 0) return placeCompare;
+        return a.StartTime.localeCompare(b.StartTime);
+    });
+
+    const dates = [...new Set(validData.map(d => d.Date))].filter(d => d);
     const allPlaces = [...new Set(validData.map(d => d.Place))].filter(p => p).sort((a, b) => {
         const idxA = PLACE_ORDER.indexOf(a);
         const idxB = PLACE_ORDER.indexOf(b);
@@ -173,51 +180,20 @@ function renderTimetable() {
     });
 }
 
-document.getElementById('download-pdf-btn').onclick = () => {
-    const btn = document.getElementById('download-pdf-btn');
-    const el = document.getElementById('timetable-content');
-    
-    if (!el) return;
-
-    const originalText = btn.innerText;
-    btn.innerText = "PDF 생성 중...";
-    btn.disabled = true;
-
-    // 현재 화면 스크롤 위치 저장 후 맨 위로 강제 이동 (캡처 오류 방지)
-    const scrollY = window.scrollY;
-    window.scrollTo(0, 0);
-
-    const opt = {
-        margin: 0,
-        filename: 'timetable_A3.pdf',
-        image: { type: 'jpeg', quality: 1.0 },
-        html2canvas: { 
-            scale: 2, 
-            useCORS: true, 
-            logging: false,
-            // [중요] x: 0을 통해 왼쪽 쏠림 방지, 너비를 요소 크기에 딱 맞춤
-            width: el.offsetWidth,
-            windowWidth: el.offsetWidth,
-            x: 0, 
-            y: 0,
-            scrollX: 0,
-            scrollY: 0
-        },
-        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true },
-        // [중요] 페이지 분할 강제 금지
-        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-    };
-
-    html2pdf().from(el).set(opt).save().then(() => {
-        btn.innerText = originalText;
-        btn.disabled = false;
-        // 원래 스크롤 위치로 복구
-        window.scrollTo(0, scrollY);
-    }).catch(err => {
-        console.error("PDF 에러:", err);
-        btn.innerText = "실패 (재시도)";
-        btn.disabled = false;
-    });
+// [수정] 언어 버튼 리스너 복구
+document.getElementById('btn-ko').onclick = function() {
+    currentLang = 'KO';
+    this.classList.add('active');
+    document.getElementById('btn-en').classList.remove('active');
+    renderTimetable();
 };
 
-loadGoogleSheetData();
+document.getElementById('btn-en').onclick = function() {
+    currentLang = 'EN';
+    this.classList.add('active');
+    document.getElementById('btn-ko').classList.remove('active');
+    renderTimetable();
+};
+
+// [수정] PDF 다운로드 (쏠림 및 페이지 분할 완벽 해결)
+document.getElementById('download-pdf-
