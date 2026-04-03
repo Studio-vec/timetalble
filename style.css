@@ -7,9 +7,8 @@ body {
 
 /* A3 용지 규격 (420x297mm) */
 #timetable-content { 
-    width: 420mm; min-height: 297mm; background-color: #fff; 
-    padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-    border: 1px solid #bbb; box-sizing: border-box;
+    width: 420mm; height: 297mm; background-color: #fff; 
+    padding: 10mm; box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
     overflow: hidden; /* 영역 밖으로 나가는 것 방지 */
 }
 
@@ -24,7 +23,7 @@ body {
 .date-header { font-size: 18px; font-weight: 800; text-align: center; padding: 12px; background: #222; color: #fff; }
 
 /* 🚀 PDF 잘림 방지를 위해 높이를 880px로 최적화 */
-.places-container { display: flex; position: relative; background: #fff; height: 880px; }
+.places-container { display: flex; position: relative; background: #fff; height: 860px; }
 
 /* 🚀 모든 세로선(border-right) 제거 */
 .time-axis { 
