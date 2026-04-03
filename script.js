@@ -1,13 +1,16 @@
 const GOOGLE_SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS7LCmxR31uqR0rOOw9xE0smFQnEa7WTGHUJyQXtyHu6Ru1e3Ca32u9b-hL5qFhlu0S5d-rIvQu7d3b/pub?gid=528506633&single=true&output=csv';
 
+// 1. 날짜 매핑
 const DATE_MAP = {
     "09-08": { KO: "9월 8일(화)", EN: "Sep. 8th (Tue)" },
     "09-09": { KO: "9월 9일(수)", EN: "Sep. 9th (Wed)" },
     "09-10": { KO: "9월 10일(목)", EN: "Sep. 10th (Thu)" }
 };
 
+// 2. 장소 순서 고정
 const PLACE_ORDER = ["장충", "다이너A", "다이너B", "에메랄드", "루비", "토파즈", "이벤트"];
 
+// 3. 장소 이름 매핑
 const PLACE_MAP = {
     "장충": { KO: "장충", EN: "Jangchung" },
     "다이너A": { KO: "다이너스티 A", EN: "Dynasty A" },
@@ -60,21 +63,26 @@ async function loadGoogleSheetData() {
 
 function renderTimetable() {
     const wrapper = document.getElementById('timetable-wrapper');
+    if (!wrapper) return;
     wrapper.innerHTML = ''; 
     
     const validData = [];
     globalRawData.forEach(item => {
         const keys = Object.keys(item);
+        // [수정] 한글 헤더 검색이 가능하도록 정규식 수정
         const findValue = (keywords) => {
-            const key = keys.find(k => keywords.some(kw => k.toLowerCase().replace(/[^a-z]/g, '').includes(kw)));
+            const key = keys.find(k => {
+                const cleanKey = k.toLowerCase().trim();
+                return keywords.some(kw => cleanKey.includes(kw.toLowerCase()));
+            });
             return key ? item[key] : '';
         };
 
         const startTime = findValue(['starttime', '시작시간']);
         if (startTime) {
             validData.push({
-                Date: findValue(['date', '날짜']).trim(),
-                Place: findValue(['place', '장소']).trim(),
+                Date: (findValue(['date', '날짜']) || "").trim(),
+                Place: (findValue(['place', '장소']) || "").trim(),
                 StartTime: startTime.trim(),
                 EndTime: (findValue(['endtime', '종료시간']) || "").trim(),
                 Session_KOR: findValue(['sessionkor', '세션국']),
@@ -87,8 +95,8 @@ function renderTimetable() {
         }
     });
 
-    const dates = [...new Set(validData.map(d => d.Date))].sort();
-    const allPlaces = [...new Set(validData.map(d => d.Place))].sort((a, b) => {
+    const dates = [...new Set(validData.map(d => d.Date))].filter(d => d).sort();
+    const allPlaces = [...new Set(validData.map(d => d.Place))].filter(p => p).sort((a, b) => {
         return PLACE_ORDER.indexOf(a) - PLACE_ORDER.indexOf(b);
     });
 
@@ -168,26 +176,38 @@ function updateBtn(activeId, inactiveId) {
     document.getElementById(inactiveId).classList.remove('active');
 }
 
-// 🚀 PDF 다운로드 로직 (수정됨)
+// [수정] PDF 다운로드 로직 안정화
 document.getElementById('download-pdf-btn').onclick = () => {
-    window.scrollTo(0,0);
+    const btn = document.getElementById('download-pdf-btn');
     const el = document.getElementById('timetable-content');
     
-    html2pdf().set({
+    if (!el) return;
+
+    btn.innerText = "PDF 생성 중...";
+    btn.disabled = true;
+
+    const opt = {
         margin: 0,
-        filename: 'timetable_A3_Full.pdf',
+        filename: 'timetable_A3.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { 
             scale: 2, 
             useCORS: true, 
-            width: 1587,      /* A3 가로 픽셀값 */
-            windowWidth: 1587, 
-            scrollY: 0, 
-            scrollX: 0 
+            windowWidth: 1600,
+            logging: false
         },
-        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true },
-        pagebreak: { mode: 'avoid-all' } 
-    }).from(el).save();
+        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true }
+    };
+
+    // html2pdf().from().set().save() 순서 권장
+    html2pdf().from(el).set(opt).save().then(() => {
+        btn.innerText = "PDF 다운로드 (A3 가로)";
+        btn.disabled = false;
+    }).catch(err => {
+        console.error("PDF 생성 오류:", err);
+        btn.innerText = "다운로드 실패 (다시 시도)";
+        btn.disabled = false;
+    });
 };
 
 loadGoogleSheetData();
