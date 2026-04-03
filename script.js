@@ -48,10 +48,27 @@ async function loadGoogleSheetData() {
     try {
         const response = await fetch(GOOGLE_SHEET_URL + '&t=' + new Date().getTime());
         const csvText = await response.text();
+        
+        // [수정] 헤더가 첫 줄이 아닐 경우를 대비해 데이터를 정리
         Papa.parse(csvText, {
-            header: true, skipEmptyLines: true,
+            header: false, // 일단 전체를 읽음
+            skipEmptyLines: true,
             complete: function(results) {
-                globalRawData = results.data;
+                const rows = results.data;
+                // 'Date' 혹은 '날짜'라는 글자가 포함된 행을 찾아서 그 줄부터 데이터로 인식
+                let headerIndex = rows.findIndex(row => row.some(cell => cell && (cell.includes('Date') || cell.includes('날짜'))));
+                
+                if (headerIndex === -1) headerIndex = 0; // 못 찾으면 첫 줄 사용
+
+                const headers = rows[headerIndex];
+                const dataRows = rows.slice(headerIndex + 1);
+
+                globalRawData = dataRows.map(row => {
+                    let obj = {};
+                    headers.forEach((h, i) => { obj[h] = row[i]; });
+                    return obj;
+                });
+
                 renderTimetable();
             }
         });
@@ -68,6 +85,7 @@ function renderTimetable() {
         const keys = Object.keys(item);
         const findValue = (keywords) => {
             const key = keys.find(k => {
+                if (!k) return false;
                 const cleanKey = k.toLowerCase().replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
                 return keywords.some(kw => {
                     const cleanKw = kw.toLowerCase().replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
@@ -78,12 +96,14 @@ function renderTimetable() {
         };
 
         const startTime = findValue(['starttime', '시작시간']);
-        if (startTime) {
+        const dateVal = findValue(['date', '날짜']);
+        
+        if (startTime && dateVal) {
             validData.push({
-                Date: (findValue(['date', '날짜']) || "").trim(),
-                Place: (findValue(['place', '장소']) || "").trim(),
-                StartTime: startTime.trim(),
-                EndTime: (findValue(['endtime', '종료시간']) || "").trim(),
+                Date: String(dateVal).trim(),
+                Place: String(findValue(['place', '장소']) || "").trim(),
+                StartTime: String(startTime).trim(),
+                EndTime: String(findValue(['endtime', '종료시간']) || "").trim(),
                 Session_KOR: findValue(['sessionkor', '세션국']),
                 Session_ENG: findValue(['sessioneng', '세션영']),
                 Speaker_KOR: findValue(['speakerkor', '연사국']),
@@ -94,14 +114,14 @@ function renderTimetable() {
         }
     });
 
-    // 자동 정렬
+    // 자동 정렬 (날짜 -> 장소 -> 시간)
     validData.sort((a, b) => {
-        if (a.Date !== b.Date) return a.Date.localeCompare(b.Date);
+        if (a.Date !== b.Date) return (a.Date || "").localeCompare(b.Date || "");
         const idxA = PLACE_ORDER.indexOf(a.Place);
         const idxB = PLACE_ORDER.indexOf(b.Place);
         const placeCompare = (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
         if (placeCompare !== 0) return placeCompare;
-        return a.StartTime.localeCompare(b.StartTime);
+        return (a.StartTime || "").localeCompare(b.StartTime || "");
     });
 
     const dates = [...new Set(validData.map(d => d.Date))].filter(d => d);
@@ -110,6 +130,11 @@ function renderTimetable() {
         const idxB = PLACE_ORDER.indexOf(b);
         return (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
     });
+
+    if (validData.length === 0) {
+        wrapper.innerHTML = '<div style="text-align:center; width:100%; padding:50px;">표시할 데이터가 없습니다. 엑셀 형식을 확인해주세요.</div>';
+        return;
+    }
 
     dates.forEach(date => {
         const dateGroup = document.createElement('div');
@@ -180,20 +205,55 @@ function renderTimetable() {
     });
 }
 
-// [수정] 언어 버튼 리스너 복구
+// 버튼 리스너 복구
 document.getElementById('btn-ko').onclick = function() {
     currentLang = 'KO';
-    this.classList.add('active');
+    document.getElementById('btn-ko').classList.add('active');
     document.getElementById('btn-en').classList.remove('active');
     renderTimetable();
 };
 
 document.getElementById('btn-en').onclick = function() {
     currentLang = 'EN';
-    this.classList.add('active');
+    document.getElementById('btn-en').classList.add('active');
     document.getElementById('btn-ko').classList.remove('active');
     renderTimetable();
 };
 
-// [수정] PDF 다운로드 (쏠림 및 페이지 분할 완벽 해결)
-document.getElementById('download-pdf-
+// PDF 다운로드 (완벽 중앙 정렬 및 쏠림 방지)
+document.getElementById('download-pdf-btn').onclick = () => {
+    const btn = document.getElementById('download-pdf-btn');
+    const el = document.getElementById('timetable-content');
+    
+    btn.innerText = "PDF 생성 중...";
+    btn.disabled = true;
+
+    el.classList.add('pdf-mode');
+    window.scrollTo(0, 0);
+
+    const opt = {
+        margin: 0,
+        filename: 'timetable_A3.pdf',
+        image: { type: 'jpeg', quality: 1.0 },
+        html2canvas: { 
+            scale: 2, 
+            useCORS: true, 
+            width: el.offsetWidth,
+            height: el.offsetHeight,
+            scrollX: 0, scrollY: 0, x: 0, y: 0
+        },
+        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true }
+    };
+
+    html2pdf().from(el).set(opt).save().then(() => {
+        el.classList.remove('pdf-mode');
+        btn.innerText = "PDF 다운로드 (A3 가로)";
+        btn.disabled = false;
+    }).catch(err => {
+        el.classList.remove('pdf-mode');
+        btn.innerText = "실패 (재시도)";
+        btn.disabled = false;
+    });
+};
+
+loadGoogleSheetData();
