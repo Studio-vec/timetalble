@@ -59,7 +59,7 @@ body {
 /* 6. 시간 축 */
 .time-axis { 
     width: 50px; flex-shrink: 0; border-right: 1px solid #eee; 
-    position: relative; display: flex; flex-direction: column; background: #fcfcfc;
+    position: relative; display: flex; flex-direction: column;
 }
 .time-label { 
     position: absolute; left: 0; width: 100%; text-align: center;
@@ -71,7 +71,7 @@ body {
 .place-column:last-child { border-right: none; }
 .place-header { 
     height: 40px; line-height: 40px; text-align: center; 
-    font-size: 14px; font-weight: 700; background: #f4f4f4; border-bottom: 1px solid #ddd; 
+    font-size: 14px; font-weight: 700;
 }
 
 /* 8. 30분 배경 보조선 */
@@ -88,11 +88,10 @@ body {
 /* 9. 세션 박스: 왼쪽 정렬 + 줄바꿈 최적화 */
 .session-block {
     position: absolute; left: 3px; right: 3px; z-index: 10;
-    padding: 8px 10px; border-radius: 0;
+    padding: 2px 2px; border-radius: 0;
     display: flex; flex-direction: column;
     justify-content: flex-start; align-items: flex-start; /* 왼쪽 정렬 */
     text-align: left; overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .session-title { 
