@@ -54,10 +54,14 @@ async function loadGoogleSheetData() {
             skipEmptyLines: true,
             complete: function(results) {
                 const rows = results.data;
-                // 🚀 빈 줄이나 제목을 건너뛰고 '날짜'나 'Date'가 있는 진짜 헤더 행 찾기
-                let headerIndex = rows.findIndex(row => 
-                    row.some(cell => cell && typeof cell === 'string' && (cell.includes('Date') || cell.includes('날짜') || cell.includes('Place') || cell.includes('장소')))
-                );
+                // 🚀 빈 줄이나 제목/안내문 행을 건너뛰고 '날짜'나 'Date'가 정확히 들어간 진짜 헤더 행 찾기
+                // (예: "Date / Place / Startime / ..." 같은 안내 문구 셀은 includes로는 오탐되므로 정확히 일치하는 셀만 인정)
+                const isHeaderCell = (cell) => {
+                    if (!cell || typeof cell !== 'string') return false;
+                    const c = cell.trim();
+                    return c === 'Date' || c === '날짜' || c === 'Place' || c === '장소';
+                };
+                let headerIndex = rows.findIndex(row => row.some(isHeaderCell));
                 
                 if (headerIndex === -1) headerIndex = 0;
 
@@ -96,15 +100,42 @@ function renderTimetable() {
             return key ? item[key] : '';
         };
 
-        const startTime = findValue(['starttime', '시작시간']);
+        // 🚀 "Time" 컬럼(시작-종료 통합)이 있으면 우선 사용하고, 없으면 기존 StartTime/EndTime 방식으로 대체
+        const findExactValue = (keywords) => {
+            const key = keys.find(k => {
+                const cleanKey = k.toLowerCase().replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, '');
+                return keywords.some(kw => cleanKey === kw.toLowerCase().replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, ''));
+            });
+            return key ? item[key] : '';
+        };
+
+        const timeVal = String(findExactValue(['time', '타임']) || '').trim();
+        let startTime, endTime, timeDisplay;
+        if (timeVal) {
+            const match = timeVal.match(/(\d{1,2}:\d{2})\s*[-~–—]\s*(\d{1,2}:\d{2})/);
+            if (match) {
+                startTime = match[1];
+                endTime = match[2];
+            } else {
+                startTime = timeVal;
+                endTime = timeVal;
+            }
+            timeDisplay = timeVal;
+        } else {
+            startTime = String(findValue(['starttime', '시작시간']) || '').trim();
+            endTime = String(findValue(['endtime', '종료시간']) || '').trim();
+            timeDisplay = `${startTime} - ${endTime}`;
+        }
+
         const dateVal = findValue(['date', '날짜']);
-        
+
         if (startTime && dateVal && dateVal !== "날짜" && dateVal !== "Date") {
             validData.push({
                 Date: String(dateVal).trim(),
                 Place: String(findValue(['place', '장소']) || "").trim(),
-                StartTime: String(startTime).trim(),
-                EndTime: String(findValue(['endtime', '종료시간']) || "").trim(),
+                StartTime: startTime,
+                EndTime: endTime,
+                Time: timeDisplay,
                 Session_KOR: findValue(['sessionkor', '세션국']),
                 Session_ENG: findValue(['sessioneng', '세션영']),
                 Speaker_KOR: findValue(['speakerkor', '연사국']),
@@ -187,7 +218,7 @@ function renderTimetable() {
 
                 block.innerHTML = `
                     <div class="session-title">${escapeHTML(t)}</div>
-                    <div class="session-time">${s.StartTime} - ${s.EndTime}</div>
+                    <div class="session-time">${s.Time}</div>
                     <div class="session-speakers">
                         ${spk ? `<span class="speaker">${escapeHTML(spk)}</span>` : ''}
                         ${mod ? `<span class="moderator">${escapeHTML(mod)}</span>` : ''}
