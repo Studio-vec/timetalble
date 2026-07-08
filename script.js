@@ -22,12 +22,11 @@ const START_HOUR = 8;
 const END_HOUR = 20;
 const TOTAL_HOURS = END_HOUR - START_HOUR;
 
-const PALETTE = [
-    { bg: '#fce4ec', border: '#ec407a' }, { bg: '#e3f2fd', border: '#42a5f5' },
-    { bg: '#e8f5e9', border: '#66bb6a' }, { bg: '#fff3e0', border: '#ffa726' },
-    { bg: '#f3e5f5', border: '#ab47bc' }, { bg: '#e0f7fa', border: '#26c6da' },
-    { bg: '#fafafa', border: '#9e9e9e' }
-];
+const PLACE_COLOR = {
+    "장충아레나": { bg: '#fdecea', border: '#c62828' },
+    "이벤트": { bg: '#efebe9', border: '#795548' }
+};
+const DEFAULT_COLOR = { bg: '#f5f5f5', border: '#9e9e9e' };
 
 let currentLang = 'KO';
 let globalRawData = [];
@@ -194,8 +193,8 @@ function renderTimetable() {
         }
         placesContainer.appendChild(timeAxis);
 
-        allPlaces.forEach((place, idx) => {
-            const color = PALETTE[idx % PALETTE.length];
+        allPlaces.forEach((place) => {
+            const color = PLACE_COLOR[place] || DEFAULT_COLOR;
             const col = document.createElement('div');
             col.className = 'place-column';
             const displayPlace = PLACE_MAP[place] ? PLACE_MAP[place][currentLang] : place;
