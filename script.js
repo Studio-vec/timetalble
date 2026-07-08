@@ -6,12 +6,11 @@ const DATE_MAP = {
     "09-10": { KO: "9월 10일(목)", EN: "Sep. 10th (Thu)" }
 };
 
-const PLACE_ORDER = ["장충", "다이너A", "다이너B", "에메랄드", "루비", "토파즈", "이벤트"];
+const PLACE_ORDER = ["프로메테우스", "다이너스티", "루비", "에메랄드", "토파즈", "이벤트"];
 
 const PLACE_MAP = {
-    "장충": { KO: "장충", EN: "Jangchung" },
-    "다이너A": { KO: "다이너스티 A", EN: "Dynasty A" },
-    "다이너B": { KO: "다이너스티 B", EN: "Dynasty B" },
+    "프로메테우스": { KO: "프로메테우스", EN: "Prometheus" },
+    "다이너스티": { KO: "다이너스티", EN: "Dynasty" },
     "에메랄드": { KO: "에메랄드", EN: "Emerald" },
     "루비": { KO: "루비", EN: "Ruby" },
     "토파즈": { KO: "토파즈", EN: "Topaz" },
