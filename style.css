@@ -1,6 +1,6 @@
 /* 전체 배경 */
 body { 
-    font-family: 'Pretendard', sans-serif; 
+    font-family: 'Pretendard Variable', 'Pretendard', sans-serif;
     margin: 0; 
     padding: 10px 0; /* 상단 여백을 10px로 줄였습니다 */
     background-color: #e0e0e0; 
@@ -102,18 +102,18 @@ body {
 }
 
 .session-title {
-    font-weight: 600; font-size: 8pt; line-height: 1.2; margin-bottom: 3px; color: #000;
+    font-weight: 500; font-size: 7.5pt; line-height: 1.2; margin-bottom: 3px; color: #000;
     transform: scaleX(0.95);
     transform-origin: left;
 }
 .session-time {
-    font-size: 4pt; color: #555; margin-bottom: 4px; font-weight: 600;
+    font-size: 5pt; color: #555; margin-bottom: 4px; font-weight: 200;
     white-space: nowrap;
     transform: scaleX(0.9);
     transform-origin: left; /* 왼쪽 기준으로 축소하여 왼쪽 여백 제거 */
 }
 .session-speakers { font-size: 5.5pt; line-height: 1.3; color: #333; }
-.speaker, .moderator { display: block; font-weight: 400; }
+.speaker, .moderator { display: block; font-size: 6pt; font-weight: 300; }
 
 @media print {
     @page { size: A3 landscape; margin: 0; }
