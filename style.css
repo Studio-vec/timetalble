@@ -92,11 +92,11 @@ body {
 
 /* 세션 블록 (상단 굵은 선 디자인) */
 .session-block {
-    position: absolute; 
+    position: absolute;
     left: 0px;  /* 기존 2px에서 0px로 */
-    right: 2px; 
+    right: 2px;
     z-index: 10;
-    padding: 4px; /* 내부 여백을 살짝 줄임 */
+    padding: 3px; /* 내부 여백을 살짝 줄임 */
     display: flex; flex-direction: column;
     text-align: left; overflow: visible; box-sizing: border-box;
 }
@@ -108,6 +108,7 @@ body {
 }
 .session-time {
     font-size: 4pt; color: #555; margin-bottom: 4px; font-weight: 600;
+    white-space: nowrap;
     transform: scaleX(0.9);
     transform-origin: left; /* 왼쪽 기준으로 축소하여 왼쪽 여백 제거 */
 }

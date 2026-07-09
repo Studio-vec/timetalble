@@ -115,15 +115,16 @@ function renderTimetable() {
             if (match) {
                 startTime = match[1];
                 endTime = match[2];
+                timeDisplay = `${startTime} ~ ${endTime}`;
             } else {
                 startTime = timeVal;
                 endTime = timeVal;
+                timeDisplay = timeVal;
             }
-            timeDisplay = timeVal;
         } else {
             startTime = String(findValue(['starttime', '시작시간']) || '').trim();
             endTime = String(findValue(['endtime', '종료시간']) || '').trim();
-            timeDisplay = `${startTime} - ${endTime}`;
+            timeDisplay = `${startTime} ~ ${endTime}`;
         }
 
         const dateVal = findValue(['date', '날짜']);
