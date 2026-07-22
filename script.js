@@ -249,7 +249,7 @@ document.getElementById('btn-en').onclick = function() {
 };
 
 // PDF 다운로드 (백지 방지 및 중앙 정렬)
-document.getElementById('download-pdf-btn').onclick = () => {
+document.getElementById('download-pdf-btn').onclick = async () => {
     const btn = document.getElementById('download-pdf-btn');
     const el = document.getElementById('timetable-content');
     if (!el) return;
@@ -257,13 +257,10 @@ document.getElementById('download-pdf-btn').onclick = () => {
     btn.innerText = "PDF 생성 중...";
     btn.disabled = true;
 
-    const opt = {
-        margin: 0,
-        filename: 'timetable_A3.pdf',
-        image: { type: 'jpeg', quality: 1.0 },
-        html2canvas: { 
-            scale: 2, 
-            useCORS: true, 
+    try {
+        const canvas = await html2canvas(el, {
+            scale: 2,
+            useCORS: true,
             logging: false,
             onclone: (clonedDoc) => {
                 // 🚀 백지 방지: 클론된 문서의 스타일을 강제로 '보임' 상태로 고정
@@ -271,18 +268,23 @@ document.getElementById('download-pdf-btn').onclick = () => {
                 clonedEl.style.margin = "0";
                 clonedEl.style.boxShadow = "none";
             }
-        },
-        jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape', compress: true }
-    };
+        });
 
-    html2pdf().from(el).set(opt).save().then(() => {
+        const imgData = canvas.toDataURL('image/jpeg', 1.0);
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({ unit: 'mm', format: 'a3', orientation: 'landscape', compress: true });
+        // 🚀 캔버스를 페이지 크기에 정확히 맞춰 한 장에만 그려서 반올림 오차로 인한 2페이지 분할 방지
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        pdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, pageHeight);
+        pdf.save('timetable_A3.pdf');
         btn.innerText = "PDF 다운로드 (A3 가로)";
-        btn.disabled = false;
-    }).catch(err => {
+    } catch (err) {
         console.error(err);
         btn.innerText = "실패 (재시도)";
+    } finally {
         btn.disabled = false;
-    });
+    }
 };
 
 loadGoogleSheetData();
