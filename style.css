@@ -102,12 +102,12 @@ body {
 }
 
 .session-title {
-    font-weight: 700; font-size: 8pt; line-height: 1.2; margin-bottom: 2px; color: #000;
+    font-weight: 700; font-size: 8pt; line-height: 1.2; margin-bottom: 1px; color: #000;
     transform: scaleX(0.95);
     transform-origin: left;
 }
 .session-time {
-    font-size: 5pt; color: #555; margin-bottom: 2.5px; font-weight: 300;
+    font-size: 5pt; color: #555; margin-bottom: 1.5px; font-weight: 300;
     white-space: nowrap;
     transform: scaleX(0.9);
     transform-origin: left; /* 왼쪽 기준으로 축소하여 왼쪽 여백 제거 */
