@@ -60,14 +60,31 @@ function timeToPosition(timeStr) {
     return ((mins / 60 - START_HOUR) / totalHours) * 100;
 }
 
-// "2026-09-08", "2026.9.8", "09-08" → "09-08"
-function normalizeDateKey(value) {
+// 🚀 시트의 QUERY()를 거치면 날짜 열이 "2026. 9. 8" / "9/8/2026" 처럼 다시 서식이 매겨져 나올 수 있어
+//    여러 표기를 모두 받아 연/월/일로 분해한다. (연도가 없으면 y = null)
+function parseDateParts(value) {
     const s = String(value || '').trim();
-    const withYear = s.match(/(\d{4})[-./](\d{1,2})[-./](\d{1,2})/);
-    if (withYear) return `${withYear[2].padStart(2, '0')}-${withYear[3].padStart(2, '0')}`;
-    const noYear = s.match(/^(\d{1,2})[-./](\d{1,2})$/);
-    if (noYear) return `${noYear[1].padStart(2, '0')}-${noYear[2].padStart(2, '0')}`;
-    return s;
+    let m = s.match(/^(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})/);      // 2026-09-08, 2026. 9. 8
+    if (m) return { y: Number(m[1]), m: Number(m[2]), d: Number(m[3]) };
+    m = s.match(/^(\d{1,2})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{4})/);          // 9/8/2026 (월/일/연 순서로 해석)
+    if (m) return { y: Number(m[3]), m: Number(m[1]), d: Number(m[2]) };
+    m = s.match(/^(\d{1,2})\s*[-./]\s*(\d{1,2})\s*$/);                        // 09-08
+    if (m) return { y: null, m: Number(m[1]), d: Number(m[2]) };
+    return null;
+}
+
+const pad2 = (n) => String(n).padStart(2, '0');
+
+function normalizeDateKey(value) {
+    const parts = parseDateParts(value);
+    return parts ? `${pad2(parts.m)}-${pad2(parts.d)}` : String(value || '').trim();
+}
+
+// 날짜를 시간순으로 정렬하기 위한 키 (문자열 비교로는 "9/10"이 "9/8"보다 앞서는 문제가 생김)
+function dateSortKey(value) {
+    const parts = parseDateParts(value);
+    if (!parts) return String(value || '');
+    return `${parts.y === null ? '0000' : parts.y}-${pad2(parts.m)}-${pad2(parts.d)}`;
 }
 
 function formatDateLabel(value, lang) {
@@ -75,11 +92,9 @@ function formatDateLabel(value, lang) {
     if (DATE_MAP[key]) return DATE_MAP[key][lang];
 
     // 🚀 DATE_MAP에 없는 날짜는 연도가 포함된 데이터에서 요일까지 직접 만들어 표시
-    const withYear = String(value || '').trim().match(/(\d{4})[-./](\d{1,2})[-./](\d{1,2})/);
-    if (withYear) {
-        const y = Number(withYear[1]);
-        const m = Number(withYear[2]);
-        const d = Number(withYear[3]);
+    const parts = parseDateParts(value);
+    if (parts && parts.y !== null) {
+        const { y, m, d } = parts;
         const day = new Date(y, m - 1, d).getDay();
         if (lang === 'KO') return `${m}월 ${d}일(${WEEKDAY_KO[day]})`;
         const suffix = (d % 10 === 1 && d !== 11) ? 'st'
@@ -91,8 +106,7 @@ function formatDateLabel(value, lang) {
 }
 
 function isDateLike(value) {
-    const s = String(value || '').trim();
-    return /\d{4}[-./]\d{1,2}[-./]\d{1,2}/.test(s) || /^\d{1,2}[-./]\d{1,2}$/.test(s);
+    return parseDateParts(value) !== null;
 }
 
 function cleanKey(value) {
@@ -285,7 +299,8 @@ function renderTimetable() {
 
     // 정렬: 날짜 -> 장소 -> 시간
     validData.sort((a, b) => {
-        if (a.Date !== b.Date) return a.Date.localeCompare(b.Date);
+        const dateCompare = dateSortKey(a.Date).localeCompare(dateSortKey(b.Date));
+        if (dateCompare !== 0) return dateCompare;
         const placeCompare = placeRank(a.Place) - placeRank(b.Place);
         if (placeCompare !== 0) return placeCompare;
         return a.StartTime.localeCompare(b.StartTime);
