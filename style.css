@@ -106,14 +106,16 @@ body {
     transform: scaleX(0.95);
     transform-origin: left;
 }
-/* 🚀 영문 제목은 한글보다 훨씬 길어 칸을 넘치기 쉬워 폭을 좁혀 담는다.
+/* 🚀 영문 제목은 한글보다 훨씬 길어 칸을 넘치기 쉬워 크기와 폭을 함께 줄인다.
    scaleX만 주면 글자만 작아지고 줄바꿈은 원래 폭 기준이라 남는 자리를 못 쓴다.
-   줄어드는 비율(87%)만큼 박스를 미리 넓혀두면(1/0.87) 화면 폭은 그대로면서 한 줄에 더 담긴다. */
+   줄어드는 비율(80%)만큼 박스를 미리 넓혀두면 화면 폭은 의도한 만큼 나오면서 한 줄에 더 담긴다.
+   오른쪽으로 3px까지 나가도 되므로 그 3px도 폭 계산에 포함한다. */
 body.lang-en .session-title {
+    font-size: 7pt;
     font-weight: 650;
     letter-spacing: -0.015em;
-    transform: scaleX(0.87);
-    width: 114.94%;
+    transform: scaleX(0.8);
+    width: calc((100% + 3px) / 0.8);
 }
 
 .session-time {
