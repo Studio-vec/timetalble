@@ -111,7 +111,7 @@ body {
    줄어드는 비율(80%)만큼 박스를 미리 넓혀두면 화면 폭은 의도한 만큼 나오면서 한 줄에 더 담긴다.
    오른쪽으로 3px까지 나가도 되므로 그 3px도 폭 계산에 포함한다. */
 body.lang-en .session-title {
-    font-size: 7pt;
+    font-size: 7.5pt;
     font-weight: 650;
     letter-spacing: -0.015em;
     transform: scaleX(0.8);
