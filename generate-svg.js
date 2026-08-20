@@ -76,6 +76,15 @@ function parseCSV(text) {
     return rows.filter(r => r.some(cell => cell !== ''));
 }
 
+// 이름 목록을 한 명씩 분리한다.
+// 행이 나뉘어 들어온 경우와, 한 칸에 "A, B" 처럼 몰아 넣은 경우를 모두 한 명 단위로 쪼갠다.
+function splitNames(list) {
+    return (list || [])
+        .flatMap(v => String(v || '').split(/[,\n]/))
+        .map(v => v.trim())
+        .filter(Boolean);
+}
+
 function escapeXML(str) {
     if (!str) return '';
     return String(str)
@@ -414,9 +423,9 @@ function buildSVG(validData, lang) {
 
             const color = PLACE_COLOR[s.Place] || DEFAULT_COLOR;
             const title = lang === 'KO' ? (s.Session_KOR || s.Session_ENG) : (s.Session_ENG || s.Session_KOR);
-            // 연사·좌장이 여러 명이면 쉼표로 이어 붙여 한 줄로 표시
-            const speaker = (lang === 'KO' ? s.Speaker_KOR : s.Speaker_ENG).filter(Boolean).join(', ');
-            const moderator = (lang === 'KO' ? s.Moderator_KOR : s.Moderator_ENG).filter(Boolean).join(', ');
+            // 연사·좌장이 여러 명이면 한 명씩 줄을 바꿔 표시
+            const speakers = splitNames(lang === 'KO' ? s.Speaker_KOR : s.Speaker_ENG);
+            const moderators = splitNames(lang === 'KO' ? s.Moderator_KOR : s.Moderator_ENG);
 
             svg += `<!-- ${escapeXML(s.Place)}: ${escapeXML(title)} ${s.Time} -->\n`;
             svg += `<rect x="${x.toFixed(2)}" y="${yStart.toFixed(2)}" width="${w.toFixed(2)}" height="${boxH.toFixed(2)}" fill="${color.bg}" rx="1"/>\n`;
@@ -424,8 +433,10 @@ function buildSVG(validData, lang) {
             svg += `<text class="st" x="${(x + 3).toFixed(2)}" y="${(yStart + 11).toFixed(2)}">${escapeXML(title)}</text>\n`;
             svg += `<text class="sm" x="${(x + 3).toFixed(2)}" y="${(yStart + 18).toFixed(2)}">${escapeXML(s.Time)}</text>\n`;
             let ty = yStart + 26;
-            if (speaker) { svg += `<text class="si" x="${(x + 3).toFixed(2)}" y="${ty.toFixed(2)}">${escapeXML(speaker)}</text>\n`; ty += 8; }
-            if (moderator) { svg += `<text class="si" x="${(x + 3).toFixed(2)}" y="${ty.toFixed(2)}">${escapeXML(moderator)}</text>\n`; }
+            speakers.concat(moderators).forEach(name => {
+                svg += `<text class="si" x="${(x + 3).toFixed(2)}" y="${ty.toFixed(2)}">${escapeXML(name)}</text>\n`;
+                ty += 8;
+            });
         });
 
         svg += `</g>\n\n`;

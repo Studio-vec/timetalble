@@ -125,6 +125,15 @@ function placeRank(place) {
     return idx === -1 ? 99 : idx;
 }
 
+// 🚀 이름 목록을 한 명씩 분리한다.
+//    행이 나뉘어 들어온 경우와, 한 칸에 "A, B" 처럼 몰아 넣은 경우를 모두 한 명 단위로 쪼갠다.
+function splitNames(list) {
+    return (list || [])
+        .flatMap(v => String(v || '').split(/[,\n]/))
+        .map(v => v.trim())
+        .filter(Boolean);
+}
+
 function escapeHTML(str) {
     if (!str) return '';
     return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -418,16 +427,16 @@ function renderTimetable() {
                 block.style.borderTop = `5px solid ${color.border}`;
 
                 const t = currentLang === 'KO' ? (s.Session_KOR || s.Session_ENG) : (s.Session_ENG || s.Session_KOR);
-                // 🚀 연사·좌장이 여러 명이면 쉼표로 이어 붙여 한 줄로 표시
-                const spk = (currentLang === 'KO' ? s.Speaker_KOR : s.Speaker_ENG).filter(Boolean).join(', ');
-                const mod = (currentLang === 'KO' ? s.Moderator_KOR : s.Moderator_ENG).filter(Boolean).join(', ');
+                // 🚀 연사·좌장이 여러 명이면 한 명씩 줄을 바꿔 표시
+                const spk = splitNames(currentLang === 'KO' ? s.Speaker_KOR : s.Speaker_ENG);
+                const mod = splitNames(currentLang === 'KO' ? s.Moderator_KOR : s.Moderator_ENG);
 
                 block.innerHTML = `
                     <div class="session-title">${escapeHTML(t)}</div>
                     <div class="session-time">${escapeHTML(s.Time)}</div>
                     <div class="session-speakers">
-                        ${spk ? `<span class="speaker">${escapeHTML(spk)}</span>` : ''}
-                        ${mod ? `<span class="moderator">${escapeHTML(mod)}</span>` : ''}
+                        ${spk.map(n => `<span class="speaker">${escapeHTML(n)}</span>`).join('')}
+                        ${mod.map(n => `<span class="moderator">${escapeHTML(n)}</span>`).join('')}
                     </div>
                 `;
                 track.appendChild(block);
