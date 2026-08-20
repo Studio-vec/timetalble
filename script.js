@@ -356,6 +356,8 @@ function renderTimetable() {
     const wrapper = document.getElementById('timetable-wrapper');
     if (!wrapper) return;
     wrapper.innerHTML = '';
+    // 🚀 영문일 때만 제목 자폭·자간을 좁히기 위한 표시 (style.css의 body.lang-en 규칙)
+    document.body.classList.toggle('lang-en', currentLang === 'EN');
 
     const validData = buildSessions();
 
