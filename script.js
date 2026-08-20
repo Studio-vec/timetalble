@@ -45,6 +45,8 @@ const DEFAULT_COLOR = { bg: '#f5f5f5', border: '#9e9e9e' };
 
 let currentLang = 'KO';
 let globalRawData = [];
+// 데이터가 비었을 때 원인을 구분해 안내하기 위한 로드 상태
+let loadState = { fetched: false, headerFound: false, headers: [], dataRowCount: 0, error: null };
 
 function timeToMinutes(timeStr) {
     if (!timeStr || !String(timeStr).includes(':')) return null;
@@ -131,7 +133,9 @@ function escapeHTML(str) {
 async function loadGoogleSheetData() {
     try {
         const response = await fetch(GOOGLE_SHEET_URL + '&t=' + new Date().getTime());
+        if (!response.ok) throw new Error(`시트 응답 오류 (HTTP ${response.status})`);
         const csvText = await response.text();
+        loadState.fetched = true;
 
         Papa.parse(csvText, {
             header: false,
@@ -147,10 +151,13 @@ async function loadGoogleSheetData() {
                 };
                 let headerIndex = rows.findIndex(row => row.some(isHeaderCell));
 
+                loadState.headerFound = headerIndex !== -1;
                 if (headerIndex === -1) headerIndex = 0;
 
-                const headers = rows[headerIndex].map(h => h ? h.trim() : "");
+                const headers = (rows[headerIndex] || []).map(h => h ? h.trim() : "");
                 const dataRows = rows.slice(headerIndex + 1);
+                loadState.headers = headers.filter(Boolean);
+                loadState.dataRowCount = dataRows.length;
 
                 globalRawData = dataRows.map(row => {
                     // __raw: 헤더 이름 없이 위치로만 읽어야 하는 '이어지는 행'을 위해 원본 배열도 보관
@@ -163,7 +170,36 @@ async function loadGoogleSheetData() {
                 renderTimetable();
             }
         });
-    } catch (e) { console.error("데이터 로드 실패", e); }
+    } catch (e) {
+        console.error("데이터 로드 실패", e);
+        loadState.error = e && e.message ? e.message : String(e);
+        renderTimetable();
+    }
+}
+
+// 🚀 데이터가 안 보일 때 원인을 나눠서 알려준다.
+// (헤더명 문제 / 시트에서 넘어온 행이 0개 / 행은 있는데 날짜·시간을 못 읽음 은 서로 다른 문제)
+function buildEmptyMessage() {
+    const detail = loadState.headers.length
+        ? `<div style="margin-top:10px; font-weight:400; font-size:13px; color:#555;">읽어들인 헤더: ${escapeHTML(loadState.headers.join(' / '))}</div>`
+        : '';
+
+    let msg;
+    if (loadState.error) {
+        msg = `구글 시트를 불러오지 못했습니다.<div style="margin-top:10px; font-weight:400; font-size:13px; color:#555;">${escapeHTML(loadState.error)}</div>`;
+    } else if (!loadState.fetched) {
+        msg = '구글 시트를 불러오는 중입니다.';
+    } else if (loadState.dataRowCount === 0) {
+        msg = `시트에서 넘어온 데이터 행이 <b>0개</b>입니다. 헤더는 정상이니 시트 쪽을 확인해주세요.`
+            + `<div style="margin-top:10px; font-weight:400; font-size:13px; color:#555; line-height:1.6;">`
+            + `· 원본 탭(TT(웹)) 4행 아래에 세션 데이터가 들어가 있는지<br>`
+            + `· QUERY 조건에 걸려 전부 걸러지고 있지는 않은지<br>`
+            + `· 시트를 고쳤다면 [파일 → 웹에 게시]에서 다시 게시했는지`
+            + `</div>`;
+    } else {
+        msg = `${loadState.dataRowCount}개 행을 받았지만 날짜·시간을 읽을 수 있는 행이 없습니다. 헤더명(Date, Place, Time 등)을 확인해주세요.`;
+    }
+    return `<div style="text-align:center; width:100%; padding:50px; font-weight:bold; line-height:1.5;">${msg}${detail}</div>`;
 }
 
 // 시트 한 줄을 표준 형태로 변환
@@ -229,6 +265,23 @@ function extractContinuation(item, row) {
     return people.some(v => v) ? people : null;
 }
 
+// 🚀 시트 필터(공개여부)를 통과시키려고 이어지는 행에도 날짜·장소·시간을 그대로 채워 넣는 경우가 있다.
+//    세션명이 비어 있고 앞 세션과 날짜·장소·시작시간이 같으면 새 세션이 아니라 연사가 이어진 행으로 본다.
+function isRepeatOfSession(row, current) {
+    if (!current) return false;
+    if (row.Session_KOR || row.Session_ENG) return false;
+    return row.Date === current.Date
+        && row.Place === current.Place
+        && row.StartTime === current.StartTime;
+}
+
+function addPeople(current, spkEn, spkKo, modEn, modKo) {
+    if (spkEn) current.Speaker_ENG.push(spkEn);
+    if (spkKo) current.Speaker_KOR.push(spkKo);
+    if (modEn) current.Moderator_ENG.push(modEn);
+    if (modKo) current.Moderator_KOR.push(modKo);
+}
+
 function buildSessions() {
     const sessions = [];
     let current = null;
@@ -237,6 +290,10 @@ function buildSessions() {
         const row = extractRow(item);
 
         if (row.isSession) {
+            if (isRepeatOfSession(row, current)) {
+                addPeople(current, row.Speaker_ENG, row.Speaker_KOR, row.Moderator_ENG, row.Moderator_KOR);
+                return;
+            }
             current = {
                 Date: row.Date,
                 Place: row.Place,
@@ -260,11 +317,7 @@ function buildSessions() {
         const extra = extractContinuation(item, row);
         if (!extra) return;
 
-        const [spkEn, spkKo, modEn, modKo] = extra;
-        if (spkEn) current.Speaker_ENG.push(spkEn);
-        if (spkKo) current.Speaker_KOR.push(spkKo);
-        if (modEn) current.Moderator_ENG.push(modEn);
-        if (modKo) current.Moderator_KOR.push(modKo);
+        addPeople(current, extra[0], extra[1], extra[2], extra[3]);
     });
 
     return sessions;
@@ -307,7 +360,7 @@ function renderTimetable() {
     });
 
     if (validData.length === 0) {
-        wrapper.innerHTML = '<div style="text-align:center; width:100%; padding:50px; font-weight:bold;">데이터를 찾을 수 없습니다. 구글 시트의 헤더명(Date, Place, Time, Session (KOR) 등)을 확인해주세요.</div>';
+        wrapper.innerHTML = buildEmptyMessage();
         return;
     }
 

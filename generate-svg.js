@@ -269,6 +269,23 @@ function extractContinuation(item, row) {
     return people.some(v => v) ? people : null;
 }
 
+// 시트 필터(공개여부)를 통과시키려고 이어지는 행에도 날짜·장소·시간을 그대로 채워 넣는 경우가 있다.
+// 세션명이 비어 있고 앞 세션과 날짜·장소·시작시간이 같으면 새 세션이 아니라 연사가 이어진 행으로 본다.
+function isRepeatOfSession(row, current) {
+    if (!current) return false;
+    if (row.Session_KOR || row.Session_ENG) return false;
+    return row.Date === current.Date
+        && row.Place === current.Place
+        && row.StartTime === current.StartTime;
+}
+
+function addPeople(current, spkEn, spkKo, modEn, modKo) {
+    if (spkEn) current.Speaker_ENG.push(spkEn);
+    if (spkKo) current.Speaker_KOR.push(spkKo);
+    if (modEn) current.Moderator_ENG.push(modEn);
+    if (modKo) current.Moderator_KOR.push(modKo);
+}
+
 function buildValidData(globalRawData) {
     const validData = [];
     let current = null;
@@ -277,6 +294,10 @@ function buildValidData(globalRawData) {
         const row = extractRow(item);
 
         if (row.isSession) {
+            if (isRepeatOfSession(row, current)) {
+                addPeople(current, row.Speaker_ENG, row.Speaker_KOR, row.Moderator_ENG, row.Moderator_KOR);
+                return;
+            }
             current = {
                 Date: row.Date,
                 Place: row.Place,
@@ -300,11 +321,7 @@ function buildValidData(globalRawData) {
         const extra = extractContinuation(item, row);
         if (!extra) return;
 
-        const [spkEn, spkKo, modEn, modKo] = extra;
-        if (spkEn) current.Speaker_ENG.push(spkEn);
-        if (spkKo) current.Speaker_KOR.push(spkKo);
-        if (modEn) current.Moderator_ENG.push(modEn);
-        if (modKo) current.Moderator_KOR.push(modKo);
+        addPeople(current, extra[0], extra[1], extra[2], extra[3]);
     });
 
     validData.sort((a, b) => {
