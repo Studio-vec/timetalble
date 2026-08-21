@@ -450,6 +450,178 @@ function renderTimetable() {
     });
 }
 
+/* ===================== SVG 내보내기 =====================
+   화면에 그려진 DOM을 그대로 SVG로 옮긴다.
+   글자를 <text>로 내보내므로 일러스트레이터·피그마에서 텍스트를 그대로 수정할 수 있다. */
+
+function escapeXML(str) {
+    return String(str == null ? '' : str)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
+
+// 🚀 화면에서 실제로 몇 번째 줄에 무엇이 그려졌는지 글자 단위로 읽어낸다.
+//    (CSS 자동 줄바꿈 결과를 그대로 가져와야 SVG가 화면과 같은 모양이 된다)
+function splitVisualLines(el) {
+    const node = el.firstChild;
+    const text = node && node.nodeType === 3 ? node.textContent : '';
+    if (!text.trim()) return [];
+
+    const range = document.createRange();
+    const lines = [];
+    let currentTop = null;
+    let current = '';
+
+    for (let i = 0; i < text.length; i++) {
+        range.setStart(node, i);
+        range.setEnd(node, i + 1);
+        const r = range.getBoundingClientRect();
+        // 줄 끝 공백은 폭이 0으로 잡혀 줄 판정을 어지럽히므로 현재 줄에 붙인다
+        if (r.width === 0 && r.height === 0) { current += text[i]; continue; }
+
+        const top = Math.round(r.top);
+        if (currentTop === null) currentTop = top;
+
+        if (Math.abs(top - currentTop) < 2) {
+            current += text[i];
+        } else {
+            if (current.trim()) lines.push(current.trim());
+            current = text[i];
+            currentTop = top;
+        }
+    }
+    if (current.trim()) lines.push(current.trim());
+    return lines;
+}
+
+// 요소 하나를 SVG <text>로 (여러 줄이면 줄 수만큼)
+function elementToSVGText(el, origin) {
+    const cs = getComputedStyle(el);
+    // 🚀 화면에서 안 보이는 요소는 내보내지 않는다.
+    //    (시간축의 자리맞춤용 'Time' 헤더가 visibility:hidden 이라 그대로 두면 SVG에만 글자가 생긴다)
+    if (cs.visibility === 'hidden' || cs.display === 'none' || parseFloat(cs.opacity) === 0) return '';
+
+    const lines = splitVisualLines(el);
+    if (!lines.length) return '';
+
+    const rect = el.getBoundingClientRect();
+    const fontSize = parseFloat(cs.fontSize);
+    const lineHeight = cs.lineHeight === 'normal' ? fontSize * 1.2 : parseFloat(cs.lineHeight);
+    // transform: scaleX(...) 로 좁혀둔 자폭을 SVG에서도 그대로 재현
+    const matrix = cs.transform && cs.transform !== 'none' ? new DOMMatrixReadOnly(cs.transform) : null;
+    const scaleX = matrix ? matrix.a : 1;
+    const spacing = cs.letterSpacing === 'normal' ? 0 : parseFloat(cs.letterSpacing);
+
+    const padLeft = parseFloat(cs.paddingLeft) || 0;
+    const padRight = parseFloat(cs.paddingRight) || 0;
+    const padTop = parseFloat(cs.paddingTop) || 0;
+
+    const boxLeft = rect.left - origin.left + padLeft;
+    // 첫 줄 베이스라인: 줄 상자 안에서 글자가 놓이는 위치
+    const baseline = rect.top - origin.top + padTop + (lineHeight - fontSize) / 2 + fontSize * 0.8;
+
+    // 🚀 가운데·오른쪽 정렬을 SVG의 text-anchor로 옮긴다. (안 하면 전부 왼쪽으로 밀린다)
+    //    좌표는 자폭 축소(scaleX) 이전 기준으로 계산해야 위치가 맞는다.
+    const contentWidth = rect.width / scaleX - padLeft - padRight;
+    let anchor = 'start';
+    let anchorX = 0;
+    if (cs.textAlign === 'center') { anchor = 'middle'; anchorX = contentWidth / 2; }
+    else if (cs.textAlign === 'right' || cs.textAlign === 'end') { anchor = 'end'; anchorX = contentWidth; }
+
+    const attrs = [
+        `font-size="${fontSize.toFixed(2)}"`,
+        `font-weight="${cs.fontWeight}"`,
+        `fill="${cs.color}"`
+    ];
+    if (anchor !== 'start') attrs.push(`text-anchor="${anchor}"`);
+    if (spacing) attrs.push(`letter-spacing="${spacing.toFixed(3)}"`);
+
+    // scaleX가 걸린 경우 transform으로 감싸고 좌표는 원점 기준으로 둔다
+    const scaled = scaleX !== 1;
+    const tx = scaled ? anchorX : boxLeft + anchorX;
+    const open = scaled
+        ? `<text transform="translate(${boxLeft.toFixed(2)},${baseline.toFixed(2)}) scale(${scaleX},1)" ${attrs.join(' ')}>`
+        : `<text x="${tx.toFixed(2)}" y="${baseline.toFixed(2)}" ${attrs.join(' ')}>`;
+
+    const body = lines.map((line, i) => {
+        const dy = i === 0 ? 0 : lineHeight;
+        return `<tspan x="${tx.toFixed(2)}" dy="${dy.toFixed(2)}">${escapeXML(line)}</tspan>`;
+    }).join('');
+
+    return open + body + '</text>\n';
+}
+
+function buildSVGFromDOM() {
+    const content = document.getElementById('timetable-content');
+    const origin = content.getBoundingClientRect();
+    const W = origin.width;
+    const H = origin.height;
+
+    let svg = `<?xml version="1.0" encoding="UTF-8"?>\n`;
+    svg += `<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 ${W.toFixed(2)} ${H.toFixed(2)}" `;
+    svg += `font-family="Pretendard, 'Pretendard Variable', 'Malgun Gothic', sans-serif">\n`;
+    svg += `<rect width="${W.toFixed(2)}" height="${H.toFixed(2)}" fill="#ffffff"/>\n`;
+
+    const title = content.querySelector('.main-title');
+    if (title) svg += elementToSVGText(title, origin);
+
+    content.querySelectorAll('.date-group').forEach(group => {
+        const header = group.querySelector('.date-header');
+        const hr = header.getBoundingClientRect();
+        svg += `\n<g>\n`;
+        svg += `<rect x="${(hr.left - origin.left).toFixed(2)}" y="${(hr.top - origin.top).toFixed(2)}" `;
+        svg += `width="${hr.width.toFixed(2)}" height="${hr.height.toFixed(2)}" fill="${getComputedStyle(header).backgroundColor}"/>\n`;
+        svg += elementToSVGText(header, origin);
+
+        // 30분 간격 눈금선
+        const firstTrack = group.querySelector('.place-column .track-area');
+        if (firstTrack) {
+            const cols = group.querySelectorAll('.place-column .track-area');
+            const last = cols[cols.length - 1].getBoundingClientRect();
+            const tr = firstTrack.getBoundingClientRect();
+            const slots = (END_HOUR - START_HOUR) * 2;
+            for (let i = 0; i <= slots; i++) {
+                const y = (tr.top - origin.top) + (tr.height / slots) * i;
+                svg += `<line x1="${(tr.left - origin.left).toFixed(2)}" y1="${y.toFixed(2)}" `;
+                svg += `x2="${(last.right - origin.left).toFixed(2)}" y2="${y.toFixed(2)}" stroke="#f0f0f0" stroke-width="0.5"/>\n`;
+            }
+        }
+
+        group.querySelectorAll('.time-label').forEach(el => { svg += elementToSVGText(el, origin); });
+        group.querySelectorAll('.place-header').forEach(el => { svg += elementToSVGText(el, origin); });
+
+        group.querySelectorAll('.session-block').forEach(block => {
+            const br = block.getBoundingClientRect();
+            const bs = getComputedStyle(block);
+            const x = (br.left - origin.left).toFixed(2);
+            const y = (br.top - origin.top).toFixed(2);
+            svg += `<rect x="${x}" y="${y}" width="${br.width.toFixed(2)}" height="${br.height.toFixed(2)}" fill="${bs.backgroundColor}"/>\n`;
+            svg += `<rect x="${x}" y="${y}" width="${br.width.toFixed(2)}" height="${parseFloat(bs.borderTopWidth).toFixed(2)}" fill="${bs.borderTopColor}"/>\n`;
+            block.querySelectorAll('.session-title, .session-time, .speaker, .moderator').forEach(el => {
+                svg += elementToSVGText(el, origin);
+            });
+        });
+
+        svg += `</g>\n`;
+    });
+
+    svg += `</svg>\n`;
+    return svg;
+}
+
+function downloadSVGFile() {
+    const svg = buildSVGFromDOM();
+    const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `timetable_${currentLang.toLowerCase()}.svg`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 // 버튼 설정
 document.getElementById('btn-ko').onclick = function() {
     currentLang = 'KO';
@@ -465,13 +637,43 @@ document.getElementById('btn-en').onclick = function() {
     renderTimetable();
 };
 
+const PDF_BTN_LABEL = "PDF 다운로드 (A3 가로)";
+// 🚀 연속 4번 누르면 PDF 대신 편집 가능한 SVG를 내려받는다.
+//    누를 때마다 실행을 미뤄두고, 4번째가 들어오면 PDF를 취소하고 SVG로 전환한다.
+const MULTI_CLICK_WINDOW = 600;
+const SVG_CLICK_COUNT = 4;
+let pdfClickCount = 0;
+let pdfClickTimer = null;
+
+document.getElementById('download-pdf-btn').onclick = function() {
+    const btn = this;
+    if (btn.disabled) return;
+
+    pdfClickCount++;
+    if (pdfClickTimer) clearTimeout(pdfClickTimer);
+
+    if (pdfClickCount >= SVG_CLICK_COUNT) {
+        pdfClickCount = 0;
+        pdfClickTimer = null;
+        downloadSVGFile();
+        btn.innerText = "SVG 저장됨 (텍스트 수정 가능)";
+        setTimeout(() => { btn.innerText = PDF_BTN_LABEL; }, 2000);
+        return;
+    }
+
+    btn.innerText = "PDF 생성 중...";
+    pdfClickTimer = setTimeout(() => {
+        pdfClickTimer = null;
+        pdfClickCount = 0;
+        downloadPDF(btn);
+    }, MULTI_CLICK_WINDOW);
+};
+
 // PDF 다운로드 (백지 방지 및 중앙 정렬)
-document.getElementById('download-pdf-btn').onclick = async () => {
-    const btn = document.getElementById('download-pdf-btn');
+async function downloadPDF(btn) {
     const el = document.getElementById('timetable-content');
     if (!el) return;
 
-    btn.innerText = "PDF 생성 중...";
     btn.disabled = true;
 
     try {
@@ -495,13 +697,13 @@ document.getElementById('download-pdf-btn').onclick = async () => {
         const pageHeight = pdf.internal.pageSize.getHeight();
         pdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, pageHeight);
         pdf.save('timetable_A3.pdf');
-        btn.innerText = "PDF 다운로드 (A3 가로)";
+        btn.innerText = PDF_BTN_LABEL;
     } catch (err) {
         console.error(err);
         btn.innerText = "실패 (재시도)";
     } finally {
         btn.disabled = false;
     }
-};
+}
 
 loadGoogleSheetData();
