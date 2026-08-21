@@ -638,35 +638,53 @@ document.getElementById('btn-en').onclick = function() {
 };
 
 const PDF_BTN_LABEL = "PDF 다운로드 (A3 가로)";
-// 🚀 연속 4번 누르면 PDF 대신 편집 가능한 SVG를 내려받는다.
-//    누를 때마다 실행을 미뤄두고, 4번째가 들어오면 PDF를 취소하고 SVG로 전환한다.
-const MULTI_CLICK_WINDOW = 600;
-const SVG_CLICK_COUNT = 4;
-let pdfClickCount = 0;
-let pdfClickTimer = null;
+// 🚀 2초 이상 길게 누르고 있으면 PDF 대신 편집 가능한 SVG를 내려받는다.
+const LONG_PRESS_MS = 2000;
+const LONG_PRESS_HINT_MS = 500;   // 이 시간부터 "누르는 중" 안내를 띄운다
+const pdfBtn = document.getElementById('download-pdf-btn');
+let longPressTimer = null;
+let longPressHintTimer = null;
+let longPressFired = false;
 
-document.getElementById('download-pdf-btn').onclick = function() {
-    const btn = this;
-    if (btn.disabled) return;
+function startLongPress() {
+    if (pdfBtn.disabled) return;
+    longPressFired = false;
+    // 짧게 누른 경우엔 안내가 보이지 않도록 조금 늦게 띄운다
+    longPressHintTimer = setTimeout(() => {
+        pdfBtn.innerText = "계속 누르면 SVG 저장...";
+    }, LONG_PRESS_HINT_MS);
 
-    pdfClickCount++;
-    if (pdfClickTimer) clearTimeout(pdfClickTimer);
-
-    if (pdfClickCount >= SVG_CLICK_COUNT) {
-        pdfClickCount = 0;
-        pdfClickTimer = null;
+    longPressTimer = setTimeout(() => {
+        longPressTimer = null;
+        longPressFired = true;   // 손을 뗄 때 오는 click에서 PDF를 막기 위한 표시
         downloadSVGFile();
-        btn.innerText = "SVG 저장됨 (텍스트 수정 가능)";
-        setTimeout(() => { btn.innerText = PDF_BTN_LABEL; }, 2000);
-        return;
-    }
+        pdfBtn.innerText = "SVG 저장됨 (텍스트 수정 가능)";
+        setTimeout(() => { if (!pdfBtn.disabled) pdfBtn.innerText = PDF_BTN_LABEL; }, 2000);
+    }, LONG_PRESS_MS);
+}
 
-    btn.innerText = "PDF 생성 중...";
-    pdfClickTimer = setTimeout(() => {
-        pdfClickTimer = null;
-        pdfClickCount = 0;
-        downloadPDF(btn);
-    }, MULTI_CLICK_WINDOW);
+function cancelLongPress() {
+    if (longPressHintTimer) { clearTimeout(longPressHintTimer); longPressHintTimer = null; }
+    if (longPressTimer) {
+        clearTimeout(longPressTimer);
+        longPressTimer = null;
+        if (!pdfBtn.disabled) pdfBtn.innerText = PDF_BTN_LABEL;   // 2초 전에 뗐으면 안내를 되돌린다
+    }
+}
+
+pdfBtn.addEventListener('pointerdown', startLongPress);
+pdfBtn.addEventListener('pointerup', cancelLongPress);
+pdfBtn.addEventListener('pointerleave', cancelLongPress);
+pdfBtn.addEventListener('pointercancel', cancelLongPress);
+// 길게 누를 때 글자가 선택되거나 컨텍스트 메뉴가 뜨는 것을 막는다
+pdfBtn.addEventListener('contextmenu', (e) => e.preventDefault());
+pdfBtn.style.userSelect = 'none';
+pdfBtn.style.touchAction = 'manipulation';
+
+pdfBtn.onclick = function() {
+    // 길게 눌러 SVG를 받은 직후의 click은 무시 (PDF까지 만들어지지 않도록)
+    if (longPressFired) { longPressFired = false; return; }
+    downloadPDF(this);
 };
 
 // PDF 다운로드 (백지 방지 및 중앙 정렬)
@@ -674,6 +692,7 @@ async function downloadPDF(btn) {
     const el = document.getElementById('timetable-content');
     if (!el) return;
 
+    btn.innerText = "PDF 생성 중...";
     btn.disabled = true;
 
     try {
