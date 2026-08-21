@@ -134,6 +134,12 @@ function splitNames(list) {
         .filter(Boolean);
 }
 
+// 🚀 'Thorning-Schmidt'가 하이픈에서 갈라지지 않게 한다.
+//    keep-all은 한글에만 적용되므로 영문은 하이픈 뒤에 폭 0짜리 결합문자(U+2060)를 넣어 붙여둔다.
+function preventHyphenBreak(str) {
+    return String(str == null ? '' : str).replace(/(\S)-(\S)/g, '$1-⁠$2');
+}
+
 function escapeHTML(str) {
     if (!str) return '';
     return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -434,11 +440,11 @@ function renderTimetable() {
                 const mod = splitNames(currentLang === 'KO' ? s.Moderator_KOR : s.Moderator_ENG);
 
                 block.innerHTML = `
-                    <div class="session-title">${escapeHTML(t)}</div>
+                    <div class="session-title">${escapeHTML(preventHyphenBreak(t))}</div>
                     <div class="session-time">${escapeHTML(s.Time)}</div>
                     <div class="session-speakers">
-                        ${spk.map(n => `<span class="speaker">${escapeHTML(n)}</span>`).join('')}
-                        ${mod.map(n => `<span class="moderator">${escapeHTML(n)}</span>`).join('')}
+                        ${spk.map(n => `<span class="speaker">${escapeHTML(preventHyphenBreak(n))}</span>`).join('')}
+                        ${mod.map(n => `<span class="moderator">${escapeHTML(preventHyphenBreak(n))}</span>`).join('')}
                     </div>
                 `;
                 track.appendChild(block);
@@ -534,7 +540,9 @@ function elementToSVGText(el, origin) {
         `fill="${cs.color}"`
     ];
     if (anchor !== 'start') attrs.push(`text-anchor="${anchor}"`);
-    if (spacing) attrs.push(`letter-spacing="${spacing.toFixed(3)}"`);
+    // 🚀 자간은 단위를 붙여 style로 넘긴다.
+    //    단위 없는 숫자로 두면 일러스트레이터 등에서 다르게 해석돼 자간이 넓어 보인다.
+    if (spacing) attrs.push(`style="letter-spacing:${spacing.toFixed(3)}px"`);
 
     // scaleX가 걸린 경우 transform으로 감싸고 좌표는 원점 기준으로 둔다
     const scaled = scaleX !== 1;
@@ -559,7 +567,9 @@ function buildSVGFromDOM() {
 
     let svg = `<?xml version="1.0" encoding="UTF-8"?>\n`;
     svg += `<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 ${W.toFixed(2)} ${H.toFixed(2)}" `;
-    svg += `font-family="Pretendard, 'Pretendard Variable', 'Malgun Gothic', sans-serif">\n`;
+    // 🚀 화면과 같은 순서로 적어야 같은 폰트가 잡힌다.
+    //    (Pretendard를 앞에 두면 정적 버전이 먼저 잡혀 굵기·자폭이 달라진다)
+    svg += `font-family="'Pretendard Variable', Pretendard, 'Malgun Gothic', sans-serif">\n`;
     svg += `<rect width="${W.toFixed(2)}" height="${H.toFixed(2)}" fill="#ffffff"/>\n`;
 
     const title = content.querySelector('.main-title');

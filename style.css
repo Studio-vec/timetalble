@@ -34,6 +34,14 @@ body {
 .controls button { padding: 8px 20px; border: 1px solid #000; background: #fff; font-weight: bold; cursor: pointer; }
 .controls button.active { background: #000; color: #fff; }
 
+/* 🚀 한글은 기본값이 글자 단위로 줄을 끊어 '새로운'이 '새 / 로운'으로 갈라진다.
+   keep-all로 띄어쓰기에서만 줄이 바뀌게 한다. */
+#timetable-content { word-break: keep-all; }
+/* 제목은 아주 긴 낱말이 들어올 수 있어 한 줄을 넘길 때만 예외로 끊어준다.
+   이름에는 걸지 않는다 — 'Thorning-Schmidt'가 칸보다 근소하게 길 때
+   마지막 글자만 다음 줄로 떨어지는 게 살짝 넘치는 것보다 보기 나쁘다. */
+.session-title { overflow-wrap: break-word; }
+
 #timetable-wrapper {flex: 1; display: flex; flex-direction: row; gap: 8px;}
 .date-group { flex: 1; display: flex; flex-direction: column; }
 .date-header { font-size: 18px; font-weight: 800; text-align: center; padding: 12px; background: #222; color: #fff; }
