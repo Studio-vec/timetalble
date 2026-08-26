@@ -388,6 +388,8 @@ function renderTimetable() {
     const allPlaces = [...new Set(validData.map(d => d.Place))].sort((a, b) => placeRank(a) - placeRank(b));
 
     dates.forEach(date => {
+        // 🚀 그 날 세션이 하나도 없는 장소(예: 3일차 장충아레나)는 열 자체를 만들지 않는다.
+        const places = allPlaces.filter(p => validData.some(d => d.Date === date && d.Place === p));
         const dateGroup = document.createElement('div');
         dateGroup.className = 'date-group';
         dateGroup.innerHTML = `<div class="date-header">${escapeHTML(formatDateLabel(date, currentLang))}</div>`;
@@ -414,7 +416,7 @@ function renderTimetable() {
         }
         placesContainer.appendChild(timeAxis);
 
-        allPlaces.forEach((place) => {
+        places.forEach((place) => {
             const color = PLACE_COLOR[place] || DEFAULT_COLOR;
             const col = document.createElement('div');
             col.className = 'place-column';
