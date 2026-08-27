@@ -37,11 +37,20 @@ const DEFAULT_END_HOUR = 20;
 let START_HOUR = DEFAULT_START_HOUR;
 let END_HOUR = DEFAULT_END_HOUR;
 
+const POINT_COLOR = '#e8374a';
 const PLACE_COLOR = {
-    "장충": { bg: '#fdecea', border: '#c62828' },
+    "장충": { bg: '#fdedef', border: POINT_COLOR },
     "이벤트": { bg: '#efebe9', border: '#795548' }
 };
 const DEFAULT_COLOR = { bg: '#f5f5f5', border: '#9e9e9e' };
+
+const BRAND_MAP = {
+    left: { KO: '제27회 세계지식포럼', EN: '27th World Knowledge Forum' },
+    right: { KO: '프로메테우스의 순간', EN: 'The Promethean Moment' },
+    footer: { KO: '*프로그램 및 시간표는 주최측 사정에 따라 변동될 수 있습니다.', EN: '*Programs and schedules are subject to change by the organizer.' }
+};
+// 🚀 https://www.wkforum.org/session 으로 연결되는 QR (라운드트립 디코드로 검증됨)
+const QR_DATA_URI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYAQMAAACEqAqfAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABjklEQVR4nO3VMXLDMAwEQP7/00oRiwaPtGdSBtorNDSIW5Ye1ymjZP78PczvocVisVgsViNrrIlOnYebLRaLxWKxelnXnboXk3APLRaLxWKxulsxr2GxWCwW67HWTAxZLBaLxXqO9alcb7+8x2KxWCxWP2vPUYzvocVisVgsVhfrS2otrD+HxWKxWKx/ZV1rYhJuvJEPsFgsFovVxZrlsWZOYrs+eXiJxWKxWKwuVnDHpetOPceExWKxWKw21n4RiXntxxqLxWKxWG2sPG3/r/U8leNPFovFYrHaWAt5Q18mlchbFovFYrEaWfs3CnW45/0Ai8VisVi9rPfvrTnu1NvYfw1ZLBaLxeplXVvq9j6MydgfYbFYLBbrP1ufsq/WfuywWCwWi9XMuk6ZRIXqIb6vFovFYrFYjayxptaqHrdz4T1ksVgsFquXVTvL9VrbU0UWi8VisZ5j7ejeenVZLBaLxXqMNYmYxJzFYrFYrH5WXOfSh3l9gMVisVisZtaeuhqd+mQusFgsFovVxPoB/L14lctP4jwAAAAASUVORK5CYII=';
 
 let currentLang = 'KO';
 let globalRawData = [];
@@ -416,10 +425,30 @@ function renderTimetable() {
         }
         placesContainer.appendChild(timeAxis);
 
-        places.forEach((place) => {
+        // 🚀 장충아레나가 있는 날엔 그 옆 칸부터가 '신라호텔' 권역임을 얇은 회색 테두리선 + 글씨로 보여준다.
+        //    place-header 행과 폭이 정확히 맞도록 같은 flex 비율(spacer/장충 칸=1/나머지=N-1)을 쓴다.
+        //    장충이 없는 날도 이 행 자체는 항상 만들어 높이를 맞춰야, 날짜별 시간축 눈금이 서로 어긋나지 않는다.
+        const groupRow = document.createElement('div');
+        groupRow.className = 'venue-group-row';
+        if (places[0] === '장충' && places.length > 1) {
+            const shillaLabel = currentLang === 'KO' ? '신라호텔' : 'Shilla Hotel';
+            groupRow.innerHTML = `
+                <div class="group-spacer"></div>
+                <div class="group-jangchung"></div>
+                <div class="group-shilla">${escapeHTML(shillaLabel)}</div>
+            `;
+            groupRow.querySelector('.group-shilla').style.flex = String(places.length - 1);
+        } else {
+            groupRow.innerHTML = '<div class="group-spacer"></div>';
+        }
+        dateGroup.appendChild(groupRow);
+
+        places.forEach((place, placeIdx) => {
             const color = PLACE_COLOR[place] || DEFAULT_COLOR;
             const col = document.createElement('div');
             col.className = 'place-column';
+            // 🚀 장충아레나는 장소명을 포인트 컬러 글씨로 강조해 나머지 신라호텔 세션장과 구분한다.
+            if (place === '장충') col.classList.add('venue-jangchung');
             const displayPlace = PLACE_MAP[place] ? PLACE_MAP[place][currentLang] : place;
             col.innerHTML = `<div class="place-header">${escapeHTML(displayPlace)}</div><div class="track-area"></div>`;
             const track = col.querySelector('.track-area');
@@ -434,7 +463,7 @@ function renderTimetable() {
                 block.style.top = `${startPos}%`;
                 block.style.height = `${Math.max(endPos - startPos, 4)}%`;
                 block.style.backgroundColor = color.bg;
-                block.style.borderTop = `5px solid ${color.border}`;
+                block.style.borderTop = `3px solid ${color.border}`;
 
                 const t = currentLang === 'KO' ? (s.Session_KOR || s.Session_ENG) : (s.Session_ENG || s.Session_KOR);
                 // 🚀 연사·좌장이 여러 명이면 한 명씩 줄을 바꿔 표시
@@ -573,9 +602,18 @@ function buildSVGFromDOM() {
     //    (Pretendard를 앞에 두면 정적 버전이 먼저 잡혀 굵기·자폭이 달라진다)
     svg += `font-family="'Pretendard Variable', Pretendard, 'Malgun Gothic', sans-serif">\n`;
     svg += `<rect width="${W.toFixed(2)}" height="${H.toFixed(2)}" fill="#ffffff"/>\n`;
+    // 🚀 SVG는 sRGB만 표현할 수 있어 CMYK 값을 직접 담을 수 없다.
+    //    인쇄 원고로 쓰려면 일러스트레이터에서 열어 CMYK로 별도 변환해야 한다.
+    svg += `<!-- 색상 모드: RGB(sRGB) — SVG 포맷 자체는 CMYK를 담지 못하므로, 인쇄용 CMYK 변환은 일러스트레이터에서 별도로 진행하세요. -->\n`;
+    // 1pt를 뷰박스 단위로 환산 (전체 폭 420mm 기준)
+    const ptToUnits = (pt) => pt * 0.352778 * (W / 420);
 
     const title = content.querySelector('.main-title');
     if (title) svg += elementToSVGText(title, origin);
+    const brandLeft = content.querySelector('.brand-left');
+    if (brandLeft) svg += elementToSVGText(brandLeft, origin);
+    const brandRight = content.querySelector('.brand-right');
+    if (brandRight) svg += elementToSVGText(brandRight, origin);
 
     content.querySelectorAll('.date-group').forEach(group => {
         const header = group.querySelector('.date-header');
@@ -585,7 +623,7 @@ function buildSVGFromDOM() {
         svg += `width="${hr.width.toFixed(2)}" height="${hr.height.toFixed(2)}" fill="${getComputedStyle(header).backgroundColor}"/>\n`;
         svg += elementToSVGText(header, origin);
 
-        // 30분 간격 눈금선
+        // 시간 구분선: 1시간 간격 0.5pt, 30분 간격 0.3pt, 컬러는 모두 K80
         const firstTrack = group.querySelector('.place-column .track-area');
         if (firstTrack) {
             const cols = group.querySelectorAll('.place-column .track-area');
@@ -594,13 +632,31 @@ function buildSVGFromDOM() {
             const slots = (END_HOUR - START_HOUR) * 2;
             for (let i = 0; i <= slots; i++) {
                 const y = (tr.top - origin.top) + (tr.height / slots) * i;
+                const isHour = i % 2 === 0;
+                const strokeWidth = ptToUnits(isHour ? 0.5 : 0.3);
                 svg += `<line x1="${(tr.left - origin.left).toFixed(2)}" y1="${y.toFixed(2)}" `;
-                svg += `x2="${(last.right - origin.left).toFixed(2)}" y2="${y.toFixed(2)}" stroke="#f0f0f0" stroke-width="0.5"/>\n`;
+                svg += `x2="${(last.right - origin.left).toFixed(2)}" y2="${y.toFixed(2)}" stroke="#333333" stroke-width="${strokeWidth.toFixed(3)}"/>\n`;
             }
         }
 
         group.querySelectorAll('.time-label').forEach(el => { svg += elementToSVGText(el, origin); });
-        group.querySelectorAll('.place-header').forEach(el => { svg += elementToSVGText(el, origin); });
+        group.querySelectorAll('.place-header').forEach(el => {
+            const bg = getComputedStyle(el).backgroundColor;
+            if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
+                const r = el.getBoundingClientRect();
+                svg += `<rect x="${(r.left - origin.left).toFixed(2)}" y="${(r.top - origin.top).toFixed(2)}" `;
+                svg += `width="${r.width.toFixed(2)}" height="${r.height.toFixed(2)}" fill="${bg}"/>\n`;
+            }
+            svg += elementToSVGText(el, origin);
+        });
+        // 장충아레나 옆 칸부터 '신라호텔' 권역임을 보여주는 얇은 회색 테두리선 + 글씨
+        const shillaCell = group.querySelector('.venue-group-row .group-shilla');
+        if (shillaCell) {
+            const sr = shillaCell.getBoundingClientRect();
+            const sx = (sr.left - origin.left).toFixed(2);
+            svg += `<line x1="${sx}" y1="${(sr.top - origin.top).toFixed(2)}" x2="${sx}" y2="${(sr.bottom - origin.top).toFixed(2)}" stroke="#999999" stroke-width="${ptToUnits(0.75).toFixed(3)}"/>\n`;
+            svg += elementToSVGText(shillaCell, origin);
+        }
 
         group.querySelectorAll('.session-block').forEach(block => {
             const br = block.getBoundingClientRect();
@@ -616,6 +672,20 @@ function buildSVGFromDOM() {
 
         svg += `</g>\n`;
     });
+
+    // 🚀 우측 하단 고지문 + QR - 별도 여백을 확보하지 않고 시간표 위에 그대로 겹쳐 보이도록
+    //    day-group을 모두 그린 뒤 맨 마지막에 그려서 항상 맨 위(overlay)로 나오게 한다.
+    const footerNote = content.querySelector('.footer-note');
+    if (footerNote) {
+        const footerText = footerNote.querySelector('.footer-text');
+        if (footerText) svg += elementToSVGText(footerText, origin);
+        const qr = footerNote.querySelector('.footer-qr');
+        if (qr) {
+            const qr_r = qr.getBoundingClientRect();
+            svg += `<image x="${(qr_r.left - origin.left).toFixed(2)}" y="${(qr_r.top - origin.top).toFixed(2)}" `;
+            svg += `width="${qr_r.width.toFixed(2)}" height="${qr_r.height.toFixed(2)}" href="${QR_DATA_URI}"/>\n`;
+        }
+    }
 
     svg += `</svg>\n`;
     return svg;
@@ -634,11 +704,19 @@ function downloadSVGFile() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+// 🚀 좌상단/우상단 브랜딩 문구와 우하단 고지문도 언어 토글에 맞춰 갈아끼운다.
+function updateBrandText() {
+    document.getElementById('brand-left').textContent = BRAND_MAP.left[currentLang];
+    document.getElementById('brand-right').textContent = BRAND_MAP.right[currentLang];
+    document.getElementById('footer-text').textContent = BRAND_MAP.footer[currentLang];
+}
+
 // 버튼 설정
 document.getElementById('btn-ko').onclick = function() {
     currentLang = 'KO';
     this.classList.add('active');
     document.getElementById('btn-en').classList.remove('active');
+    updateBrandText();
     renderTimetable();
 };
 
@@ -646,6 +724,7 @@ document.getElementById('btn-en').onclick = function() {
     currentLang = 'EN';
     this.classList.add('active');
     document.getElementById('btn-ko').classList.remove('active');
+    updateBrandText();
     renderTimetable();
 };
 

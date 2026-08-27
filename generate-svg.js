@@ -43,11 +43,20 @@ const DEFAULT_END_HOUR = 20;
 let START_HOUR = DEFAULT_START_HOUR;
 let END_HOUR = DEFAULT_END_HOUR;
 
+const POINT_COLOR = '#e8374a';
 const PLACE_COLOR = {
-    "장충": { bg: '#fdecea', border: '#c62828' },
+    "장충": { bg: '#fdedef', border: POINT_COLOR },
     "이벤트": { bg: '#efebe9', border: '#795548' }
 };
 const DEFAULT_COLOR = { bg: '#f5f5f5', border: '#9e9e9e' };
+
+const BRAND = {
+    left: { KO: '제27회 세계지식포럼', EN: '27th World Knowledge Forum' },
+    right: { KO: '프로메테우스의 순간', EN: 'The Promethean Moment' },
+    footer: { KO: '*프로그램 및 시간표는 주최측 사정에 따라 변동될 수 있습니다.', EN: '*Programs and schedules are subject to change by the organizer.' }
+};
+// https://www.wkforum.org/session 으로 연결되는 QR (라운드트립 디코드로 검증됨)
+const QR_DATA_URI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYAQMAAACEqAqfAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABjklEQVR4nO3VMXLDMAwEQP7/00oRiwaPtGdSBtorNDSIW5Ye1ymjZP78PczvocVisVgsViNrrIlOnYebLRaLxWKxelnXnboXk3APLRaLxWKxulsxr2GxWCwW67HWTAxZLBaLxXqO9alcb7+8x2KxWCxWP2vPUYzvocVisVgsVhfrS2otrD+HxWKxWKx/ZV1rYhJuvJEPsFgsFovVxZrlsWZOYrs+eXiJxWKxWKwuVnDHpetOPceExWKxWKw21n4RiXntxxqLxWKxWG2sPG3/r/U8leNPFovFYrHaWAt5Q18mlchbFovFYrEaWfs3CnW45/0Ai8VisVi9rPfvrTnu1NvYfw1ZLBaLxeplXVvq9j6MydgfYbFYLBbrP1ufsq/WfuywWCwWi9XMuk6ZRIXqIb6vFovFYrFYjayxptaqHrdz4T1ksVgsFquXVTvL9VrbU0UWi8VisZ5j7ejeenVZLBaLxXqMNYmYxJzFYrFYrH5WXOfSh3l9gMVisVisZtaeuhqd+mQusFgsFovVxPoB/L14lctP4jwAAAAASUVORK5CYII=';
 
 // ---- minimal CSV parser (handles quoted fields, commas, newlines inside quotes) ----
 function parseCSV(text) {
@@ -355,27 +364,41 @@ function buildSVG(validData, lang) {
     const dayCount = dates.length || 1;
     const dayW = (PAGE_W - MARGIN_X * 2 - DAY_GAP * (dayCount - 1)) / dayCount;
 
-    const HEADER_H = 18;
-    const PLACE_HEADER_Y = 30;
-    const TRACK_TOP = 35;
+    const HEADER_H = 14;
+    const GROUP_GAP = 3;         // 날짜 구분 바와 신라호텔 bar 사이 여백
+    const GROUP_Y0 = HEADER_H + GROUP_GAP;
+    const GROUP_H = 12;          // 장충/신라호텔 구분 bar 높이 (없는 날도 정렬을 위해 항상 확보)
+    const PLACE_HEADER_Y = 39;   // 장소명 텍스트 baseline
+    const TRACK_TOP = 46;
     const TRACK_H = 720; // 시간축 전체 높이 (START_HOUR~END_HOUR 범위를 이 높이에 나눠 배치)
     const TIME_COL_W = 24;
     const RIGHT_PAD = 0;
 
+    // 1 unit == 1pt (PAGE_W 1190.55pt == 420mm) 이므로 pt 값을 그대로 stroke-width에 쓸 수 있다.
     let svg = '';
     svg += `<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 ${PAGE_W} ${PAGE_H}" font-family="'Pretendard','Malgun Gothic',sans-serif">\n`;
+    // 색상 모드: RGB(sRGB). SVG 포맷 자체는 CMYK를 담지 못하므로, 인쇄용 CMYK 변환은 일러스트레이터에서 별도로 진행해야 한다.
+    svg += `<!-- 색상 모드: RGB(sRGB) — SVG는 CMYK를 지원하지 않습니다. 인쇄 전 일러스트레이터에서 CMYK로 변환하세요. -->\n`;
     svg += `<style>
-.dh{fill:#222}.dt{fill:#fff;font-size:11px;font-weight:800}
-.pt{fill:#000;font-size:7px;font-weight:700;text-anchor:middle}
-.tt{fill:#888;font-size:6px;text-anchor:end}
+.dh{fill:#222}.dt{fill:#fff;font-size:9px;font-weight:800}
+.pt{fill:#000;font-size:8.5px;font-weight:700;text-anchor:middle}
+.ptJC{fill:${POINT_COLOR}}
+.tt{fill:#000;font-size:6px;text-anchor:end}
 .st{font-size:6.5px;font-weight:800;fill:#000}
-.sm{font-size:5px;fill:#555}
-.si{font-size:5.5px;fill:#333}
-.gl{stroke:#e8e8e8;stroke-width:0.4}
-.gl2{stroke:#f0f0f0;stroke-width:0.25}
+.sm{font-size:5px;fill:#000}
+.si{font-size:5px;fill:#000}
+.gl{stroke:#333333;stroke-width:0.5}
+.gl2{stroke:#333333;stroke-width:0.3}
+.brand,.brandR{font-size:9px;font-weight:800;fill:${POINT_COLOR}}
+.foot{font-size:8px;fill:#000;text-anchor:end}
 </style>\n\n`;
     svg += `<rect width="${PAGE_W}" height="${PAGE_H}" fill="#fff"/>\n\n`;
-    svg += `<text x="${PAGE_W / 2}" y="32" text-anchor="middle" font-size="21" font-weight="900">SESSIONS TIMETABLE</text>\n\n`;
+    svg += `<text class="brand" x="${MARGIN_X}" y="32">${escapeXML(BRAND.left[lang])}</text>\n`;
+    // 제목: 자간 -30(-0.03em), 자폭 90%
+    svg += `<g transform="translate(${(PAGE_W / 2).toFixed(2)},0) scale(0.9,1) translate(${(-PAGE_W / 2).toFixed(2)},0)">\n`;
+    svg += `<text x="${PAGE_W / 2}" y="32" text-anchor="middle" font-size="21" font-weight="700" style="letter-spacing:-0.63px">SESSIONS TIMETABLE</text>\n`;
+    svg += `</g>\n`;
+    svg += `<text class="brandR" x="${PAGE_W - MARGIN_X}" y="32" text-anchor="end">${escapeXML(BRAND.right[lang])}</text>\n\n`;
 
     dates.forEach((date, dayIdx) => {
         const placesForDay = allPlaces.filter(p => validData.some(d => d.Date === date && d.Place === p));
@@ -391,12 +414,23 @@ function buildSVG(validData, lang) {
         svg += `<!-- ==================== DAY ${dayIdx + 1}: ${date} ==================== -->\n`;
         svg += `<g transform="translate(${dayX.toFixed(2)},${TOP_Y})">\n`;
         svg += `<rect class="dh" x="0" y="0" width="${dayW.toFixed(2)}" height="${HEADER_H}" rx="2"/>\n`;
-        svg += `<text class="dt" x="${(dayW / 2).toFixed(2)}" y="13" text-anchor="middle">${escapeXML(displayDate)}</text>\n\n`;
+        svg += `<text class="dt" x="${(dayW / 2).toFixed(2)}" y="${(HEADER_H / 2 + 3).toFixed(2)}" text-anchor="middle">${escapeXML(displayDate)}</text>\n\n`;
+
+        // 장충아레나가 있는 날엔 그 옆 칸부터가 '신라호텔' 권역임을 얇은 회색 테두리선 + 글씨로 보여준다.
+        if (places[0] === '장충' && places.length > 1) {
+            const barX = gridLeft + colW;
+            const barW = gridRight - barX;
+            const shillaLabel = lang === 'KO' ? '신라호텔' : 'Shilla Hotel';
+            svg += `<line x1="${barX.toFixed(2)}" y1="${GROUP_Y0}" x2="${barX.toFixed(2)}" y2="${GROUP_Y0 + GROUP_H}" stroke="#999999" stroke-width="0.75"/>\n`;
+            svg += `<text x="${(barX + barW / 2).toFixed(2)}" y="${(GROUP_Y0 + GROUP_H / 2 + 3).toFixed(2)}" text-anchor="middle" font-size="8" font-weight="400" fill="#999999">${escapeXML(shillaLabel)}</text>\n`;
+        }
 
         places.forEach((place, i) => {
             const cx = gridLeft + colW * (i + 0.5);
             const displayPlace = PLACE_MAP[place] ? PLACE_MAP[place][lang] : place;
-            svg += `<text class="pt" x="${cx.toFixed(2)}" y="${PLACE_HEADER_Y}">${escapeXML(displayPlace)}</text>\n`;
+            // 장충아레나는 포인트 컬러 글씨로 나머지 신라호텔 세션장과 구분한다.
+            const cls = place === '장충' ? 'pt ptJC' : 'pt';
+            svg += `<text class="${cls}" x="${cx.toFixed(2)}" y="${PLACE_HEADER_Y}">${escapeXML(displayPlace)}</text>\n`;
         });
         svg += '\n';
 
@@ -429,7 +463,7 @@ function buildSVG(validData, lang) {
 
             svg += `<!-- ${escapeXML(s.Place)}: ${escapeXML(title)} ${s.Time} -->\n`;
             svg += `<rect x="${x.toFixed(2)}" y="${yStart.toFixed(2)}" width="${w.toFixed(2)}" height="${boxH.toFixed(2)}" fill="${color.bg}" rx="1"/>\n`;
-            svg += `<rect x="${x.toFixed(2)}" y="${yStart.toFixed(2)}" width="${w.toFixed(2)}" height="3" fill="${color.border}" rx="1"/>\n`;
+            svg += `<rect x="${x.toFixed(2)}" y="${yStart.toFixed(2)}" width="${w.toFixed(2)}" height="2" fill="${color.border}" rx="1"/>\n`;
             svg += `<text class="st" x="${(x + 3).toFixed(2)}" y="${(yStart + 11).toFixed(2)}">${escapeXML(title)}</text>\n`;
             svg += `<text class="sm" x="${(x + 3).toFixed(2)}" y="${(yStart + 18).toFixed(2)}">${escapeXML(s.Time)}</text>\n`;
             let ty = yStart + 26;
@@ -441,6 +475,13 @@ function buildSVG(validData, lang) {
 
         svg += `</g>\n\n`;
     });
+
+    // 🚀 우측 하단 고지문 + QR (https://www.wkforum.org/session)
+    //    별도 여백을 확보하지 않고 시간표(마지막 시간대) 위에 그대로 겹쳐 보이도록 배치한다.
+    //    day-group을 모두 그린 뒤 마지막에 그리므로 SVG 문서 순서상 항상 맨 위에 그려진다.
+    const qrSize = 46, qrX = PAGE_W - MARGIN_X - qrSize, qrY = PAGE_H - qrSize - 6;
+    svg += `<text class="foot" x="${(qrX - 6).toFixed(2)}" y="${(qrY + qrSize / 2).toFixed(2)}">${escapeXML(BRAND.footer[lang])}</text>\n`;
+    svg += `<image x="${qrX.toFixed(2)}" y="${qrY.toFixed(2)}" width="${qrSize}" height="${qrSize}" href="${QR_DATA_URI}"/>\n`;
 
     svg += `</svg>\n`;
     return svg;

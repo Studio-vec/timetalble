@@ -1,712 +1,738 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 1190.55 841.89" font-family="'Pretendard','Malgun Gothic',sans-serif">
+<!-- 색상 모드: RGB(sRGB) — SVG는 CMYK를 지원하지 않습니다. 인쇄 전 일러스트레이터에서 CMYK로 변환하세요. -->
 <style>
-.dh{fill:#222}.dt{fill:#fff;font-size:11px;font-weight:800}
-.pt{fill:#000;font-size:7px;font-weight:700;text-anchor:middle}
-.tt{fill:#888;font-size:6px;text-anchor:end}
+.dh{fill:#222}.dt{fill:#fff;font-size:9px;font-weight:800}
+.pt{fill:#000;font-size:8.5px;font-weight:700;text-anchor:middle}
+.ptJC{fill:#e8374a}
+.tt{fill:#000;font-size:6px;text-anchor:end}
 .st{font-size:6.5px;font-weight:800;fill:#000}
-.sm{font-size:5px;fill:#555}
-.si{font-size:5.5px;fill:#333}
-.gl{stroke:#e8e8e8;stroke-width:0.4}
-.gl2{stroke:#f0f0f0;stroke-width:0.25}
+.sm{font-size:5px;fill:#000}
+.si{font-size:5px;fill:#000}
+.gl{stroke:#333333;stroke-width:0.5}
+.gl2{stroke:#333333;stroke-width:0.3}
+.brand,.brandR{font-size:9px;font-weight:800;fill:#e8374a}
+.foot{font-size:8px;fill:#000;text-anchor:end}
 </style>
 
 <rect width="1190.55" height="841.89" fill="#fff"/>
 
-<text x="595.275" y="32" text-anchor="middle" font-size="21" font-weight="900">SESSIONS TIMETABLE</text>
+<text class="brand" x="28" y="32">제27회 세계지식포럼</text>
+<g transform="translate(595.27,0) scale(0.9,1) translate(-595.27,0)">
+<text x="595.275" y="32" text-anchor="middle" font-size="21" font-weight="700" style="letter-spacing:-0.63px">SESSIONS TIMETABLE</text>
+</g>
+<text class="brandR" x="1162.55" y="32" text-anchor="end">프로메테우스의 순간</text>
 
 <!-- ==================== DAY 1: 09-08 ==================== -->
 <g transform="translate(28.00,50)">
-<rect class="dh" x="0" y="0" width="370.18" height="18" rx="2"/>
-<text class="dt" x="185.09" y="13" text-anchor="middle">9월 8일(화)</text>
+<rect class="dh" x="0" y="0" width="370.18" height="14" rx="2"/>
+<text class="dt" x="185.09" y="10.00" text-anchor="middle">9월 8일(화)</text>
 
-<text class="pt" x="53.77" y="30">장충아레나</text>
-<text class="pt" x="111.30" y="30">프로메테우스</text>
-<text class="pt" x="168.83" y="30">다이너스티</text>
-<text class="pt" x="226.36" y="30">에메랄드</text>
-<text class="pt" x="283.89" y="30">루비</text>
-<text class="pt" x="341.42" y="30">토파즈</text>
+<line x1="82.53" y1="17" x2="82.53" y2="29" stroke="#999999" stroke-width="0.75"/>
+<text x="226.36" y="26.00" text-anchor="middle" font-size="8" font-weight="400" fill="#999999">신라호텔</text>
+<text class="pt ptJC" x="53.77" y="39">장충아레나</text>
+<text class="pt" x="111.30" y="39">프로메테우스</text>
+<text class="pt" x="168.83" y="39">다이너스티</text>
+<text class="pt" x="226.36" y="39">에메랄드</text>
+<text class="pt" x="283.89" y="39">루비</text>
+<text class="pt" x="341.42" y="39">토파즈</text>
 
-<line class="gl" x1="25" y1="35.00" x2="370.18" y2="35.00"/>
-<text class="tt" x="23.00" y="37.50">08:00</text>
-<line class="gl2" x1="25" y1="65.00" x2="370.18" y2="65.00"/>
-<text class="tt" x="23.00" y="67.50">08:30</text>
-<line class="gl" x1="25" y1="95.00" x2="370.18" y2="95.00"/>
-<text class="tt" x="23.00" y="97.50">09:00</text>
-<line class="gl2" x1="25" y1="125.00" x2="370.18" y2="125.00"/>
-<text class="tt" x="23.00" y="127.50">09:30</text>
-<line class="gl" x1="25" y1="155.00" x2="370.18" y2="155.00"/>
-<text class="tt" x="23.00" y="157.50">10:00</text>
-<line class="gl2" x1="25" y1="185.00" x2="370.18" y2="185.00"/>
-<text class="tt" x="23.00" y="187.50">10:30</text>
-<line class="gl" x1="25" y1="215.00" x2="370.18" y2="215.00"/>
-<text class="tt" x="23.00" y="217.50">11:00</text>
-<line class="gl2" x1="25" y1="245.00" x2="370.18" y2="245.00"/>
-<text class="tt" x="23.00" y="247.50">11:30</text>
-<line class="gl" x1="25" y1="275.00" x2="370.18" y2="275.00"/>
-<text class="tt" x="23.00" y="277.50">12:00</text>
-<line class="gl2" x1="25" y1="305.00" x2="370.18" y2="305.00"/>
-<text class="tt" x="23.00" y="307.50">12:30</text>
-<line class="gl" x1="25" y1="335.00" x2="370.18" y2="335.00"/>
-<text class="tt" x="23.00" y="337.50">13:00</text>
-<line class="gl2" x1="25" y1="365.00" x2="370.18" y2="365.00"/>
-<text class="tt" x="23.00" y="367.50">13:30</text>
-<line class="gl" x1="25" y1="395.00" x2="370.18" y2="395.00"/>
-<text class="tt" x="23.00" y="397.50">14:00</text>
-<line class="gl2" x1="25" y1="425.00" x2="370.18" y2="425.00"/>
-<text class="tt" x="23.00" y="427.50">14:30</text>
-<line class="gl" x1="25" y1="455.00" x2="370.18" y2="455.00"/>
-<text class="tt" x="23.00" y="457.50">15:00</text>
-<line class="gl2" x1="25" y1="485.00" x2="370.18" y2="485.00"/>
-<text class="tt" x="23.00" y="487.50">15:30</text>
-<line class="gl" x1="25" y1="515.00" x2="370.18" y2="515.00"/>
-<text class="tt" x="23.00" y="517.50">16:00</text>
-<line class="gl2" x1="25" y1="545.00" x2="370.18" y2="545.00"/>
-<text class="tt" x="23.00" y="547.50">16:30</text>
-<line class="gl" x1="25" y1="575.00" x2="370.18" y2="575.00"/>
-<text class="tt" x="23.00" y="577.50">17:00</text>
-<line class="gl2" x1="25" y1="605.00" x2="370.18" y2="605.00"/>
-<text class="tt" x="23.00" y="607.50">17:30</text>
-<line class="gl" x1="25" y1="635.00" x2="370.18" y2="635.00"/>
-<text class="tt" x="23.00" y="637.50">18:00</text>
-<line class="gl2" x1="25" y1="665.00" x2="370.18" y2="665.00"/>
-<text class="tt" x="23.00" y="667.50">18:30</text>
-<line class="gl" x1="25" y1="695.00" x2="370.18" y2="695.00"/>
-<text class="tt" x="23.00" y="697.50">19:00</text>
-<line class="gl2" x1="25" y1="725.00" x2="370.18" y2="725.00"/>
-<text class="tt" x="23.00" y="727.50">19:30</text>
-<line class="gl" x1="25" y1="755.00" x2="370.18" y2="755.00"/>
-<text class="tt" x="23.00" y="757.50">20:00</text>
+<line class="gl" x1="25" y1="46.00" x2="370.18" y2="46.00"/>
+<text class="tt" x="23.00" y="48.50">08:00</text>
+<line class="gl2" x1="25" y1="73.69" x2="370.18" y2="73.69"/>
+<text class="tt" x="23.00" y="76.19">08:30</text>
+<line class="gl" x1="25" y1="101.38" x2="370.18" y2="101.38"/>
+<text class="tt" x="23.00" y="103.88">09:00</text>
+<line class="gl2" x1="25" y1="129.08" x2="370.18" y2="129.08"/>
+<text class="tt" x="23.00" y="131.58">09:30</text>
+<line class="gl" x1="25" y1="156.77" x2="370.18" y2="156.77"/>
+<text class="tt" x="23.00" y="159.27">10:00</text>
+<line class="gl2" x1="25" y1="184.46" x2="370.18" y2="184.46"/>
+<text class="tt" x="23.00" y="186.96">10:30</text>
+<line class="gl" x1="25" y1="212.15" x2="370.18" y2="212.15"/>
+<text class="tt" x="23.00" y="214.65">11:00</text>
+<line class="gl2" x1="25" y1="239.85" x2="370.18" y2="239.85"/>
+<text class="tt" x="23.00" y="242.35">11:30</text>
+<line class="gl" x1="25" y1="267.54" x2="370.18" y2="267.54"/>
+<text class="tt" x="23.00" y="270.04">12:00</text>
+<line class="gl2" x1="25" y1="295.23" x2="370.18" y2="295.23"/>
+<text class="tt" x="23.00" y="297.73">12:30</text>
+<line class="gl" x1="25" y1="322.92" x2="370.18" y2="322.92"/>
+<text class="tt" x="23.00" y="325.42">13:00</text>
+<line class="gl2" x1="25" y1="350.62" x2="370.18" y2="350.62"/>
+<text class="tt" x="23.00" y="353.12">13:30</text>
+<line class="gl" x1="25" y1="378.31" x2="370.18" y2="378.31"/>
+<text class="tt" x="23.00" y="380.81">14:00</text>
+<line class="gl2" x1="25" y1="406.00" x2="370.18" y2="406.00"/>
+<text class="tt" x="23.00" y="408.50">14:30</text>
+<line class="gl" x1="25" y1="433.69" x2="370.18" y2="433.69"/>
+<text class="tt" x="23.00" y="436.19">15:00</text>
+<line class="gl2" x1="25" y1="461.38" x2="370.18" y2="461.38"/>
+<text class="tt" x="23.00" y="463.88">15:30</text>
+<line class="gl" x1="25" y1="489.08" x2="370.18" y2="489.08"/>
+<text class="tt" x="23.00" y="491.58">16:00</text>
+<line class="gl2" x1="25" y1="516.77" x2="370.18" y2="516.77"/>
+<text class="tt" x="23.00" y="519.27">16:30</text>
+<line class="gl" x1="25" y1="544.46" x2="370.18" y2="544.46"/>
+<text class="tt" x="23.00" y="546.96">17:00</text>
+<line class="gl2" x1="25" y1="572.15" x2="370.18" y2="572.15"/>
+<text class="tt" x="23.00" y="574.65">17:30</text>
+<line class="gl" x1="25" y1="599.85" x2="370.18" y2="599.85"/>
+<text class="tt" x="23.00" y="602.35">18:00</text>
+<line class="gl2" x1="25" y1="627.54" x2="370.18" y2="627.54"/>
+<text class="tt" x="23.00" y="630.04">18:30</text>
+<line class="gl" x1="25" y1="655.23" x2="370.18" y2="655.23"/>
+<text class="tt" x="23.00" y="657.73">19:00</text>
+<line class="gl2" x1="25" y1="682.92" x2="370.18" y2="682.92"/>
+<text class="tt" x="23.00" y="685.42">19:30</text>
+<line class="gl" x1="25" y1="710.62" x2="370.18" y2="710.62"/>
+<text class="tt" x="23.00" y="713.12">20:00</text>
+<line class="gl2" x1="25" y1="738.31" x2="370.18" y2="738.31"/>
+<text class="tt" x="23.00" y="740.81">20:30</text>
+<line class="gl" x1="25" y1="766.00" x2="370.18" y2="766.00"/>
+<text class="tt" x="23.00" y="768.50">21:00</text>
 
-<!-- 장충아레나: 오프닝 행사 08:30-09:20 -->
-<rect x="26.00" y="65.00" width="55.53" height="50.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="65.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="76.00">오프닝 행사</text>
-<text class="sm" x="29.00" y="83.00">08:30-09:20</text>
-<!-- 장충아레나: 리처드 도킨스와의 대화 + 북사인회 10:00-11:40 -->
-<rect x="26.00" y="155.00" width="55.53" height="100.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="155.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="166.00">리처드 도킨스와의 대화 + 북사인회</text>
-<text class="sm" x="29.00" y="173.00">10:00-11:40</text>
-<text class="si" x="29.00" y="181.00">리처드 도킨스</text>
-<text class="si" x="29.00" y="189.00">김영기</text>
-<!-- 장충아레나: 메가시티는 어떻게 작동하는가 13:30-14:20 -->
-<rect x="26.00" y="365.00" width="55.53" height="50.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="365.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="376.00">메가시티는 어떻게 작동하는가</text>
-<text class="sm" x="29.00" y="383.00">13:30-14:20</text>
-<text class="si" x="29.00" y="391.00">에릭 애덤스</text>
-<text class="si" x="29.00" y="399.00">아마라 워커</text>
-<!-- 장충아레나: 질주할 것인가, 통제할 것인가: AI 시대 논쟁 14:30-15:20 -->
-<rect x="26.00" y="425.00" width="55.53" height="50.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="425.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="436.00">질주할 것인가, 통제할 것인가: AI 시대 논쟁</text>
-<text class="sm" x="29.00" y="443.00">14:30-15:20</text>
-<text class="si" x="29.00" y="451.00">로만 얌폴스키</text>
-<!-- 장충아레나: 생명윤리와 AI 15:30-16:20 -->
-<rect x="26.00" y="485.00" width="55.53" height="50.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="485.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="496.00">생명윤리와 AI</text>
-<text class="sm" x="29.00" y="503.00">15:30-16:20</text>
-<text class="si" x="29.00" y="511.00">안드레아 시우씨; 헬레 토르닝슈미트</text>
-<text class="si" x="29.00" y="519.00">문스부 교구(TBD)</text>
-<!-- 프로메테우스: AGI 어디까지 왔나? 10:00-10:50 -->
-<rect x="83.53" y="155.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="155.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="166.00">AGI 어디까지 왔나?</text>
-<text class="sm" x="86.53" y="173.00">10:00-10:50</text>
-<text class="si" x="86.53" y="181.00">장야친</text>
-<text class="si" x="86.53" y="189.00">윤송이</text>
-<!-- 프로메테우스: 리더십과 소프트파워, 국가의 길 11:00-11:50 -->
-<rect x="83.53" y="215.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="215.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="226.00">리더십과 소프트파워, 국가의 길</text>
-<text class="sm" x="86.53" y="233.00">11:00-11:50</text>
-<text class="si" x="86.53" y="241.00">데이비드 캐머론</text>
-<text class="si" x="86.53" y="249.00">이철우</text>
-<!-- 프로메테우스: 돈 버는 우주 산업: 인류, 지구 밖으로 13:30-14:20 -->
-<rect x="83.53" y="365.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="365.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="376.00">돈 버는 우주 산업: 인류, 지구 밖으로</text>
-<text class="sm" x="86.53" y="383.00">13:30-14:20</text>
-<text class="si" x="86.53" y="391.00">제이슨 김</text>
-<!-- 프로메테우스: 하드웨어와 만난 AI: 일상을 바꾸다 14:30-15:20 -->
-<rect x="83.53" y="425.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="425.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="436.00">하드웨어와 만난 AI: 일상을 바꾸다</text>
-<text class="sm" x="86.53" y="443.00">14:30-15:20</text>
-<text class="si" x="86.53" y="451.00">엑스리얼(TBD); 삼성전자(TBD)</text>
-<text class="si" x="86.53" y="459.00">스티븐 리</text>
-<!-- 프로메테우스: 아시아의 전환기 금융 및 국부펀드의 ESG 15:30-16:20 -->
-<rect x="83.53" y="485.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="485.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="496.00">아시아의 전환기 금융 및 국부펀드의 ESG</text>
-<text class="sm" x="86.53" y="503.00">15:30-16:20</text>
-<text class="si" x="86.53" y="511.00">웡 데 루이</text>
-<text class="si" x="86.53" y="519.00">이경택</text>
-<!-- 프로메테우스: 사우디장관 세션 16:30-17:20 -->
-<rect x="83.53" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="556.00">사우디장관 세션</text>
-<text class="sm" x="86.53" y="563.00">16:30-17:20</text>
-<text class="si" x="86.53" y="571.00">사우디 산업장관(TBD)</text>
-<text class="si" x="86.53" y="579.00">주형환</text>
-<!-- 다이너스티: 미·중 패권 경쟁 속 유럽이 선택한 새로운 생존 전략 10:00-10:50 -->
-<rect x="141.06" y="155.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="155.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="166.00">미·중 패권 경쟁 속 유럽이 선택한 새로운 생존 전략</text>
-<text class="sm" x="144.06" y="173.00">10:00-10:50</text>
-<text class="si" x="144.06" y="181.00">헬레 토르닝슈미트</text>
-<text class="si" x="144.06" y="189.00">티에리 몽브리알</text>
-<!-- 다이너스티: AI 혁신 생태계를 위한 국가전략 11:00-11:50 -->
-<rect x="141.06" y="215.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="215.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="226.00">AI 혁신 생태계를 위한 국가전략</text>
-<text class="sm" x="144.06" y="233.00">11:00-11:50</text>
-<text class="si" x="144.06" y="241.00">우푸크 악치이트</text>
-<text class="si" x="144.06" y="249.00">서울대 교수(TBD)</text>
-<!-- 다이너스티: 상법 대전환 시대, 한일 기업 생존 공식을 찾아라 13:30-14:20 -->
-<rect x="141.06" y="365.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="365.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="376.00">상법 대전환 시대, 한일 기업 생존 공식을 찾아라</text>
-<text class="sm" x="144.06" y="383.00">13:30-14:20</text>
-<text class="si" x="144.06" y="391.00">겐 고토</text>
-<text class="si" x="144.06" y="399.00">이남우</text>
-<!-- 다이너스티: 대체육의 현재와 미래 14:30-15:20 -->
-<rect x="141.06" y="425.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="425.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="436.00">대체육의 현재와 미래</text>
-<text class="sm" x="144.06" y="443.00">14:30-15:20</text>
-<text class="si" x="144.06" y="451.00">브루스 프리드리히; 패트릭 브라운; 산드로 데마이오</text>
-<text class="si" x="144.06" y="459.00">마크 포스트</text>
-<!-- 다이너스티: AI시대 인재상과 교육의 변화 15:30-16:20 -->
-<rect x="141.06" y="485.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="485.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="496.00">AI시대 인재상과 교육의 변화</text>
-<text class="sm" x="144.06" y="503.00">15:30-16:20</text>
-<text class="si" x="144.06" y="511.00">김정상; 건국대 총장(TBD); 솔로프리너(TBD)</text>
-<text class="si" x="144.06" y="519.00">창의재단 이사장(TBD)</text>
-<!-- 다이너스티: 요양원 없는 초고령사회: AI가 설계하는 내 집에서의 마지막 20년 16:30-17:20 -->
-<rect x="141.06" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="556.00">요양원 없는 초고령사회: AI가 설계하는 내 집에서의 마지막 20년</text>
-<text class="sm" x="144.06" y="563.00">16:30-17:20</text>
-<text class="si" x="144.06" y="571.00">김광준; Shawn Bloom(TBD)</text>
-<text class="si" x="144.06" y="579.00">Peter M. Abadir(TBD)</text>
-<!-- 에메랄드: 미래 모빌리티와 자율주행 10:00-10:50 -->
-<rect x="198.59" y="155.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="155.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="166.00">미래 모빌리티와 자율주행</text>
-<text class="sm" x="201.59" y="173.00">10:00-10:50</text>
-<text class="si" x="201.59" y="181.00">도미닉 테일러</text>
-<!-- 에메랄드: 기업 AI 전환의 기초: 데이터를 지켜라 11:00-11:50 -->
-<rect x="198.59" y="215.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="215.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="226.00">기업 AI 전환의 기초: 데이터를 지켜라</text>
-<text class="sm" x="201.59" y="233.00">11:00-11:50</text>
-<text class="si" x="201.59" y="241.00">폴 사이모스; 류경동</text>
-<text class="si" x="201.59" y="249.00">김은영</text>
-<!-- 에메랄드: (미정) 헬레 전 덴마크 총리 세션 13:30-14:20 -->
-<rect x="198.59" y="365.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="365.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="376.00">(미정) 헬레 전 덴마크 총리 세션</text>
-<text class="sm" x="201.59" y="383.00">13:30-14:20</text>
-<text class="si" x="201.59" y="391.00">헬레 토르닝슈미트</text>
-<!-- 에메랄드: 전장이 바뀐다: AI 자율 드론과 미래 공군력 14:30-15:20 -->
-<rect x="198.59" y="425.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="425.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="436.00">전장이 바뀐다: AI 자율 드론과 미래 공군력</text>
-<text class="sm" x="201.59" y="443.00">14:30-15:20</text>
-<text class="si" x="201.59" y="451.00">로렌츠 마이어; 벤치온 레빈슨; 원인철</text>
-<text class="si" x="201.59" y="459.00">전동근</text>
-<!-- 에메랄드: VIP디너 준비 16:30-17:20 -->
-<rect x="198.59" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="556.00">VIP디너 준비</text>
-<text class="sm" x="201.59" y="563.00">16:30-17:20</text>
-<!-- 루비: 글로벌 공급망 인사이트 10:00-10:50 -->
-<rect x="256.12" y="155.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="155.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="166.00">글로벌 공급망 인사이트</text>
-<text class="sm" x="259.12" y="173.00">10:00-10:50</text>
-<text class="si" x="259.12" y="181.00">쭝위안 조이 류; 베르나르 살로메; 자가나트 판다</text>
-<text class="si" x="259.12" y="189.00">브라이언 킹스턴</text>
-<!-- 루비: AI 트렌드 2027: 피지컬 AI를 위한 코인텔리전스 11:00-11:50 -->
-<rect x="256.12" y="215.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="215.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="226.00">AI 트렌드 2027: 피지컬 AI를 위한 코인텔리전스</text>
-<text class="sm" x="259.12" y="233.00">11:00-11:50</text>
-<text class="si" x="259.12" y="241.00">닉 래드퍼드</text>
-<text class="si" x="259.12" y="249.00">류중희</text>
-<!-- 루비: 자산수명과 건강수명, 테크와의 만남 13:30-14:20 -->
-<rect x="256.12" y="365.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="365.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="376.00">자산수명과 건강수명, 테크와의 만남</text>
-<text class="sm" x="259.12" y="383.00">13:30-14:20</text>
-<text class="si" x="259.12" y="391.00">조용범; 황희; 일본 솜포케어(TBD)</text>
-<text class="si" x="259.12" y="399.00">박정훈</text>
-<!-- 루비: 2027 지정학 아웃룩 14:30-15:20 -->
-<rect x="256.12" y="425.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="425.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="436.00">2027 지정학 아웃룩</text>
-<text class="sm" x="259.12" y="443.00">14:30-15:20</text>
-<text class="si" x="259.12" y="451.00">페페 에스코바르; 채드 울프; 몽브리알</text>
-<text class="si" x="259.12" y="459.00">아마라 워커</text>
-<!-- 루비: 우리는 왜 손해 보는 선택을 할까 - 정체성과 인지, 비합리의 두 얼굴 15:30-16:20 -->
-<rect x="256.12" y="485.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="485.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="496.00">우리는 왜 손해 보는 선택을 할까 - 정체성과 인지, 비합리의 두 얼굴</text>
-<text class="sm" x="259.12" y="503.00">15:30-16:20</text>
-<text class="si" x="259.12" y="511.00">수안나 오; 에반 프리드먼</text>
-<text class="si" x="259.12" y="519.00">신원문</text>
-<!-- 루비: ESG투자전략 세션 16:30-17:20 -->
-<rect x="256.12" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="556.00">ESG투자전략 세션</text>
-<text class="sm" x="259.12" y="563.00">16:30-17:20</text>
-<text class="si" x="259.12" y="571.00">량하오</text>
-<text class="si" x="259.12" y="579.00">게오르그 켈</text>
-<!-- 토파즈: VC 투자 11:00-11:50 -->
-<rect x="313.65" y="215.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="215.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="226.00">VC 투자</text>
-<text class="sm" x="316.65" y="233.00">11:00-11:50</text>
-<text class="si" x="316.65" y="241.00">이안 박; 다나 세틀</text>
-<text class="si" x="316.65" y="249.00">A16z(TBD)</text>
-<!-- 토파즈: AI시대 여행, 로컬이 뜬다 14:30-15:20 -->
-<rect x="313.65" y="425.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="425.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="436.00">AI시대 여행, 로컬이 뜬다</text>
-<text class="sm" x="316.65" y="443.00">14:30-15:20</text>
-<text class="si" x="316.65" y="451.00">로라 홀드워스</text>
-<!-- 토파즈: 인공 위성 관련 주제 15:30-16:20 -->
-<rect x="313.65" y="485.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="485.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="496.00">인공 위성 관련 주제</text>
-<text class="sm" x="316.65" y="503.00">15:30-16:20</text>
-<text class="si" x="316.65" y="511.00">탈레스(TBD)</text>
-<!-- 토파즈: AI 빅테크의 성공과 성과급 16:30-17:20 -->
-<rect x="313.65" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="556.00">AI 빅테크의 성공과 성과급</text>
-<text class="sm" x="316.65" y="563.00">16:30-17:20</text>
-<text class="si" x="316.65" y="571.00">우푸크 악치이트</text>
-<text class="si" x="316.65" y="579.00">스티븐 덜로프</text>
+<!-- 장충: 개막식: AI시대 새로운 공존의 국제질서 08:30-09:20 -->
+<rect x="26.00" y="73.69" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="73.69" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="84.69">개막식: AI시대 새로운 공존의 국제질서</text>
+<text class="sm" x="29.00" y="91.69">08:30-09:20</text>
+<text class="si" x="29.00" y="99.69">데이비드 캐머런</text>
+<!-- 장충: 피지컬 AI 혁명: 세상을 움직이는 공존지능 10:00-10:50 -->
+<rect x="26.00" y="156.77" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="156.77" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="167.77">피지컬 AI 혁명: 세상을 움직이는 공존지능</text>
+<text class="sm" x="29.00" y="174.77">10:00-10:50</text>
+<text class="si" x="29.00" y="182.77">서배스천 스런</text>
+<!-- 장충: 사이버 보안과 양자 컴퓨팅 11:00-11:50 -->
+<rect x="26.00" y="212.15" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="212.15" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="223.15">사이버 보안과 양자 컴퓨팅</text>
+<text class="sm" x="29.00" y="230.15">11:00-11:50</text>
+<text class="si" x="29.00" y="238.15">파비오 도나티</text>
+<!-- 장충: 창작하는 AI, 예술·창의성의 미래 13:30-14:20 -->
+<rect x="26.00" y="350.62" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="350.62" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="361.62">창작하는 AI, 예술·창의성의 미래</text>
+<text class="sm" x="29.00" y="368.62">13:30-14:20</text>
+<!-- 장충: AI 딜레마: 혁신 vs 규제 14:30-15:20 -->
+<rect x="26.00" y="406.00" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="406.00" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="417.00">AI 딜레마: 혁신 vs 규제</text>
+<text class="sm" x="29.00" y="424.00">14:30-15:20</text>
+<!-- 장충: 메가시티는 어떻게 작동하는가 15:30-16:20 -->
+<rect x="26.00" y="461.38" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="461.38" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="472.38">메가시티는 어떻게 작동하는가</text>
+<text class="sm" x="29.00" y="479.38">15:30-16:20</text>
+<text class="si" x="29.00" y="487.38">에릭 애덤스</text>
+<!-- 프로메테우스: 비스니스 AI의 완성: 산업 현장에 닿은 언어모델과 로보틱스 11:00-11:50 -->
+<rect x="83.53" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="223.15">비스니스 AI의 완성: 산업 현장에 닿은 언어모델과 로보틱스</text>
+<text class="sm" x="86.53" y="230.15">11:00-11:50</text>
+<!-- 프로메테우스: 우주경제 개막: 시장을 선점하라 13:30-14:20 -->
+<rect x="83.53" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="361.62">우주경제 개막: 시장을 선점하라</text>
+<text class="sm" x="86.53" y="368.62">13:30-14:20</text>
+<text class="si" x="86.53" y="376.62">제이슨 김</text>
+<text class="si" x="86.53" y="384.62">안 형준</text>
+<!-- 프로메테우스: 퍼스널 AI, 일상을 바꾸다 14:30-15:20 -->
+<rect x="83.53" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="417.00">퍼스널 AI, 일상을 바꾸다</text>
+<text class="sm" x="86.53" y="424.00">14:30-15:20</text>
+<text class="si" x="86.53" y="432.00">스테픈 리</text>
+<!-- 프로메테우스: 전환기 아시아 국부펀드의 자산배분과 ESG 15:30-16:20 -->
+<rect x="83.53" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="472.38">전환기 아시아 국부펀드의 자산배분과 ESG</text>
+<text class="sm" x="86.53" y="479.38">15:30-16:20</text>
+<text class="si" x="86.53" y="487.38">이 남우</text>
+<!-- 프로메테우스: 우리는 정말로 AI를 통제하고 있는가? 16:30-17:20 -->
+<rect x="83.53" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="527.77">우리는 정말로 AI를 통제하고 있는가?</text>
+<text class="sm" x="86.53" y="534.77">16:30-17:20</text>
+<text class="si" x="86.53" y="542.77">로만 얌폴스키</text>
+<text class="si" x="86.53" y="550.77">샤 사자디에</text>
+<!-- 다이너스티: 글로벌 디지털 자산 경쟁의 시작 10:00-10:50 -->
+<rect x="141.06" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="167.77">글로벌 디지털 자산 경쟁의 시작</text>
+<text class="sm" x="144.06" y="174.77">10:00-10:50</text>
+<text class="si" x="144.06" y="182.77">오 종욱</text>
+<!-- 다이너스티: 리더십과 소프트파워, 국가의 길 11:00-11:50 -->
+<rect x="141.06" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="223.15">리더십과 소프트파워, 국가의 길</text>
+<text class="sm" x="144.06" y="230.15">11:00-11:50</text>
+<!-- 다이너스티: 2027 글로벌 지정학 아웃룩 13:30-14:20 -->
+<rect x="141.06" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="361.62">2027 글로벌 지정학 아웃룩</text>
+<text class="sm" x="144.06" y="368.62">13:30-14:20</text>
+<!-- 다이너스티: 드론, 방위산업 게임체인저 14:30-15:20 -->
+<rect x="141.06" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="417.00">드론, 방위산업 게임체인저</text>
+<text class="sm" x="144.06" y="424.00">14:30-15:20</text>
+<text class="si" x="144.06" y="432.00">전 동근</text>
+<!-- 다이너스티: 소득과 계층이동: 과거, 현재, 그리고 AI가 바꿀 미래 15:30-16:20 -->
+<rect x="141.06" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="472.38">소득과 계층이동: 과거, 현재, 그리고 AI가 바꿀 미래</text>
+<text class="sm" x="144.06" y="479.38">15:30-16:20</text>
+<text class="si" x="144.06" y="487.38">스티븐 덜로프</text>
+<text class="si" x="144.06" y="495.38">장 유순</text>
+<!-- 다이너스티: AI가 바꾸는 헬스케어: 그 실체와 책임의 주체 16:30-17:20 -->
+<rect x="141.06" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="527.77">AI가 바꾸는 헬스케어: 그 실체와 책임의 주체</text>
+<text class="sm" x="144.06" y="534.77">16:30-17:20</text>
+<text class="si" x="144.06" y="542.77">이 민구</text>
+<!-- 에메랄드: 미래 모빌리티와 자율주행: K-관광의 신동력 10:00-10:50 -->
+<rect x="198.59" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="167.77">미래 모빌리티와 자율주행: K-관광의 신동력</text>
+<text class="sm" x="201.59" y="174.77">10:00-10:50</text>
+<text class="si" x="201.59" y="182.77">도미닉 테일러</text>
+<text class="si" x="201.59" y="190.77">미키 김</text>
+<!-- 에메랄드: 기업 AI전환 성공전략 11:00-11:50 -->
+<rect x="198.59" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="223.15">기업 AI전환 성공전략</text>
+<text class="sm" x="201.59" y="230.15">11:00-11:50</text>
+<text class="si" x="201.59" y="238.15">폴 사이모스</text>
+<text class="si" x="201.59" y="246.15">류 경동</text>
+<text class="si" x="201.59" y="254.15">김 은영</text>
+<!-- 에메랄드: 상법 대전환 시대, 한일 기업 생존 공식을 찾아라 13:30-14:20 -->
+<rect x="198.59" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="361.62">상법 대전환 시대, 한일 기업 생존 공식을 찾아라</text>
+<text class="sm" x="201.59" y="368.62">13:30-14:20</text>
+<text class="si" x="201.59" y="376.62">고토 겐</text>
+<text class="si" x="201.59" y="384.62">이 남우</text>
+<!-- 에메랄드: 비합리적으로 보이는 선택의 이유: 정체성과 기만의 경제학 14:30-15:20 -->
+<rect x="198.59" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="417.00">비합리적으로 보이는 선택의 이유: 정체성과 기만의 경제학</text>
+<text class="sm" x="201.59" y="424.00">14:30-15:20</text>
+<text class="si" x="201.59" y="432.00">신 원문</text>
+<!-- 루비: 보이지 않는 전쟁: AI 시대 국가 안보와 사이버 억지력 10:00-10:50 -->
+<rect x="256.12" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="167.77">보이지 않는 전쟁: AI 시대 국가 안보와 사이버 억지력</text>
+<text class="sm" x="259.12" y="174.77">10:00-10:50</text>
+<text class="si" x="259.12" y="182.77">김 홍선</text>
+<!-- 루비: AI 병목 푸는 전력·에너지 해법 11:00-11:50 -->
+<rect x="256.12" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="223.15">AI 병목 푸는 전력·에너지 해법</text>
+<text class="sm" x="259.12" y="230.15">11:00-11:50</text>
+<text class="si" x="259.12" y="238.15">레이철 스톨</text>
+<!-- 루비: 고기의 재발명: 배양육이 여는 식량의 미래 14:30-15:20 -->
+<rect x="256.12" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="417.00">고기의 재발명: 배양육이 여는 식량의 미래</text>
+<text class="sm" x="259.12" y="424.00">14:30-15:20</text>
+<text class="si" x="259.12" y="432.00">브루스 프리드리히</text>
+<!-- 루비: 두 개의 수명: 자산수명, 건강수명, 그리고 기술 15:30-16:20 -->
+<rect x="256.12" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="472.38">두 개의 수명: 자산수명, 건강수명, 그리고 기술</text>
+<text class="sm" x="259.12" y="479.38">15:30-16:20</text>
+<text class="si" x="259.12" y="487.38">박 정훈</text>
+<!-- 토파즈: 미·중 패권 경쟁과 유럽의 새로운 생존 전략 10:00-10:50 -->
+<rect x="313.65" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="167.77">미·중 패권 경쟁과 유럽의 새로운 생존 전략</text>
+<text class="sm" x="316.65" y="174.77">10:00-10:50</text>
+<text class="si" x="316.65" y="182.77">헬레 토르닝슈미트</text>
+<text class="si" x="316.65" y="190.77">티에리 몽브리알</text>
+<!-- 토파즈: 실리콘밸리 자본의 향방 11:00-11:50 -->
+<rect x="313.65" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="223.15">실리콘밸리 자본의 향방</text>
+<text class="sm" x="316.65" y="230.15">11:00-11:50</text>
+<text class="si" x="316.65" y="238.15">박 이안</text>
+<!-- 토파즈: AI 방화선 앞에 서다: 기업보안 회복탄력성 13:30-14:20 -->
+<rect x="313.65" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="361.62">AI 방화선 앞에 서다: 기업보안 회복탄력성</text>
+<text class="sm" x="316.65" y="368.62">13:30-14:20</text>
+<text class="si" x="316.65" y="376.62">필리파 콕스웰</text>
+<!-- 토파즈: 글로벌 컨시어지로 진화한 AI: 사람과 장소, 가능성을 연결하다 14:30-15:20 -->
+<rect x="313.65" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="417.00">글로벌 컨시어지로 진화한 AI: 사람과 장소, 가능성을 연결하다</text>
+<text class="sm" x="316.65" y="424.00">14:30-15:20</text>
+<text class="si" x="316.65" y="432.00">로라 홀드워스</text>
+<!-- 토파즈: AI 속 700만 가상 한국인, 현실을 시뮬레이션하다 15:30-16:20 -->
+<rect x="313.65" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="472.38">AI 속 700만 가상 한국인, 현실을 시뮬레이션하다</text>
+<text class="sm" x="316.65" y="479.38">15:30-16:20</text>
+<text class="si" x="316.65" y="487.38">김 현우</text>
+<text class="si" x="316.65" y="495.38">이 관민</text>
+<!-- 토파즈: AI 시대의 노인의료: 돌봄을 나눠 지는 법 16:30-17:20 -->
+<rect x="313.65" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="527.77">AI 시대의 노인의료: 돌봄을 나눠 지는 법</text>
+<text class="sm" x="316.65" y="534.77">16:30-17:20</text>
+<text class="si" x="316.65" y="542.77">김 광준</text>
 </g>
 
 <!-- ==================== DAY 2: 09-09 ==================== -->
 <g transform="translate(410.18,50)">
-<rect class="dh" x="0" y="0" width="370.18" height="18" rx="2"/>
-<text class="dt" x="185.09" y="13" text-anchor="middle">9월 9일(수)</text>
+<rect class="dh" x="0" y="0" width="370.18" height="14" rx="2"/>
+<text class="dt" x="185.09" y="10.00" text-anchor="middle">9월 9일(수)</text>
 
-<text class="pt" x="53.77" y="30">장충아레나</text>
-<text class="pt" x="111.30" y="30">프로메테우스</text>
-<text class="pt" x="168.83" y="30">다이너스티</text>
-<text class="pt" x="226.36" y="30">에메랄드</text>
-<text class="pt" x="283.89" y="30">루비</text>
-<text class="pt" x="341.42" y="30">토파즈</text>
+<line x1="82.53" y1="17" x2="82.53" y2="29" stroke="#999999" stroke-width="0.75"/>
+<text x="226.36" y="26.00" text-anchor="middle" font-size="8" font-weight="400" fill="#999999">신라호텔</text>
+<text class="pt ptJC" x="53.77" y="39">장충아레나</text>
+<text class="pt" x="111.30" y="39">프로메테우스</text>
+<text class="pt" x="168.83" y="39">다이너스티</text>
+<text class="pt" x="226.36" y="39">에메랄드</text>
+<text class="pt" x="283.89" y="39">루비</text>
+<text class="pt" x="341.42" y="39">토파즈</text>
 
-<line class="gl" x1="25" y1="35.00" x2="370.18" y2="35.00"/>
-<text class="tt" x="23.00" y="37.50">08:00</text>
-<line class="gl2" x1="25" y1="65.00" x2="370.18" y2="65.00"/>
-<text class="tt" x="23.00" y="67.50">08:30</text>
-<line class="gl" x1="25" y1="95.00" x2="370.18" y2="95.00"/>
-<text class="tt" x="23.00" y="97.50">09:00</text>
-<line class="gl2" x1="25" y1="125.00" x2="370.18" y2="125.00"/>
-<text class="tt" x="23.00" y="127.50">09:30</text>
-<line class="gl" x1="25" y1="155.00" x2="370.18" y2="155.00"/>
-<text class="tt" x="23.00" y="157.50">10:00</text>
-<line class="gl2" x1="25" y1="185.00" x2="370.18" y2="185.00"/>
-<text class="tt" x="23.00" y="187.50">10:30</text>
-<line class="gl" x1="25" y1="215.00" x2="370.18" y2="215.00"/>
-<text class="tt" x="23.00" y="217.50">11:00</text>
-<line class="gl2" x1="25" y1="245.00" x2="370.18" y2="245.00"/>
-<text class="tt" x="23.00" y="247.50">11:30</text>
-<line class="gl" x1="25" y1="275.00" x2="370.18" y2="275.00"/>
-<text class="tt" x="23.00" y="277.50">12:00</text>
-<line class="gl2" x1="25" y1="305.00" x2="370.18" y2="305.00"/>
-<text class="tt" x="23.00" y="307.50">12:30</text>
-<line class="gl" x1="25" y1="335.00" x2="370.18" y2="335.00"/>
-<text class="tt" x="23.00" y="337.50">13:00</text>
-<line class="gl2" x1="25" y1="365.00" x2="370.18" y2="365.00"/>
-<text class="tt" x="23.00" y="367.50">13:30</text>
-<line class="gl" x1="25" y1="395.00" x2="370.18" y2="395.00"/>
-<text class="tt" x="23.00" y="397.50">14:00</text>
-<line class="gl2" x1="25" y1="425.00" x2="370.18" y2="425.00"/>
-<text class="tt" x="23.00" y="427.50">14:30</text>
-<line class="gl" x1="25" y1="455.00" x2="370.18" y2="455.00"/>
-<text class="tt" x="23.00" y="457.50">15:00</text>
-<line class="gl2" x1="25" y1="485.00" x2="370.18" y2="485.00"/>
-<text class="tt" x="23.00" y="487.50">15:30</text>
-<line class="gl" x1="25" y1="515.00" x2="370.18" y2="515.00"/>
-<text class="tt" x="23.00" y="517.50">16:00</text>
-<line class="gl2" x1="25" y1="545.00" x2="370.18" y2="545.00"/>
-<text class="tt" x="23.00" y="547.50">16:30</text>
-<line class="gl" x1="25" y1="575.00" x2="370.18" y2="575.00"/>
-<text class="tt" x="23.00" y="577.50">17:00</text>
-<line class="gl2" x1="25" y1="605.00" x2="370.18" y2="605.00"/>
-<text class="tt" x="23.00" y="607.50">17:30</text>
-<line class="gl" x1="25" y1="635.00" x2="370.18" y2="635.00"/>
-<text class="tt" x="23.00" y="637.50">18:00</text>
-<line class="gl2" x1="25" y1="665.00" x2="370.18" y2="665.00"/>
-<text class="tt" x="23.00" y="667.50">18:30</text>
-<line class="gl" x1="25" y1="695.00" x2="370.18" y2="695.00"/>
-<text class="tt" x="23.00" y="697.50">19:00</text>
-<line class="gl2" x1="25" y1="725.00" x2="370.18" y2="725.00"/>
-<text class="tt" x="23.00" y="727.50">19:30</text>
-<line class="gl" x1="25" y1="755.00" x2="370.18" y2="755.00"/>
-<text class="tt" x="23.00" y="757.50">20:00</text>
+<line class="gl" x1="25" y1="46.00" x2="370.18" y2="46.00"/>
+<text class="tt" x="23.00" y="48.50">08:00</text>
+<line class="gl2" x1="25" y1="73.69" x2="370.18" y2="73.69"/>
+<text class="tt" x="23.00" y="76.19">08:30</text>
+<line class="gl" x1="25" y1="101.38" x2="370.18" y2="101.38"/>
+<text class="tt" x="23.00" y="103.88">09:00</text>
+<line class="gl2" x1="25" y1="129.08" x2="370.18" y2="129.08"/>
+<text class="tt" x="23.00" y="131.58">09:30</text>
+<line class="gl" x1="25" y1="156.77" x2="370.18" y2="156.77"/>
+<text class="tt" x="23.00" y="159.27">10:00</text>
+<line class="gl2" x1="25" y1="184.46" x2="370.18" y2="184.46"/>
+<text class="tt" x="23.00" y="186.96">10:30</text>
+<line class="gl" x1="25" y1="212.15" x2="370.18" y2="212.15"/>
+<text class="tt" x="23.00" y="214.65">11:00</text>
+<line class="gl2" x1="25" y1="239.85" x2="370.18" y2="239.85"/>
+<text class="tt" x="23.00" y="242.35">11:30</text>
+<line class="gl" x1="25" y1="267.54" x2="370.18" y2="267.54"/>
+<text class="tt" x="23.00" y="270.04">12:00</text>
+<line class="gl2" x1="25" y1="295.23" x2="370.18" y2="295.23"/>
+<text class="tt" x="23.00" y="297.73">12:30</text>
+<line class="gl" x1="25" y1="322.92" x2="370.18" y2="322.92"/>
+<text class="tt" x="23.00" y="325.42">13:00</text>
+<line class="gl2" x1="25" y1="350.62" x2="370.18" y2="350.62"/>
+<text class="tt" x="23.00" y="353.12">13:30</text>
+<line class="gl" x1="25" y1="378.31" x2="370.18" y2="378.31"/>
+<text class="tt" x="23.00" y="380.81">14:00</text>
+<line class="gl2" x1="25" y1="406.00" x2="370.18" y2="406.00"/>
+<text class="tt" x="23.00" y="408.50">14:30</text>
+<line class="gl" x1="25" y1="433.69" x2="370.18" y2="433.69"/>
+<text class="tt" x="23.00" y="436.19">15:00</text>
+<line class="gl2" x1="25" y1="461.38" x2="370.18" y2="461.38"/>
+<text class="tt" x="23.00" y="463.88">15:30</text>
+<line class="gl" x1="25" y1="489.08" x2="370.18" y2="489.08"/>
+<text class="tt" x="23.00" y="491.58">16:00</text>
+<line class="gl2" x1="25" y1="516.77" x2="370.18" y2="516.77"/>
+<text class="tt" x="23.00" y="519.27">16:30</text>
+<line class="gl" x1="25" y1="544.46" x2="370.18" y2="544.46"/>
+<text class="tt" x="23.00" y="546.96">17:00</text>
+<line class="gl2" x1="25" y1="572.15" x2="370.18" y2="572.15"/>
+<text class="tt" x="23.00" y="574.65">17:30</text>
+<line class="gl" x1="25" y1="599.85" x2="370.18" y2="599.85"/>
+<text class="tt" x="23.00" y="602.35">18:00</text>
+<line class="gl2" x1="25" y1="627.54" x2="370.18" y2="627.54"/>
+<text class="tt" x="23.00" y="630.04">18:30</text>
+<line class="gl" x1="25" y1="655.23" x2="370.18" y2="655.23"/>
+<text class="tt" x="23.00" y="657.73">19:00</text>
+<line class="gl2" x1="25" y1="682.92" x2="370.18" y2="682.92"/>
+<text class="tt" x="23.00" y="685.42">19:30</text>
+<line class="gl" x1="25" y1="710.62" x2="370.18" y2="710.62"/>
+<text class="tt" x="23.00" y="713.12">20:00</text>
+<line class="gl2" x1="25" y1="738.31" x2="370.18" y2="738.31"/>
+<text class="tt" x="23.00" y="740.81">20:30</text>
+<line class="gl" x1="25" y1="766.00" x2="370.18" y2="766.00"/>
+<text class="tt" x="23.00" y="768.50">21:00</text>
 
-<!-- 장충아레나: AI 시대 경험의 멸종 10:00-10:50 -->
-<rect x="26.00" y="155.00" width="55.53" height="50.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="155.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="166.00">AI 시대 경험의 멸종</text>
-<text class="sm" x="29.00" y="173.00">10:00-10:50</text>
-<text class="si" x="29.00" y="181.00">크리스틴 로젠</text>
-<!-- 장충아레나: 구글과 실리콘밸리의 혁신문화 11:00-11:50 -->
-<rect x="26.00" y="215.00" width="55.53" height="50.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="215.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="226.00">구글과 실리콘밸리의 혁신문화</text>
-<text class="sm" x="29.00" y="233.00">11:00-11:50</text>
-<text class="si" x="29.00" y="241.00">스티븐 레비</text>
-<text class="si" x="29.00" y="249.00">타일러 라쉬</text>
-<!-- 장충아레나: 콘텐츠산업과 스토리텔링의 글로벌화 13:30-14:20 -->
-<rect x="26.00" y="365.00" width="55.53" height="50.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="365.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="376.00">콘텐츠산업과 스토리텔링의 글로벌화</text>
-<text class="sm" x="29.00" y="383.00">13:30-14:20</text>
-<text class="si" x="29.00" y="391.00">자넷 양; 세불스키(TBD)</text>
-<text class="si" x="29.00" y="399.00">제프리 고드식</text>
-<!-- 장충아레나: (제목 미정) 14:30-15:20 -->
-<rect x="26.00" y="425.00" width="55.53" height="50.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="425.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="436.00">(제목 미정)</text>
-<text class="sm" x="29.00" y="443.00">14:30-15:20</text>
-<text class="si" x="29.00" y="451.00">브리뇰프슨</text>
-<!-- 장충아레나: 갈라 준비 16:30-17:20 -->
-<rect x="26.00" y="545.00" width="55.53" height="50.00" fill="#fdecea" rx="1"/>
-<rect x="26.00" y="545.00" width="55.53" height="3" fill="#c62828" rx="1"/>
-<text class="st" x="29.00" y="556.00">갈라 준비</text>
-<text class="sm" x="29.00" y="563.00">16:30-17:20</text>
+<!-- 장충: AI 시대 경험의 멸종 10:00-10:50 -->
+<rect x="26.00" y="156.77" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="156.77" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="167.77">AI 시대 경험의 멸종</text>
+<text class="sm" x="29.00" y="174.77">10:00-10:50</text>
+<text class="si" x="29.00" y="182.77">크리스틴 로젠</text>
+<!-- 장충: 리처드 도킨스와의 대화: 진화론으로 보는 인공지능 11:00-12:20 -->
+<rect x="26.00" y="212.15" width="55.53" height="73.85" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="212.15" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="223.15">리처드 도킨스와의 대화: 진화론으로 보는 인공지능</text>
+<text class="sm" x="29.00" y="230.15">11:00-12:20</text>
+<text class="si" x="29.00" y="238.15">리처드 도킨스</text>
+<text class="si" x="29.00" y="246.15">김 영기</text>
+<!-- 장충: 마블과 소니의 만남, 콘텐츠산업의 미래 13:30-14:20 -->
+<rect x="26.00" y="350.62" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="350.62" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="361.62">마블과 소니의 만남, 콘텐츠산업의 미래</text>
+<text class="sm" x="29.00" y="368.62">13:30-14:20</text>
+<!-- 장충: 구글이 세상을 바꾸는 방법: 그 모든 이야기 14:30-15:20 -->
+<rect x="26.00" y="406.00" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="406.00" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="417.00">구글이 세상을 바꾸는 방법: 그 모든 이야기</text>
+<text class="sm" x="29.00" y="424.00">14:30-15:20</text>
+<text class="si" x="29.00" y="432.00">스티븐 레비</text>
+<text class="si" x="29.00" y="440.00">타일러 라쉬</text>
+<!-- 장충: 세계지식포럼 갈라디너 18:00-19:30 -->
+<rect x="26.00" y="599.85" width="55.53" height="83.08" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="599.85" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="610.85">세계지식포럼 갈라디너</text>
+<text class="sm" x="29.00" y="617.85">18:00-19:30</text>
 <!-- 프로메테우스: 한일협력의 미래 09:00-09:50 -->
-<rect x="83.53" y="95.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="95.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="106.00">한일협력의 미래</text>
-<text class="sm" x="86.53" y="113.00">09:00-09:50</text>
-<text class="si" x="86.53" y="121.00">이시바 시게루</text>
-<text class="si" x="86.53" y="129.00">박철희</text>
-<!-- 프로메테우스: 월스트리트 투자전략 10:00-10:50 -->
-<rect x="83.53" y="155.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="155.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="166.00">월스트리트 투자전략</text>
-<text class="sm" x="86.53" y="173.00">10:00-10:50</text>
-<text class="si" x="86.53" y="181.00">베리 스턴리흐트</text>
-<!-- 프로메테우스: 사이버 보안과 양자 컴퓨팅 11:00-11:50 -->
-<rect x="83.53" y="215.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="215.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="226.00">사이버 보안과 양자 컴퓨팅</text>
-<text class="sm" x="86.53" y="233.00">11:00-11:50</text>
-<text class="si" x="86.53" y="241.00">수보드 쿨카르니; 자넷 가르시아</text>
-<text class="si" x="86.53" y="249.00">파비오 도나티(미정)</text>
-<!-- 프로메테우스: 방산시장에 부는 AI혁명 13:30-14:20 -->
-<rect x="83.53" y="365.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="365.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="376.00">방산시장에 부는 AI혁명</text>
-<text class="sm" x="86.53" y="383.00">13:30-14:20</text>
-<text class="si" x="86.53" y="391.00">브랜던 쳉; 프랭크 몰리</text>
-<text class="si" x="86.53" y="399.00">노스럽그루먼(TBD)</text>
-<!-- 프로메테우스: 2027 스톡마켓 아웃룩 (PIF C레벨 참석시) 14:30-15:20 -->
-<rect x="83.53" y="425.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="425.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="436.00">2027 스톡마켓 아웃룩 (PIF C레벨 참석시)</text>
-<text class="sm" x="86.53" y="443.00">14:30-15:20</text>
-<text class="si" x="86.53" y="451.00">페드로 팔란드라니; 히셀라 산체스; 돈 누빈(TBD)</text>
-<text class="si" x="86.53" y="459.00">황세운</text>
-<!-- 프로메테우스: 인프라 세션 15:30-16:20 -->
-<rect x="83.53" y="485.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="485.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="496.00">인프라 세션</text>
-<text class="sm" x="86.53" y="503.00">15:30-16:20</text>
-<text class="si" x="86.53" y="511.00">데이비드 루보프</text>
-<!-- 프로메테우스: 미국의 변곡점, 중간선거를 말하다 16:30-17:20 -->
-<rect x="83.53" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="556.00">미국의 변곡점, 중간선거를 말하다</text>
-<text class="sm" x="86.53" y="563.00">16:30-17:20</text>
-<text class="si" x="86.53" y="571.00">Chris Cushing(TBD); 앤드류 김; 댄 도노반</text>
-<text class="si" x="86.53" y="579.00">신우진</text>
-<!-- 다이너스티: AI가 재편하는 항공시장 09:00-09:50 -->
-<rect x="141.06" y="95.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="95.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="106.00">AI가 재편하는 항공시장</text>
-<text class="sm" x="144.06" y="113.00">09:00-09:50</text>
-<text class="si" x="144.06" y="121.00">살바토레 사치아노; 올루무이와 베나드 알리우</text>
-<text class="si" x="144.06" y="129.00">김상도</text>
+<rect x="83.53" y="101.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="101.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="112.38">한일협력의 미래</text>
+<text class="sm" x="86.53" y="119.38">09:00-09:50</text>
+<text class="si" x="86.53" y="127.38">이시바 시게루</text>
+<text class="si" x="86.53" y="135.38">진 창수</text>
+<!-- 프로메테우스: 시장을 읽는 통찰: 배리 스턴리흐트와의 대화 10:00-10:50 -->
+<rect x="83.53" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="167.77">시장을 읽는 통찰: 배리 스턴리흐트와의 대화</text>
+<text class="sm" x="86.53" y="174.77">10:00-10:50</text>
+<text class="si" x="86.53" y="182.77">배리 스턴리흐트</text>
+<text class="si" x="86.53" y="190.77">최 영재</text>
+<!-- 프로메테우스: 글로벌 공급망 재편: 대륙별 전략 11:00-11:50 -->
+<rect x="83.53" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="223.15">글로벌 공급망 재편: 대륙별 전략</text>
+<text class="sm" x="86.53" y="230.15">11:00-11:50</text>
+<text class="si" x="86.53" y="238.15">브라이언 킹스턴</text>
+<!-- 프로메테우스: 아시아 인프라 투자의 미래: 한국, 디지털, 그리고 AI 13:30-14:20 -->
+<rect x="83.53" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="361.62">아시아 인프라 투자의 미래: 한국, 디지털, 그리고 AI</text>
+<text class="sm" x="86.53" y="368.62">13:30-14:20</text>
+<text class="si" x="86.53" y="376.62">데이비드 루보프</text>
+<!-- 프로메테우스: 투자 2027: 기회는 어디에 14:30-15:20 -->
+<rect x="83.53" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="417.00">투자 2027: 기회는 어디에</text>
+<text class="sm" x="86.53" y="424.00">14:30-15:20</text>
+<text class="si" x="86.53" y="432.00">황 세운</text>
+<!-- 프로메테우스: 방산시장에 부는 AI혁명 15:30-16:20 -->
+<rect x="83.53" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="472.38">방산시장에 부는 AI혁명</text>
+<text class="sm" x="86.53" y="479.38">15:30-16:20</text>
+<text class="si" x="86.53" y="487.38">스테픈 리</text>
+<!-- 프로메테우스: 한국.유럽 국경간 M&amp;A와 성장자본 투자전략 16:30-17:20 -->
+<rect x="83.53" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="527.77">한국.유럽 국경간 M&amp;A와 성장자본 투자전략</text>
+<text class="sm" x="86.53" y="534.77">16:30-17:20</text>
+<text class="si" x="86.53" y="542.77">류 명현</text>
+<!-- 다이너스티: 관세전쟁 2.0 09:00-09:50 -->
+<rect x="141.06" y="101.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="101.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="112.38">관세전쟁 2.0</text>
+<text class="sm" x="144.06" y="119.38">09:00-09:50</text>
+<text class="si" x="144.06" y="127.38">배 준범</text>
 <!-- 다이너스티: 트럼프 2기가 요구하는 동맹의 조건 10:00-10:50 -->
-<rect x="141.06" y="155.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="155.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="166.00">트럼프 2기가 요구하는 동맹의 조건</text>
-<text class="sm" x="144.06" y="173.00">10:00-10:50</text>
-<text class="si" x="144.06" y="181.00">채드 울프; 로버트 윌키; 앤드류 김</text>
-<text class="si" x="144.06" y="189.00">안호영</text>
-<!-- 다이너스티: 상업용 부동산 위기 돌파: 리파이낸싱, 우량 자산 쏠림(Flight to Quality), 자산 재편 11:00-11:50 -->
-<rect x="141.06" y="215.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="215.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="226.00">상업용 부동산 위기 돌파: 리파이낸싱, 우량 자산 쏠림(Flight to Quality), 자산 재편</text>
-<text class="sm" x="144.06" y="233.00">11:00-11:50</text>
-<text class="si" x="144.06" y="241.00">조셉 모이니안</text>
-<text class="si" x="144.06" y="249.00">이남우(미정)</text>
-<!-- 다이너스티: 코리아컨퍼런스: K스타트업 글로벌 스케일업 13:30-14:50 -->
-<rect x="141.06" y="365.00" width="55.53" height="80.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="365.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="376.00">코리아컨퍼런스: K스타트업 글로벌 스케일업</text>
-<text class="sm" x="144.06" y="383.00">13:30-14:50</text>
-<text class="si" x="144.06" y="391.00">박윤규</text>
-<!-- 다이너스티: 美 원전시장 아웃룩 15:30-16:20 -->
-<rect x="141.06" y="485.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="485.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="496.00">美 원전시장 아웃룩</text>
-<text class="sm" x="144.06" y="503.00">15:30-16:20</text>
-<text class="si" x="144.06" y="511.00">PSEG(TBD); 한수원(TBD); 브리짓 포쉬</text>
-<text class="si" x="144.06" y="519.00">배준범</text>
-<!-- 다이너스티: 가짜 통계와 확증 편향을 넘어서는 비즈니스 의사결정 전략 16:30-17:20 -->
-<rect x="141.06" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="556.00">가짜 통계와 확증 편향을 넘어서는 비즈니스 의사결정 전략</text>
-<text class="sm" x="144.06" y="563.00">16:30-17:20</text>
-<text class="si" x="144.06" y="571.00">앨릭스 에드먼스</text>
-<!-- 다이너스티: 폴라 실크로드: 북극항로를 선점하라 17:30-18:20 -->
-<rect x="141.06" y="605.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="605.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="616.00">폴라 실크로드: 북극항로를 선점하라</text>
-<text class="sm" x="144.06" y="623.00">17:30-18:20</text>
-<text class="si" x="144.06" y="631.00">류넝예; 신형철; 이상봉</text>
-<text class="si" x="144.06" y="639.00">한창완</text>
-<!-- 에메랄드: 유럽의 딥테크 투자세계 (9시 또는 15시 이후) 09:00-09:50 -->
-<rect x="198.59" y="95.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="95.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="106.00">유럽의 딥테크 투자세계 (9시 또는 15시 이후)</text>
-<text class="sm" x="201.59" y="113.00">09:00-09:50</text>
-<text class="si" x="201.59" y="121.00">장 슈미트</text>
-<text class="si" x="201.59" y="129.00">김영기</text>
+<rect x="141.06" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="167.77">트럼프 2기가 요구하는 동맹의 조건</text>
+<text class="sm" x="144.06" y="174.77">10:00-10:50</text>
+<text class="si" x="144.06" y="182.77">안 호영</text>
+<!-- 다이너스티: 2027 글로벌 상업용 부동산 아웃룩: 위기인가 기회인가 11:00-11:50 -->
+<rect x="141.06" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="223.15">2027 글로벌 상업용 부동산 아웃룩: 위기인가 기회인가</text>
+<text class="sm" x="144.06" y="230.15">11:00-11:50</text>
+<text class="si" x="144.06" y="238.15">조세프 모이니안</text>
+<text class="si" x="144.06" y="246.15">김 성호</text>
+<!-- 다이너스티: 성과로 증명된 K스타트업 세계화 13:30-14:50 -->
+<rect x="141.06" y="350.62" width="55.53" height="73.85" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="361.62">성과로 증명된 K스타트업 세계화</text>
+<text class="sm" x="144.06" y="368.62">13:30-14:50</text>
+<text class="si" x="144.06" y="376.62">이 상현</text>
+<text class="si" x="144.06" y="384.62">이 동헌</text>
+<!-- 다이너스티: 美 데이터 센터와 전력망 시장 아웃룩 15:00-15:50 -->
+<rect x="141.06" y="433.69" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="433.69" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="444.69">美 데이터 센터와 전력망 시장 아웃룩</text>
+<text class="sm" x="144.06" y="451.69">15:00-15:50</text>
+<text class="si" x="144.06" y="459.69">배 준범</text>
+<!-- 다이너스티: 가짜 통계의 함정과 팩트체크의 기술 16:00-16:50 -->
+<rect x="141.06" y="489.08" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="489.08" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="500.08">가짜 통계의 함정과 팩트체크의 기술</text>
+<text class="sm" x="144.06" y="507.08">16:00-16:50</text>
+<text class="si" x="144.06" y="515.08">앨릭스 에드먼스</text>
+<!-- 다이너스티: 튀르키예 재무장관 특별 대담 : 경제 전망과 새로운 무역 지형 17:00-17:50 -->
+<rect x="141.06" y="544.46" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="544.46" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="555.46">튀르키예 재무장관 특별 대담 : 경제 전망과 새로운 무역 지형</text>
+<text class="sm" x="144.06" y="562.46">17:00-17:50</text>
+<text class="si" x="144.06" y="570.46">부락 다을르오울루</text>
+<!-- 다이너스티: 튀르키예 투자금융청 VIP 디너 리셉션: 20년의 성과를 기념하며 19:00-20:30 -->
+<rect x="141.06" y="655.23" width="55.53" height="83.08" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="655.23" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="666.23">튀르키예 투자금융청 VIP 디너 리셉션: 20년의 성과를 기념하며</text>
+<text class="sm" x="144.06" y="673.23">19:00-20:30</text>
+<!-- 에메랄드: 유럽 딥테크 생태계와 투자기회 09:00-09:50 -->
+<rect x="198.59" y="101.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="101.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="112.38">유럽 딥테크 생태계와 투자기회</text>
+<text class="sm" x="201.59" y="119.38">09:00-09:50</text>
+<text class="si" x="201.59" y="127.38">장 슈미트</text>
 <!-- 에메랄드: 시스루나 경제, 1조 달러 기회가 지구와 달 사이에 있다 10:00-10:50 -->
-<rect x="198.59" y="155.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="155.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="166.00">시스루나 경제, 1조 달러 기회가 지구와 달 사이에 있다</text>
-<text class="sm" x="201.59" y="173.00">10:00-10:50</text>
-<text class="si" x="201.59" y="181.00">Raphael Roettgen(TBD); 스티븐 맥콜; Jeffrey Manber(TBD)</text>
-<text class="si" x="201.59" y="189.00">이민구</text>
-<!-- 에메랄드: AI가 바꾸는 글로벌 헬스케어 11:00-11:50 -->
-<rect x="198.59" y="215.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="215.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="226.00">AI가 바꾸는 글로벌 헬스케어</text>
-<text class="sm" x="201.59" y="233.00">11:00-11:50</text>
-<text class="si" x="201.59" y="241.00">데이비드 류</text>
-<text class="si" x="201.59" y="249.00">최민정</text>
-<!-- 에메랄드: 한일비즈니스포럼 13:30-14:20 -->
-<rect x="198.59" y="365.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="365.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="376.00">한일비즈니스포럼</text>
-<text class="sm" x="201.59" y="383.00">13:30-14:20</text>
+<rect x="198.59" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="167.77">시스루나 경제, 1조 달러 기회가 지구와 달 사이에 있다</text>
+<text class="sm" x="201.59" y="174.77">10:00-10:50</text>
+<text class="si" x="201.59" y="182.77">이 민구</text>
+<!-- 에메랄드: 한미동맹의 경제적 가치와 미래 11:00-11:50 -->
+<rect x="198.59" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="223.15">한미동맹의 경제적 가치와 미래</text>
+<text class="sm" x="201.59" y="230.15">11:00-11:50</text>
+<text class="si" x="201.59" y="238.15">장 유순</text>
+<!-- 에메랄드: 경쟁에서 협력으로, 한일 새로운 파트너십 13:30-14:20 -->
+<rect x="198.59" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="361.62">경쟁에서 협력으로, 한일 새로운 파트너십</text>
+<text class="sm" x="201.59" y="368.62">13:30-14:20</text>
 <!-- 에메랄드: 프리미엄 와인의 미래: 지속가능성, 헤리티지, 그리고 신흥 시장 14:30-15:20 -->
-<rect x="198.59" y="425.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="425.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="436.00">프리미엄 와인의 미래: 지속가능성, 헤리티지, 그리고 신흥 시장</text>
-<text class="sm" x="201.59" y="443.00">14:30-15:20</text>
-<text class="si" x="201.59" y="451.00">살바토레 페라가모; 호리 신지</text>
-<text class="si" x="201.59" y="459.00">김상미</text>
-<!-- 에메랄드: 소득과 계층이동: 과거, 현재, 그리고 AI가 바꿀 미래 15:30-16:20 -->
-<rect x="198.59" y="485.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="485.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="496.00">소득과 계층이동: 과거, 현재, 그리고 AI가 바꿀 미래</text>
-<text class="sm" x="201.59" y="503.00">15:30-16:20</text>
-<text class="si" x="201.59" y="511.00">스티븐 덜로프</text>
-<text class="si" x="201.59" y="519.00">장유순</text>
-<!-- 에메랄드: 제19회 우먼리더스 포럼 16:30-17:20 -->
-<rect x="198.59" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="556.00">제19회 우먼리더스 포럼</text>
-<text class="sm" x="201.59" y="563.00">16:30-17:20</text>
-<text class="si" x="201.59" y="571.00">크리스틴 로젠</text>
-<!-- 루비: 글로벌 AI 인덱스로 본 한국의 위상과 과제 09:00-09:50 -->
-<rect x="256.12" y="95.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="95.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="106.00">글로벌 AI 인덱스로 본 한국의 위상과 과제</text>
-<text class="sm" x="259.12" y="113.00">09:00-09:50</text>
-<text class="si" x="259.12" y="121.00">샤 사자디에</text>
-<text class="si" x="259.12" y="129.00">박현우</text>
-<!-- 루비: 아시아 M&amp;A시장 아웃룩 11:00-11:50 -->
-<rect x="256.12" y="215.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="215.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="226.00">아시아 M&amp;A시장 아웃룩</text>
-<text class="sm" x="259.12" y="233.00">11:00-11:50</text>
-<text class="si" x="259.12" y="241.00">이해준; 이재현</text>
-<text class="si" x="259.12" y="249.00">류명현</text>
-<!-- 루비: 구겐하임을 만나다: AI테크와 예술의 만남 13:30-14:20 -->
-<rect x="256.12" y="365.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="365.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="376.00">구겐하임을 만나다: AI테크와 예술의 만남</text>
-<text class="sm" x="259.12" y="383.00">13:30-14:20</text>
-<text class="si" x="259.12" y="391.00">LG(TBD); 구겐하임(TBD)</text>
-<!-- 루비: 주주와 사회의 파이를 모두 키우는 위대한 기업의 조건 14:30-15:20 -->
-<rect x="256.12" y="425.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="425.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="436.00">주주와 사회의 파이를 모두 키우는 위대한 기업의 조건</text>
-<text class="sm" x="259.12" y="443.00">14:30-15:20</text>
-<text class="si" x="259.12" y="451.00">앨릭스 에드먼스</text>
-<text class="si" x="259.12" y="459.00">문정빈</text>
-<!-- 루비: [아세안기업인상] 16:30-17:20 -->
-<rect x="256.12" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="556.00">[아세안기업인상]</text>
-<text class="sm" x="259.12" y="563.00">16:30-17:20</text>
-<text class="si" x="259.12" y="571.00">돈 람</text>
-<text class="si" x="259.12" y="579.00">호세 콘셉시온 3세</text>
-<!-- 토파즈: 관세전쟁 2.0 10:00-10:50 -->
-<rect x="313.65" y="155.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="155.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="166.00">관세전쟁 2.0</text>
-<text class="sm" x="316.65" y="173.00">10:00-10:50</text>
-<text class="si" x="316.65" y="181.00">수전 슈와브; 팀 킬러; 최병일</text>
-<text class="si" x="316.65" y="189.00">배준범</text>
-<!-- 토파즈: AI가 건축에 미치는 영향 13:30-14:20 -->
-<rect x="313.65" y="365.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="365.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="376.00">AI가 건축에 미치는 영향</text>
-<text class="sm" x="316.65" y="383.00">13:30-14:20</text>
-<text class="si" x="316.65" y="391.00">베르나르도 포르트브레시아</text>
-<!-- 토파즈: 튀르키예 (잠정) 16:30-17:20 -->
-<rect x="313.65" y="545.00" width="55.53" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="545.00" width="55.53" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="556.00">튀르키예 (잠정)</text>
-<text class="sm" x="316.65" y="563.00">16:30-17:20</text>
+<rect x="198.59" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="417.00">프리미엄 와인의 미래: 지속가능성, 헤리티지, 그리고 신흥 시장</text>
+<text class="sm" x="201.59" y="424.00">14:30-15:20</text>
+<text class="si" x="201.59" y="432.00">김 상미</text>
+<!-- 에메랄드: 폴라 실크로드: 북극항로를 선점하라 15:30-16:20 -->
+<rect x="198.59" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="472.38">폴라 실크로드: 북극항로를 선점하라</text>
+<text class="sm" x="201.59" y="479.38">15:30-16:20</text>
+<text class="si" x="201.59" y="487.38">한 창완</text>
+<!-- 루비: 배터리, 캐즘의 끝이 온다 10:00-10:50 -->
+<rect x="256.12" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="167.77">배터리, 캐즘의 끝이 온다</text>
+<text class="sm" x="259.12" y="174.77">10:00-10:50</text>
+<text class="si" x="259.12" y="182.77">카레나 칸실레리</text>
+<text class="si" x="259.12" y="190.77">제임스 김</text>
+<!-- 루비: [아세안기업인상] 혁신과 포용, 그리고 지속가능성 11:00-12:00 -->
+<rect x="256.12" y="212.15" width="55.53" height="55.38" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="223.15">[아세안기업인상] 혁신과 포용, 그리고 지속가능성</text>
+<text class="sm" x="259.12" y="230.15">11:00-12:00</text>
+<text class="si" x="259.12" y="238.15">이 재현</text>
+<!-- 루비: 미국의 변곡점, 중간선거를 말하다 13:30-14:20 -->
+<rect x="256.12" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="361.62">미국의 변곡점, 중간선거를 말하다</text>
+<text class="sm" x="259.12" y="368.62">13:30-14:20</text>
+<text class="si" x="259.12" y="376.62">신 우진</text>
+<!-- 루비: 위대한 기업의 조건: 파이코노믹스 14:30-15:20 -->
+<rect x="256.12" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="417.00">위대한 기업의 조건: 파이코노믹스</text>
+<text class="sm" x="259.12" y="424.00">14:30-15:20</text>
+<text class="si" x="259.12" y="432.00">앨릭스 에드먼스</text>
+<text class="si" x="259.12" y="440.00">문 정빈</text>
+<!-- 루비: AI 전력난, 핵융합에너지의 미래 15:30-16:20 -->
+<rect x="256.12" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="472.38">AI 전력난, 핵융합에너지의 미래</text>
+<text class="sm" x="259.12" y="479.38">15:30-16:20</text>
+<text class="si" x="259.12" y="487.38">제니퍼 갠튼</text>
+<!-- 루비: 글로벌 AI 인덱스로 본 한국의 위상과 과제 16:30-17:20 -->
+<rect x="256.12" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="527.77">글로벌 AI 인덱스로 본 한국의 위상과 과제</text>
+<text class="sm" x="259.12" y="534.77">16:30-17:20</text>
+<text class="si" x="259.12" y="542.77">샤 사자디에</text>
+<text class="si" x="259.12" y="550.77">박 현우</text>
+<!-- 토파즈: AI의 시대, 하늘길의 재설계 09:00-09:50 -->
+<rect x="313.65" y="101.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="101.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="112.38">AI의 시대, 하늘길의 재설계</text>
+<text class="sm" x="316.65" y="119.38">09:00-09:50</text>
+<text class="si" x="316.65" y="127.38">김 상도</text>
+<!-- 토파즈: 대미투자의 기회와 도전과제 10:00-10:50 -->
+<rect x="313.65" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="167.77">대미투자의 기회와 도전과제</text>
+<text class="sm" x="316.65" y="174.77">10:00-10:50</text>
+<text class="si" x="316.65" y="182.77">신 우진</text>
+<!-- 토파즈: AI가 바꾸는 건축, 인간의 설계는 어디로 가나 13:30-14:20 -->
+<rect x="313.65" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="361.62">AI가 바꾸는 건축, 인간의 설계는 어디로 가나</text>
+<text class="sm" x="316.65" y="368.62">13:30-14:20</text>
+<text class="si" x="316.65" y="376.62">베르나르도 포르트브레시아</text>
+<text class="si" x="316.65" y="384.62">천 의영</text>
+<!-- 토파즈: AI와 의사결정: 더 나은 선택의 기술 14:30-15:20 -->
+<rect x="313.65" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="417.00">AI와 의사결정: 더 나은 선택의 기술</text>
+<text class="sm" x="316.65" y="424.00">14:30-15:20</text>
+<text class="si" x="316.65" y="432.00">딘 칼란</text>
+<text class="si" x="316.65" y="440.00">수애나 오</text>
+<!-- 토파즈: 새로운 전략적 삼각관계: 공동지능(Co-Intelligence) 시대의 AI, 지정학, 그리고 지속 가능한 비즈니스 15:30-16:20 -->
+<rect x="313.65" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="472.38">새로운 전략적 삼각관계: 공동지능(Co-Intelligence) 시대의 AI, 지정학, 그리고 지속 가능한 비즈니스</text>
+<text class="sm" x="316.65" y="479.38">15:30-16:20</text>
+<!-- 토파즈: 금융기본권: 더 회복력 있는 사회로 16:30-17:30 -->
+<rect x="313.65" y="516.77" width="55.53" height="55.38" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="527.77">금융기본권: 더 회복력 있는 사회로</text>
+<text class="sm" x="316.65" y="534.77">16:30-17:30</text>
+<text class="si" x="316.65" y="542.77">이 민환</text>
 </g>
 
 <!-- ==================== DAY 3: 09-10 ==================== -->
 <g transform="translate(792.37,50)">
-<rect class="dh" x="0" y="0" width="370.18" height="18" rx="2"/>
-<text class="dt" x="185.09" y="13" text-anchor="middle">9월 10일(목)</text>
+<rect class="dh" x="0" y="0" width="370.18" height="14" rx="2"/>
+<text class="dt" x="185.09" y="10.00" text-anchor="middle">9월 10일(목)</text>
 
-<text class="pt" x="59.52" y="30">프로메테우스</text>
-<text class="pt" x="128.56" y="30">다이너스티</text>
-<text class="pt" x="197.59" y="30">에메랄드</text>
-<text class="pt" x="266.63" y="30">루비</text>
-<text class="pt" x="335.66" y="30">토파즈</text>
+<text class="pt" x="59.52" y="39">프로메테우스</text>
+<text class="pt" x="128.56" y="39">다이너스티</text>
+<text class="pt" x="197.59" y="39">에메랄드</text>
+<text class="pt" x="266.63" y="39">루비</text>
+<text class="pt" x="335.66" y="39">토파즈</text>
 
-<line class="gl" x1="25" y1="35.00" x2="370.18" y2="35.00"/>
-<text class="tt" x="23.00" y="37.50">08:00</text>
-<line class="gl2" x1="25" y1="65.00" x2="370.18" y2="65.00"/>
-<text class="tt" x="23.00" y="67.50">08:30</text>
-<line class="gl" x1="25" y1="95.00" x2="370.18" y2="95.00"/>
-<text class="tt" x="23.00" y="97.50">09:00</text>
-<line class="gl2" x1="25" y1="125.00" x2="370.18" y2="125.00"/>
-<text class="tt" x="23.00" y="127.50">09:30</text>
-<line class="gl" x1="25" y1="155.00" x2="370.18" y2="155.00"/>
-<text class="tt" x="23.00" y="157.50">10:00</text>
-<line class="gl2" x1="25" y1="185.00" x2="370.18" y2="185.00"/>
-<text class="tt" x="23.00" y="187.50">10:30</text>
-<line class="gl" x1="25" y1="215.00" x2="370.18" y2="215.00"/>
-<text class="tt" x="23.00" y="217.50">11:00</text>
-<line class="gl2" x1="25" y1="245.00" x2="370.18" y2="245.00"/>
-<text class="tt" x="23.00" y="247.50">11:30</text>
-<line class="gl" x1="25" y1="275.00" x2="370.18" y2="275.00"/>
-<text class="tt" x="23.00" y="277.50">12:00</text>
-<line class="gl2" x1="25" y1="305.00" x2="370.18" y2="305.00"/>
-<text class="tt" x="23.00" y="307.50">12:30</text>
-<line class="gl" x1="25" y1="335.00" x2="370.18" y2="335.00"/>
-<text class="tt" x="23.00" y="337.50">13:00</text>
-<line class="gl2" x1="25" y1="365.00" x2="370.18" y2="365.00"/>
-<text class="tt" x="23.00" y="367.50">13:30</text>
-<line class="gl" x1="25" y1="395.00" x2="370.18" y2="395.00"/>
-<text class="tt" x="23.00" y="397.50">14:00</text>
-<line class="gl2" x1="25" y1="425.00" x2="370.18" y2="425.00"/>
-<text class="tt" x="23.00" y="427.50">14:30</text>
-<line class="gl" x1="25" y1="455.00" x2="370.18" y2="455.00"/>
-<text class="tt" x="23.00" y="457.50">15:00</text>
-<line class="gl2" x1="25" y1="485.00" x2="370.18" y2="485.00"/>
-<text class="tt" x="23.00" y="487.50">15:30</text>
-<line class="gl" x1="25" y1="515.00" x2="370.18" y2="515.00"/>
-<text class="tt" x="23.00" y="517.50">16:00</text>
-<line class="gl2" x1="25" y1="545.00" x2="370.18" y2="545.00"/>
-<text class="tt" x="23.00" y="547.50">16:30</text>
-<line class="gl" x1="25" y1="575.00" x2="370.18" y2="575.00"/>
-<text class="tt" x="23.00" y="577.50">17:00</text>
-<line class="gl2" x1="25" y1="605.00" x2="370.18" y2="605.00"/>
-<text class="tt" x="23.00" y="607.50">17:30</text>
-<line class="gl" x1="25" y1="635.00" x2="370.18" y2="635.00"/>
-<text class="tt" x="23.00" y="637.50">18:00</text>
-<line class="gl2" x1="25" y1="665.00" x2="370.18" y2="665.00"/>
-<text class="tt" x="23.00" y="667.50">18:30</text>
-<line class="gl" x1="25" y1="695.00" x2="370.18" y2="695.00"/>
-<text class="tt" x="23.00" y="697.50">19:00</text>
-<line class="gl2" x1="25" y1="725.00" x2="370.18" y2="725.00"/>
-<text class="tt" x="23.00" y="727.50">19:30</text>
-<line class="gl" x1="25" y1="755.00" x2="370.18" y2="755.00"/>
-<text class="tt" x="23.00" y="757.50">20:00</text>
+<line class="gl" x1="25" y1="46.00" x2="370.18" y2="46.00"/>
+<text class="tt" x="23.00" y="48.50">08:00</text>
+<line class="gl2" x1="25" y1="73.69" x2="370.18" y2="73.69"/>
+<text class="tt" x="23.00" y="76.19">08:30</text>
+<line class="gl" x1="25" y1="101.38" x2="370.18" y2="101.38"/>
+<text class="tt" x="23.00" y="103.88">09:00</text>
+<line class="gl2" x1="25" y1="129.08" x2="370.18" y2="129.08"/>
+<text class="tt" x="23.00" y="131.58">09:30</text>
+<line class="gl" x1="25" y1="156.77" x2="370.18" y2="156.77"/>
+<text class="tt" x="23.00" y="159.27">10:00</text>
+<line class="gl2" x1="25" y1="184.46" x2="370.18" y2="184.46"/>
+<text class="tt" x="23.00" y="186.96">10:30</text>
+<line class="gl" x1="25" y1="212.15" x2="370.18" y2="212.15"/>
+<text class="tt" x="23.00" y="214.65">11:00</text>
+<line class="gl2" x1="25" y1="239.85" x2="370.18" y2="239.85"/>
+<text class="tt" x="23.00" y="242.35">11:30</text>
+<line class="gl" x1="25" y1="267.54" x2="370.18" y2="267.54"/>
+<text class="tt" x="23.00" y="270.04">12:00</text>
+<line class="gl2" x1="25" y1="295.23" x2="370.18" y2="295.23"/>
+<text class="tt" x="23.00" y="297.73">12:30</text>
+<line class="gl" x1="25" y1="322.92" x2="370.18" y2="322.92"/>
+<text class="tt" x="23.00" y="325.42">13:00</text>
+<line class="gl2" x1="25" y1="350.62" x2="370.18" y2="350.62"/>
+<text class="tt" x="23.00" y="353.12">13:30</text>
+<line class="gl" x1="25" y1="378.31" x2="370.18" y2="378.31"/>
+<text class="tt" x="23.00" y="380.81">14:00</text>
+<line class="gl2" x1="25" y1="406.00" x2="370.18" y2="406.00"/>
+<text class="tt" x="23.00" y="408.50">14:30</text>
+<line class="gl" x1="25" y1="433.69" x2="370.18" y2="433.69"/>
+<text class="tt" x="23.00" y="436.19">15:00</text>
+<line class="gl2" x1="25" y1="461.38" x2="370.18" y2="461.38"/>
+<text class="tt" x="23.00" y="463.88">15:30</text>
+<line class="gl" x1="25" y1="489.08" x2="370.18" y2="489.08"/>
+<text class="tt" x="23.00" y="491.58">16:00</text>
+<line class="gl2" x1="25" y1="516.77" x2="370.18" y2="516.77"/>
+<text class="tt" x="23.00" y="519.27">16:30</text>
+<line class="gl" x1="25" y1="544.46" x2="370.18" y2="544.46"/>
+<text class="tt" x="23.00" y="546.96">17:00</text>
+<line class="gl2" x1="25" y1="572.15" x2="370.18" y2="572.15"/>
+<text class="tt" x="23.00" y="574.65">17:30</text>
+<line class="gl" x1="25" y1="599.85" x2="370.18" y2="599.85"/>
+<text class="tt" x="23.00" y="602.35">18:00</text>
+<line class="gl2" x1="25" y1="627.54" x2="370.18" y2="627.54"/>
+<text class="tt" x="23.00" y="630.04">18:30</text>
+<line class="gl" x1="25" y1="655.23" x2="370.18" y2="655.23"/>
+<text class="tt" x="23.00" y="657.73">19:00</text>
+<line class="gl2" x1="25" y1="682.92" x2="370.18" y2="682.92"/>
+<text class="tt" x="23.00" y="685.42">19:30</text>
+<line class="gl" x1="25" y1="710.62" x2="370.18" y2="710.62"/>
+<text class="tt" x="23.00" y="713.12">20:00</text>
+<line class="gl2" x1="25" y1="738.31" x2="370.18" y2="738.31"/>
+<text class="tt" x="23.00" y="740.81">20:30</text>
+<line class="gl" x1="25" y1="766.00" x2="370.18" y2="766.00"/>
+<text class="tt" x="23.00" y="768.50">21:00</text>
 
-<!-- 프로메테우스: AI와 전쟁, 에너지시장의 미래 09:00-09:50 -->
-<rect x="26.00" y="95.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="26.00" y="95.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="29.00" y="106.00">AI와 전쟁, 에너지시장의 미래</text>
-<text class="sm" x="29.00" y="113.00">09:00-09:50</text>
-<text class="si" x="29.00" y="121.00">소렌(구글, TBD); 왕형근(세계은행)</text>
-<text class="si" x="29.00" y="129.00">김성우(김앤장)</text>
+<!-- 프로메테우스: AI가 촉발한 거시경제 지각변동: 자본, 금리, 그리고 생산성의 격차 09:00-09:50 -->
+<rect x="26.00" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="26.00" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="29.00" y="112.38">AI가 촉발한 거시경제 지각변동: 자본, 금리, 그리고 생산성의 격차</text>
+<text class="sm" x="29.00" y="119.38">09:00-09:50</text>
+<text class="si" x="29.00" y="127.38">에릭 브리뇰프슨</text>
+<text class="si" x="29.00" y="135.38">최 재원</text>
 <!-- 프로메테우스: 무역전쟁에서 승리하는 법 10:00-10:50 -->
-<rect x="26.00" y="155.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="26.00" y="155.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="29.00" y="166.00">무역전쟁에서 승리하는 법</text>
-<text class="sm" x="29.00" y="173.00">10:00-10:50</text>
-<text class="si" x="29.00" y="181.00">수마야 케인즈</text>
-<!-- 프로메테우스: 제주-맥킨지 AIDC (구글 C레벨 참석시) 11:00-11:50 -->
-<rect x="26.00" y="215.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="26.00" y="215.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="29.00" y="226.00">제주-맥킨지 AIDC (구글 C레벨 참석시)</text>
-<text class="sm" x="29.00" y="233.00">11:00-11:50</text>
-<!-- 다이너스티: 과기부 바이오텍 세션 09:00-09:50 -->
-<rect x="95.04" y="95.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="95.04" y="95.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="98.04" y="106.00">과기부 바이오텍 세션</text>
-<text class="sm" x="98.04" y="113.00">09:00-09:50</text>
-<text class="si" x="98.04" y="121.00">마티 마카리</text>
-<text class="si" x="98.04" y="129.00">레너드 슐라이퍼</text>
-<!-- 다이너스티: 물리학 구루가 본 국가 과학 전략: 혁신의 뿌리 10:00-10:50 -->
-<rect x="95.04" y="155.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="95.04" y="155.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="98.04" y="166.00">물리학 구루가 본 국가 과학 전략: 혁신의 뿌리</text>
-<text class="sm" x="98.04" y="173.00">10:00-10:50</text>
-<text class="si" x="98.04" y="181.00">김영기</text>
-<text class="si" x="98.04" y="189.00">위르겐 믈리네크</text>
-<!-- 다이너스티: 뉴패러다임: AI로봇과 제조혁명 11:00-11:50 -->
-<rect x="95.04" y="215.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="95.04" y="215.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="98.04" y="226.00">뉴패러다임: AI로봇과 제조혁명</text>
-<text class="sm" x="98.04" y="233.00">11:00-11:50</text>
-<text class="si" x="98.04" y="241.00">테라다인(TBD)</text>
-<text class="si" x="98.04" y="249.00">장피에르 하스우트</text>
-<!-- 에메랄드: AI해킹, 골든타임을 지켜라 09:00-09:50 -->
-<rect x="164.07" y="95.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="164.07" y="95.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="167.07" y="106.00">AI해킹, 골든타임을 지켜라</text>
-<text class="sm" x="167.07" y="113.00">09:00-09:50</text>
-<text class="si" x="167.07" y="121.00">필리파 콕스웰(팔로알토네트웍스)</text>
-<!-- 에메랄드: AI 시대의 국가 사이버 전쟁: 국제 해킹에 맞서는 전략 10:00-10:50 -->
-<rect x="164.07" y="155.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="164.07" y="155.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="167.07" y="166.00">AI 시대의 국가 사이버 전쟁: 국제 해킹에 맞서는 전략</text>
-<text class="sm" x="167.07" y="173.00">10:00-10:50</text>
-<text class="si" x="167.07" y="181.00">해리 윙고; 올리비에 델렌베흐; 로버트 윌키</text>
-<text class="si" x="167.07" y="189.00">김홍선</text>
-<!-- 루비: 제15회 대한민국 지식대상 11:00-11:50 -->
-<rect x="233.11" y="215.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="233.11" y="215.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="236.11" y="226.00">제15회 대한민국 지식대상</text>
-<text class="sm" x="236.11" y="233.00">11:00-11:50</text>
-<!-- 토파즈: AI시대 미디어 생존전략 (매경AX) 11:00-11:50 -->
-<rect x="302.15" y="215.00" width="67.04" height="50.00" fill="#f5f5f5" rx="1"/>
-<rect x="302.15" y="215.00" width="67.04" height="3" fill="#9e9e9e" rx="1"/>
-<text class="st" x="305.15" y="226.00">AI시대 미디어 생존전략 (매경AX)</text>
-<text class="sm" x="305.15" y="233.00">11:00-11:50</text>
-<text class="si" x="305.15" y="241.00">황용석</text>
-<text class="si" x="305.15" y="249.00">김은진</text>
+<rect x="26.00" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="26.00" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="29.00" y="167.77">무역전쟁에서 승리하는 법</text>
+<text class="sm" x="29.00" y="174.77">10:00-10:50</text>
+<text class="si" x="29.00" y="182.77">수마야 케인스</text>
+<text class="si" x="29.00" y="190.77">유 명희</text>
+<!-- 다이너스티: AI시대, 헬스케어 혁신과 윤리적 과제의 미래 09:00-09:50 -->
+<rect x="95.04" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="95.04" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="98.04" y="112.38">AI시대, 헬스케어 혁신과 윤리적 과제의 미래</text>
+<text class="sm" x="98.04" y="119.38">09:00-09:50</text>
+<text class="si" x="98.04" y="127.38">안드레아 추치</text>
+<text class="si" x="98.04" y="135.38">김 완욱</text>
+<!-- 다이너스티: 韓제조·美AI, 생산성 혁명시대 10:00-10:50 -->
+<rect x="95.04" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="95.04" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="98.04" y="167.77">韓제조·美AI, 생산성 혁명시대</text>
+<text class="sm" x="98.04" y="174.77">10:00-10:50</text>
+<text class="si" x="98.04" y="182.77">권 남오</text>
+<text class="si" x="98.04" y="190.77">제임스 김</text>
+<!-- 다이너스티: 새로운 패러다임: 로봇과 제조업 혁명 11:00-11:50 -->
+<rect x="95.04" y="212.15" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="95.04" y="212.15" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="98.04" y="223.15">새로운 패러다임: 로봇과 제조업 혁명</text>
+<text class="sm" x="98.04" y="230.15">11:00-11:50</text>
+<text class="si" x="98.04" y="238.15">장피에르 하스우트</text>
+<!-- 에메랄드: AI시대 창업 인재상 09:00-09:50 -->
+<rect x="164.07" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="164.07" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="167.07" y="112.38">AI시대 창업 인재상</text>
+<text class="sm" x="167.07" y="119.38">09:00-09:50</text>
+<text class="si" x="167.07" y="127.38">정 우성</text>
+<!-- 에메랄드: AI와 전쟁, 에너지전환의 미래 10:00-10:50 -->
+<rect x="164.07" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="164.07" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="167.07" y="167.77">AI와 전쟁, 에너지전환의 미래</text>
+<text class="sm" x="167.07" y="174.77">10:00-10:50</text>
+<text class="si" x="167.07" y="182.77">김 성우</text>
+<!-- 에메랄드: 물리학 구루가 본 국가 과학 전략: '인내', '연결', 그리고 '협력' 11:00-11:50 -->
+<rect x="164.07" y="212.15" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="164.07" y="212.15" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="167.07" y="223.15">물리학 구루가 본 국가 과학 전략: '인내', '연결', 그리고 '협력'</text>
+<text class="sm" x="167.07" y="230.15">11:00-11:50</text>
+<text class="si" x="167.07" y="238.15">김 영기</text>
+<text class="si" x="167.07" y="246.15">위르겐 믈리네크</text>
+<!-- 루비: K-바이오가 그리는 혁신의 여정: 글로벌 빅샷들의 조언 09:00-09:50 -->
+<rect x="233.11" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="233.11" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="236.11" y="112.38">K-바이오가 그리는 혁신의 여정: 글로벌 빅샷들의 조언</text>
+<text class="sm" x="236.11" y="119.38">09:00-09:50</text>
+<text class="si" x="236.11" y="127.38">황 주리</text>
+<!-- 루비: AI 시대 데이터 신뢰 구축: 허위 정보와 시장 리스크 관리 10:00-10:50 -->
+<rect x="233.11" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="233.11" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="236.11" y="167.77">AI 시대 데이터 신뢰 구축: 허위 정보와 시장 리스크 관리</text>
+<text class="sm" x="236.11" y="174.77">10:00-10:50</text>
+<!-- 토파즈: 산업재해 없는 건설, AI가 만든다 09:00-09:50 -->
+<rect x="302.15" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="302.15" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="305.15" y="112.38">산업재해 없는 건설, AI가 만든다</text>
+<text class="sm" x="305.15" y="119.38">09:00-09:50</text>
+<text class="si" x="305.15" y="127.38">김 주형</text>
+<!-- 토파즈: 미국 스타트업 생태계와 도전과제 10:00-10:50 -->
+<rect x="302.15" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
+<rect x="302.15" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="305.15" y="167.77">미국 스타트업 생태계와 도전과제</text>
+<text class="sm" x="305.15" y="174.77">10:00-10:50</text>
+<text class="si" x="305.15" y="182.77">김 정상</text>
+<text class="si" x="305.15" y="190.77">마이클 전</text>
 </g>
 
+<text class="foot" x="1110.55" y="812.89">*프로그램 및 시간표는 주최측 사정에 따라 변동될 수 있습니다.</text>
+<image x="1116.55" y="789.89" width="46" height="46" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYAQMAAACEqAqfAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABjklEQVR4nO3VMXLDMAwEQP7/00oRiwaPtGdSBtorNDSIW5Ye1ymjZP78PczvocVisVgsViNrrIlOnYebLRaLxWKxelnXnboXk3APLRaLxWKxulsxr2GxWCwW67HWTAxZLBaLxXqO9alcb7+8x2KxWCxWP2vPUYzvocVisVgsVhfrS2otrD+HxWKxWKx/ZV1rYhJuvJEPsFgsFovVxZrlsWZOYrs+eXiJxWKxWKwuVnDHpetOPceExWKxWKw21n4RiXntxxqLxWKxWG2sPG3/r/U8leNPFovFYrHaWAt5Q18mlchbFovFYrEaWfs3CnW45/0Ai8VisVi9rPfvrTnu1NvYfw1ZLBaLxeplXVvq9j6MydgfYbFYLBbrP1ufsq/WfuywWCwWi9XMuk6ZRIXqIb6vFovFYrFYjayxptaqHrdz4T1ksVgsFquXVTvL9VrbU0UWi8VisZ5j7ejeenVZLBaLxXqMNYmYxJzFYrFYrH5WXOfSh3l9gMVisVisZtaeuhqd+mQusFgsFovVxPoB/L14lctP4jwAAAAASUVORK5CYII="/>
 </svg>
