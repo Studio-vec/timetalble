@@ -52,6 +52,35 @@ const BRAND_MAP = {
 // 🚀 https://www.wkforum.org/session 으로 연결되는 QR (라운드트립 디코드로 검증됨)
 const QR_DATA_URI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYAQMAAACEqAqfAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABjklEQVR4nO3VMXLDMAwEQP7/00oRiwaPtGdSBtorNDSIW5Ye1ymjZP78PczvocVisVgsViNrrIlOnYebLRaLxWKxelnXnboXk3APLRaLxWKxulsxr2GxWCwW67HWTAxZLBaLxXqO9alcb7+8x2KxWCxWP2vPUYzvocVisVgsVhfrS2otrD+HxWKxWKx/ZV1rYhJuvJEPsFgsFovVxZrlsWZOYrs+eXiJxWKxWKwuVnDHpetOPceExWKxWKw21n4RiXntxxqLxWKxWG2sPG3/r/U8leNPFovFYrHaWAt5Q18mlchbFovFYrEaWfs3CnW45/0Ai8VisVi9rPfvrTnu1NvYfw1ZLBaLxeplXVvq9j6MydgfYbFYLBbrP1ufsq/WfuywWCwWi9XMuk6ZRIXqIb6vFovFYrFYjayxptaqHrdz4T1ksVgsFquXVTvL9VrbU0UWi8VisZ5j7ejeenVZLBaLxXqMNYmYxJzFYrFYrH5WXOfSh3l9gMVisVisZtaeuhqd+mQusFgsFovVxPoB/L14lctP4jwAAAAASUVORK5CYII=';
 
+// 🚀 우측 하단에 겹쳐 보이는 북사인회 안내표 (구글 시트가 아닌 고정 데이터)
+const BOOKSIGNING_COLS = [
+    { key: 'speaker', label: { KO: '연사', EN: 'Speaker' } },
+    { key: 'book', label: { KO: '도서', EN: 'Book' } },
+    { key: 'time', label: { KO: '북사인회 일시', EN: 'Signing Time' } },
+    { key: 'place', label: { KO: '장소', EN: 'Venue' } }
+];
+const BOOKSIGNING_ROWS = [
+    { speaker: { KO: '크리스틴 로젠', EN: 'Christine Rosen' }, book: { KO: '경험의 멸종', EN: 'The Extinction of Experience' }, time: '9/9 11:10~11:30', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } },
+    { speaker: { KO: '리처드 도킨스', EN: 'Richard Dawkins' }, book: { KO: '이기적 유전자 (50주년 에디션)', EN: 'The Selfish Gene (50th Anniversary Edition)' }, time: '9/9 13:30~13:50', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } },
+    { speaker: { KO: '앨릭스 에드먼스', EN: 'Alex Edmans' }, book: { KO: 'ESG 파이코노믹스', EN: 'Grow the Pie' }, time: '9/9 15:30~15:50', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } },
+    { speaker: { KO: '스티븐 레비', EN: 'Steven Levy' }, book: { KO: 'In The Plex(원서)', EN: 'In the Plex' }, time: '9/9 15:40~16:00', place: { KO: '영빈관 내정', EN: 'Yeongbingwan Inner Courtyard' } },
+    { speaker: { KO: '에릭 브리뇰프슨', EN: 'Erik Brynjolfsson' }, book: { KO: '제2의 기계 시대', EN: 'The Second Machine Age' }, time: '9/10 10:10~10:30', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } }
+];
+
+function updateBookSigningTable() {
+    const head = document.getElementById('booksigning-head');
+    const body = document.getElementById('booksigning-body');
+    if (!head || !body) return;
+    head.innerHTML = BOOKSIGNING_COLS.map(c => `<th>${escapeHTML(c.label[currentLang])}</th>`).join('');
+    body.innerHTML = BOOKSIGNING_ROWS.map(row => {
+        const cells = BOOKSIGNING_COLS.map(c => {
+            const v = c.key === 'time' ? row.time : row[c.key][currentLang];
+            return `<td>${escapeHTML(v)}</td>`;
+        }).join('');
+        return `<tr>${cells}</tr>`;
+    }).join('');
+}
+
 let currentLang = 'KO';
 let globalRawData = [];
 // 데이터가 비었을 때 원인을 구분해 안내하기 위한 로드 상태
@@ -673,10 +702,24 @@ function buildSVGFromDOM() {
         svg += `</g>\n`;
     });
 
-    // 🚀 우측 하단 고지문 + QR - 별도 여백을 확보하지 않고 시간표 위에 그대로 겹쳐 보이도록
+    // 🚀 우측 하단 고지문 + QR + 북사인회 안내표 - 별도 여백을 확보하지 않고 시간표 위에 그대로 겹쳐 보이도록
     //    day-group을 모두 그린 뒤 맨 마지막에 그려서 항상 맨 위(overlay)로 나오게 한다.
     const footerNote = content.querySelector('.footer-note');
     if (footerNote) {
+        const bsTable = footerNote.querySelector('#booksigning-table');
+        if (bsTable) {
+            bsTable.querySelectorAll('th, td').forEach(cell => {
+                const cr = cell.getBoundingClientRect();
+                const cx = (cr.left - origin.left).toFixed(2);
+                const cy = (cr.top - origin.top).toFixed(2);
+                const bg = getComputedStyle(cell).backgroundColor;
+                if (bg && bg !== 'rgba(0, 0, 0, 0)') {
+                    svg += `<rect x="${cx}" y="${cy}" width="${cr.width.toFixed(2)}" height="${cr.height.toFixed(2)}" fill="${bg}"/>\n`;
+                }
+                svg += `<rect x="${cx}" y="${cy}" width="${cr.width.toFixed(2)}" height="${cr.height.toFixed(2)}" fill="none" stroke="#999999" stroke-width="${ptToUnits(0.5).toFixed(3)}"/>\n`;
+                svg += elementToSVGText(cell, origin);
+            });
+        }
         const footerText = footerNote.querySelector('.footer-text');
         if (footerText) svg += elementToSVGText(footerText, origin);
         const qr = footerNote.querySelector('.footer-qr');
@@ -704,11 +747,12 @@ function downloadSVGFile() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-// 🚀 좌상단/우상단 브랜딩 문구와 우하단 고지문도 언어 토글에 맞춰 갈아끼운다.
+// 🚀 좌상단/우상단 브랜딩 문구, 우하단 고지문·북사인회 안내표도 언어 토글에 맞춰 갈아끼운다.
 function updateBrandText() {
     document.getElementById('brand-left').textContent = BRAND_MAP.left[currentLang];
     document.getElementById('brand-right').textContent = BRAND_MAP.right[currentLang];
     document.getElementById('footer-text').textContent = BRAND_MAP.footer[currentLang];
+    updateBookSigningTable();
 }
 
 // 버튼 설정
@@ -727,6 +771,8 @@ document.getElementById('btn-en').onclick = function() {
     updateBrandText();
     renderTimetable();
 };
+
+updateBrandText();
 
 const PDF_BTN_LABEL = "PDF 다운로드 (A3 가로)";
 // 🚀 2초 이상 길게 누르고 있으면 PDF 대신 편집 가능한 SVG를 내려받는다.

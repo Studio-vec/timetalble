@@ -58,6 +58,107 @@ const BRAND = {
 // https://www.wkforum.org/session 으로 연결되는 QR (라운드트립 디코드로 검증됨)
 const QR_DATA_URI = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYAQMAAACEqAqfAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABjklEQVR4nO3VMXLDMAwEQP7/00oRiwaPtGdSBtorNDSIW5Ye1ymjZP78PczvocVisVgsViNrrIlOnYebLRaLxWKxelnXnboXk3APLRaLxWKxulsxr2GxWCwW67HWTAxZLBaLxXqO9alcb7+8x2KxWCxWP2vPUYzvocVisVgsVhfrS2otrD+HxWKxWKx/ZV1rYhJuvJEPsFgsFovVxZrlsWZOYrs+eXiJxWKxWKwuVnDHpetOPceExWKxWKw21n4RiXntxxqLxWKxWG2sPG3/r/U8leNPFovFYrHaWAt5Q18mlchbFovFYrEaWfs3CnW45/0Ai8VisVi9rPfvrTnu1NvYfw1ZLBaLxeplXVvq9j6MydgfYbFYLBbrP1ufsq/WfuywWCwWi9XMuk6ZRIXqIb6vFovFYrFYjayxptaqHrdz4T1ksVgsFquXVTvL9VrbU0UWi8VisZ5j7ejeenVZLBaLxXqMNYmYxJzFYrFYrH5WXOfSh3l9gMVisVisZtaeuhqd+mQusFgsFovVxPoB/L14lctP4jwAAAAASUVORK5CYII=';
 
+// 우측 하단에 겹쳐 보이는 북사인회 안내표 (구글 시트가 아닌 고정 데이터)
+const BOOKSIGNING_COLS = [
+    { key: 'speaker', w: 54, label: { KO: '연사', EN: 'Speaker' } },
+    { key: 'book', w: 104, label: { KO: '도서', EN: 'Book' } },
+    { key: 'time', w: 66, label: { KO: '북사인회 일시', EN: 'Signing Time' } },
+    { key: 'place', w: 104, label: { KO: '장소', EN: 'Venue' } }
+];
+const BOOKSIGNING_ROWS = [
+    { speaker: { KO: '크리스틴 로젠', EN: 'Christine Rosen' }, book: { KO: '경험의 멸종', EN: 'The Extinction of Experience' }, time: '9/9 11:10~11:30', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } },
+    { speaker: { KO: '리처드 도킨스', EN: 'Richard Dawkins' }, book: { KO: '이기적 유전자 (50주년 에디션)', EN: 'The Selfish Gene (50th Anniversary Edition)' }, time: '9/9 13:30~13:50', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } },
+    { speaker: { KO: '앨릭스 에드먼스', EN: 'Alex Edmans' }, book: { KO: 'ESG 파이코노믹스', EN: 'Grow the Pie' }, time: '9/9 15:30~15:50', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } },
+    { speaker: { KO: '스티븐 레비', EN: 'Steven Levy' }, book: { KO: 'In The Plex(원서)', EN: 'In the Plex' }, time: '9/9 15:40~16:00', place: { KO: '영빈관 내정', EN: 'Yeongbingwan Inner Courtyard' } },
+    { speaker: { KO: '에릭 브리뇰프슨', EN: 'Erik Brynjolfsson' }, book: { KO: '제2의 기계 시대', EN: 'The Second Machine Age' }, time: '9/10 10:10~10:30', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } }
+];
+
+const BOOKSIGNING_DATA_FONT = 6.5;
+const BOOKSIGNING_HEAD_FONT = 7;
+
+// SVG는 브라우저처럼 자동 줄바꿈이 없으므로, 칸 폭 기준으로 대략적인 글자수를 셈해
+// 영문처럼 긴 내용은 최대 2줄로 직접 잘라 배치한다.
+function wrapTextLines(text, colWidth, fontSize, maxLines) {
+    const avgCharW = fontSize * 0.55;
+    const maxChars = Math.max(4, Math.floor((colWidth - 6) / avgCharW));
+    if (text.length <= maxChars) return [text];
+    const words = text.split(' ');
+    const lines = [];
+    let current = '';
+    words.forEach(w => {
+        const trial = current ? current + ' ' + w : w;
+        if (trial.length > maxChars && current) {
+            lines.push(current);
+            current = w;
+        } else {
+            current = trial;
+        }
+    });
+    if (current) lines.push(current);
+    if (lines.length > maxLines) {
+        const head = lines.slice(0, maxLines - 1);
+        const tail = lines.slice(maxLines - 1).join(' ');
+        return [...head, tail];
+    }
+    return lines;
+}
+
+function drawWrappedText(cx, cy, lines, fontSize, extraAttrs) {
+    const lineH = fontSize * 1.15;
+    const totalTextH = lineH * lines.length;
+    let ty = cy - totalTextH / 2 + fontSize * 0.85;
+    let s = '';
+    lines.forEach(line => {
+        s += `<text x="${cx.toFixed(2)}" y="${ty.toFixed(2)}" text-anchor="middle" font-size="${fontSize}" fill="#000"${extraAttrs || ''}>${escapeXML(line)}</text>\n`;
+        ty += lineH;
+    });
+    return s;
+}
+
+// 오른쪽 정렬 기준 rightX, 표 하단이 놓일 y좌표(bottomY)를 받아 표를 그린다.
+function buildBookSigningTable(rightX, bottomY, lang) {
+    const headerH = 13, rowH = 20; // 6.5~7pt 폰트 + 최대 2줄 줄바꿈을 담을 수 있는 높이
+    const totalW = BOOKSIGNING_COLS.reduce((sum, c) => sum + c.w, 0);
+    const totalH = headerH + rowH * BOOKSIGNING_ROWS.length;
+    const x0 = rightX - totalW;
+    const y0 = bottomY - totalH;
+
+    let s = `<rect x="${x0.toFixed(2)}" y="${y0.toFixed(2)}" width="${totalW.toFixed(2)}" height="${totalH.toFixed(2)}" fill="#ffffff"/>\n`;
+    s += `<rect x="${x0.toFixed(2)}" y="${y0.toFixed(2)}" width="${totalW.toFixed(2)}" height="${headerH}" fill="#eeeeee"/>\n`;
+
+    let cx = x0;
+    BOOKSIGNING_COLS.forEach(col => {
+        s += `<text x="${(cx + col.w / 2).toFixed(2)}" y="${(y0 + headerH / 2 + 2.5).toFixed(2)}" text-anchor="middle" font-size="${BOOKSIGNING_HEAD_FONT}" font-weight="700" fill="#000">${escapeXML(col.label[lang])}</text>\n`;
+        cx += col.w;
+    });
+
+    BOOKSIGNING_ROWS.forEach((row, ri) => {
+        const ry = y0 + headerH + rowH * ri;
+        let cx2 = x0;
+        BOOKSIGNING_COLS.forEach(col => {
+            const val = col.key === 'time' ? row.time : row[col.key][lang];
+            const lines = wrapTextLines(val, col.w, BOOKSIGNING_DATA_FONT, 2);
+            s += drawWrappedText(cx2 + col.w / 2, ry + rowH / 2, lines, BOOKSIGNING_DATA_FONT);
+            cx2 += col.w;
+        });
+    });
+
+    // 세로선
+    let vx = x0;
+    BOOKSIGNING_COLS.forEach(col => {
+        s += `<line x1="${vx.toFixed(2)}" y1="${y0.toFixed(2)}" x2="${vx.toFixed(2)}" y2="${(y0 + totalH).toFixed(2)}" stroke="#999999" stroke-width="0.5"/>\n`;
+        vx += col.w;
+    });
+    s += `<line x1="${vx.toFixed(2)}" y1="${y0.toFixed(2)}" x2="${vx.toFixed(2)}" y2="${(y0 + totalH).toFixed(2)}" stroke="#999999" stroke-width="0.5"/>\n`;
+    // 가로선
+    for (let i = 0; i <= BOOKSIGNING_ROWS.length + 1; i++) {
+        const hy = y0 + (i === 0 ? 0 : headerH + rowH * (i - 1));
+        s += `<line x1="${x0.toFixed(2)}" y1="${hy.toFixed(2)}" x2="${(x0 + totalW).toFixed(2)}" y2="${hy.toFixed(2)}" stroke="#999999" stroke-width="0.5"/>\n`;
+    }
+
+    return { svg: s, height: totalH };
+}
+
 // ---- minimal CSV parser (handles quoted fields, commas, newlines inside quotes) ----
 function parseCSV(text) {
     const rows = [];
@@ -476,10 +577,12 @@ function buildSVG(validData, lang) {
         svg += `</g>\n\n`;
     });
 
-    // 🚀 우측 하단 고지문 + QR (https://www.wkforum.org/session)
+    // 🚀 우측 하단 고지문 + QR (https://www.wkforum.org/session) + 북사인회 안내표
     //    별도 여백을 확보하지 않고 시간표(마지막 시간대) 위에 그대로 겹쳐 보이도록 배치한다.
     //    day-group을 모두 그린 뒤 마지막에 그리므로 SVG 문서 순서상 항상 맨 위에 그려진다.
     const qrSize = 46, qrX = PAGE_W - MARGIN_X - qrSize, qrY = PAGE_H - qrSize - 6;
+    const bookTable = buildBookSigningTable(PAGE_W - MARGIN_X, qrY - 10, lang);
+    svg += bookTable.svg;
     svg += `<text class="foot" x="${(qrX - 6).toFixed(2)}" y="${(qrY + qrSize / 2).toFixed(2)}">${escapeXML(BRAND.footer[lang])}</text>\n`;
     svg += `<image x="${qrX.toFixed(2)}" y="${qrY.toFixed(2)}" width="${qrSize}" height="${qrSize}" href="${QR_DATA_URI}"/>\n`;
 

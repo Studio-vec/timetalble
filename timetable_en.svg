@@ -733,6 +733,54 @@
 <text class="si" x="305.15" y="190.77">Michael Jeon</text>
 </g>
 
+<rect x="834.55" y="666.89" width="328.00" height="113.00" fill="#ffffff"/>
+<rect x="834.55" y="666.89" width="328.00" height="13" fill="#eeeeee"/>
+<text x="861.55" y="675.89" text-anchor="middle" font-size="7" font-weight="700" fill="#000">Speaker</text>
+<text x="940.55" y="675.89" text-anchor="middle" font-size="7" font-weight="700" fill="#000">Book</text>
+<text x="1025.55" y="675.89" text-anchor="middle" font-size="7" font-weight="700" fill="#000">Signing Time</text>
+<text x="1110.55" y="675.89" text-anchor="middle" font-size="7" font-weight="700" fill="#000">Venue</text>
+<text x="861.55" y="687.94" text-anchor="middle" font-size="6.5" fill="#000">Christine</text>
+<text x="861.55" y="695.41" text-anchor="middle" font-size="6.5" fill="#000">Rosen</text>
+<text x="940.55" y="687.94" text-anchor="middle" font-size="6.5" fill="#000">The Extinction of</text>
+<text x="940.55" y="695.41" text-anchor="middle" font-size="6.5" fill="#000">Experience</text>
+<text x="1025.55" y="691.68" text-anchor="middle" font-size="6.5" fill="#000">9/9 11:10~11:30</text>
+<text x="1110.55" y="687.94" text-anchor="middle" font-size="6.5" fill="#000">Yeongbingwan Garden (Garden</text>
+<text x="1110.55" y="695.41" text-anchor="middle" font-size="6.5" fill="#000">Stage)</text>
+<text x="861.55" y="707.94" text-anchor="middle" font-size="6.5" fill="#000">Richard</text>
+<text x="861.55" y="715.41" text-anchor="middle" font-size="6.5" fill="#000">Dawkins</text>
+<text x="940.55" y="707.94" text-anchor="middle" font-size="6.5" fill="#000">The Selfish Gene (50th</text>
+<text x="940.55" y="715.41" text-anchor="middle" font-size="6.5" fill="#000">Anniversary Edition)</text>
+<text x="1025.55" y="711.68" text-anchor="middle" font-size="6.5" fill="#000">9/9 13:30~13:50</text>
+<text x="1110.55" y="707.94" text-anchor="middle" font-size="6.5" fill="#000">Yeongbingwan Garden (Garden</text>
+<text x="1110.55" y="715.41" text-anchor="middle" font-size="6.5" fill="#000">Stage)</text>
+<text x="861.55" y="731.68" text-anchor="middle" font-size="6.5" fill="#000">Alex Edmans</text>
+<text x="940.55" y="731.68" text-anchor="middle" font-size="6.5" fill="#000">Grow the Pie</text>
+<text x="1025.55" y="731.68" text-anchor="middle" font-size="6.5" fill="#000">9/9 15:30~15:50</text>
+<text x="1110.55" y="727.94" text-anchor="middle" font-size="6.5" fill="#000">Yeongbingwan Garden (Garden</text>
+<text x="1110.55" y="735.41" text-anchor="middle" font-size="6.5" fill="#000">Stage)</text>
+<text x="861.55" y="751.68" text-anchor="middle" font-size="6.5" fill="#000">Steven Levy</text>
+<text x="940.55" y="751.68" text-anchor="middle" font-size="6.5" fill="#000">In the Plex</text>
+<text x="1025.55" y="751.68" text-anchor="middle" font-size="6.5" fill="#000">9/9 15:40~16:00</text>
+<text x="1110.55" y="747.94" text-anchor="middle" font-size="6.5" fill="#000">Yeongbingwan Inner</text>
+<text x="1110.55" y="755.41" text-anchor="middle" font-size="6.5" fill="#000">Courtyard</text>
+<text x="861.55" y="767.94" text-anchor="middle" font-size="6.5" fill="#000">Erik</text>
+<text x="861.55" y="775.41" text-anchor="middle" font-size="6.5" fill="#000">Brynjolfsson</text>
+<text x="940.55" y="771.68" text-anchor="middle" font-size="6.5" fill="#000">The Second Machine Age</text>
+<text x="1025.55" y="771.68" text-anchor="middle" font-size="6.5" fill="#000">9/10 10:10~10:30</text>
+<text x="1110.55" y="767.94" text-anchor="middle" font-size="6.5" fill="#000">Yeongbingwan Garden (Garden</text>
+<text x="1110.55" y="775.41" text-anchor="middle" font-size="6.5" fill="#000">Stage)</text>
+<line x1="834.55" y1="666.89" x2="834.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="888.55" y1="666.89" x2="888.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="992.55" y1="666.89" x2="992.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="1058.55" y1="666.89" x2="1058.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="1162.55" y1="666.89" x2="1162.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="666.89" x2="1162.55" y2="666.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="679.89" x2="1162.55" y2="679.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="699.89" x2="1162.55" y2="699.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="719.89" x2="1162.55" y2="719.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="739.89" x2="1162.55" y2="739.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="759.89" x2="1162.55" y2="759.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="779.89" x2="1162.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
 <text class="foot" x="1110.55" y="812.89">*Programs and schedules are subject to change by the organizer.</text>
 <image x="1116.55" y="789.89" width="46" height="46" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYAQMAAACEqAqfAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABjklEQVR4nO3VMXLDMAwEQP7/00oRiwaPtGdSBtorNDSIW5Ye1ymjZP78PczvocVisVgsViNrrIlOnYebLRaLxWKxelnXnboXk3APLRaLxWKxulsxr2GxWCwW67HWTAxZLBaLxXqO9alcb7+8x2KxWCxWP2vPUYzvocVisVgsVhfrS2otrD+HxWKxWKx/ZV1rYhJuvJEPsFgsFovVxZrlsWZOYrs+eXiJxWKxWKwuVnDHpetOPceExWKxWKw21n4RiXntxxqLxWKxWG2sPG3/r/U8leNPFovFYrHaWAt5Q18mlchbFovFYrEaWfs3CnW45/0Ai8VisVi9rPfvrTnu1NvYfw1ZLBaLxeplXVvq9j6MydgfYbFYLBbrP1ufsq/WfuywWCwWi9XMuk6ZRIXqIb6vFovFYrFYjayxptaqHrdz4T1ksVgsFquXVTvL9VrbU0UWi8VisZ5j7ejeenVZLBaLxXqMNYmYxJzFYrFYrH5WXOfSh3l9gMVisVisZtaeuhqd+mQusFgsFovVxPoB/L14lctP4jwAAAAASUVORK5CYII="/>
 </svg>

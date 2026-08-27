@@ -733,6 +733,44 @@
 <text class="si" x="305.15" y="190.77">마이클 전</text>
 </g>
 
+<rect x="834.55" y="666.89" width="328.00" height="113.00" fill="#ffffff"/>
+<rect x="834.55" y="666.89" width="328.00" height="13" fill="#eeeeee"/>
+<text x="861.55" y="675.89" text-anchor="middle" font-size="7" font-weight="700" fill="#000">연사</text>
+<text x="940.55" y="675.89" text-anchor="middle" font-size="7" font-weight="700" fill="#000">도서</text>
+<text x="1025.55" y="675.89" text-anchor="middle" font-size="7" font-weight="700" fill="#000">북사인회 일시</text>
+<text x="1110.55" y="675.89" text-anchor="middle" font-size="7" font-weight="700" fill="#000">장소</text>
+<text x="861.55" y="691.68" text-anchor="middle" font-size="6.5" fill="#000">크리스틴 로젠</text>
+<text x="940.55" y="691.68" text-anchor="middle" font-size="6.5" fill="#000">경험의 멸종</text>
+<text x="1025.55" y="691.68" text-anchor="middle" font-size="6.5" fill="#000">9/9 11:10~11:30</text>
+<text x="1110.55" y="691.68" text-anchor="middle" font-size="6.5" fill="#000">영빈관 후정(가든스테이지)</text>
+<text x="861.55" y="711.68" text-anchor="middle" font-size="6.5" fill="#000">리처드 도킨스</text>
+<text x="940.55" y="711.68" text-anchor="middle" font-size="6.5" fill="#000">이기적 유전자 (50주년 에디션)</text>
+<text x="1025.55" y="711.68" text-anchor="middle" font-size="6.5" fill="#000">9/9 13:30~13:50</text>
+<text x="1110.55" y="711.68" text-anchor="middle" font-size="6.5" fill="#000">영빈관 후정(가든스테이지)</text>
+<text x="861.55" y="731.68" text-anchor="middle" font-size="6.5" fill="#000">앨릭스 에드먼스</text>
+<text x="940.55" y="731.68" text-anchor="middle" font-size="6.5" fill="#000">ESG 파이코노믹스</text>
+<text x="1025.55" y="731.68" text-anchor="middle" font-size="6.5" fill="#000">9/9 15:30~15:50</text>
+<text x="1110.55" y="731.68" text-anchor="middle" font-size="6.5" fill="#000">영빈관 후정(가든스테이지)</text>
+<text x="861.55" y="751.68" text-anchor="middle" font-size="6.5" fill="#000">스티븐 레비</text>
+<text x="940.55" y="751.68" text-anchor="middle" font-size="6.5" fill="#000">In The Plex(원서)</text>
+<text x="1025.55" y="751.68" text-anchor="middle" font-size="6.5" fill="#000">9/9 15:40~16:00</text>
+<text x="1110.55" y="751.68" text-anchor="middle" font-size="6.5" fill="#000">영빈관 내정</text>
+<text x="861.55" y="771.68" text-anchor="middle" font-size="6.5" fill="#000">에릭 브리뇰프슨</text>
+<text x="940.55" y="771.68" text-anchor="middle" font-size="6.5" fill="#000">제2의 기계 시대</text>
+<text x="1025.55" y="771.68" text-anchor="middle" font-size="6.5" fill="#000">9/10 10:10~10:30</text>
+<text x="1110.55" y="771.68" text-anchor="middle" font-size="6.5" fill="#000">영빈관 후정(가든스테이지)</text>
+<line x1="834.55" y1="666.89" x2="834.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="888.55" y1="666.89" x2="888.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="992.55" y1="666.89" x2="992.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="1058.55" y1="666.89" x2="1058.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="1162.55" y1="666.89" x2="1162.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="666.89" x2="1162.55" y2="666.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="679.89" x2="1162.55" y2="679.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="699.89" x2="1162.55" y2="699.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="719.89" x2="1162.55" y2="719.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="739.89" x2="1162.55" y2="739.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="759.89" x2="1162.55" y2="759.89" stroke="#999999" stroke-width="0.5"/>
+<line x1="834.55" y1="779.89" x2="1162.55" y2="779.89" stroke="#999999" stroke-width="0.5"/>
 <text class="foot" x="1110.55" y="812.89">*프로그램 및 시간표는 주최측 사정에 따라 변동될 수 있습니다.</text>
 <image x="1116.55" y="789.89" width="46" height="46" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYAQMAAACEqAqfAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABjklEQVR4nO3VMXLDMAwEQP7/00oRiwaPtGdSBtorNDSIW5Ye1ymjZP78PczvocVisVgsViNrrIlOnYebLRaLxWKxelnXnboXk3APLRaLxWKxulsxr2GxWCwW67HWTAxZLBaLxXqO9alcb7+8x2KxWCxWP2vPUYzvocVisVgsVhfrS2otrD+HxWKxWKx/ZV1rYhJuvJEPsFgsFovVxZrlsWZOYrs+eXiJxWKxWKwuVnDHpetOPceExWKxWKw21n4RiXntxxqLxWKxWG2sPG3/r/U8leNPFovFYrHaWAt5Q18mlchbFovFYrEaWfs3CnW45/0Ai8VisVi9rPfvrTnu1NvYfw1ZLBaLxeplXVvq9j6MydgfYbFYLBbrP1ufsq/WfuywWCwWi9XMuk6ZRIXqIb6vFovFYrFYjayxptaqHrdz4T1ksVgsFquXVTvL9VrbU0UWi8VisZ5j7ejeenVZLBaLxXqMNYmYxJzFYrFYrH5WXOfSh3l9gMVisVisZtaeuhqd+mQusFgsFovVxPoB/L14lctP4jwAAAAASUVORK5CYII="/>
 </svg>
