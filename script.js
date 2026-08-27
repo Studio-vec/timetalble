@@ -60,11 +60,11 @@ const BOOKSIGNING_COLS = [
     { key: 'place', label: { KO: '장소', EN: 'Venue' } }
 ];
 const BOOKSIGNING_ROWS = [
-    { speaker: { KO: '크리스틴 로젠', EN: 'Christine Rosen' }, book: { KO: '경험의 멸종', EN: 'The Extinction of Experience' }, time: '9/9 11:10~11:30', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } },
-    { speaker: { KO: '리처드 도킨스', EN: 'Richard Dawkins' }, book: { KO: '이기적 유전자 (50주년 에디션)', EN: 'The Selfish Gene (50th Anniversary Edition)' }, time: '9/9 13:30~13:50', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } },
-    { speaker: { KO: '앨릭스 에드먼스', EN: 'Alex Edmans' }, book: { KO: 'ESG 파이코노믹스', EN: 'Grow the Pie' }, time: '9/9 15:30~15:50', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } },
-    { speaker: { KO: '스티븐 레비', EN: 'Steven Levy' }, book: { KO: 'In The Plex(원서)', EN: 'In the Plex' }, time: '9/9 15:40~16:00', place: { KO: '영빈관 내정', EN: 'Yeongbingwan Inner Courtyard' } },
-    { speaker: { KO: '에릭 브리뇰프슨', EN: 'Erik Brynjolfsson' }, book: { KO: '제2의 기계 시대', EN: 'The Second Machine Age' }, time: '9/10 10:10~10:30', place: { KO: '영빈관 후정(가든스테이지)', EN: 'Yeongbingwan Garden (Garden Stage)' } }
+    { speaker: { KO: '크리스틴 로젠', EN: 'Christine Rosen' }, book: { KO: '경험의 멸종', EN: 'The Extinction of Experience' }, time: '9/9 11:10~11:30', place: { KO: '가든스테이지', EN: 'Garden Stage' } },
+    { speaker: { KO: '리처드 도킨스', EN: 'Richard Dawkins' }, book: { KO: '이기적 유전자 (50주년 에디션)', EN: 'The Selfish Gene (50th Anniversary Edition)' }, time: '9/9 14:00~14:30', place: { KO: '가든스테이지', EN: 'Garden Stage' } },
+    { speaker: { KO: '앨릭스 에드먼스', EN: 'Alex Edmans' }, book: { KO: 'ESG 파이코노믹스', EN: 'Grow the Pie' }, time: '9/9 15:30~15:50', place: { KO: '가든스테이지', EN: 'Garden Stage' } },
+    { speaker: { KO: '스티븐 레비', EN: 'Steven Levy' }, book: { KO: 'In The Plex(원서)', EN: 'In the Plex' }, time: '9/9 15:40~16:10', place: { KO: '영빈관 내정', EN: 'Yeongbingwan Inner Courtyard' } },
+    { speaker: { KO: '에릭 브리뇰프슨', EN: 'Erik Brynjolfsson' }, book: { KO: '제2의 기계 시대', EN: 'The Second Machine Age' }, time: '9/10 10:00~10:30', place: { KO: '가든스테이지', EN: 'Garden Stage' } }
 ];
 
 function updateBookSigningTable() {
