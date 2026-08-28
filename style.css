@@ -131,9 +131,13 @@ body {
     left: 0px;  /* 기존 2px에서 0px로 */
     right: 2px;
     z-index: 10;
-    padding: 3px; /* 내부 여백을 살짝 줄임 */
+    padding: 3px 0px 3px 2px; /* 🚀 국문 제목이 이상하게 줄바꿈되지 않도록 좌우 여백만 줄임 (좌: 2px, 우: 0px) */
     display: flex; flex-direction: column;
     text-align: left; overflow: visible; box-sizing: border-box;
+}
+/* 영문은 기존 좌우 여백을 유지 (제목이 이미 자체적으로 더 좁게 눌려 있음) */
+body.lang-en .session-block {
+    padding: 3px;
 }
 
 /* 🚀 제목은 칸이 좁아 자폭을 줄여 담는다.
