@@ -149,8 +149,8 @@ body {
 /* 🚀 영문은 제목이 한글보다 훨씬 길어 더 좁혀야 한다.
    오른쪽으로 3px까지 나가도 되므로 그 3px도 폭 계산에 포함한다. */
 body.lang-en .session-title {
-    font-size: 7.5pt;
-    font-weight: 650;
+    font-size: 6.5pt;
+    font-weight: 600;
     letter-spacing: -0.015em;
     transform: scaleX(0.8);
     width: calc((100% + 3px) / 0.8);
