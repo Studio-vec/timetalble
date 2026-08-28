@@ -140,7 +140,7 @@ body {
    scaleX만 주면 글자만 작아지고 줄바꿈은 원래 폭 기준이라 남는 자리를 못 쓰므로,
    줄어드는 비율만큼 박스를 미리 넓혀둬야(1/비율) 화면 폭은 그대로면서 한 줄에 더 담긴다. */
 .session-title {
-    font-weight: 700; font-size: 7.5pt; line-height: 1.2; margin-bottom: 1px; color: #000;
+    font-weight: 700; font-size: 7.5pt; line-height: 8pt; margin-bottom: 1px; color: #000;
     letter-spacing: -0.015em;
     transform: scaleX(0.85);
     transform-origin: left;
@@ -150,6 +150,7 @@ body {
    오른쪽으로 3px까지 나가도 되므로 그 3px도 폭 계산에 포함한다. */
 body.lang-en .session-title {
     font-size: 6.5pt;
+    line-height: 7pt;
     font-weight: 600;
     letter-spacing: -0.015em;
     transform: scaleX(0.8);
