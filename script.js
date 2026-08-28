@@ -425,7 +425,13 @@ function renderTimetable() {
     const dates = [...new Set(validData.map(d => d.Date))];
     const allPlaces = [...new Set(validData.map(d => d.Place))].sort((a, b) => placeRank(a) - placeRank(b));
 
+    // 🚀 마지막 날(3일차) 18시 이후는 우측 하단 고지문/QR과 겹치는 자리라
+    //    눈금선과 시간 라벨을 지워 그 아래를 백지로 비워둔다.
+    const HIDE_LINES_FROM_HOUR = 18;
+    const lastDate = dates[dates.length - 1];
+
     dates.forEach(date => {
+        const isLastDate = date === lastDate;
         // 🚀 그 날 세션이 하나도 없는 장소(예: 3일차 장충아레나)는 열 자체를 만들지 않는다.
         const places = allPlaces.filter(p => validData.some(d => d.Date === date && d.Place === p));
         const dateGroup = document.createElement('div');
@@ -444,6 +450,7 @@ function renderTimetable() {
         for (let h = START_HOUR; h <= END_HOUR; h++) {
             [0, 30].forEach(m => {
                 if (h === END_HOUR && m > 0) return;
+                if (isLastDate && h >= HIDE_LINES_FROM_HOUR) return;
                 const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
                 const label = document.createElement('div');
                 label.className = 'time-label';
@@ -483,6 +490,12 @@ function renderTimetable() {
             const track = col.querySelector('.track-area');
             // 🚀 시간축 범위가 바뀌어도 가로 눈금선이 30분 간격을 유지하도록 계산
             track.style.backgroundSize = `100% calc(100% / ${halfHourSlots})`;
+            if (isLastDate) {
+                // 🚀 18시부터는 눈금선 위에 흰 배경을 덧씌워 지우고, 그 아래를 백지로 비운다
+                const cutoff = Math.min(100, Math.max(0, timeToPosition(`${HIDE_LINES_FROM_HOUR}:00`)));
+                track.style.backgroundImage = `linear-gradient(to bottom, transparent 0%, transparent ${cutoff}%, #fff ${cutoff}%, #fff 100%), linear-gradient(#f0f0f0 1px, transparent 1px)`;
+                track.style.backgroundSize = `100% 100%, 100% calc(100% / ${halfHourSlots})`;
+            }
 
             validData.filter(d => d.Date === date && d.Place === place).forEach(s => {
                 const startPos = timeToPosition(s.StartTime);
@@ -706,20 +719,31 @@ function buildSVGFromDOM() {
     //    day-group을 모두 그린 뒤 맨 마지막에 그려서 항상 맨 위(overlay)로 나오게 한다.
     const footerNote = content.querySelector('.footer-note');
     if (footerNote) {
+        const bsLabel = footerNote.querySelector('#booksigning-label');
+        if (bsLabel) svg += elementToSVGText(bsLabel, origin);
+
+        // 🚀 셀마다 사방 테두리를 그리면 스프레드시트처럼 보이므로, 헤더 밑줄 1개 +
+        //    각 데이터 행 아래 얇은 가로선만 그려 CSS의 '세로선 없는' 디자인을 그대로 옮긴다.
         const bsTable = footerNote.querySelector('#booksigning-table');
         if (bsTable) {
-            bsTable.querySelectorAll('th, td').forEach(cell => {
-                const cr = cell.getBoundingClientRect();
-                const cx = (cr.left - origin.left).toFixed(2);
-                const cy = (cr.top - origin.top).toFixed(2);
-                const bg = getComputedStyle(cell).backgroundColor;
-                if (bg && bg !== 'rgba(0, 0, 0, 0)') {
-                    svg += `<rect x="${cx}" y="${cy}" width="${cr.width.toFixed(2)}" height="${cr.height.toFixed(2)}" fill="${bg}"/>\n`;
+            const headRow = bsTable.querySelector('thead tr');
+            if (headRow) {
+                const hb = headRow.getBoundingClientRect();
+                const hy = (hb.bottom - origin.top).toFixed(2);
+                svg += `<line x1="${(hb.left - origin.left).toFixed(2)}" y1="${hy}" x2="${(hb.right - origin.left).toFixed(2)}" y2="${hy}" stroke="#000000" stroke-width="${ptToUnits(1).toFixed(3)}"/>\n`;
+                headRow.querySelectorAll('th').forEach(cell => { svg += elementToSVGText(cell, origin); });
+            }
+            const bodyRows = bsTable.querySelectorAll('tbody tr');
+            bodyRows.forEach((row, ri) => {
+                const rb = row.getBoundingClientRect();
+                if (ri < bodyRows.length - 1) {
+                    const ry = (rb.bottom - origin.top).toFixed(2);
+                    svg += `<line x1="${(rb.left - origin.left).toFixed(2)}" y1="${ry}" x2="${(rb.right - origin.left).toFixed(2)}" y2="${ry}" stroke="#dddddd" stroke-width="${ptToUnits(0.5).toFixed(3)}"/>\n`;
                 }
-                svg += `<rect x="${cx}" y="${cy}" width="${cr.width.toFixed(2)}" height="${cr.height.toFixed(2)}" fill="none" stroke="#999999" stroke-width="${ptToUnits(0.5).toFixed(3)}"/>\n`;
-                svg += elementToSVGText(cell, origin);
+                row.querySelectorAll('td').forEach(cell => { svg += elementToSVGText(cell, origin); });
             });
         }
+
         const footerText = footerNote.querySelector('.footer-text');
         if (footerText) svg += elementToSVGText(footerText, origin);
         const qr = footerNote.querySelector('.footer-qr');

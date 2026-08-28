@@ -75,6 +75,7 @@ const BOOKSIGNING_ROWS = [
 
 const BOOKSIGNING_DATA_FONT = 6.5;
 const BOOKSIGNING_HEAD_FONT = 7;
+const BOOKSIGNING_LABEL_FONT = 7;
 
 // SVG는 브라우저처럼 자동 줄바꿈이 없으므로, 칸 폭 기준으로 대략적인 글자수를 셈해
 // 영문처럼 긴 내용은 최대 2줄로 직접 잘라 배치한다.
@@ -116,24 +117,34 @@ function drawWrappedText(cx, cy, lines, fontSize, extraAttrs) {
 }
 
 // 오른쪽 정렬 기준 rightX, 표 하단이 놓일 y좌표(bottomY)를 받아 표를 그린다.
+// 🚀 셀마다 사방 테두리를 두르면 스프레드시트처럼 보이므로, 세로선은 그리지 않고
+//    헤더 밑줄 1개 + 데이터 행 사이 얇은 가로선만 그려 인쇄용 표 느낌을 낸다.
 function buildBookSigningTable(rightX, bottomY, lang) {
+    const labelH = 12;   // "BOOK SIGNING" 라벨 높이
     const headerH = 13, rowH = 20; // 6.5~7pt 폰트 + 최대 2줄 줄바꿈을 담을 수 있는 높이
     const totalW = BOOKSIGNING_COLS.reduce((sum, c) => sum + c.w, 0);
-    const totalH = headerH + rowH * BOOKSIGNING_ROWS.length;
+    const tableH = headerH + rowH * BOOKSIGNING_ROWS.length;
+    const totalH = labelH + tableH;
     const x0 = rightX - totalW;
     const y0 = bottomY - totalH;
 
-    let s = `<rect x="${x0.toFixed(2)}" y="${y0.toFixed(2)}" width="${totalW.toFixed(2)}" height="${totalH.toFixed(2)}" fill="#ffffff"/>\n`;
-    s += `<rect x="${x0.toFixed(2)}" y="${y0.toFixed(2)}" width="${totalW.toFixed(2)}" height="${headerH}" fill="#eeeeee"/>\n`;
+    let s = '';
+    const label = lang === 'KO' ? 'BOOK SIGNING' : 'BOOK SIGNING';
+    s += `<text x="${(x0 + totalW).toFixed(2)}" y="${(y0 + labelH - 2).toFixed(2)}" text-anchor="end" font-size="${BOOKSIGNING_LABEL_FONT}" font-weight="800" fill="${POINT_COLOR}" style="letter-spacing:0.06em">${escapeXML(label)}</text>\n`;
+
+    const ty0 = y0 + labelH;
+    s += `<rect x="${x0.toFixed(2)}" y="${ty0.toFixed(2)}" width="${totalW.toFixed(2)}" height="${tableH.toFixed(2)}" fill="#ffffff"/>\n`;
 
     let cx = x0;
     BOOKSIGNING_COLS.forEach(col => {
-        s += `<text x="${(cx + col.w / 2).toFixed(2)}" y="${(y0 + headerH / 2 + 2.5).toFixed(2)}" text-anchor="middle" font-size="${BOOKSIGNING_HEAD_FONT}" font-weight="700" fill="#000">${escapeXML(col.label[lang])}</text>\n`;
+        s += `<text x="${(cx + col.w / 2).toFixed(2)}" y="${(ty0 + headerH / 2 + 2.5).toFixed(2)}" text-anchor="middle" font-size="${BOOKSIGNING_HEAD_FONT}" font-weight="700" fill="#000">${escapeXML(col.label[lang])}</text>\n`;
         cx += col.w;
     });
+    // 헤더 밑줄
+    s += `<line x1="${x0.toFixed(2)}" y1="${(ty0 + headerH).toFixed(2)}" x2="${(x0 + totalW).toFixed(2)}" y2="${(ty0 + headerH).toFixed(2)}" stroke="#000000" stroke-width="1"/>\n`;
 
     BOOKSIGNING_ROWS.forEach((row, ri) => {
-        const ry = y0 + headerH + rowH * ri;
+        const ry = ty0 + headerH + rowH * ri;
         let cx2 = x0;
         BOOKSIGNING_COLS.forEach(col => {
             const val = col.key === 'time' ? row.time : row[col.key][lang];
@@ -141,20 +152,12 @@ function buildBookSigningTable(rightX, bottomY, lang) {
             s += drawWrappedText(cx2 + col.w / 2, ry + rowH / 2, lines, BOOKSIGNING_DATA_FONT);
             cx2 += col.w;
         });
+        // 마지막 행 아래는 선을 긋지 않는다
+        if (ri < BOOKSIGNING_ROWS.length - 1) {
+            const hy = ry + rowH;
+            s += `<line x1="${x0.toFixed(2)}" y1="${hy.toFixed(2)}" x2="${(x0 + totalW).toFixed(2)}" y2="${hy.toFixed(2)}" stroke="#dddddd" stroke-width="0.5"/>\n`;
+        }
     });
-
-    // 세로선
-    let vx = x0;
-    BOOKSIGNING_COLS.forEach(col => {
-        s += `<line x1="${vx.toFixed(2)}" y1="${y0.toFixed(2)}" x2="${vx.toFixed(2)}" y2="${(y0 + totalH).toFixed(2)}" stroke="#999999" stroke-width="0.5"/>\n`;
-        vx += col.w;
-    });
-    s += `<line x1="${vx.toFixed(2)}" y1="${y0.toFixed(2)}" x2="${vx.toFixed(2)}" y2="${(y0 + totalH).toFixed(2)}" stroke="#999999" stroke-width="0.5"/>\n`;
-    // 가로선
-    for (let i = 0; i <= BOOKSIGNING_ROWS.length + 1; i++) {
-        const hy = y0 + (i === 0 ? 0 : headerH + rowH * (i - 1));
-        s += `<line x1="${x0.toFixed(2)}" y1="${hy.toFixed(2)}" x2="${(x0 + totalW).toFixed(2)}" y2="${hy.toFixed(2)}" stroke="#999999" stroke-width="0.5"/>\n`;
-    }
 
     return { svg: s, height: totalH };
 }
@@ -454,9 +457,13 @@ function buildValidData(globalRawData) {
     return validData;
 }
 
+// 마지막 날짜(3일차) 18시 이후는 우측 하단 고지문/QR과 겹치는 자리라 눈금선을 그리지 않는다.
+const HIDE_LINES_FROM_HOUR = 18;
+
 function buildSVG(validData, lang) {
     const dates = [...new Set(validData.map(d => d.Date))];
     const allPlaces = [...new Set(validData.map(d => d.Place))].sort((a, b) => placeRank(a) - placeRank(b));
+    const lastDate = dates[dates.length - 1];
 
     // Layout constants (A3 landscape, mm==px scale as in original hand-authored SVG)
     const PAGE_W = 1190.55, PAGE_H = 841.89;
@@ -535,9 +542,11 @@ function buildSVG(validData, lang) {
         });
         svg += '\n';
 
+        const isLastDate = date === lastDate;
         for (let h = START_HOUR; h <= END_HOUR; h++) {
             [0, 30].forEach(m => {
                 if (h === END_HOUR && m > 0) return;
+                if (isLastDate && h >= HIDE_LINES_FROM_HOUR) return;
                 const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
                 const y = timeToY(timeStr, TRACK_TOP, TRACK_H);
                 const cls = m === 0 ? 'gl' : 'gl2';
@@ -577,7 +586,7 @@ function buildSVG(validData, lang) {
         svg += `</g>\n\n`;
     });
 
-    // 🚀 우측 하단 고지문 + QR (https://www.wkforum.org/session) + 북사인회 안내표
+    // 🚀 우측 하단 고지문(북사인회 안내 포함) + QR (https://www.wkforum.org/session)
     //    별도 여백을 확보하지 않고 시간표(마지막 시간대) 위에 그대로 겹쳐 보이도록 배치한다.
     //    day-group을 모두 그린 뒤 마지막에 그리므로 SVG 문서 순서상 항상 맨 위에 그려진다.
     const qrSize = 46, qrX = PAGE_W - MARGIN_X - qrSize, qrY = PAGE_H - qrSize - 6;
