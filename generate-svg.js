@@ -301,6 +301,9 @@ function updateTimeRange(sessions) {
     START_HOUR = Math.floor(min / 60);
     END_HOUR = Math.ceil(max / 60);
     if (END_HOUR - START_HOUR < 4) END_HOUR = START_HOUR + 4;
+    // 뒷 시간대가 대부분 비어 있어 축은 19:30까지만 그린다.
+    // 그보다 늦게 끝나는 소수 세션(갈라디너 등)은 그리드 바깥으로 자연스럽게 넘치도록 둔다.
+    if (END_HOUR > 19.5) END_HOUR = 19.5;
 }
 
 async function loadData() {
@@ -457,8 +460,8 @@ function buildValidData(globalRawData) {
     return validData;
 }
 
-// 마지막 날짜(3일차) 18시 이후는 우측 하단 고지문/QR과 겹치는 자리라 눈금선을 그리지 않는다.
-const HIDE_LINES_FROM_HOUR = 18;
+// 마지막 날짜(3일차) 16시 반 이후는 우측 하단 고지문/QR/북사인회 표와 겹치는 자리라 눈금선을 그리지 않는다.
+const HIDE_LINES_FROM_HOUR = 16.5;
 
 function buildSVG(validData, lang) {
     const dates = [...new Set(validData.map(d => d.Date))];
@@ -546,7 +549,7 @@ function buildSVG(validData, lang) {
         for (let h = START_HOUR; h <= END_HOUR; h++) {
             [0, 30].forEach(m => {
                 if (h === END_HOUR && m > 0) return;
-                if (isLastDate && h >= HIDE_LINES_FROM_HOUR) return;
+                if (isLastDate && (h + m / 60) >= HIDE_LINES_FROM_HOUR) return;
                 const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
                 const y = timeToY(timeStr, TRACK_TOP, TRACK_H);
                 const cls = m === 0 ? 'gl' : 'gl2';

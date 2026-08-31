@@ -38,259 +38,285 @@
 
 <line class="gl" x1="25" y1="46.00" x2="370.18" y2="46.00"/>
 <text class="tt" x="23.00" y="48.50">08:00</text>
-<line class="gl2" x1="25" y1="73.69" x2="370.18" y2="73.69"/>
-<text class="tt" x="23.00" y="76.19">08:30</text>
-<line class="gl" x1="25" y1="101.38" x2="370.18" y2="101.38"/>
-<text class="tt" x="23.00" y="103.88">09:00</text>
-<line class="gl2" x1="25" y1="129.08" x2="370.18" y2="129.08"/>
-<text class="tt" x="23.00" y="131.58">09:30</text>
-<line class="gl" x1="25" y1="156.77" x2="370.18" y2="156.77"/>
-<text class="tt" x="23.00" y="159.27">10:00</text>
-<line class="gl2" x1="25" y1="184.46" x2="370.18" y2="184.46"/>
-<text class="tt" x="23.00" y="186.96">10:30</text>
-<line class="gl" x1="25" y1="212.15" x2="370.18" y2="212.15"/>
-<text class="tt" x="23.00" y="214.65">11:00</text>
-<line class="gl2" x1="25" y1="239.85" x2="370.18" y2="239.85"/>
-<text class="tt" x="23.00" y="242.35">11:30</text>
-<line class="gl" x1="25" y1="267.54" x2="370.18" y2="267.54"/>
-<text class="tt" x="23.00" y="270.04">12:00</text>
-<line class="gl2" x1="25" y1="295.23" x2="370.18" y2="295.23"/>
-<text class="tt" x="23.00" y="297.73">12:30</text>
-<line class="gl" x1="25" y1="322.92" x2="370.18" y2="322.92"/>
-<text class="tt" x="23.00" y="325.42">13:00</text>
-<line class="gl2" x1="25" y1="350.62" x2="370.18" y2="350.62"/>
-<text class="tt" x="23.00" y="353.12">13:30</text>
-<line class="gl" x1="25" y1="378.31" x2="370.18" y2="378.31"/>
-<text class="tt" x="23.00" y="380.81">14:00</text>
-<line class="gl2" x1="25" y1="406.00" x2="370.18" y2="406.00"/>
-<text class="tt" x="23.00" y="408.50">14:30</text>
-<line class="gl" x1="25" y1="433.69" x2="370.18" y2="433.69"/>
-<text class="tt" x="23.00" y="436.19">15:00</text>
-<line class="gl2" x1="25" y1="461.38" x2="370.18" y2="461.38"/>
-<text class="tt" x="23.00" y="463.88">15:30</text>
-<line class="gl" x1="25" y1="489.08" x2="370.18" y2="489.08"/>
-<text class="tt" x="23.00" y="491.58">16:00</text>
-<line class="gl2" x1="25" y1="516.77" x2="370.18" y2="516.77"/>
-<text class="tt" x="23.00" y="519.27">16:30</text>
-<line class="gl" x1="25" y1="544.46" x2="370.18" y2="544.46"/>
-<text class="tt" x="23.00" y="546.96">17:00</text>
-<line class="gl2" x1="25" y1="572.15" x2="370.18" y2="572.15"/>
-<text class="tt" x="23.00" y="574.65">17:30</text>
-<line class="gl" x1="25" y1="599.85" x2="370.18" y2="599.85"/>
-<text class="tt" x="23.00" y="602.35">18:00</text>
-<line class="gl2" x1="25" y1="627.54" x2="370.18" y2="627.54"/>
-<text class="tt" x="23.00" y="630.04">18:30</text>
-<line class="gl" x1="25" y1="655.23" x2="370.18" y2="655.23"/>
-<text class="tt" x="23.00" y="657.73">19:00</text>
-<line class="gl2" x1="25" y1="682.92" x2="370.18" y2="682.92"/>
-<text class="tt" x="23.00" y="685.42">19:30</text>
-<line class="gl" x1="25" y1="710.62" x2="370.18" y2="710.62"/>
-<text class="tt" x="23.00" y="713.12">20:00</text>
-<line class="gl2" x1="25" y1="738.31" x2="370.18" y2="738.31"/>
-<text class="tt" x="23.00" y="740.81">20:30</text>
-<line class="gl" x1="25" y1="766.00" x2="370.18" y2="766.00"/>
-<text class="tt" x="23.00" y="768.50">21:00</text>
+<line class="gl2" x1="25" y1="77.30" x2="370.18" y2="77.30"/>
+<text class="tt" x="23.00" y="79.80">08:30</text>
+<line class="gl" x1="25" y1="108.61" x2="370.18" y2="108.61"/>
+<text class="tt" x="23.00" y="111.11">09:00</text>
+<line class="gl2" x1="25" y1="139.91" x2="370.18" y2="139.91"/>
+<text class="tt" x="23.00" y="142.41">09:30</text>
+<line class="gl" x1="25" y1="171.22" x2="370.18" y2="171.22"/>
+<text class="tt" x="23.00" y="173.72">10:00</text>
+<line class="gl2" x1="25" y1="202.52" x2="370.18" y2="202.52"/>
+<text class="tt" x="23.00" y="205.02">10:30</text>
+<line class="gl" x1="25" y1="233.83" x2="370.18" y2="233.83"/>
+<text class="tt" x="23.00" y="236.33">11:00</text>
+<line class="gl2" x1="25" y1="265.13" x2="370.18" y2="265.13"/>
+<text class="tt" x="23.00" y="267.63">11:30</text>
+<line class="gl" x1="25" y1="296.43" x2="370.18" y2="296.43"/>
+<text class="tt" x="23.00" y="298.93">12:00</text>
+<line class="gl2" x1="25" y1="327.74" x2="370.18" y2="327.74"/>
+<text class="tt" x="23.00" y="330.24">12:30</text>
+<line class="gl" x1="25" y1="359.04" x2="370.18" y2="359.04"/>
+<text class="tt" x="23.00" y="361.54">13:00</text>
+<line class="gl2" x1="25" y1="390.35" x2="370.18" y2="390.35"/>
+<text class="tt" x="23.00" y="392.85">13:30</text>
+<line class="gl" x1="25" y1="421.65" x2="370.18" y2="421.65"/>
+<text class="tt" x="23.00" y="424.15">14:00</text>
+<line class="gl2" x1="25" y1="452.96" x2="370.18" y2="452.96"/>
+<text class="tt" x="23.00" y="455.46">14:30</text>
+<line class="gl" x1="25" y1="484.26" x2="370.18" y2="484.26"/>
+<text class="tt" x="23.00" y="486.76">15:00</text>
+<line class="gl2" x1="25" y1="515.57" x2="370.18" y2="515.57"/>
+<text class="tt" x="23.00" y="518.07">15:30</text>
+<line class="gl" x1="25" y1="546.87" x2="370.18" y2="546.87"/>
+<text class="tt" x="23.00" y="549.37">16:00</text>
+<line class="gl2" x1="25" y1="578.17" x2="370.18" y2="578.17"/>
+<text class="tt" x="23.00" y="580.67">16:30</text>
+<line class="gl" x1="25" y1="609.48" x2="370.18" y2="609.48"/>
+<text class="tt" x="23.00" y="611.98">17:00</text>
+<line class="gl2" x1="25" y1="640.78" x2="370.18" y2="640.78"/>
+<text class="tt" x="23.00" y="643.28">17:30</text>
+<line class="gl" x1="25" y1="672.09" x2="370.18" y2="672.09"/>
+<text class="tt" x="23.00" y="674.59">18:00</text>
+<line class="gl2" x1="25" y1="703.39" x2="370.18" y2="703.39"/>
+<text class="tt" x="23.00" y="705.89">18:30</text>
+<line class="gl" x1="25" y1="734.70" x2="370.18" y2="734.70"/>
+<text class="tt" x="23.00" y="737.20">19:00</text>
+<line class="gl2" x1="25" y1="766.00" x2="370.18" y2="766.00"/>
+<text class="tt" x="23.00" y="768.50">19:30</text>
 
 <!-- 장충: Opening Ceremony 08:30-09:20 -->
-<rect x="26.00" y="73.69" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="73.69" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="84.69">Opening Ceremony</text>
-<text class="sm" x="29.00" y="91.69">08:30-09:20</text>
-<text class="si" x="29.00" y="99.69">David Cameron</text>
+<rect x="26.00" y="77.30" width="55.53" height="52.17" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="77.30" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="88.30">Opening Ceremony</text>
+<text class="sm" x="29.00" y="95.30">08:30-09:20</text>
+<text class="si" x="29.00" y="103.30">David Cameron</text>
 <!-- 장충: The Physical AI Revolution: Co-Intelligence on the Move 10:00-10:50 -->
-<rect x="26.00" y="156.77" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="156.77" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="167.77">The Physical AI Revolution: Co-Intelligence on the Move</text>
-<text class="sm" x="29.00" y="174.77">10:00-10:50</text>
-<text class="si" x="29.00" y="182.77">Sebastian Thrun</text>
+<rect x="26.00" y="171.22" width="55.53" height="52.17" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="171.22" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="182.22">The Physical AI Revolution: Co-Intelligence on the Move</text>
+<text class="sm" x="29.00" y="189.22">10:00-10:50</text>
+<text class="si" x="29.00" y="197.22">Sebastian Thrun</text>
 <!-- 장충: Cybersecurity and Quantum Computing 11:00-11:50 -->
-<rect x="26.00" y="212.15" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="212.15" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="223.15">Cybersecurity and Quantum Computing</text>
-<text class="sm" x="29.00" y="230.15">11:00-11:50</text>
-<text class="si" x="29.00" y="238.15">Fabio Donati</text>
+<rect x="26.00" y="233.83" width="55.53" height="52.17" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="233.83" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="244.83">Cybersecurity and Quantum Computing</text>
+<text class="sm" x="29.00" y="251.83">11:00-11:50</text>
+<text class="si" x="29.00" y="259.83">Subodh Kulkarni</text>
+<text class="si" x="29.00" y="267.83">Jeannette Garcia</text>
+<text class="si" x="29.00" y="275.83">Fabio Donati</text>
 <!-- 장충: AI, Art, and the Future of Creativity 13:30-14:20 -->
-<rect x="26.00" y="350.62" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="350.62" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="361.62">AI, Art, and the Future of Creativity</text>
-<text class="sm" x="29.00" y="368.62">13:30-14:20</text>
+<rect x="26.00" y="390.35" width="55.53" height="52.17" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="390.35" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="401.35">AI, Art, and the Future of Creativity</text>
+<text class="sm" x="29.00" y="408.35">13:30-14:20</text>
+<text class="si" x="29.00" y="416.35">Noam Segal</text>
+<text class="si" x="29.00" y="424.35">LEE Moontae</text>
+<text class="si" x="29.00" y="432.35">PARK Seol</text>
 <!-- 장충: AI Dilemma: Innovation vs. Regulation 14:30-15:20 -->
-<rect x="26.00" y="406.00" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="406.00" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="417.00">AI Dilemma: Innovation vs. Regulation</text>
-<text class="sm" x="29.00" y="424.00">14:30-15:20</text>
-<text class="si" x="29.00" y="432.00">Michael Jeon</text>
+<rect x="26.00" y="452.96" width="55.53" height="52.17" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="452.96" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="463.96">AI Dilemma: Innovation vs. Regulation</text>
+<text class="sm" x="29.00" y="470.96">14:30-15:20</text>
+<text class="si" x="29.00" y="478.96">Helle Thorning-Schmidt</text>
+<text class="si" x="29.00" y="486.96">Roman Yampolskiy</text>
+<text class="si" x="29.00" y="494.96">Michael Jeon</text>
 <!-- 장충: How a Megacity Works 15:30-16:20 -->
-<rect x="26.00" y="461.38" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="461.38" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="472.38">How a Megacity Works</text>
-<text class="sm" x="29.00" y="479.38">15:30-16:20</text>
-<text class="si" x="29.00" y="487.38">Eric Adams</text>
-<text class="si" x="29.00" y="495.38">Terry Martin</text>
-<!-- 프로메테우스: AI and Creative Destruction: Will AI Revive Growth—or Entrench the Giants? 10:00-10:50 -->
-<rect x="83.53" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="167.77">AI and Creative Destruction: Will AI Revive Growth—or Entrench the Giants?</text>
-<text class="sm" x="86.53" y="174.77">10:00-10:50</text>
-<text class="si" x="86.53" y="182.77">Ufuk Akcigit</text>
+<rect x="26.00" y="515.57" width="55.53" height="52.17" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="515.57" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="526.57">How a Megacity Works</text>
+<text class="sm" x="29.00" y="533.57">15:30-16:20</text>
+<text class="si" x="29.00" y="541.57">Eric Adams</text>
+<text class="si" x="29.00" y="549.57">Terry Martin</text>
+<!-- 프로메테우스: AI and Creative Destruction: Will AI Revive Growth or Entrench the Giants? 10:00-10:50 -->
+<rect x="83.53" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="182.22">AI and Creative Destruction: Will AI Revive Growth or Entrench the Giants?</text>
+<text class="sm" x="86.53" y="189.22">10:00-10:50</text>
+<text class="si" x="86.53" y="197.22">Ufuk Akcigit</text>
 <!-- 프로메테우스: The Realization of Business AI: LLMs and Robotics Reach the Industrial Frontlines 11:00-11:50 -->
-<rect x="83.53" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="223.15">The Realization of Business AI: LLMs and Robotics Reach the Industrial Frontlines</text>
-<text class="sm" x="86.53" y="230.15">11:00-11:50</text>
+<rect x="83.53" y="233.83" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="233.83" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="244.83">The Realization of Business AI: LLMs and Robotics Reach the Industrial Frontlines</text>
+<text class="sm" x="86.53" y="251.83">11:00-11:50</text>
+<text class="si" x="86.53" y="259.83">Nic Radford</text>
+<text class="si" x="86.53" y="267.83">Jay Shin</text>
+<text class="si" x="86.53" y="275.83">RYU Junghee</text>
 <!-- 프로메테우스: The Space Economy Takes Off: Seize the Market 13:30-14:20 -->
-<rect x="83.53" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="361.62">The Space Economy Takes Off: Seize the Market</text>
-<text class="sm" x="86.53" y="368.62">13:30-14:20</text>
-<text class="si" x="86.53" y="376.62">Jason Kim</text>
-<text class="si" x="86.53" y="384.62">AN Hyoungjoon</text>
+<rect x="83.53" y="390.35" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="390.35" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="401.35">The Space Economy Takes Off: Seize the Market</text>
+<text class="sm" x="86.53" y="408.35">13:30-14:20</text>
+<text class="si" x="86.53" y="416.35">Jason Kim</text>
+<text class="si" x="86.53" y="424.35">AN Hyoungjoon</text>
 <!-- 프로메테우스: Personal AI, Transforming Life 14:30-15:20 -->
-<rect x="83.53" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="417.00">Personal AI, Transforming Life</text>
-<text class="sm" x="86.53" y="424.00">14:30-15:20</text>
-<text class="si" x="86.53" y="432.00">Stephen Lee</text>
+<rect x="83.53" y="452.96" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="452.96" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="463.96">Personal AI, Transforming Life</text>
+<text class="sm" x="86.53" y="470.96">14:30-15:20</text>
+<text class="si" x="86.53" y="478.96">XU Chi</text>
+<text class="si" x="86.53" y="486.96">YANG Hyesoon</text>
+<text class="si" x="86.53" y="494.96">Stephen Lee</text>
 <!-- 프로메테우스: Asset Allocation and ESG in Asian Sovereign Wealth Funds During a Period of Transition 15:30-16:20 -->
-<rect x="83.53" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="472.38">Asset Allocation and ESG in Asian Sovereign Wealth Funds During a Period of Transition</text>
-<text class="sm" x="86.53" y="479.38">15:30-16:20</text>
-<text class="si" x="86.53" y="487.38">RHEE Namuh</text>
+<rect x="83.53" y="515.57" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="515.57" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="526.57">Asset Allocation and ESG in Asian Sovereign Wealth Funds During a Period of Transition</text>
+<text class="sm" x="86.53" y="533.57">15:30-16:20</text>
+<text class="si" x="86.53" y="541.57">Wong De Rui</text>
+<text class="si" x="86.53" y="549.57">LEE Kyoung Taek</text>
+<text class="si" x="86.53" y="557.57">RHEE Namuh</text>
 <!-- 프로메테우스: Are We Truly in Control of AI? 16:30-17:20 -->
-<rect x="83.53" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="527.77">Are We Truly in Control of AI?</text>
-<text class="sm" x="86.53" y="534.77">16:30-17:20</text>
-<text class="si" x="86.53" y="542.77">Roman Yampolskiy</text>
-<text class="si" x="86.53" y="550.77">Sha Sajadieh</text>
+<rect x="83.53" y="578.17" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="578.17" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="589.17">Are We Truly in Control of AI?</text>
+<text class="sm" x="86.53" y="596.17">16:30-17:20</text>
+<text class="si" x="86.53" y="604.17">Roman Yampolskiy</text>
+<text class="si" x="86.53" y="612.17">Sha Sajadieh</text>
 <!-- 다이너스티: The Beginning of the Global Digital Asset Competition 10:00-10:50 -->
-<rect x="141.06" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="167.77">The Beginning of the Global Digital Asset Competition</text>
-<text class="sm" x="144.06" y="174.77">10:00-10:50</text>
-<text class="si" x="144.06" y="182.77">OH Jongwook</text>
+<rect x="141.06" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="182.22">The Beginning of the Global Digital Asset Competition</text>
+<text class="sm" x="144.06" y="189.22">10:00-10:50</text>
+<text class="si" x="144.06" y="197.22">Kennix CHAN</text>
+<text class="si" x="144.06" y="205.22">Janus Kizenevic</text>
+<text class="si" x="144.06" y="213.22">FUJIMOTO Mamoru</text>
+<text class="si" x="144.06" y="221.22">OH Jongwook</text>
 <!-- 다이너스티: Leadership, Soft Power, and the Future of Nations 11:00-11:50 -->
-<rect x="141.06" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="223.15">Leadership, Soft Power, and the Future of Nations</text>
-<text class="sm" x="144.06" y="230.15">11:00-11:50</text>
+<rect x="141.06" y="233.83" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="233.83" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="244.83">Leadership, Soft Power, and the Future of Nations</text>
+<text class="sm" x="144.06" y="251.83">11:00-11:50</text>
+<text class="si" x="144.06" y="259.83">LEE Cheol-woo</text>
+<text class="si" x="144.06" y="267.83">David Cameron</text>
 <!-- 다이너스티: Global Geopolitical Outlook 2027 13:30-14:20 -->
-<rect x="141.06" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="361.62">Global Geopolitical Outlook 2027</text>
-<text class="sm" x="144.06" y="368.62">13:30-14:20</text>
-<text class="si" x="144.06" y="376.62">Terry Martin</text>
+<rect x="141.06" y="390.35" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="390.35" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="401.35">Global Geopolitical Outlook 2027</text>
+<text class="sm" x="144.06" y="408.35">13:30-14:20</text>
+<text class="si" x="144.06" y="416.35">Chad Wolf</text>
+<text class="si" x="144.06" y="424.35">Thierry de Montbrial</text>
+<text class="si" x="144.06" y="432.35">Pepe Escobar</text>
+<text class="si" x="144.06" y="440.35">Terry Martin</text>
 <!-- 다이너스티: Drones: A Game Changer for the Defense Industry 14:30-15:20 -->
-<rect x="141.06" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="417.00">Drones: A Game Changer for the Defense Industry</text>
-<text class="sm" x="144.06" y="424.00">14:30-15:20</text>
-<text class="si" x="144.06" y="432.00">JEON Dongkeun</text>
-<!-- 다이너스티: Income and Social Mobility: From History to the AI Frontier 15:30-16:20 -->
-<rect x="141.06" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="472.38">Income and Social Mobility: From History to the AI Frontier</text>
-<text class="sm" x="144.06" y="479.38">15:30-16:20</text>
-<text class="si" x="144.06" y="487.38">Steven Durlauf</text>
-<text class="si" x="144.06" y="495.38">Ufuk Akcigit</text>
-<text class="si" x="144.06" y="503.38">CHANG Yoosoon</text>
-<!-- 다이너스티: AI in Healthcare: What’s Real, and Who’s Responsible 16:30-17:20 -->
-<rect x="141.06" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="527.77">AI in Healthcare: What’s Real, and Who’s Responsible</text>
-<text class="sm" x="144.06" y="534.77">16:30-17:20</text>
-<text class="si" x="144.06" y="542.77">LEE Mingu</text>
+<rect x="141.06" y="452.96" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="452.96" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="463.96">Drones: A Game Changer for the Defense Industry</text>
+<text class="sm" x="144.06" y="470.96">14:30-15:20</text>
+<text class="si" x="144.06" y="478.96">Bentzion Levinson</text>
+<text class="si" x="144.06" y="486.96">JEON Dongkeun</text>
+<!-- 다이너스티: AI in Healthcare: What's Real, and Who's Responsible 16:30-17:20 -->
+<rect x="141.06" y="578.17" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="578.17" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="589.17">AI in Healthcare: What's Real, and Who's Responsible</text>
+<text class="sm" x="144.06" y="596.17">16:30-17:20</text>
+<text class="si" x="144.06" y="604.17">David Rhew</text>
+<text class="si" x="144.06" y="612.17">MJ Chey</text>
+<text class="si" x="144.06" y="620.17">LEE Mingu</text>
 <!-- 에메랄드: Reimagining the Way the World Moves for the Better: Intro to Uber &amp; the Future of Mobility 10:00-10:50 -->
-<rect x="198.59" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="167.77">Reimagining the Way the World Moves for the Better: Intro to Uber &amp; the Future of Mobility</text>
-<text class="sm" x="201.59" y="174.77">10:00-10:50</text>
-<text class="si" x="201.59" y="182.77">Dominic Taylor</text>
-<text class="si" x="201.59" y="190.77">Mickey KIM</text>
+<rect x="198.59" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="182.22">Reimagining the Way the World Moves for the Better: Intro to Uber &amp; the Future of Mobility</text>
+<text class="sm" x="201.59" y="189.22">10:00-10:50</text>
+<text class="si" x="201.59" y="197.22">Dominic Taylor</text>
+<text class="si" x="201.59" y="205.22">Mickey KIM</text>
 <!-- 에메랄드: Strategies for Successful Enterprise AI Transformation 11:00-11:50 -->
-<rect x="198.59" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="223.15">Strategies for Successful Enterprise AI Transformation</text>
-<text class="sm" x="201.59" y="230.15">11:00-11:50</text>
-<text class="si" x="201.59" y="238.15">Paul Simos</text>
-<text class="si" x="201.59" y="246.15">RYU Kyungdong</text>
-<text class="si" x="201.59" y="254.15">KIM Eunyoung</text>
+<rect x="198.59" y="233.83" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="233.83" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="244.83">Strategies for Successful Enterprise AI Transformation</text>
+<text class="sm" x="201.59" y="251.83">11:00-11:50</text>
+<text class="si" x="201.59" y="259.83">Paul Simos</text>
+<text class="si" x="201.59" y="267.83">RYU Kyungdong</text>
+<text class="si" x="201.59" y="275.83">KIM Eunyoung</text>
 <!-- 에메랄드: Corporate Law in Transition: Survival Formulas for Korean and Japanese Firms 13:30-14:20 -->
-<rect x="198.59" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="361.62">Corporate Law in Transition: Survival Formulas for Korean and Japanese Firms</text>
-<text class="sm" x="201.59" y="368.62">13:30-14:20</text>
-<text class="si" x="201.59" y="376.62">GOTO Gen</text>
-<text class="si" x="201.59" y="384.62">RHEE Namuh</text>
+<rect x="198.59" y="390.35" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="390.35" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="401.35">Corporate Law in Transition: Survival Formulas for Korean and Japanese Firms</text>
+<text class="sm" x="201.59" y="408.35">13:30-14:20</text>
+<text class="si" x="201.59" y="416.35">GOTO Gen</text>
+<text class="si" x="201.59" y="424.35">RHEE Namuh</text>
 <!-- 에메랄드: Why We Make Choices That Seem Irrational: The Economics of Identity and Deception 14:30-15:20 -->
-<rect x="198.59" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="417.00">Why We Make Choices That Seem Irrational: The Economics of Identity and Deception</text>
-<text class="sm" x="201.59" y="424.00">14:30-15:20</text>
-<text class="si" x="201.59" y="432.00">SHIN Wonmun</text>
+<rect x="198.59" y="452.96" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="452.96" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="463.96">Why We Make Choices That Seem Irrational: The Economics of Identity and Deception</text>
+<text class="sm" x="201.59" y="470.96">14:30-15:20</text>
+<text class="si" x="201.59" y="478.96">Suanna Oh</text>
+<text class="si" x="201.59" y="486.96">Evan Friedman</text>
+<text class="si" x="201.59" y="494.96">SHIN Wonmun</text>
 <!-- 루비: The Invisible War: National Security and Cyber Deterrence in the AI Era 10:00-10:50 -->
-<rect x="256.12" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="167.77">The Invisible War: National Security and Cyber Deterrence in the AI Era</text>
-<text class="sm" x="259.12" y="174.77">10:00-10:50</text>
-<text class="si" x="259.12" y="182.77">Philip Kim</text>
+<rect x="256.12" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="182.22">The Invisible War: National Security and Cyber Deterrence in the AI Era</text>
+<text class="sm" x="259.12" y="189.22">10:00-10:50</text>
+<text class="si" x="259.12" y="197.22">Robert Wilkie</text>
+<text class="si" x="259.12" y="205.22">Harry Wingo</text>
+<text class="si" x="259.12" y="213.22">Philip Kim</text>
 <!-- 루비: Nuclear Energy, AI and the Race for Compute 11:00-11:50 -->
-<rect x="256.12" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="223.15">Nuclear Energy, AI and the Race for Compute</text>
-<text class="sm" x="259.12" y="230.15">11:00-11:50</text>
-<text class="si" x="259.12" y="238.15">Rachel Stohl</text>
+<rect x="256.12" y="233.83" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="233.83" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="244.83">Nuclear Energy, AI and the Race for Compute</text>
+<text class="sm" x="259.12" y="251.83">11:00-11:50</text>
+<text class="si" x="259.12" y="259.83">Eliot Kang</text>
+<text class="si" x="259.12" y="267.83">Jeffrey Miller</text>
+<text class="si" x="259.12" y="275.83">Rachel Stohl</text>
 <!-- 루비: Reinventing Meat: How Cultivated Meat is Shaping the Future of Food 14:30-15:20 -->
-<rect x="256.12" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="417.00">Reinventing Meat: How Cultivated Meat is Shaping the Future of Food</text>
-<text class="sm" x="259.12" y="424.00">14:30-15:20</text>
-<text class="si" x="259.12" y="432.00">Bruce Friedrich</text>
+<rect x="256.12" y="452.96" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="452.96" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="463.96">Reinventing Meat: How Cultivated Meat is Shaping the Future of Food</text>
+<text class="sm" x="259.12" y="470.96">14:30-15:20</text>
+<text class="si" x="259.12" y="478.96">Mark Post</text>
+<text class="si" x="259.12" y="486.96">Sandro Demaio</text>
+<text class="si" x="259.12" y="494.96">Bruce Friedrich</text>
 <!-- 루비: Two Longevities: Asset Life, Health Life, and Technology 15:30-16:20 -->
-<rect x="256.12" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="472.38">Two Longevities: Asset Life, Health Life, and Technology</text>
-<text class="sm" x="259.12" y="479.38">15:30-16:20</text>
-<text class="si" x="259.12" y="487.38">PARK Junghoon</text>
+<rect x="256.12" y="515.57" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="515.57" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="526.57">Two Longevities: Asset Life, Health Life, and Technology</text>
+<text class="sm" x="259.12" y="533.57">15:30-16:20</text>
+<text class="si" x="259.12" y="541.57">ANDO Shigeru</text>
+<text class="si" x="259.12" y="549.57">HWANG Hee</text>
+<text class="si" x="259.12" y="557.57">CHO Yongbum</text>
+<text class="si" x="259.12" y="565.57">TAKEZAWA Yusuke</text>
+<text class="si" x="259.12" y="573.57">PARK Junghoon</text>
 <!-- 토파즈: Europe's New Survival Strategy in the US-China Hegemonic Rivalry 10:00-10:50 -->
-<rect x="313.65" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="167.77">Europe's New Survival Strategy in the US-China Hegemonic Rivalry</text>
-<text class="sm" x="316.65" y="174.77">10:00-10:50</text>
-<text class="si" x="316.65" y="182.77">Helle Thorning-Schmidt</text>
-<text class="si" x="316.65" y="190.77">Thierry de Montbrial</text>
-<!-- 토파즈: Where is Silicon Valley's Capital Heading? 11:00-11:50 -->
-<rect x="313.65" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="223.15">Where is Silicon Valley's Capital Heading?</text>
-<text class="sm" x="316.65" y="230.15">11:00-11:50</text>
-<text class="si" x="316.65" y="238.15">Ian Park</text>
-<!-- 토파즈: Ahead of the Firefront: Resilience for a World Moving at a Machine Speed 13:30-14:20 -->
-<rect x="313.65" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="361.62">Ahead of the Firefront: Resilience for a World Moving at a Machine Speed</text>
-<text class="sm" x="316.65" y="368.62">13:30-14:20</text>
-<text class="si" x="316.65" y="376.62">Philippa Cogswell</text>
+<rect x="313.65" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="182.22">Europe's New Survival Strategy in the US-China Hegemonic Rivalry</text>
+<text class="sm" x="316.65" y="189.22">10:00-10:50</text>
+<text class="si" x="316.65" y="197.22">Helle Thorning-Schmidt</text>
+<text class="si" x="316.65" y="205.22">Thierry de Montbrial</text>
+<!-- 토파즈: Where is Silicon Valley's Money Heading? 11:00-11:50 -->
+<rect x="313.65" y="233.83" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="233.83" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="244.83">Where is Silicon Valley's Money Heading?</text>
+<text class="sm" x="316.65" y="251.83">11:00-11:50</text>
+<text class="si" x="316.65" y="259.83">Dana Settle</text>
+<text class="si" x="316.65" y="267.83">YOON Songyee</text>
+<text class="si" x="316.65" y="275.83">Ian Park</text>
+<!-- 토파즈: Ahead of the Firefront: Cyber Resilience for a World Moving at a Machine Speed 13:30-14:20 -->
+<rect x="313.65" y="390.35" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="390.35" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="401.35">Ahead of the Firefront: Cyber Resilience for a World Moving at a Machine Speed</text>
+<text class="sm" x="316.65" y="408.35">13:30-14:20</text>
+<text class="si" x="316.65" y="416.35">Philippa Cogswell</text>
 <!-- 토파즈: AI as the Global Concierge: Connecting People, Places and Possibilities 14:30-15:20 -->
-<rect x="313.65" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="417.00">AI as the Global Concierge: Connecting People, Places and Possibilities</text>
-<text class="sm" x="316.65" y="424.00">14:30-15:20</text>
-<text class="si" x="316.65" y="432.00">Laura Houldsworth</text>
+<rect x="313.65" y="452.96" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="452.96" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="463.96">AI as the Global Concierge: Connecting People, Places and Possibilities</text>
+<text class="sm" x="316.65" y="470.96">14:30-15:20</text>
+<text class="si" x="316.65" y="478.96">Laura Houldsworth</text>
 <!-- 토파즈: Seven Million Virtual Koreans: Simulating Society with AI 15:30-16:20 -->
-<rect x="313.65" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="472.38">Seven Million Virtual Koreans: Simulating Society with AI</text>
-<text class="sm" x="316.65" y="479.38">15:30-16:20</text>
-<text class="si" x="316.65" y="487.38">KIM Hyunwoo</text>
-<text class="si" x="316.65" y="495.38">LEE Kwan Min</text>
+<rect x="313.65" y="515.57" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="515.57" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="526.57">Seven Million Virtual Koreans: Simulating Society with AI</text>
+<text class="sm" x="316.65" y="533.57">15:30-16:20</text>
+<text class="si" x="316.65" y="541.57">KIM Hyunwoo</text>
+<text class="si" x="316.65" y="549.57">LEE Kwan Min</text>
 <!-- 토파즈: Elder Medicine in the Age of AI: Sharing the Weight of Care 16:30-17:20 -->
-<rect x="313.65" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="527.77">Elder Medicine in the Age of AI: Sharing the Weight of Care</text>
-<text class="sm" x="316.65" y="534.77">16:30-17:20</text>
-<text class="si" x="316.65" y="542.77">KIM Kwang-joon</text>
+<rect x="313.65" y="578.17" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="578.17" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="589.17">Elder Medicine in the Age of AI: Sharing the Weight of Care</text>
+<text class="sm" x="316.65" y="596.17">16:30-17:20</text>
+<text class="si" x="316.65" y="604.17">Peter Fitzgerald</text>
+<text class="si" x="316.65" y="612.17">KIM Kwang-joon</text>
 </g>
 
 <!-- ==================== DAY 2: 09-09 ==================== -->
@@ -309,299 +335,354 @@
 
 <line class="gl" x1="25" y1="46.00" x2="370.18" y2="46.00"/>
 <text class="tt" x="23.00" y="48.50">08:00</text>
-<line class="gl2" x1="25" y1="73.69" x2="370.18" y2="73.69"/>
-<text class="tt" x="23.00" y="76.19">08:30</text>
-<line class="gl" x1="25" y1="101.38" x2="370.18" y2="101.38"/>
-<text class="tt" x="23.00" y="103.88">09:00</text>
-<line class="gl2" x1="25" y1="129.08" x2="370.18" y2="129.08"/>
-<text class="tt" x="23.00" y="131.58">09:30</text>
-<line class="gl" x1="25" y1="156.77" x2="370.18" y2="156.77"/>
-<text class="tt" x="23.00" y="159.27">10:00</text>
-<line class="gl2" x1="25" y1="184.46" x2="370.18" y2="184.46"/>
-<text class="tt" x="23.00" y="186.96">10:30</text>
-<line class="gl" x1="25" y1="212.15" x2="370.18" y2="212.15"/>
-<text class="tt" x="23.00" y="214.65">11:00</text>
-<line class="gl2" x1="25" y1="239.85" x2="370.18" y2="239.85"/>
-<text class="tt" x="23.00" y="242.35">11:30</text>
-<line class="gl" x1="25" y1="267.54" x2="370.18" y2="267.54"/>
-<text class="tt" x="23.00" y="270.04">12:00</text>
-<line class="gl2" x1="25" y1="295.23" x2="370.18" y2="295.23"/>
-<text class="tt" x="23.00" y="297.73">12:30</text>
-<line class="gl" x1="25" y1="322.92" x2="370.18" y2="322.92"/>
-<text class="tt" x="23.00" y="325.42">13:00</text>
-<line class="gl2" x1="25" y1="350.62" x2="370.18" y2="350.62"/>
-<text class="tt" x="23.00" y="353.12">13:30</text>
-<line class="gl" x1="25" y1="378.31" x2="370.18" y2="378.31"/>
-<text class="tt" x="23.00" y="380.81">14:00</text>
-<line class="gl2" x1="25" y1="406.00" x2="370.18" y2="406.00"/>
-<text class="tt" x="23.00" y="408.50">14:30</text>
-<line class="gl" x1="25" y1="433.69" x2="370.18" y2="433.69"/>
-<text class="tt" x="23.00" y="436.19">15:00</text>
-<line class="gl2" x1="25" y1="461.38" x2="370.18" y2="461.38"/>
-<text class="tt" x="23.00" y="463.88">15:30</text>
-<line class="gl" x1="25" y1="489.08" x2="370.18" y2="489.08"/>
-<text class="tt" x="23.00" y="491.58">16:00</text>
-<line class="gl2" x1="25" y1="516.77" x2="370.18" y2="516.77"/>
-<text class="tt" x="23.00" y="519.27">16:30</text>
-<line class="gl" x1="25" y1="544.46" x2="370.18" y2="544.46"/>
-<text class="tt" x="23.00" y="546.96">17:00</text>
-<line class="gl2" x1="25" y1="572.15" x2="370.18" y2="572.15"/>
-<text class="tt" x="23.00" y="574.65">17:30</text>
-<line class="gl" x1="25" y1="599.85" x2="370.18" y2="599.85"/>
-<text class="tt" x="23.00" y="602.35">18:00</text>
-<line class="gl2" x1="25" y1="627.54" x2="370.18" y2="627.54"/>
-<text class="tt" x="23.00" y="630.04">18:30</text>
-<line class="gl" x1="25" y1="655.23" x2="370.18" y2="655.23"/>
-<text class="tt" x="23.00" y="657.73">19:00</text>
-<line class="gl2" x1="25" y1="682.92" x2="370.18" y2="682.92"/>
-<text class="tt" x="23.00" y="685.42">19:30</text>
-<line class="gl" x1="25" y1="710.62" x2="370.18" y2="710.62"/>
-<text class="tt" x="23.00" y="713.12">20:00</text>
-<line class="gl2" x1="25" y1="738.31" x2="370.18" y2="738.31"/>
-<text class="tt" x="23.00" y="740.81">20:30</text>
-<line class="gl" x1="25" y1="766.00" x2="370.18" y2="766.00"/>
-<text class="tt" x="23.00" y="768.50">21:00</text>
+<line class="gl2" x1="25" y1="77.30" x2="370.18" y2="77.30"/>
+<text class="tt" x="23.00" y="79.80">08:30</text>
+<line class="gl" x1="25" y1="108.61" x2="370.18" y2="108.61"/>
+<text class="tt" x="23.00" y="111.11">09:00</text>
+<line class="gl2" x1="25" y1="139.91" x2="370.18" y2="139.91"/>
+<text class="tt" x="23.00" y="142.41">09:30</text>
+<line class="gl" x1="25" y1="171.22" x2="370.18" y2="171.22"/>
+<text class="tt" x="23.00" y="173.72">10:00</text>
+<line class="gl2" x1="25" y1="202.52" x2="370.18" y2="202.52"/>
+<text class="tt" x="23.00" y="205.02">10:30</text>
+<line class="gl" x1="25" y1="233.83" x2="370.18" y2="233.83"/>
+<text class="tt" x="23.00" y="236.33">11:00</text>
+<line class="gl2" x1="25" y1="265.13" x2="370.18" y2="265.13"/>
+<text class="tt" x="23.00" y="267.63">11:30</text>
+<line class="gl" x1="25" y1="296.43" x2="370.18" y2="296.43"/>
+<text class="tt" x="23.00" y="298.93">12:00</text>
+<line class="gl2" x1="25" y1="327.74" x2="370.18" y2="327.74"/>
+<text class="tt" x="23.00" y="330.24">12:30</text>
+<line class="gl" x1="25" y1="359.04" x2="370.18" y2="359.04"/>
+<text class="tt" x="23.00" y="361.54">13:00</text>
+<line class="gl2" x1="25" y1="390.35" x2="370.18" y2="390.35"/>
+<text class="tt" x="23.00" y="392.85">13:30</text>
+<line class="gl" x1="25" y1="421.65" x2="370.18" y2="421.65"/>
+<text class="tt" x="23.00" y="424.15">14:00</text>
+<line class="gl2" x1="25" y1="452.96" x2="370.18" y2="452.96"/>
+<text class="tt" x="23.00" y="455.46">14:30</text>
+<line class="gl" x1="25" y1="484.26" x2="370.18" y2="484.26"/>
+<text class="tt" x="23.00" y="486.76">15:00</text>
+<line class="gl2" x1="25" y1="515.57" x2="370.18" y2="515.57"/>
+<text class="tt" x="23.00" y="518.07">15:30</text>
+<line class="gl" x1="25" y1="546.87" x2="370.18" y2="546.87"/>
+<text class="tt" x="23.00" y="549.37">16:00</text>
+<line class="gl2" x1="25" y1="578.17" x2="370.18" y2="578.17"/>
+<text class="tt" x="23.00" y="580.67">16:30</text>
+<line class="gl" x1="25" y1="609.48" x2="370.18" y2="609.48"/>
+<text class="tt" x="23.00" y="611.98">17:00</text>
+<line class="gl2" x1="25" y1="640.78" x2="370.18" y2="640.78"/>
+<text class="tt" x="23.00" y="643.28">17:30</text>
+<line class="gl" x1="25" y1="672.09" x2="370.18" y2="672.09"/>
+<text class="tt" x="23.00" y="674.59">18:00</text>
+<line class="gl2" x1="25" y1="703.39" x2="370.18" y2="703.39"/>
+<text class="tt" x="23.00" y="705.89">18:30</text>
+<line class="gl" x1="25" y1="734.70" x2="370.18" y2="734.70"/>
+<text class="tt" x="23.00" y="737.20">19:00</text>
+<line class="gl2" x1="25" y1="766.00" x2="370.18" y2="766.00"/>
+<text class="tt" x="23.00" y="768.50">19:30</text>
 
 <!-- 장충: The Extinction of Experience in the AI era 10:00-10:50 -->
-<rect x="26.00" y="156.77" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="156.77" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="167.77">The Extinction of Experience in the AI era</text>
-<text class="sm" x="29.00" y="174.77">10:00-10:50</text>
-<text class="si" x="29.00" y="182.77">Christine Rosen</text>
-<!-- 장충: A Conversation with Richard Dawkins: Artificial Intelligence from an Evolutionary Perspective 11:00-12:00 -->
-<rect x="26.00" y="212.15" width="55.53" height="55.38" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="212.15" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="223.15">A Conversation with Richard Dawkins: Artificial Intelligence from an Evolutionary Perspective</text>
-<text class="sm" x="29.00" y="230.15">11:00-12:00</text>
-<text class="si" x="29.00" y="238.15">Richard Dawkins</text>
-<text class="si" x="29.00" y="246.15">KIM Young-Kee</text>
-<!-- 장충: Marvel Meets Sony: The Future of the Content Industry 13:30-14:20 -->
-<rect x="26.00" y="350.62" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="350.62" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="361.62">Marvel Meets Sony: The Future of the Content Industry</text>
-<text class="sm" x="29.00" y="368.62">13:30-14:20</text>
+<rect x="26.00" y="171.22" width="55.53" height="52.17" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="171.22" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="182.22">The Extinction of Experience in the AI era</text>
+<text class="sm" x="29.00" y="189.22">10:00-10:50</text>
+<text class="si" x="29.00" y="197.22">Christine Rosen</text>
+<!-- 장충: A Conversation with Richard Dawkins: Artificial Intelligence from an Evolutionary Perspective 10:30-12:00 -->
+<rect x="26.00" y="202.52" width="55.53" height="93.91" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="202.52" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="213.52">A Conversation with Richard Dawkins: Artificial Intelligence from an Evolutionary Perspective</text>
+<text class="sm" x="29.00" y="220.52">10:30-12:00</text>
+<text class="si" x="29.00" y="228.52">Richard Dawkins</text>
+<text class="si" x="29.00" y="236.52">KIM Young-Kee</text>
+<!-- 장충: The Future of the Content Industry in the Age of AI 13:30-14:20 -->
+<rect x="26.00" y="390.35" width="55.53" height="52.17" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="390.35" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="401.35">The Future of the Content Industry in the Age of AI</text>
+<text class="sm" x="29.00" y="408.35">13:30-14:20</text>
+<text class="si" x="29.00" y="416.35">C B Cebulski</text>
+<text class="si" x="29.00" y="424.35">Jeffrey Godsick</text>
+<text class="si" x="29.00" y="432.35">Amara Walker</text>
 <!-- 장충: In the Plex: How Google Thinks, Works, and Shapes Our Lives 14:30-15:20 -->
-<rect x="26.00" y="406.00" width="55.53" height="46.15" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="406.00" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="417.00">In the Plex: How Google Thinks, Works, and Shapes Our Lives</text>
-<text class="sm" x="29.00" y="424.00">14:30-15:20</text>
-<text class="si" x="29.00" y="432.00">Steven Levy</text>
-<text class="si" x="29.00" y="440.00">Tyler Rasch</text>
+<rect x="26.00" y="452.96" width="55.53" height="52.17" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="452.96" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="463.96">In the Plex: How Google Thinks, Works, and Shapes Our Lives</text>
+<text class="sm" x="29.00" y="470.96">14:30-15:20</text>
+<text class="si" x="29.00" y="478.96">Steven Levy</text>
+<text class="si" x="29.00" y="486.96">Tyler Rasch</text>
 <!-- 장충: World Knowledge Forum Gala Dinner 18:00-20:00 -->
-<rect x="26.00" y="599.85" width="55.53" height="110.77" fill="#fdedef" rx="1"/>
-<rect x="26.00" y="599.85" width="55.53" height="2" fill="#e8374a" rx="1"/>
-<text class="st" x="29.00" y="610.85">World Knowledge Forum Gala Dinner</text>
-<text class="sm" x="29.00" y="617.85">18:00-20:00</text>
+<rect x="26.00" y="672.09" width="55.53" height="125.22" fill="#fdedef" rx="1"/>
+<rect x="26.00" y="672.09" width="55.53" height="2" fill="#e8374a" rx="1"/>
+<text class="st" x="29.00" y="683.09">World Knowledge Forum Gala Dinner</text>
+<text class="sm" x="29.00" y="690.09">18:00-20:00</text>
 <!-- 프로메테우스: The Future of Korea-Japan Relations 09:00-09:50 -->
-<rect x="83.53" y="101.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="101.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="112.38">The Future of Korea-Japan Relations</text>
-<text class="sm" x="86.53" y="119.38">09:00-09:50</text>
-<text class="si" x="86.53" y="127.38">ISHIBA Shigeru</text>
-<text class="si" x="86.53" y="135.38">JIN Changsoo</text>
+<rect x="83.53" y="108.61" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="108.61" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="119.61">The Future of Korea-Japan Relations</text>
+<text class="sm" x="86.53" y="126.61">09:00-09:50</text>
+<text class="si" x="86.53" y="134.61">ISHIBA Shigeru</text>
+<text class="si" x="86.53" y="142.61">JIN Changsoo</text>
 <!-- 프로메테우스: Navigating the Markets, with Barry Sternlicht 10:00-10:50 -->
-<rect x="83.53" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="167.77">Navigating the Markets, with Barry Sternlicht</text>
-<text class="sm" x="86.53" y="174.77">10:00-10:50</text>
-<text class="si" x="86.53" y="182.77">Barry Sternlicht</text>
-<text class="si" x="86.53" y="190.77">Daniel Choi</text>
+<rect x="83.53" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="182.22">Navigating the Markets, with Barry Sternlicht</text>
+<text class="sm" x="86.53" y="189.22">10:00-10:50</text>
+<text class="si" x="86.53" y="197.22">Barry Sternlicht</text>
+<text class="si" x="86.53" y="205.22">Daniel Choi</text>
 <!-- 프로메테우스: Reshaping Global Supply Chains: Strategies across Continents 11:00-11:50 -->
-<rect x="83.53" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="223.15">Reshaping Global Supply Chains: Strategies across Continents</text>
-<text class="sm" x="86.53" y="230.15">11:00-11:50</text>
-<text class="si" x="86.53" y="238.15">Brian Kingston</text>
+<rect x="83.53" y="233.83" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="233.83" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="244.83">Reshaping Global Supply Chains: Strategies across Continents</text>
+<text class="sm" x="86.53" y="251.83">11:00-11:50</text>
+<text class="si" x="86.53" y="259.83">Zongyuan Zoe Liu</text>
+<text class="si" x="86.53" y="267.83">Jagannath Panda</text>
+<text class="si" x="86.53" y="275.83">Bernard Salomé</text>
+<text class="si" x="86.53" y="283.83">Brian Kingston</text>
 <!-- 프로메테우스: Investing in Asia Infrastructure Opportunities: Korea, Digital Infra, and AI 13:30-14:20 -->
-<rect x="83.53" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="361.62">Investing in Asia Infrastructure Opportunities: Korea, Digital Infra, and AI</text>
-<text class="sm" x="86.53" y="368.62">13:30-14:20</text>
-<text class="si" x="86.53" y="376.62">David Luboff</text>
+<rect x="83.53" y="390.35" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="390.35" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="401.35">Investing in Asia Infrastructure Opportunities: Korea, Digital Infra, and AI</text>
+<text class="sm" x="86.53" y="408.35">13:30-14:20</text>
+<text class="si" x="86.53" y="416.35">David Luboff</text>
 <!-- 프로메테우스: Investing 2027: Where Are the Opportunities 14:30-15:20 -->
-<rect x="83.53" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="417.00">Investing 2027: Where Are the Opportunities</text>
-<text class="sm" x="86.53" y="424.00">14:30-15:20</text>
-<text class="si" x="86.53" y="432.00">HWANG Seiwoon</text>
+<rect x="83.53" y="452.96" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="452.96" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="463.96">Investing 2027: Where Are the Opportunities</text>
+<text class="sm" x="86.53" y="470.96">14:30-15:20</text>
+<text class="si" x="86.53" y="478.96">Chad Richard</text>
+<text class="si" x="86.53" y="486.96">Pedro Palandrani</text>
+<text class="si" x="86.53" y="494.96">Biff Ourso</text>
+<text class="si" x="86.53" y="502.96">HWANG Seiwoon</text>
 <!-- 프로메테우스: The Defense Market and the AI Revolution 15:30-16:20 -->
-<rect x="83.53" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="472.38">The Defense Market and the AI Revolution</text>
-<text class="sm" x="86.53" y="479.38">15:30-16:20</text>
-<text class="si" x="86.53" y="487.38">Stephen Lee</text>
+<rect x="83.53" y="515.57" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="515.57" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="526.57">The Defense Market and the AI Revolution</text>
+<text class="sm" x="86.53" y="533.57">15:30-16:20</text>
+<text class="si" x="86.53" y="541.57">Brandon Tseng</text>
+<text class="si" x="86.53" y="549.57">Frank Morley</text>
+<text class="si" x="86.53" y="557.57">Stephen Lee</text>
 <!-- 프로메테우스: Bridging Korea and Europe: The New Playbook for Cross-Border M&amp;A and Growth Capital 16:30-17:20 -->
-<rect x="83.53" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="83.53" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="86.53" y="527.77">Bridging Korea and Europe: The New Playbook for Cross-Border M&amp;A and Growth Capital</text>
-<text class="sm" x="86.53" y="534.77">16:30-17:20</text>
-<text class="si" x="86.53" y="542.77">Brandon Ryu</text>
+<rect x="83.53" y="578.17" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="83.53" y="578.17" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="86.53" y="589.17">Bridging Korea and Europe: The New Playbook for Cross-Border M&amp;A and Growth Capital</text>
+<text class="sm" x="86.53" y="596.17">16:30-17:20</text>
+<text class="si" x="86.53" y="604.17">Jean Schmitt</text>
+<text class="si" x="86.53" y="612.17">Hae-Joon Joseph Lee</text>
+<text class="si" x="86.53" y="620.17">Brandon Ryu</text>
 <!-- 다이너스티: U.S. and EU Trade Policy and the Shifting Global Trade Landscape 09:00-09:50 -->
-<rect x="141.06" y="101.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="101.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="112.38">U.S. and EU Trade Policy and the Shifting Global Trade Landscape</text>
-<text class="sm" x="144.06" y="119.38">09:00-09:50</text>
-<text class="si" x="144.06" y="127.38">PAE Joonbeom</text>
+<rect x="141.06" y="108.61" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="108.61" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="119.61">U.S. and EU Trade Policy and the Shifting Global Trade Landscape</text>
+<text class="sm" x="144.06" y="126.61">09:00-09:50</text>
+<text class="si" x="144.06" y="134.61">Susan Schwab</text>
+<text class="si" x="144.06" y="142.61">Nikolay Mizulin</text>
+<text class="si" x="144.06" y="150.61">CHOI Byungil</text>
+<text class="si" x="144.06" y="158.61">PAE Joonbeom</text>
 <!-- 다이너스티: The Future of Alliances under the Second Trump Administration 10:00-10:50 -->
-<rect x="141.06" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="167.77">The Future of Alliances under the Second Trump Administration</text>
-<text class="sm" x="144.06" y="174.77">10:00-10:50</text>
-<text class="si" x="144.06" y="182.77">AHN Hoyoung</text>
+<rect x="141.06" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="182.22">The Future of Alliances under the Second Trump Administration</text>
+<text class="sm" x="144.06" y="189.22">10:00-10:50</text>
+<text class="si" x="144.06" y="197.22">Chad Wolf</text>
+<text class="si" x="144.06" y="205.22">Robert Wilkie</text>
+<text class="si" x="144.06" y="213.22">Andrew Kim</text>
+<text class="si" x="144.06" y="221.22">AHN Hoyoung</text>
 <!-- 다이너스티: 2027 Global Commercial Real Estate Outlook: Crisis or Opportunity? 11:00-11:50 -->
-<rect x="141.06" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="223.15">2027 Global Commercial Real Estate Outlook: Crisis or Opportunity?</text>
-<text class="sm" x="144.06" y="230.15">11:00-11:50</text>
-<text class="si" x="144.06" y="238.15">Joseph Moinian</text>
-<text class="si" x="144.06" y="246.15">KIM Sungho</text>
+<rect x="141.06" y="233.83" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="233.83" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="244.83">2027 Global Commercial Real Estate Outlook: Crisis or Opportunity?</text>
+<text class="sm" x="144.06" y="251.83">11:00-11:50</text>
+<text class="si" x="144.06" y="259.83">Joseph Moinian</text>
+<text class="si" x="144.06" y="267.83">KIM Sungho</text>
 <!-- 다이너스티: K-Startups Going Global, Proven by Results 13:30-14:50 -->
-<rect x="141.06" y="350.62" width="55.53" height="73.85" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="361.62">K-Startups Going Global, Proven by Results</text>
-<text class="sm" x="144.06" y="368.62">13:30-14:50</text>
-<text class="si" x="144.06" y="376.62">Andrew Sang Hyun Lee</text>
-<text class="si" x="144.06" y="384.62">LEE Dongheon</text>
+<rect x="141.06" y="390.35" width="55.53" height="83.48" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="390.35" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="401.35">K-Startups Going Global, Proven by Results</text>
+<text class="sm" x="144.06" y="408.35">13:30-14:50</text>
+<text class="si" x="144.06" y="416.35">LEE Jangwon</text>
+<text class="si" x="144.06" y="424.35">PARK Cheolsoo</text>
+<text class="si" x="144.06" y="432.35">KANG Minseung</text>
+<text class="si" x="144.06" y="440.35">CHOI Yun Young</text>
+<text class="si" x="144.06" y="448.35">SEO Wooseok</text>
+<text class="si" x="144.06" y="456.35">HWANG Hee-jong</text>
+<text class="si" x="144.06" y="464.35">Andrew Sang Hyun Lee</text>
+<text class="si" x="144.06" y="472.35">LEE Dongheon</text>
 <!-- 다이너스티: Powering the Future: US-Korea Collaboration in Building and Upgrading America's Grid Infrastructure 15:00-15:50 -->
-<rect x="141.06" y="433.69" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="433.69" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="444.69">Powering the Future: US-Korea Collaboration in Building and Upgrading America's Grid Infrastructure</text>
-<text class="sm" x="144.06" y="451.69">15:00-15:50</text>
-<text class="si" x="144.06" y="459.69">PAE Joonbeom</text>
+<rect x="141.06" y="484.26" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="484.26" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="495.26">Powering the Future: US-Korea Collaboration in Building and Upgrading America's Grid Infrastructure</text>
+<text class="sm" x="144.06" y="502.26">15:00-15:50</text>
+<text class="si" x="144.06" y="510.26">Roberto Bassi</text>
+<text class="si" x="144.06" y="518.26">KWAK Eun-Sup</text>
+<text class="si" x="144.06" y="526.26">KIM Junghyun</text>
+<text class="si" x="144.06" y="534.26">PAE Joonbeom</text>
 <!-- 다이너스티: May Contain Lies: Navigating Deceptive Data 16:00-16:50 -->
-<rect x="141.06" y="489.08" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="489.08" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="500.08">May Contain Lies: Navigating Deceptive Data</text>
-<text class="sm" x="144.06" y="507.08">16:00-16:50</text>
-<text class="si" x="144.06" y="515.08">Alex Edmans</text>
+<rect x="141.06" y="546.87" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="546.87" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="557.87">May Contain Lies: Navigating Deceptive Data</text>
+<text class="sm" x="144.06" y="564.87">16:00-16:50</text>
+<text class="si" x="144.06" y="572.87">Alex Edmans</text>
 <!-- 다이너스티: In Conversation with the Turkish Finance Minister: Economic Outlook and the New Geography of Trade 17:00-17:50 -->
-<rect x="141.06" y="544.46" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="544.46" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="555.46">In Conversation with the Turkish Finance Minister: Economic Outlook and the New Geography of Trade</text>
-<text class="sm" x="144.06" y="562.46">17:00-17:50</text>
-<text class="si" x="144.06" y="570.46">A. Burak Dağlıoğlu</text>
+<rect x="141.06" y="609.48" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="609.48" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="620.48">In Conversation with the Turkish Finance Minister: Economic Outlook and the New Geography of Trade</text>
+<text class="sm" x="144.06" y="627.48">17:00-17:50</text>
+<text class="si" x="144.06" y="635.48">Mehmet Şimşek</text>
+<text class="si" x="144.06" y="643.48">A. Burak Dağlıoğlu</text>
 <!-- 다이너스티: Invest in Türkiye VIP Dinner Reception : Celebrating 20 Years of Excellence 19:00-20:30 -->
-<rect x="141.06" y="655.23" width="55.53" height="83.08" fill="#f5f5f5" rx="1"/>
-<rect x="141.06" y="655.23" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="144.06" y="666.23">Invest in Türkiye VIP Dinner Reception : Celebrating 20 Years of Excellence</text>
-<text class="sm" x="144.06" y="673.23">19:00-20:30</text>
+<rect x="141.06" y="734.70" width="55.53" height="93.91" fill="#f5f5f5" rx="1"/>
+<rect x="141.06" y="734.70" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="144.06" y="745.70">Invest in Türkiye VIP Dinner Reception : Celebrating 20 Years of Excellence</text>
+<text class="sm" x="144.06" y="752.70">19:00-20:30</text>
+<text class="si" x="144.06" y="760.70">Mehmet Şimşek</text>
+<text class="si" x="144.06" y="768.70">A. Burak Dağlıoğlu</text>
 <!-- 에메랄드: European Deeptech Ecosystem: Opportunities to Invest 09:00-09:50 -->
-<rect x="198.59" y="101.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="101.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="112.38">European Deeptech Ecosystem: Opportunities to Invest</text>
-<text class="sm" x="201.59" y="119.38">09:00-09:50</text>
-<text class="si" x="201.59" y="127.38">Jean Schmitt</text>
+<rect x="198.59" y="108.61" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="108.61" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="119.61">European Deeptech Ecosystem: Opportunities to Invest</text>
+<text class="sm" x="201.59" y="126.61">09:00-09:50</text>
+<text class="si" x="201.59" y="134.61">Jean Schmitt</text>
 <!-- 에메랄드: The Cislunar Economy: Unlocking $1 Trillion Opportunity between Earth and the Moon 10:00-10:50 -->
-<rect x="198.59" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="167.77">The Cislunar Economy: Unlocking $1 Trillion Opportunity between Earth and the Moon</text>
-<text class="sm" x="201.59" y="174.77">10:00-10:50</text>
-<text class="si" x="201.59" y="182.77">LEE Mingu</text>
+<rect x="198.59" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="182.22">The Cislunar Economy: Unlocking $1 Trillion Opportunity between Earth and the Moon</text>
+<text class="sm" x="201.59" y="189.22">10:00-10:50</text>
+<text class="si" x="201.59" y="197.22">Jeffrey Manber</text>
+<text class="si" x="201.59" y="205.22">Raphael Roettgen</text>
+<text class="si" x="201.59" y="213.22">Stephen McCall</text>
+<text class="si" x="201.59" y="221.22">LEE Mingu</text>
 <!-- 에메랄드: The Economic Value and Future of the U.S.-ROK Alliance 11:00-11:50 -->
-<rect x="198.59" y="212.15" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="223.15">The Economic Value and Future of the U.S.-ROK Alliance</text>
-<text class="sm" x="201.59" y="230.15">11:00-11:50</text>
-<text class="si" x="201.59" y="238.15">CHANG Yoosoon</text>
+<rect x="198.59" y="233.83" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="233.83" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="244.83">The Economic Value and Future of the U.S.-ROK Alliance</text>
+<text class="sm" x="201.59" y="251.83">11:00-11:50</text>
+<text class="si" x="201.59" y="259.83">Steven Durlauf</text>
+<text class="si" x="201.59" y="267.83">CHOI Byungil</text>
+<text class="si" x="201.59" y="275.83">CHANG Yoosoon</text>
 <!-- 에메랄드: From Competition to Cooperation: A New Korea-Japan Partnership 13:30-14:20 -->
-<rect x="198.59" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="361.62">From Competition to Cooperation: A New Korea-Japan Partnership</text>
-<text class="sm" x="201.59" y="368.62">13:30-14:20</text>
+<rect x="198.59" y="390.35" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="390.35" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="401.35">From Competition to Cooperation: A New Korea-Japan Partnership</text>
+<text class="sm" x="201.59" y="408.35">13:30-14:20</text>
+<text class="si" x="201.59" y="416.35">YANAGIMACHI Isao</text>
+<text class="si" x="201.59" y="424.35">BAAK Saangjoon</text>
 <!-- 에메랄드: The Future of Fine Wine: Sustainability, Heritage, and Emerging Markets 14:30-15:20 -->
-<rect x="198.59" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="417.00">The Future of Fine Wine: Sustainability, Heritage, and Emerging Markets</text>
-<text class="sm" x="201.59" y="424.00">14:30-15:20</text>
-<text class="si" x="201.59" y="432.00">KIM Sangmi</text>
+<rect x="198.59" y="452.96" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="452.96" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="463.96">The Future of Fine Wine: Sustainability, Heritage, and Emerging Markets</text>
+<text class="sm" x="201.59" y="470.96">14:30-15:20</text>
+<text class="si" x="201.59" y="478.96">Salvatore Ferragamo</text>
+<text class="si" x="201.59" y="486.96">HORI Shinji</text>
+<text class="si" x="201.59" y="494.96">KIM Sangmi</text>
 <!-- 에메랄드: Polar Silk Road: Seize the Northern Sea Route 15:30-16:20 -->
-<rect x="198.59" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="472.38">Polar Silk Road: Seize the Northern Sea Route</text>
-<text class="sm" x="201.59" y="479.38">15:30-16:20</text>
-<text class="si" x="201.59" y="487.38">HAN Changwan</text>
+<rect x="198.59" y="515.57" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="515.57" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="526.57">Polar Silk Road: Seize the Northern Sea Route</text>
+<text class="sm" x="201.59" y="533.57">15:30-16:20</text>
+<text class="si" x="201.59" y="541.57">LIU Nengye</text>
+<text class="si" x="201.59" y="549.57">SHIN Hyoung Chul</text>
+<text class="si" x="201.59" y="557.57">LEE Sang-bong</text>
+<text class="si" x="201.59" y="565.57">HAN Changwan</text>
 <!-- 에메랄드: 19th Women Leaders Forum 16:40-17:20 -->
-<rect x="198.59" y="526.00" width="55.53" height="36.92" fill="#f5f5f5" rx="1"/>
-<rect x="198.59" y="526.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="201.59" y="537.00">19th Women Leaders Forum</text>
-<text class="sm" x="201.59" y="544.00">16:40-17:20</text>
-<text class="si" x="201.59" y="552.00">Christine Rosen</text>
+<rect x="198.59" y="588.61" width="55.53" height="41.74" fill="#f5f5f5" rx="1"/>
+<rect x="198.59" y="588.61" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="201.59" y="599.61">19th Women Leaders Forum</text>
+<text class="sm" x="201.59" y="606.61">16:40-17:20</text>
+<text class="si" x="201.59" y="614.61">Christine Rosen</text>
+<!-- 루비: Income and Social Mobility: From History to the AI Frontier 09:00-09:50 -->
+<rect x="256.12" y="108.61" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="108.61" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="119.61">Income and Social Mobility: From History to the AI Frontier</text>
+<text class="sm" x="259.12" y="126.61">09:00-09:50</text>
+<text class="si" x="259.12" y="134.61">Steven Durlauf</text>
+<text class="si" x="259.12" y="142.61">CHANG Yoosoon</text>
 <!-- 루비: Beyond the Chasm: Building the Battery Ecosystems that Will Power the AI Economy 10:00-10:50 -->
-<rect x="256.12" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="167.77">Beyond the Chasm: Building the Battery Ecosystems that Will Power the AI Economy</text>
-<text class="sm" x="259.12" y="174.77">10:00-10:50</text>
-<text class="si" x="259.12" y="182.77">Karena Cancilleri</text>
-<text class="si" x="259.12" y="190.77">James Kim</text>
+<rect x="256.12" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="182.22">Beyond the Chasm: Building the Battery Ecosystems that Will Power the AI Economy</text>
+<text class="sm" x="259.12" y="189.22">10:00-10:50</text>
+<text class="si" x="259.12" y="197.22">Karena Cancilleri</text>
+<text class="si" x="259.12" y="205.22">James Kim</text>
 <!-- 루비: [ASEAN Entrepreneurs Award] Innovation, Inclusion, and Sustainability 11:00-12:00 -->
-<rect x="256.12" y="212.15" width="55.53" height="55.38" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="212.15" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="223.15">[ASEAN Entrepreneurs Award] Innovation, Inclusion, and Sustainability</text>
-<text class="sm" x="259.12" y="230.15">11:00-12:00</text>
-<text class="si" x="259.12" y="238.15">LEE Jaehyeon</text>
+<rect x="256.12" y="233.83" width="55.53" height="62.61" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="233.83" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="244.83">[ASEAN Entrepreneurs Award] Innovation, Inclusion, and Sustainability</text>
+<text class="sm" x="259.12" y="251.83">11:00-12:00</text>
+<text class="si" x="259.12" y="259.83">Don Lam</text>
+<text class="si" x="259.12" y="267.83">Jose Ma Concepcion Ⅲ</text>
+<text class="si" x="259.12" y="275.83">LEE Jaehyeon</text>
 <!-- 루비: U.S. Midterm Elections &amp; Global Corporate Strategy 13:30-14:20 -->
-<rect x="256.12" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="361.62">U.S. Midterm Elections &amp; Global Corporate Strategy</text>
-<text class="sm" x="259.12" y="368.62">13:30-14:20</text>
-<text class="si" x="259.12" y="376.62">SHIN Woojin</text>
+<rect x="256.12" y="390.35" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="390.35" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="401.35">U.S. Midterm Elections &amp; Global Corporate Strategy</text>
+<text class="sm" x="259.12" y="408.35">13:30-14:20</text>
+<text class="si" x="259.12" y="416.35">Chris Cushing</text>
+<text class="si" x="259.12" y="424.35">Dan Donovan</text>
+<text class="si" x="259.12" y="432.35">SHIN Woojin</text>
 <!-- 루비: Grow the Pie: How Great Companies Deliver Both Purpose and Profit 14:30-15:20 -->
-<rect x="256.12" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="417.00">Grow the Pie: How Great Companies Deliver Both Purpose and Profit</text>
-<text class="sm" x="259.12" y="424.00">14:30-15:20</text>
-<text class="si" x="259.12" y="432.00">Alex Edmans</text>
-<text class="si" x="259.12" y="440.00">MOON Jungbien</text>
+<rect x="256.12" y="452.96" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="452.96" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="463.96">Grow the Pie: How Great Companies Deliver Both Purpose and Profit</text>
+<text class="sm" x="259.12" y="470.96">14:30-15:20</text>
+<text class="si" x="259.12" y="478.96">Alex Edmans</text>
+<text class="si" x="259.12" y="486.96">MOON Jungbien</text>
 <!-- 루비: Powering AI: Fusion Energy and the Next Energy Frontier 15:30-16:20 -->
-<rect x="256.12" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="472.38">Powering AI: Fusion Energy and the Next Energy Frontier</text>
-<text class="sm" x="259.12" y="479.38">15:30-16:20</text>
-<text class="si" x="259.12" y="487.38">Jennifer Ganten</text>
-<!-- 루비: Korea’s AI Standing and Challenges: Insights from the Global AI Index 16:30-17:20 -->
-<rect x="256.12" y="516.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="256.12" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="259.12" y="527.77">Korea’s AI Standing and Challenges: Insights from the Global AI Index</text>
-<text class="sm" x="259.12" y="534.77">16:30-17:20</text>
-<text class="si" x="259.12" y="542.77">Sha Sajadieh</text>
-<text class="si" x="259.12" y="550.77">PARK Hyunwoo</text>
+<rect x="256.12" y="515.57" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="515.57" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="526.57">Powering AI: Fusion Energy and the Next Energy Frontier</text>
+<text class="sm" x="259.12" y="533.57">15:30-16:20</text>
+<text class="si" x="259.12" y="541.57">Jennifer Ganten</text>
+<!-- 루비: Korea's AI Standing and Challenges: Insights from the Global AI Index 16:30-17:20 -->
+<rect x="256.12" y="578.17" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="256.12" y="578.17" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="259.12" y="589.17">Korea's AI Standing and Challenges: Insights from the Global AI Index</text>
+<text class="sm" x="259.12" y="596.17">16:30-17:20</text>
+<text class="si" x="259.12" y="604.17">Sha Sajadieh</text>
+<text class="si" x="259.12" y="612.17">PARK Hyunwoo</text>
 <!-- 토파즈: The Era of AI, Reshaping Aviation 09:00-09:50 -->
-<rect x="313.65" y="101.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="101.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="112.38">The Era of AI, Reshaping Aviation</text>
-<text class="sm" x="316.65" y="119.38">09:00-09:50</text>
-<text class="si" x="316.65" y="127.38">KIM Sangdo</text>
+<rect x="313.65" y="108.61" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="108.61" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="119.61">The Era of AI, Reshaping Aviation</text>
+<text class="sm" x="316.65" y="126.61">09:00-09:50</text>
+<text class="si" x="316.65" y="134.61">Olumuyiwa Benard Aliu</text>
+<text class="si" x="316.65" y="142.61">Salvatore Sciacchitano</text>
+<text class="si" x="316.65" y="150.61">KIM Sangdo</text>
 <!-- 토파즈: Korean Corporate FDI in U.S. Critical Manufacturing 10:00-10:50 -->
-<rect x="313.65" y="156.77" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="156.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="167.77">Korean Corporate FDI in U.S. Critical Manufacturing</text>
-<text class="sm" x="316.65" y="174.77">10:00-10:50</text>
-<text class="si" x="316.65" y="182.77">SHIN Woojin</text>
-<!-- 토파즈: Transforming Architecture through AI: Where Does Human Design Stand? 13:30-14:20 -->
-<rect x="313.65" y="350.62" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="350.62" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="361.62">Transforming Architecture through AI: Where Does Human Design Stand?</text>
-<text class="sm" x="316.65" y="368.62">13:30-14:20</text>
-<text class="si" x="316.65" y="376.62">Bernardo Fort-Brescia</text>
-<text class="si" x="316.65" y="384.62">CHUN Eui Young</text>
+<rect x="313.65" y="171.22" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="171.22" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="182.22">Korean Corporate FDI in U.S. Critical Manufacturing</text>
+<text class="sm" x="316.65" y="189.22">10:00-10:50</text>
+<text class="si" x="316.65" y="197.22">Stuart McWhorter</text>
+<text class="si" x="316.65" y="205.22">YOKOTA Takeshi</text>
+<text class="si" x="316.65" y="213.22">SHIN Woojin</text>
+<!-- 토파즈: The Human City in the Age of Co-Intelligence: Why Architecture Will Matter More, Not Less, in the AI Era 13:30-14:20 -->
+<rect x="313.65" y="390.35" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="390.35" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="401.35">The Human City in the Age of Co-Intelligence: Why Architecture Will Matter More, Not Less, in the AI Era</text>
+<text class="sm" x="316.65" y="408.35">13:30-14:20</text>
+<text class="si" x="316.65" y="416.35">Bernardo Fort-Brescia</text>
+<text class="si" x="316.65" y="424.35">CHUN Eui Young</text>
 <!-- 토파즈: AI and Decision-Making: The Art of Better Choices 14:30-15:20 -->
-<rect x="313.65" y="406.00" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="406.00" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="417.00">AI and Decision-Making: The Art of Better Choices</text>
-<text class="sm" x="316.65" y="424.00">14:30-15:20</text>
-<text class="si" x="316.65" y="432.00">Dean Karlan</text>
-<text class="si" x="316.65" y="440.00">Suanna Oh</text>
+<rect x="313.65" y="452.96" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="452.96" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="463.96">AI and Decision-Making: The Art of Better Choices</text>
+<text class="sm" x="316.65" y="470.96">14:30-15:20</text>
+<text class="si" x="316.65" y="478.96">Dean Karlan</text>
+<text class="si" x="316.65" y="486.96">Suanna Oh</text>
 <!-- 토파즈: The New Strategic Triangle: AI, Geopolitics, and Sustainable Business in an Age of Co-Intelligence 15:30-16:20 -->
-<rect x="313.65" y="461.38" width="55.53" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="461.38" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="472.38">The New Strategic Triangle: AI, Geopolitics, and Sustainable Business in an Age of Co-Intelligence</text>
-<text class="sm" x="316.65" y="479.38">15:30-16:20</text>
+<rect x="313.65" y="515.57" width="55.53" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="515.57" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="526.57">The New Strategic Triangle: AI, Geopolitics, and Sustainable Business in an Age of Co-Intelligence</text>
+<text class="sm" x="316.65" y="533.57">15:30-16:20</text>
+<text class="si" x="316.65" y="541.57">LIANG hao</text>
 <!-- 토파즈: The Fundamental Right to Finance: Toward a More Resilient Society 16:30-17:30 -->
-<rect x="313.65" y="516.77" width="55.53" height="55.38" fill="#f5f5f5" rx="1"/>
-<rect x="313.65" y="516.77" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="316.65" y="527.77">The Fundamental Right to Finance: Toward a More Resilient Society</text>
-<text class="sm" x="316.65" y="534.77">16:30-17:30</text>
-<text class="si" x="316.65" y="542.77">LEE Min Hwan</text>
+<rect x="313.65" y="578.17" width="55.53" height="62.61" fill="#f5f5f5" rx="1"/>
+<rect x="313.65" y="578.17" width="55.53" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="316.65" y="589.17">The Fundamental Right to Finance: Toward a More Resilient Society</text>
+<text class="sm" x="316.65" y="596.17">16:30-17:30</text>
+<text class="si" x="316.65" y="604.17">KIM Eun-Kyung</text>
+<text class="si" x="316.65" y="612.17">Dean Karlan</text>
+<text class="si" x="316.65" y="620.17">LEE Min Hwan</text>
 </g>
 
 <!-- ==================== DAY 3: 09-10 ==================== -->
@@ -617,138 +698,148 @@
 
 <line class="gl" x1="25" y1="46.00" x2="370.18" y2="46.00"/>
 <text class="tt" x="23.00" y="48.50">08:00</text>
-<line class="gl2" x1="25" y1="73.69" x2="370.18" y2="73.69"/>
-<text class="tt" x="23.00" y="76.19">08:30</text>
-<line class="gl" x1="25" y1="101.38" x2="370.18" y2="101.38"/>
-<text class="tt" x="23.00" y="103.88">09:00</text>
-<line class="gl2" x1="25" y1="129.08" x2="370.18" y2="129.08"/>
-<text class="tt" x="23.00" y="131.58">09:30</text>
-<line class="gl" x1="25" y1="156.77" x2="370.18" y2="156.77"/>
-<text class="tt" x="23.00" y="159.27">10:00</text>
-<line class="gl2" x1="25" y1="184.46" x2="370.18" y2="184.46"/>
-<text class="tt" x="23.00" y="186.96">10:30</text>
-<line class="gl" x1="25" y1="212.15" x2="370.18" y2="212.15"/>
-<text class="tt" x="23.00" y="214.65">11:00</text>
-<line class="gl2" x1="25" y1="239.85" x2="370.18" y2="239.85"/>
-<text class="tt" x="23.00" y="242.35">11:30</text>
-<line class="gl" x1="25" y1="267.54" x2="370.18" y2="267.54"/>
-<text class="tt" x="23.00" y="270.04">12:00</text>
-<line class="gl2" x1="25" y1="295.23" x2="370.18" y2="295.23"/>
-<text class="tt" x="23.00" y="297.73">12:30</text>
-<line class="gl" x1="25" y1="322.92" x2="370.18" y2="322.92"/>
-<text class="tt" x="23.00" y="325.42">13:00</text>
-<line class="gl2" x1="25" y1="350.62" x2="370.18" y2="350.62"/>
-<text class="tt" x="23.00" y="353.12">13:30</text>
-<line class="gl" x1="25" y1="378.31" x2="370.18" y2="378.31"/>
-<text class="tt" x="23.00" y="380.81">14:00</text>
-<line class="gl2" x1="25" y1="406.00" x2="370.18" y2="406.00"/>
-<text class="tt" x="23.00" y="408.50">14:30</text>
-<line class="gl" x1="25" y1="433.69" x2="370.18" y2="433.69"/>
-<text class="tt" x="23.00" y="436.19">15:00</text>
-<line class="gl2" x1="25" y1="461.38" x2="370.18" y2="461.38"/>
-<text class="tt" x="23.00" y="463.88">15:30</text>
-<line class="gl" x1="25" y1="489.08" x2="370.18" y2="489.08"/>
-<text class="tt" x="23.00" y="491.58">16:00</text>
-<line class="gl2" x1="25" y1="516.77" x2="370.18" y2="516.77"/>
-<text class="tt" x="23.00" y="519.27">16:30</text>
-<line class="gl" x1="25" y1="544.46" x2="370.18" y2="544.46"/>
-<text class="tt" x="23.00" y="546.96">17:00</text>
-<line class="gl2" x1="25" y1="572.15" x2="370.18" y2="572.15"/>
-<text class="tt" x="23.00" y="574.65">17:30</text>
+<line class="gl2" x1="25" y1="77.30" x2="370.18" y2="77.30"/>
+<text class="tt" x="23.00" y="79.80">08:30</text>
+<line class="gl" x1="25" y1="108.61" x2="370.18" y2="108.61"/>
+<text class="tt" x="23.00" y="111.11">09:00</text>
+<line class="gl2" x1="25" y1="139.91" x2="370.18" y2="139.91"/>
+<text class="tt" x="23.00" y="142.41">09:30</text>
+<line class="gl" x1="25" y1="171.22" x2="370.18" y2="171.22"/>
+<text class="tt" x="23.00" y="173.72">10:00</text>
+<line class="gl2" x1="25" y1="202.52" x2="370.18" y2="202.52"/>
+<text class="tt" x="23.00" y="205.02">10:30</text>
+<line class="gl" x1="25" y1="233.83" x2="370.18" y2="233.83"/>
+<text class="tt" x="23.00" y="236.33">11:00</text>
+<line class="gl2" x1="25" y1="265.13" x2="370.18" y2="265.13"/>
+<text class="tt" x="23.00" y="267.63">11:30</text>
+<line class="gl" x1="25" y1="296.43" x2="370.18" y2="296.43"/>
+<text class="tt" x="23.00" y="298.93">12:00</text>
+<line class="gl2" x1="25" y1="327.74" x2="370.18" y2="327.74"/>
+<text class="tt" x="23.00" y="330.24">12:30</text>
+<line class="gl" x1="25" y1="359.04" x2="370.18" y2="359.04"/>
+<text class="tt" x="23.00" y="361.54">13:00</text>
+<line class="gl2" x1="25" y1="390.35" x2="370.18" y2="390.35"/>
+<text class="tt" x="23.00" y="392.85">13:30</text>
+<line class="gl" x1="25" y1="421.65" x2="370.18" y2="421.65"/>
+<text class="tt" x="23.00" y="424.15">14:00</text>
+<line class="gl2" x1="25" y1="452.96" x2="370.18" y2="452.96"/>
+<text class="tt" x="23.00" y="455.46">14:30</text>
+<line class="gl" x1="25" y1="484.26" x2="370.18" y2="484.26"/>
+<text class="tt" x="23.00" y="486.76">15:00</text>
+<line class="gl2" x1="25" y1="515.57" x2="370.18" y2="515.57"/>
+<text class="tt" x="23.00" y="518.07">15:30</text>
+<line class="gl" x1="25" y1="546.87" x2="370.18" y2="546.87"/>
+<text class="tt" x="23.00" y="549.37">16:00</text>
 
 <!-- 프로메테우스: The Productivity Divide: What AI Is Actually Doing for Firms, Workers, and Nations 09:00-09:50 -->
-<rect x="26.00" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="26.00" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="29.00" y="112.38">The Productivity Divide: What AI Is Actually Doing for Firms, Workers, and Nations</text>
-<text class="sm" x="29.00" y="119.38">09:00-09:50</text>
-<text class="si" x="29.00" y="127.38">Erik Brynjolfsson</text>
-<text class="si" x="29.00" y="135.38">CHOI Jaewon</text>
+<rect x="26.00" y="108.61" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="26.00" y="108.61" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="29.00" y="119.61">The Productivity Divide: What AI Is Actually Doing for Firms, Workers, and Nations</text>
+<text class="sm" x="29.00" y="126.61">09:00-09:50</text>
+<text class="si" x="29.00" y="134.61">Erik Brynjolfsson</text>
+<text class="si" x="29.00" y="142.61">CHOI Jaewon</text>
 <!-- 프로메테우스: How to Win a Trade War 10:00-10:50 -->
-<rect x="26.00" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="26.00" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="29.00" y="167.77">How to Win a Trade War</text>
-<text class="sm" x="29.00" y="174.77">10:00-10:50</text>
-<text class="si" x="29.00" y="182.77">Soumaya Keynes</text>
-<text class="si" x="29.00" y="190.77">YOO Myung-hee</text>
-<!-- 프로메테우스: AGI: The End of the Old Order 11:00-12:10 -->
-<rect x="26.00" y="212.15" width="67.04" height="64.62" fill="#f5f5f5" rx="1"/>
-<rect x="26.00" y="212.15" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="29.00" y="223.15">AGI: The End of the Old Order</text>
-<text class="sm" x="29.00" y="230.15">11:00-12:10</text>
-<text class="si" x="29.00" y="238.15">LEE Moontae</text>
+<rect x="26.00" y="171.22" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="26.00" y="171.22" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="29.00" y="182.22">How to Win a Trade War</text>
+<text class="sm" x="29.00" y="189.22">10:00-10:50</text>
+<text class="si" x="29.00" y="197.22">Soumaya Keynes</text>
+<text class="si" x="29.00" y="205.22">YOO Myung-hee</text>
+<!-- 프로메테우스: AGI: The Ultimate Form of Co-Intelligence 11:00-12:00 -->
+<rect x="26.00" y="233.83" width="67.04" height="62.61" fill="#f5f5f5" rx="1"/>
+<rect x="26.00" y="233.83" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="29.00" y="244.83">AGI: The Ultimate Form of Co-Intelligence</text>
+<text class="sm" x="29.00" y="251.83">11:00-12:00</text>
+<text class="si" x="29.00" y="259.83">ZHANG Ya-Qin</text>
+<text class="si" x="29.00" y="267.83">Olivier Dellenbach</text>
+<text class="si" x="29.00" y="275.83">LEE Moontae</text>
 <!-- 다이너스티: Empowering Breakthrough Innovation: Ethical Implications of AI in Healthcare Systems and in Pharma 09:00-09:50 -->
-<rect x="95.04" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="95.04" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="98.04" y="112.38">Empowering Breakthrough Innovation: Ethical Implications of AI in Healthcare Systems and in Pharma</text>
-<text class="sm" x="98.04" y="119.38">09:00-09:50</text>
-<text class="si" x="98.04" y="127.38">Andrea Ciucci</text>
-<text class="si" x="98.04" y="135.38">KIM Wan-Uk</text>
+<rect x="95.04" y="108.61" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="95.04" y="108.61" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="98.04" y="119.61">Empowering Breakthrough Innovation: Ethical Implications of AI in Healthcare Systems and in Pharma</text>
+<text class="sm" x="98.04" y="126.61">09:00-09:50</text>
+<text class="si" x="98.04" y="134.61">Andrea Ciucci</text>
+<text class="si" x="98.04" y="142.61">KIM Wan-Uk</text>
 <!-- 다이너스티: Korean Manufacturing Meets U.S. AI: A New Era of Productivity 10:00-10:50 -->
-<rect x="95.04" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="95.04" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="98.04" y="167.77">Korean Manufacturing Meets U.S. AI: A New Era of Productivity</text>
-<text class="sm" x="98.04" y="174.77">10:00-10:50</text>
-<text class="si" x="98.04" y="182.77">James Kim</text>
+<rect x="95.04" y="171.22" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="95.04" y="171.22" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="98.04" y="182.22">Korean Manufacturing Meets U.S. AI: A New Era of Productivity</text>
+<text class="sm" x="98.04" y="189.22">10:00-10:50</text>
+<text class="si" x="98.04" y="197.22">KWAN Nam Oh</text>
+<text class="si" x="98.04" y="205.22">James Kim</text>
 <!-- 다이너스티: The New Paradigm: Robotics and the Manufacturing Revolution 11:00-11:50 -->
-<rect x="95.04" y="212.15" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="95.04" y="212.15" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="98.04" y="223.15">The New Paradigm: Robotics and the Manufacturing Revolution</text>
-<text class="sm" x="98.04" y="230.15">11:00-11:50</text>
-<text class="si" x="98.04" y="238.15">Jean-Pierre Hathout</text>
+<rect x="95.04" y="233.83" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="95.04" y="233.83" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="98.04" y="244.83">The New Paradigm: Robotics and the Manufacturing Revolution</text>
+<text class="sm" x="98.04" y="251.83">11:00-11:50</text>
+<text class="si" x="98.04" y="259.83">Jean-Pierre Hathout</text>
 <!-- 에메랄드: Fostering Entrepreneurial Minds in the Age of AI 09:00-09:50 -->
-<rect x="164.07" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="164.07" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="167.07" y="112.38">Fostering Entrepreneurial Minds in the Age of AI</text>
-<text class="sm" x="167.07" y="119.38">09:00-09:50</text>
-<text class="si" x="167.07" y="127.38">JUNG Woo-Sung</text>
+<rect x="164.07" y="108.61" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="164.07" y="108.61" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="167.07" y="119.61">Fostering Entrepreneurial Minds in the Age of AI</text>
+<text class="sm" x="167.07" y="126.61">09:00-09:50</text>
+<text class="si" x="167.07" y="134.61">WON Jongpil</text>
+<text class="si" x="167.07" y="142.61">KIM Jungsang</text>
+<text class="si" x="167.07" y="150.61">GO Seungwon</text>
+<text class="si" x="167.07" y="158.61">JUNG Woo-Sung</text>
 <!-- 에메랄드: AI, War, and the Future of the Energy Transition 10:00-10:50 -->
-<rect x="164.07" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="164.07" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="167.07" y="167.77">AI, War, and the Future of the Energy Transition</text>
-<text class="sm" x="167.07" y="174.77">10:00-10:50</text>
-<text class="si" x="167.07" y="182.77">KIM Sungwoo</text>
+<rect x="164.07" y="171.22" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="164.07" y="171.22" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="167.07" y="182.22">AI, War, and the Future of the Energy Transition</text>
+<text class="sm" x="167.07" y="189.22">10:00-10:50</text>
+<text class="si" x="167.07" y="197.22">Søren Westergaard Jensen</text>
+<text class="si" x="167.07" y="205.22">WANG Hyoung Gun</text>
+<text class="si" x="167.07" y="213.22">KIM Sungwoo</text>
 <!-- 에메랄드: Science Strategy from Physicist's Perspective: Patience, Connection, and Cooperation 11:00-11:50 -->
-<rect x="164.07" y="212.15" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="164.07" y="212.15" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="167.07" y="223.15">Science Strategy from Physicist's Perspective: Patience, Connection, and Cooperation</text>
-<text class="sm" x="167.07" y="230.15">11:00-11:50</text>
-<text class="si" x="167.07" y="238.15">KIM Young-Kee</text>
-<text class="si" x="167.07" y="246.15">Jürgen Mlynek</text>
+<rect x="164.07" y="233.83" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="164.07" y="233.83" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="167.07" y="244.83">Science Strategy from Physicist's Perspective: Patience, Connection, and Cooperation</text>
+<text class="sm" x="167.07" y="251.83">11:00-11:50</text>
+<text class="si" x="167.07" y="259.83">KIM Young-Kee</text>
+<text class="si" x="167.07" y="267.83">Jürgen Mlynek</text>
 <!-- 루비: A Journey of Innovation in K-Bio: Advice from Global Leaders 09:00-09:50 -->
-<rect x="233.11" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="233.11" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="236.11" y="112.38">A Journey of Innovation in K-Bio: Advice from Global Leaders</text>
-<text class="sm" x="236.11" y="119.38">09:00-09:50</text>
-<text class="si" x="236.11" y="127.38">HWANG Jurie</text>
+<rect x="233.11" y="108.61" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="233.11" y="108.61" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="236.11" y="119.61">A Journey of Innovation in K-Bio: Advice from Global Leaders</text>
+<text class="sm" x="236.11" y="126.61">09:00-09:50</text>
+<text class="si" x="236.11" y="134.61">Marty Makary</text>
+<text class="si" x="236.11" y="142.61">Leonard Schleifer</text>
+<text class="si" x="236.11" y="150.61">Thomas Lines</text>
+<text class="si" x="236.11" y="158.61">HWANG Jurie</text>
 <!-- 루비: Data Integrity and Trust: Navigating Misinformation and Market Risk in an AI-Driven World 10:00-10:50 -->
-<rect x="233.11" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="233.11" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="236.11" y="167.77">Data Integrity and Trust: Navigating Misinformation and Market Risk in an AI-Driven World</text>
-<text class="sm" x="236.11" y="174.77">10:00-10:50</text>
+<rect x="233.11" y="171.22" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="233.11" y="171.22" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="236.11" y="182.22">Data Integrity and Trust: Navigating Misinformation and Market Risk in an AI-Driven World</text>
+<text class="sm" x="236.11" y="189.22">10:00-10:50</text>
+<text class="si" x="236.11" y="197.22">Ingrid Verschuren</text>
+<text class="si" x="236.11" y="205.22">Olivier Dellenbach</text>
+<text class="si" x="236.11" y="213.22">Amara Walker</text>
 <!-- 루비: 15th Korea Knowledge Awards 11:30-12:30 -->
-<rect x="233.11" y="239.85" width="67.04" height="55.38" fill="#f5f5f5" rx="1"/>
-<rect x="233.11" y="239.85" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="236.11" y="250.85">15th Korea Knowledge Awards</text>
-<text class="sm" x="236.11" y="257.85">11:30-12:30</text>
+<rect x="233.11" y="265.13" width="67.04" height="62.61" fill="#f5f5f5" rx="1"/>
+<rect x="233.11" y="265.13" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="236.11" y="276.13">15th Korea Knowledge Awards</text>
+<text class="sm" x="236.11" y="283.13">11:30-12:30</text>
 <!-- 토파즈: AI-Powered Construction without Workplace Accidents 09:00-09:50 -->
-<rect x="302.15" y="101.38" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="302.15" y="101.38" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="305.15" y="112.38">AI-Powered Construction without Workplace Accidents</text>
-<text class="sm" x="305.15" y="119.38">09:00-09:50</text>
-<text class="si" x="305.15" y="127.38">KIM Ju-hyung</text>
+<rect x="302.15" y="108.61" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="302.15" y="108.61" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="305.15" y="119.61">AI-Powered Construction without Workplace Accidents</text>
+<text class="sm" x="305.15" y="126.61">09:00-09:50</text>
+<text class="si" x="305.15" y="134.61">CHO Hunhee</text>
+<text class="si" x="305.15" y="142.61">CHOI Jongbok</text>
+<text class="si" x="305.15" y="150.61">KIM Ju-hyung</text>
 <!-- 토파즈: State of the U.S. Startup Ecosystem and Key Challenges for Startups 10:00-10:50 -->
-<rect x="302.15" y="156.77" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="302.15" y="156.77" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="305.15" y="167.77">State of the U.S. Startup Ecosystem and Key Challenges for Startups</text>
-<text class="sm" x="305.15" y="174.77">10:00-10:50</text>
-<text class="si" x="305.15" y="182.77">KIM Jungsang</text>
-<text class="si" x="305.15" y="190.77">Michael Jeon</text>
+<rect x="302.15" y="171.22" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="302.15" y="171.22" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="305.15" y="182.22">State of the U.S. Startup Ecosystem and Key Challenges for Startups</text>
+<text class="sm" x="305.15" y="189.22">10:00-10:50</text>
+<text class="si" x="305.15" y="197.22">KIM Jungsang</text>
+<text class="si" x="305.15" y="205.22">Michael Jeon</text>
 <!-- 토파즈: The Zero-Click Threat: Strategies for News Innovation in the AI Era 11:00-11:50 -->
-<rect x="302.15" y="212.15" width="67.04" height="46.15" fill="#f5f5f5" rx="1"/>
-<rect x="302.15" y="212.15" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
-<text class="st" x="305.15" y="223.15">The Zero-Click Threat: Strategies for News Innovation in the AI Era</text>
-<text class="sm" x="305.15" y="230.15">11:00-11:50</text>
-<text class="si" x="305.15" y="238.15">HWANG Yong Suk</text>
+<rect x="302.15" y="233.83" width="67.04" height="52.17" fill="#f5f5f5" rx="1"/>
+<rect x="302.15" y="233.83" width="67.04" height="2" fill="#9e9e9e" rx="1"/>
+<text class="st" x="305.15" y="244.83">The Zero-Click Threat: Strategies for News Innovation in the AI Era</text>
+<text class="sm" x="305.15" y="251.83">11:00-11:50</text>
+<text class="si" x="305.15" y="259.83">HWANG Yong Suk</text>
 </g>
 
 <text x="1162.55" y="664.89" text-anchor="end" font-size="7" font-weight="800" fill="#e8374a" style="letter-spacing:0.06em">BOOK SIGNING</text>
